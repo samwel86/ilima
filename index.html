@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ilima Guseynova | Official Recruiting Portfolio</title>
-    <!-- Подключаем премиальный спортивный шрифт Syne и динамичный Inter -->
-    <link href="https://googleapis.com" rel="stylesheet">
+    <title>Ilima Guseynova | NCAA Tennis Recruiting Portfolio</title>
+    <!-- Подключаем шрифты Syne и Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-dark: #060709;      /* Ультра-черный */
-            --bg-surface: rgba(20, 24, 33, 0.65); /* Матовое стекло */
-            --tennis-neon: #D4FF00;  /* Заряженный неоновый вольт */
+            --bg-dark: #060709;
+            --bg-surface: rgba(20, 24, 33, 0.7);
+            --tennis-neon: #D4FF00;
             --tennis-glow: rgba(212, 255, 0, 0.25);
             --text-main: #FFFFFF;
             --text-gray: #A0A5B5;
-            --border: rgba(255, 255, 255, 0.07);
+            --border: rgba(255, 255, 255, 0.08);
         }
 
         * { box-sizing: border-box; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
@@ -27,122 +27,127 @@
             color: var(--text-main);
             overflow-x: hidden;
             background-image: 
-                radial-gradient(circle at 10% 20%, rgba(212, 255, 0, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 10% 20%, rgba(212, 255, 0, 0.04) 0%, transparent 40%),
                 radial-gradient(circle at 90% 80%, rgba(0, 180, 216, 0.03) 0%, transparent 40%);
         }
 
-        /* Кнопка переключения языков */
-        .lang-btn {
+        /* Навигация / Язык */
+        nav {
             position: fixed;
-            top: 25px;
-            right: 25px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
             z-index: 1000;
-            background: backdrop-filter;
-            background-color: rgba(255, 255, 255, 0.07);
+            background: rgba(6, 7, 9, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.1rem; letter-spacing: 1px; color: var(--tennis-neon); }
+        .lang-btn {
+            background: rgba(255, 255, 255, 0.05);
             border: 1px solid var(--border);
             color: var(--text-main);
-            padding: 12px 24px;
-            font-weight: 800;
+            padding: 8px 18px;
+            font-weight: 700;
             font-family: 'Syne', sans-serif;
-            border-radius: 40px;
+            border-radius: 30px;
             cursor: pointer;
             backdrop-filter: blur(10px);
-            letter-spacing: 1px;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+            font-size: 0.85rem;
         }
-        .lang-btn:hover {
-            background-color: var(--tennis-neon);
-            color: #000;
-            box-shadow: 0 0 20px var(--tennis-glow);
-            transform: scale(1.05);
-        }
+        .lang-btn:hover { background-color: var(--tennis-neon); color: #000; box-shadow: 0 0 15px var(--tennis-glow); }
 
-        /* Кинематографичный Главный Экран */
+        /* Главный Экран (Hero) */
         header {
-            min-height: 90vh;
+            min-height: 95vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             position: relative;
-            padding: 40px 20px;
-            background: linear-gradient(to bottom, rgba(6,7,9,0.2), var(--bg-dark)), url('https://unsplash.com') no-repeat center center/cover;
-            background-attachment: fixed;
+            padding: 120px 20px 60px 20px;
+            background: linear-gradient(to bottom, rgba(6,7,9,0.3), var(--bg-dark));
+        }
+
+        .hero-tag {
+            color: var(--tennis-neon);
+            text-transform: uppercase;
+            font-weight: 800;
+            letter-spacing: 3px;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            background: rgba(212, 255, 0, 0.08);
+            padding: 6px 16px;
+            border-radius: 20px;
+            border: 1px solid rgba(212, 255, 0, 0.2);
         }
 
         header h1 {
             font-family: 'Syne', sans-serif;
-            font-size: clamp(3rem, 8vw, 6.5rem);
+            font-size: clamp(2.8rem, 7vw, 6rem);
             font-weight: 800;
             text-transform: uppercase;
-            line-height: 0.9;
-            margin: 0;
+            line-height: 0.95;
+            margin: 0 0 20px 0;
             letter-spacing: -2px;
-            background: linear-gradient(180deg, #FFFFFF 30%, #A0A5B5 100%);
+            background: linear-gradient(180deg, #FFFFFF 30%, #8A8F9D 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         header .subtitle {
-            font-size: clamp(1.1rem, 2.5vw, 1.8rem);
-            margin: 25px 0;
-            font-weight: 300;
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            max-width: 700px;
+            margin: 0 auto 30px auto;
             color: var(--text-gray);
-            text-transform: uppercase;
-            letter-spacing: 4px;
+            line-height: 1.6;
         }
 
-        header .badge-row {
+        .badge-row {
             display: flex;
             gap: 15px;
             flex-wrap: wrap;
             justify-content: center;
-            margin-top: 15px;
         }
 
-        header .hero-badge {
-            background: rgba(255, 255, 255, 0.05);
+        .hero-badge {
+            background: rgba(255, 255, 255, 0.04);
             border: 1px solid var(--border);
-            padding: 8px 20px;
+            padding: 10px 22px;
             border-radius: 30px;
             font-size: 0.9rem;
             text-transform: uppercase;
             font-weight: 600;
             letter-spacing: 1px;
         }
-        header .hero-badge span { color: var(--tennis-neon); }
+        .hero-badge span { color: var(--tennis-neon); }
 
-        /* Контейнер и Стеклянные Секции */
-        .container { max-width: 1200px; margin: auto; padding: 0 25px; }
+        /* Контейнер и Секции */
+        .container { max-width: 1150px; margin: auto; padding: 0 25px; }
         
         section {
             background: var(--bg-surface);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            padding: 50px;
-            margin: 60px 0;
+            padding: 50px 40px;
+            margin: 50px 0;
             border-radius: 24px;
             border: 1px solid var(--border);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-            opacity: 0;
-            transform: translateY(40px);
-            animation: reveal 1s forwards cubic-bezier(0.2, 0.8, 0.2, 1);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
-
-        section:nth-child(1) { animation-delay: 0.2s; }
-        section:nth-child(2) { animation-delay: 0.4s; }
-        section:nth-child(3) { animation-delay: 0.6s; }
-
-        @keyframes reveal { to { opacity: 1; transform: translateY(0); } }
 
         h2 {
             font-family: 'Syne', sans-serif;
-            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            font-size: clamp(1.6rem, 3.5vw, 2.3rem);
             text-transform: uppercase;
             color: var(--text-main);
             margin-top: 0;
-            margin-bottom: 35px;
+            margin-bottom: 30px;
             letter-spacing: -1px;
             display: flex;
             align-items: center;
@@ -150,88 +155,77 @@
         }
         h2::before {
             content: '';
-            width: 12px;
-            height: 35px;
+            width: 10px;
+            height: 30px;
             background: var(--tennis-neon);
             display: inline-block;
-            box-shadow: 0 0 15px var(--tennis-neon);
-            border-radius: 4px;
+            box-shadow: 0 0 12px var(--tennis-neon);
+            border-radius: 3px;
         }
 
-        /* Ультра-Сетка Метрик */
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; }
-        
+        /* Сетка Метрик (UTR / ITF / Статистика) */
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
         .stat-card {
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.35);
             border: 1px solid var(--border);
-            padding: 35px 25px;
-            border-radius: 20px;
+            padding: 30px 20px;
+            border-radius: 18px;
             text-align: center;
-            position: relative;
-            overflow: hidden;
         }
         .stat-card:hover {
             border-color: var(--tennis-neon);
-            box-shadow: 0 0 30px var(--tennis-glow);
-            transform: translateY(-5px);
+            box-shadow: 0 0 25px var(--tennis-glow);
+            transform: translateY(-4px);
         }
         .stat-card .value {
             font-family: 'Syne', sans-serif;
-            font-size: 3.5rem;
+            font-size: 3rem;
             font-weight: 800;
             color: var(--tennis-neon);
             line-height: 1;
         }
         .stat-card .label {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--text-gray);
-            margin-top: 12px;
+            margin-top: 10px;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
             font-weight: 600;
         }
 
-        /* Премиум Видео-Контейнер */
+        /* Видео ХАЙЛАЙТЫ */
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
+        .video-box {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            overflow: hidden;
+            padding: 15px;
+        }
         .video-wrapper {
             position: relative;
             padding-bottom: 56.25%;
             height: 0;
+            border-radius: 12px;
             overflow: hidden;
-            border-radius: 20px;
-            border: 1px solid rgba(255,255,255,0.1);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.8);
+            background: #111;
         }
-        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
+        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        .video-title { font-weight: 600; font-size: 0.95rem; margin-top: 12px; text-align: center; color: var(--text-gray); }
 
-        /* Футуристичные карточки контактов/тренеров */
-        .staff-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .staff-card {
-            background: rgba(255,255,255,0.02);
-            border: 1px solid var(--border);
-            padding: 25px;
-            border-radius: 16px;
-            display: flex;
-            flex-direction: column;
-        }
-        .staff-card:hover { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.2); }
-        .staff-card .role { font-size: 0.8rem; text-transform: uppercase; color: var(--tennis-neon); font-weight: 800; letter-spacing: 1px; margin-bottom: 5px;}
-        .staff-card .name { font-size: 1.3rem; font-weight: 600; }
+        /* Профиль игрока (Bio / Details) */
+        .bio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .bio-item { background: rgba(255,255,255,0.02); border: 1px solid var(--border); padding: 20px; border-radius: 14px; }
+        .bio-item span { display: block; color: var(--tennis-neon); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; margin-bottom: 6px; }
+        .bio-item p { margin: 0; font-size: 1.1rem; font-weight: 600; }
 
-        /* Премиум таблицы достижений */
-        .table-responsive { overflow-x: auto; margin-top: 20px; }
-        table { width: 100%; border-collapse: collapse; text-align: left; }
-        th, td { padding: 20px; border-bottom: 1px solid var(--border); }
-        th { font-family: 'Syne', sans-serif; text-transform: uppercase; color: var(--text-gray); font-size: 0.85rem; letter-spacing: 1px; }
-        td { font-size: 1.05rem; }
-        tr:hover td { background: rgba(255,255,255,0.02); color: var(--tennis-neon); }
-        .badge { background: var(--tennis-neon); color: #000; padding: 6px 14px; font-weight: 800; border-radius: 6px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; }
-
-        /* Инопланетная Форма Связи */
-        .contact-form { display: grid; grid-template-columns: 1fr; gap: 25px; max-width: 700px; margin: 40px auto 0 auto; }
+        /* Форма для тренеров */
+        .contact-form { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 800px; margin: 0 auto; }
         .form-group { display: flex; flex-direction: column; }
-        .form-group label { margin-bottom: 10px; font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-gray); }
-        .form-group input, .form-group textarea, .form-group select {
-            padding: 18px;
+        .form-group.full { grid-column: span 2; }
+        .form-group label { margin-bottom: 8px; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-gray); }
+        .form-group input, .form-group textarea {
+            padding: 16px;
             background: rgba(0,0,0,0.4);
             border: 1px solid var(--border);
             border-radius: 12px;
@@ -239,18 +233,19 @@
             color: white;
             font-family: 'Inter', sans-serif;
         }
-        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+        .form-group input:focus, .form-group textarea:focus {
             border-color: var(--tennis-neon);
             outline: none;
             box-shadow: 0 0 15px rgba(212,255,0,0.15);
         }
         
         .btn-submit {
+            grid-column: span 2;
             background-color: var(--tennis-neon);
             color: #000;
             border: none;
-            padding: 20px;
-            font-size: 1.1rem;
+            padding: 18px;
+            font-size: 1rem;
             font-weight: 800;
             font-family: 'Syne', sans-serif;
             text-transform: uppercase;
@@ -258,3 +253,135 @@
             cursor: pointer;
             letter-spacing: 1px;
             margin-top: 10px;
+        }
+        .btn-submit:hover { opacity: 0.9; box-shadow: 0 0 20px var(--tennis-glow); }
+
+        footer { text-align: center; padding: 40px; color: var(--text-gray); font-size: 0.85rem; border-top: 1px solid var(--border); margin-top: 60px; }
+    </style>
+</head>
+<body>
+
+    <!-- Навигация -->
+    <nav>
+        <div class="nav-logo">IG // RECRUITING</div>
+        <button class="lang-btn">EN / RU</button>
+    </nav>
+
+    <!-- Главный экран -->
+    <header>
+        <div class="hero-tag">NCAA College Tennis Prospect</div>
+        <h1>Ilima Guseynova</h1>
+        <p class="subtitle">Competitive tennis player focused on achieving athletic and academic excellence in an American university program.</p>
+        <div class="badge-row">
+            <div class="hero-badge">Class of <span>2026 / 2027</span></div>
+            <div class="hero-badge">Right-Handed <span>(Two-Handed Backhand)</span></div>
+            <div class="hero-badge">Status: <span>Available for Offers</span></div>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <!-- Ключевые показатели для тренеров -->
+        <section>
+            <h2>Verified Metrics</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="value">10.5+</div>
+                    <div class="label">Estimated UTR</div>
+                </div>
+                <div class="stat-card">
+                    <div class="value">ITF</div>
+                    <div class="label">Ranking</div>
+					<div class="label">1950</div>
+                </div>
+                <div class="stat-card">
+                    <div class="value">165 cm</div>
+                    <div class="label">Height</div>
+                </div>
+                <div class="stat-card">
+                    <div class="value">3.8+</div>
+                    <div class="label">GPA / Academics</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Профиль и детали атлета -->
+        <section>
+            <h2>Player Profile</h2>
+            <div class="bio-grid">
+                <div class="bio-item">
+                    <span>Playing Style</span>
+                    <p>Aggressive Baseline / All-Court</p>
+                </div>
+                <div class="bio-item">
+                    <span>Strongest Weapon</span>
+                    <p>Heavy Forehand & Serve Consistency</p>
+                </div>
+                <div class="bio-item">
+                    <span>Languages</span>
+                    <p>English, Russian</p>
+                </div>
+                <div class="bio-item">
+                    <span>Location / Passport</span>
+                    <p>International Student</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Видео-хайлайты (сюда тренеры смотрят в первую очередь) -->
+        <section>
+            <h2>Match Highlights & Play Style</h2>
+            <div class="video-grid">
+                <div class="video-box">
+                    <div class="video-wrapper">
+                        <!-- Сюда можно вставить ссылку на YouTube с матчами Илимы -->
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-title">Singles Match Highlights (2026)</div>
+                </div>
+                <div class="video-box">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-title">Practice & Drill Session</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Форма обратной связи для тренеров и скаутов -->
+        <section>
+            <h2>For Coaches & Sponsors</h2>
+            <p style="text-align: center; color: var(--text-gray); margin-bottom: 30px;">Are you a college coach or sponsor? Get in touch to discuss athletic fit and recruitment details.</p>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label>Coach / Representative Name</label>
+                    <input type="text" placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label>University / Organization</label>
+                    <input type="text" placeholder="NCAA Division I University">
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="coach@university.edu">
+                </div>
+                <div class="form-group">
+                    <label>Phone / WhatsApp</label>
+                    <input type="text" placeholder="+1 (555) 000-0000">
+                </div>
+                <div class="form-group full">
+                    <label>Message / Offer Details</label>
+                    <textarea rows="4" placeholder="Write your message regarding roster spots, scholarships, or collaboration..."></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Send Inquiry to Ilima</button>
+            </form>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Ilima Guseynova. Official College Tennis Recruiting Portfolio.</p>
+    </footer>
+
+</body>
+</html>
