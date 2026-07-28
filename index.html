@@ -37,6 +37,11 @@
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 30px; }
         .card { background: var(--bg-dark); color: var(--text-light); padding: 30px 20px; border-radius: 10px; text-align: center; }
         .card .num { font-size: 3rem; font-weight: 900; color: var(--accent-neon); margin-bottom: 10px; }
+        
+        .coaches-list { margin-top: 15px; }
+        .coach-item { background: #f9f9f9; padding: 15px 20px; margin-bottom: 10px; border-left: 4px solid var(--bg-dark); border-radius: 0 8px 8px 0; }
+        .coach-item strong { color: var(--bg-dark); font-size: 1.1rem; }
+
         .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin-top: 25px; }
         .gallery-item { position: relative; overflow: hidden; border-radius: 8px; aspect-ratio: 1 / 1; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
         .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
@@ -81,6 +86,21 @@
                 </div>
             </div>
         </section>
+
+        <!-- Тренерский состав -->
+        <section>
+            <h2>Тренерский состав</h2>
+            <p>Подготовкой спортсменки занимаются ведущие специалисты:</p>
+            <div class="coaches-list">
+                <div class="coach-item">
+                    <strong>Хумметова Ума Курбановна</strong> — Тренер Илимы Гусейновой
+                </div>
+                <div class="coach-item">
+                    <strong>Шлейкин Александр Валерьевич</strong> — Тренер Илимы Гусейновой
+                </div>
+            </div>
+        </section>
+
         <!-- Галерея -->
         <section>
             <h2>Галерея наград и моментов</h2>
@@ -99,6 +119,7 @@
                 </div>
             </div>
         </section>
+
         <!-- Таблица побед -->
         <section>
             <h2>Ключевые победы</h2>
@@ -126,10 +147,11 @@
                 </table>
             </div>
         </section>
+
         <!-- Форма связи -->
         <section>
             <h2>Связаться с командой</h2>
-            <p style="text-align: center; color: #666;">Форма для связи с тренером Мирали Гасановым.</p>
+            <p style="text-align: center; color: #666;">Форма для связи с тренерским штабом или официальными представителями спортсменки.</p>
             <form class="contact-form" action="https://formspree.io" method="POST">
                 <div class="form-group">
                     <label for="name">Ваше имя</label>
@@ -142,8 +164,9 @@
                 <div class="form-group">
                     <label for="recipient">Кому сообщение</label>
                     <select id="recipient" name="recipient" required>
-                        <option value="Главный тренер">Главному тренеру (Мирали Гасанову)</option>
-                        <option value="Менеджер">Менеджеру</option>
+                        <option value="Менеджер / Родитель (Пирвердиян Мая Ровшановна)">Менеджеру / Родителю (Пирвердиян Мае Ровшановне)</option>
+                        <option value="Тренер Ума Курбановна">Тренеру (Хумметовой Уме Курбановне)</option>
+                        <option value="Тренер Александр Валерьевич">Тренеру (Шлейкину Александру Валерьевичу)</option>
                     </select>
                 </div>
                 <div class="form-group">
