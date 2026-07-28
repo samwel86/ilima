@@ -3,35 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ilima Guseynova | NCAA Tennis Recruiting Portfolio</title>
-    <!-- Подключаем шрифты Syne и Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <title>Ilima Guseynova // Official Athlete Portfolio</title>
+    <!-- Подключаем шрифты -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-dark: #060709;
-            --bg-surface: rgba(20, 24, 33, 0.7);
-            --tennis-neon: #D4FF00;
-            --tennis-glow: rgba(212, 255, 0, 0.25);
+            --bg-color: #050505;
+            --surface-color: #111113;
+            --accent-gold: #D4AF37;
             --text-main: #FFFFFF;
-            --text-gray: #A0A5B5;
-            --border: rgba(255, 255, 255, 0.08);
+            --text-muted: #8E8E93;
+            --border-color: rgba(255, 255, 255, 0.1);
         }
 
-        * { box-sizing: border-box; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
+        * { box-sizing: border-box; margin: 0; padding: 0; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
 
         body {
-            font-family: 'Inter', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg-dark);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-color);
             color: var(--text-main);
             overflow-x: hidden;
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(212, 255, 0, 0.04) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(0, 180, 216, 0.03) 0%, transparent 40%);
+            letter-spacing: -0.01em;
         }
 
-        /* Навигация / Язык */
+        /* Управление языками (скрытие/показ текста) */
+        body.lang-ru .en-text { display: none !important; }
+        body:not(.lang-ru) .ru-text { display: none !important; }
+
+        /* Премиум Меню */
         nav {
             position: fixed;
             top: 0;
@@ -40,351 +39,633 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 40px;
+            padding: 30px 60px;
             z-index: 1000;
-            background: rgba(6, 7, 9, 0.8);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border);
+            background: linear-gradient(to bottom, rgba(5,5,5,0.9), transparent);
+            backdrop-filter: blur(8px);
         }
-        .nav-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.1rem; letter-spacing: 1px; color: var(--tennis-neon); }
-        .lang-btn {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--border);
-            color: var(--text-main);
-            padding: 8px 18px;
+
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
             font-weight: 700;
-            font-family: 'Syne', sans-serif;
-            border-radius: 30px;
-            cursor: pointer;
-            backdrop-filter: blur(10px);
-            font-size: 0.85rem;
+            letter-spacing: 4px;
+            color: var(--text-main);
         }
-        .lang-btn:hover { background-color: var(--tennis-neon); color: #000; box-shadow: 0 0 15px var(--tennis-glow); }
 
-        /* Главный Экран (Hero) */
-header {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 0 60px 80px 60px;
-    position: relative;
-    background-color: #050505; /* Цвет фона по бокам, если фото не заполнит экран целиком */
-    background-image: linear-gradient(0deg, #050505 0%, rgba(5,5,5,0.2) 40%, rgba(5,5,5,0.6) 100%), 
-                      url('ilima-hero.jpg');
-    background-repeat: no-repeat;
-    background-position: center 30%;
-    background-size: 100% auto; /* Регулирует масштаб: уменьшайте процент (например, 90%), чтобы отдалить еще сильнее */
-}
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
 
-        .hero-tag {
-            color: var(--tennis-neon);
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
             text-transform: uppercase;
-            font-weight: 800;
-            letter-spacing: 3px;
-            font-size: 0.9rem;
-            margin-bottom: 15px;
-            background: rgba(212, 255, 0, 0.08);
-            padding: 6px 16px;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        .nav-links a:hover { color: var(--accent-gold); }
+
+        .lang-switch {
+            border: 1px solid var(--border-color);
+            padding: 8px 16px;
             border-radius: 20px;
-            border: 1px solid rgba(212, 255, 0, 0.2);
+            color: var(--text-main);
+            background: transparent;
+            cursor: pointer;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+        .lang-switch:hover { border-color: var(--accent-gold); color: var(--accent-gold); }
+
+        /* Главный Герой-Экран с вашей фотографией */
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 0 60px 80px 60px;
+            position: relative;
+            background-color: #050505;
+            background-image: linear-gradient(0deg, #050505 0%, rgba(5,5,5,0.2) 40%, rgba(5,5,5,0.6) 100%), 
+                              url('ilima-hero.jpg');
+            background-repeat: no-repeat;
+            background-position: center 30%;
+            background-size: 95% auto; /* Можете регулировать масштаб фото здесь (например, 90% или 100%) */
+        }
+
+        .hero-subtitle {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: var(--accent-gold);
+            margin-bottom: 15px;
+            font-weight: 700;
         }
 
         header h1 {
-            font-family: 'Syne', sans-serif;
-            font-size: clamp(2.8rem, 7vw, 6rem);
-            font-weight: 800;
+            font-family: 'Cinzel', serif;
+            font-size: clamp(3rem, 7vw, 6.5rem);
+            font-weight: 700;
             text-transform: uppercase;
-            line-height: 0.95;
-            margin: 0 0 20px 0;
-            letter-spacing: -2px;
-            background: linear-gradient(180deg, #FFFFFF 30%, #8A8F9D 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        header .subtitle {
-            font-size: clamp(1rem, 2vw, 1.3rem);
-            max-width: 700px;
-            margin: 0 auto 30px auto;
-            color: var(--text-gray);
-            line-height: 1.6;
-        }
-
-        .badge-row {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .hero-badge {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid var(--border);
-            padding: 10px 22px;
-            border-radius: 30px;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            font-weight: 600;
-            letter-spacing: 1px;
-        }
-        .hero-badge span { color: var(--tennis-neon); }
-
-        /* Контейнер и Секции */
-        .container { max-width: 1150px; margin: auto; padding: 0 25px; }
-        
-        section {
-            background: var(--bg-surface);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            padding: 50px 40px;
-            margin: 50px 0;
-            border-radius: 24px;
-            border: 1px solid var(--border);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-        }
-
-        h2 {
-            font-family: 'Syne', sans-serif;
-            font-size: clamp(1.6rem, 3.5vw, 2.3rem);
-            text-transform: uppercase;
-            color: var(--text-main);
-            margin-top: 0;
-            margin-bottom: 30px;
-            letter-spacing: -1px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        h2::before {
-            content: '';
-            width: 10px;
-            height: 30px;
-            background: var(--tennis-neon);
-            display: inline-block;
-            box-shadow: 0 0 12px var(--tennis-neon);
-            border-radius: 3px;
-        }
-
-        /* Сетка Метрик (UTR / ITF / Статистика) */
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
-        .stat-card {
-            background: rgba(0, 0, 0, 0.35);
-            border: 1px solid var(--border);
-            padding: 30px 20px;
-            border-radius: 18px;
-            text-align: center;
-        }
-        .stat-card:hover {
-            border-color: var(--tennis-neon);
-            box-shadow: 0 0 25px var(--tennis-glow);
-            transform: translateY(-4px);
-        }
-        .stat-card .value {
-            font-family: 'Syne', sans-serif;
-            font-size: 3rem;
-            font-weight: 800;
-            color: var(--tennis-neon);
             line-height: 1;
+            margin-bottom: 25px;
+            letter-spacing: 2px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.8);
         }
-        .stat-card .label {
-            font-size: 0.85rem;
-            color: var(--text-gray);
-            margin-top: 10px;
+
+        .hero-desc {
+            max-width: 600px;
+            color: #E0E0E0;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn-primary {
+            background: var(--text-main);
+            color: #000;
+            padding: 16px 36px;
+            text-decoration: none;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            border-radius: 2px;
+        }
+        .btn-primary:hover { background: var(--accent-gold); }
+
+        .btn-outline {
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 16px 36px;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            border-radius: 2px;
+            background: rgba(0,0,0,0.4);
+        }
+        .btn-outline:hover { border-color: var(--text-main); background: rgba(255,255,255,0.1); }
+
+        /* Контейнер */
+        .container { max-width: 1400px; margin: auto; padding: 120px 60px; }
+
+        /* Секции */
+        section { margin-bottom: 140px; }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 60px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section-tag {
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            font-weight: 700;
+        }
+
+        /* Премиум Метрики */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .stat-item {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            padding: 50px 30px;
+        }
+
+        .stat-item:hover { border-color: var(--accent-gold); }
+
+        .stat-number {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+        }
+
+        /* Сетка профиля и достижений */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            font-size: 1.15rem;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-top: 30px;
+        }
+
+        .feature-list li {
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.95rem;
             font-weight: 600;
         }
 
-        /* Видео ХАЙЛАЙТЫ */
-        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
-        .video-box {
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px solid var(--border);
-            border-radius: 18px;
-            overflow: hidden;
-            padding: 15px;
+        .feature-list li span:last-child { color: var(--accent-gold); }
+
+        /* Видео Галерея Хайлайтов */
+        .video-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
         }
-        .video-wrapper {
+
+        .video-card {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+        }
+
+        .video-frame {
             position: relative;
             padding-bottom: 56.25%;
             height: 0;
-            border-radius: 12px;
-            overflow: hidden;
-            background: #111;
         }
-        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-        .video-title { font-weight: 600; font-size: 0.95rem; margin-top: 12px; text-align: center; color: var(--text-gray); }
 
-        /* Профиль игрока (Bio / Details) */
-        .bio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .bio-item { background: rgba(255,255,255,0.02); border: 1px solid var(--border); padding: 20px; border-radius: 14px; }
-        .bio-item span { display: block; color: var(--tennis-neon); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; margin-bottom: 6px; }
-        .bio-item p { margin: 0; font-size: 1.1rem; font-weight: 600; }
+        .video-frame iframe {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%; border: none;
+        }
 
-        /* Форма для тренеров */
-        .contact-form { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 800px; margin: 0 auto; }
-        .form-group { display: flex; flex-direction: column; }
-        .form-group.full { grid-column: span 2; }
-        .form-group label { margin-bottom: 8px; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-gray); }
-        .form-group input, .form-group textarea {
-            padding: 16px;
-            background: rgba(0,0,0,0.4);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            font-size: 1rem;
+        .video-info {
+            padding: 25px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+
+        /* Форма Контактов для Скаутов */
+        .contact-box {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            padding: 80px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-group.full { grid-column: span 2; }
+
+        .input-group label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+
+        .input-group input, .input-group textarea {
+            background: #050505;
+            border: 1px solid var(--border-color);
+            padding: 18px;
             color: white;
-            font-family: 'Inter', sans-serif;
+            font-family: inherit;
+            font-size: 1rem;
         }
-        .form-group input:focus, .form-group textarea:focus {
-            border-color: var(--tennis-neon);
+
+        .input-group input:focus, .input-group textarea:focus {
+            border-color: var(--accent-gold);
             outline: none;
-            box-shadow: 0 0 15px rgba(212,255,0,0.15);
         }
-        
-        .btn-submit {
+
+        .submit-btn {
             grid-column: span 2;
-            background-color: var(--tennis-neon);
+            background: var(--accent-gold);
             color: #000;
             border: none;
-            padding: 18px;
-            font-size: 1rem;
-            font-weight: 800;
-            font-family: 'Syne', sans-serif;
+            padding: 20px;
+            font-weight: 700;
             text-transform: uppercase;
-            border-radius: 12px;
+            letter-spacing: 2px;
             cursor: pointer;
-            letter-spacing: 1px;
-            margin-top: 10px;
+            margin-top: 20px;
         }
-        .btn-submit:hover { opacity: 0.9; box-shadow: 0 0 20px var(--tennis-glow); }
 
-        footer { text-align: center; padding: 40px; color: var(--text-gray); font-size: 0.85rem; border-top: 1px solid var(--border); margin-top: 60px; }
+        .submit-btn:hover { background: #fff; }
+
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 60px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 900px) {
+            nav { padding: 20px 20px; }
+            .nav-links { display: none; }
+            header { padding: 0 20px 50px 20px; }
+            .container { padding: 80px 20px; }
+            .stats-grid, .grid-2, .video-grid, .form-grid { grid-template-columns: 1fr; }
+            .contact-box { padding: 30px; }
+        }
     </style>
 </head>
 <body>
 
     <!-- Навигация -->
     <nav>
-        <div class="nav-logo">IG // RECRUITING</div>
-        <button class="lang-btn">EN / RU</button>
+        <div class="logo">ILIMA GUSEYNOVA</div>
+        <div class="nav-links">
+            <a href="#stats">
+                <span class="en-text">Metrics</span>
+                <span class="ru-text">Метрики</span>
+            </a>
+            <a href="#about">
+                <span class="en-text">Profile</span>
+                <span class="ru-text">Профиль</span>
+            </a>
+            <a href="#media">
+                <span class="en-text">Highlights</span>
+                <span class="ru-text">Хайлайты</span>
+            </a>
+            <a href="#contact">
+                <span class="en-text">Recruiting</span>
+                <span class="ru-text">Рекрутинг</span>
+            </a>
+        </div>
+        <button class="lang-switch" id="langToggle">RU</button>
     </nav>
 
     <!-- Главный экран -->
     <header>
-        <div class="hero-tag">NCAA College Tennis Prospect</div>
-        <h1>Ilima Guseynova</h1>
-        <p class="subtitle">Competitive tennis player focused on achieving athletic and academic excellence in an American university program.</p>
-        <div class="badge-row">
-            <div class="hero-badge">Class of <span>2026 / 2027</span></div>
-            <div class="hero-badge">Right-Handed <span>(Two-Handed Backhand)</span></div>
-            <div class="hero-badge">Status: <span>Available for Offers</span></div>
+        <div class="hero-subtitle">
+            <span class="en-text">NCAA Division I Prospect // Class of 2026/2027</span>
+            <span class="ru-text">Кандидат в NCAA Division I // Набор 2026/2027</span>
+        </div>
+        <h1>
+            <span class="en-text">Pursuit of Excellence</span>
+            <span class="ru-text">Стремление к Совершенству</span>
+        </h1>
+        <p class="hero-desc">
+            <span class="en-text">High-performance competitive tennis athlete dedicated to achieving elite athletic benchmarks and academic success at the collegiate level in the United States.</span>
+            <span class="ru-text">Профессиональная теннисистка, нацеленная на достижение высоких спортивных результатов и академического успеха в университетской лиге США.</span>
+        </p>
+        <div class="hero-actions">
+            <a href="#contact" class="btn-primary">
+                <span class="en-text">Coaches Portal</span>
+                <span class="ru-text">Портал для тренеров</span>
+            </a>
+            <a href="#media" class="btn-outline">
+                <span class="en-text">Watch Highlights</span>
+                <span class="ru-text">Смотреть хайлайты</span>
+            </a>
         </div>
     </header>
 
     <div class="container">
-        
-        <!-- Ключевые показатели для тренеров -->
-        <section>
-            <h2>Verified Metrics</h2>
+
+        <!-- Статистика -->
+        <section id="stats">
+            <div class="section-header">
+                <div>
+                    <div class="section-tag">
+                        <span class="en-text">Performance Index</span>
+                        <span class="ru-text">Индекс эффективности</span>
+                    </div>
+                    <h2 class="section-title">
+                        <span class="en-text">Verified Metrics</span>
+                        <span class="ru-text">Проверенные метрики</span>
+                    </h2>
+                </div>
+            </div>
             <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="value">10.5+</div>
-                    <div class="label">Estimated UTR</div>
+                <div class="stat-item">
+                    <div class="stat-number">10.5+</div>
+                    <div class="stat-label">
+                        <span class="en-text">Estimated UTR</span>
+                        <span class="ru-text">Оценочный UTR</span>
+                    </div>
                 </div>
-                <div class="stat-card">
-                    <div class="value">ITF 1950</div>
-                    <div class="label">Ranking</div>
-					<div class="label">1950</div>
+                <div class="stat-item">
+                    <div class="stat-number">ITF 1950</div>
+                    <div class="stat-label">
+                        <span class="en-text">Ranking Status</span>
+                        <span class="ru-text">Статус рейтинга</span>
+                    </div>
                 </div>
-                <div class="stat-card">
-                    <div class="value">165 cm</div>
-                    <div class="label">Height</div>
+                <div class="stat-item">
+                    <div class="stat-number">178</div>
+                    <div class="stat-label">
+                        <span class="en-text">Height (cm)</span>
+                        <span class="ru-text">Рост (см)</span>
+                    </div>
                 </div>
-                <div class="stat-card">
-                    <div class="value">3.8+</div>
-                    <div class="label">GPA / Academics</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Профиль и детали атлета -->
-        <section>
-            <h2>Player Profile</h2>
-            <div class="bio-grid">
-                <div class="bio-item">
-                    <span>Playing Style</span>
-                    <p>Aggressive Baseline / All-Court</p>
-                </div>
-                <div class="bio-item">
-                    <span>Strongest Weapon</span>
-                    <p>Heavy Forehand & Serve Consistency</p>
-                </div>
-                <div class="bio-item">
-                    <span>Languages</span>
-                    <p>English, Russian</p>
-                </div>
-                <div class="bio-item">
-                    <span>Location / Passport</span>
-                    <p>International Student</p>
+                <div class="stat-item">
+                    <div class="stat-number">3.8</div>
+                    <div class="stat-label">
+                        <span class="en-text">Academic GPA</span>
+                        <span class="ru-text">Средний балл (GPA)</span>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Видео-хайлайты (сюда тренеры смотрят в первую очередь) -->
-        <section>
-            <h2>Match Highlights & Play Style</h2>
+        <!-- Профиль / О игроке -->
+        <section id="about">
+            <div class="section-header">
+                <div>
+                    <div class="section-tag">
+                        <span class="en-text">Athlete Overview</span>
+                        <span class="ru-text">Обзор атлета</span>
+                    </div>
+                    <h2 class="section-title">
+                        <span class="en-text">The Competitive Edge</span>
+                        <span class="ru-text">Конкурентные преимущества</span>
+                    </h2>
+                </div>
+            </div>
+            <div class="grid-2">
+                <div class="about-text">
+                    <p>
+                        <span class="en-text">Ilima Guseynova combines aggressive baseline dominance with exceptional tactical discipline. Built for high-pressure matches, she excels in both singles and doubles formats under international tournament conditions.</span>
+                        <span class="ru-text">Илима Гусейнова сочетает агрессивную доминирующую игру на задней линии с исключительной тактической дисциплиной. Она отлично проявляет себя в матчах под высоким давлением как в одиночном, так и в парном разрядах на международных турнирах.</span>
+                    </p>
+                    <p>
+                        <span class="en-text">Equally committed to her academic development, she targets top-tier American universities where she can contribute immediately to the team's championship goals.</span>
+                        <span class="ru-text">Уделяя равное внимание академическому развитию, она нацелена на ведущие американские университеты, где сможет сразу внести вклад в победы команды.</span>
+                    </p>
+                </div>
+                <div>
+                    <ul class="feature-list">
+                        <li>
+                            <span>
+                                <span class="en-text">Playing Style</span>
+                                <span class="ru-text">Стиль игры</span>
+                            </span>
+                            <span>
+                                <span class="en-text">Aggressive All-Court</span>
+                                <span class="ru-text">Агрессивный универсальный</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span>
+                                <span class="en-text">Primary Weapon</span>
+                                <span class="ru-text">Главное оружие</span>
+                            </span>
+                            <span>
+                                <span class="en-text">Heavy Forehand & Serve</span>
+                                <span class="ru-text">Мощный форхэнд и подача</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span>
+                                <span class="en-text">Dominant Hand</span>
+                                <span class="ru-text">Рабочая рука</span>
+                            </span>
+                            <span>
+                                <span class="en-text">Right-Handed (2H Backhand)</span>
+                                <span class="ru-text">Правая (двуручный бэкхэнд)</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span>
+                                <span class="en-text">Languages</span>
+                                <span class="ru-text">Языки</span>
+                            </span>
+                            <span>
+                                <span class="en-text">English, Russian</span>
+                                <span class="ru-text">Английский, Русский</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span>
+                                <span class="en-text">Availability</span>
+                                <span class="ru-text">Доступность</span>
+                            </span>
+                            <span>
+                                <span class="en-text">Fall 2026 / Spring 2027</span>
+                                <span class="ru-text">Осень 2026 / Весна 2027</span>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Видео / Хайлайты -->
+        <section id="media">
+            <div class="section-header">
+                <div>
+                    <div class="section-tag">
+                        <span class="en-text">Visual Scouting</span>
+                        <span class="ru-text">Видео-скаутинг</span>
+                    </div>
+                    <h2 class="section-title">
+                        <span class="en-text">Match Highlights</span>
+                        <span class="ru-text">Хайлайты матчей</span>
+                    </h2>
+                </div>
+            </div>
             <div class="video-grid">
-                <div class="video-box">
-                    <div class="video-wrapper">
-                        <!-- Сюда можно вставить ссылку на YouTube с матчами Илимы -->
+                <div class="video-card">
+                    <div class="video-frame">
                         <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
                     </div>
-                    <div class="video-title">Singles Match Highlights (2026)</div>
+                    <div class="video-info">
+                        <span class="en-text">Singles Match Footage // Tournament Season</span>
+                        <span class="ru-text">Одиночные матчи // Турнирный сезон</span>
+                    </div>
                 </div>
-                <div class="video-box">
-                    <div class="video-wrapper">
+                <div class="video-card">
+                    <div class="video-frame">
                         <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
                     </div>
-                    <div class="video-title">Practice & Drill Session</div>
+                    <div class="video-info">
+                        <span class="en-text">Practice Sessions & Drills Overview</span>
+                        <span class="ru-text">Тренировочные сессии и упражнения</span>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Форма обратной связи для тренеров и скаутов -->
-        <section>
-            <h2>For Coaches & Sponsors</h2>
-            <p style="text-align: center; color: var(--text-gray); margin-bottom: 30px;">Are you a college coach or sponsor? Get in touch to discuss athletic fit and recruitment details.</p>
-            <form class="contact-form">
-                <div class="form-group">
-                    <label>Coach / Representative Name</label>
-                    <input type="text" placeholder="John Doe">
+        <!-- Форма связи для тренеров -->
+        <section id="contact">
+            <div class="contact-box">
+                <div class="section-tag" style="text-align: center;">
+                    <span class="en-text">Direct Communication</span>
+                    <span class="ru-text">Прямая связь</span>
                 </div>
-                <div class="form-group">
-                    <label>University / Organization</label>
-                    <input type="text" placeholder="NCAA Division I University">
-                </div>
-                <div class="form-group">
-                    <label>Email Address</label>
-                    <input type="email" placeholder="coach@university.edu">
-                </div>
-                <div class="form-group">
-                    <label>Phone / WhatsApp</label>
-                    <input type="text" placeholder="+1 (555) 000-0000">
-                </div>
-                <div class="form-group full">
-                    <label>Message / Offer Details</label>
-                    <textarea rows="4" placeholder="Write your message regarding roster spots, scholarships, or collaboration..."></textarea>
-                </div>
-                <button type="submit" class="btn-submit">Send Inquiry to Ilima</button>
-            </form>
+                <h2 class="section-title" style="text-align: center; margin-bottom: 20px;">
+                    <span class="en-text">For Coaches & Scouts</span>
+                    <span class="ru-text">Для тренеров и скаутов</span>
+                </h2>
+                <p style="text-align: center; color: var(--text-muted); margin-bottom: 40px; font-size: 0.95rem;">
+                    <span class="en-text">University coaches and athletic representatives can submit inquiries regarding roster placement and scholarship opportunities.</span>
+                    <span class="ru-text">Тренеры университетов и спортивные представители могут отправлять запросы относительно мест в составе и возможностей стипендий.</span>
+                </p>
+                
+                <form class="form-grid">
+                    <div class="input-group">
+                        <label>
+                            <span class="en-text">Coach Name</span>
+                            <span class="ru-text">Имя тренера</span>
+                        </label>
+                        <input type="text" placeholder="John Smith">
+                    </div>
+                    <div class="input-group">
+                        <label>
+                            <span class="en-text">University / Institution</span>
+                            <span class="ru-text">Университет / Организация</span>
+                        </label>
+                        <input type="text" placeholder="NCAA Div I Program">
+                    </div>
+                    <div class="input-group">
+                        <label>
+                            <span class="en-text">Email Address</span>
+                            <span class="ru-text">Электронная почта</span>
+                        </label>
+                        <input type="email" placeholder="coach@university.edu">
+                    </div>
+                    <div class="input-group">
+                        <label>
+                            <span class="en-text">Phone / WhatsApp</span>
+                            <span class="ru-text">Телефон / WhatsApp</span>
+                        </label>
+                        <input type="text" placeholder="+1 (555) 000-0000">
+                    </div>
+                    <div class="input-group full">
+                        <label>
+                            <span class="en-text">Inquiry Details / Offer Summary</span>
+                            <span class="ru-text">Детали запроса / предложение</span>
+                        </label>
+                        <textarea rows="4" placeholder="Specify your program details, timeline, or scholarship framework..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <span class="en-text">Send Recruiting Inquiry</span>
+                        <span class="ru-text">Отправить запрос тренеру</span>
+                    </button>
+                </form>
+            </div>
         </section>
 
     </div>
 
     <footer>
-        <p>&copy; 2026 Ilima Guseynova. Official College Tennis Recruiting Portfolio.</p>
+        <p>
+            <span class="en-text">&copy; 2026 Ilima Guseynova. Official Athletic Portfolio. Designed for NCAA Recruiting.</span>
+            <span class="ru-text">&copy; 2026 Илима Гусейнова. Официальное спортивное портфолио. Разработано для рекрутинга в NCAA.</span>
+        </p>
     </footer>
+
+    <!-- Скрипт мгновенного переключения языков -->
+    <script>
+        const langToggle = document.getElementById('langToggle');
+        let currentLang = 'en';
+
+        langToggle.addEventListener('click', () => {
+            currentLang = currentLang === 'en' ? 'ru' : 'en';
+            langToggle.textContent = currentLang === 'en' ? 'RU' : 'EN';
+
+            if (currentLang === 'ru') {
+                document.body.classList.add('lang-ru');
+            } else {
+                document.body.classList.remove('lang-ru');
+            }
+        });
+    </script>
 
 </body>
 </html>
