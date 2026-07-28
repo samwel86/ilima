@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Илима Гусейнова | Теннисное Портфолио</title>
+    <style>
+        :root {
+            --bg-dark: #111111;      /* Стиль Wilson: Матовый черный */
+            --accent-neon: #CCFF00;  /* Цвет теннисного мяча (Volt) */
+            --text-light: #FFFFFF;
+            --text-dark: #1A1A1A;
+            --card-bg: #FFFFFF;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #ECEFF1;
+        }
+        header {
+            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)), url('https://unsplash.com') no-repeat center center/cover;
+            color: var(--text-light);
+            text-align: center;
+            padding: 100px 20px;
+            border-bottom: 5px solid var(--accent-neon);
+        }
+        header h1 { margin: 0; font-size: 3rem; text-transform: uppercase; letter-spacing: 2px; }
+        header p { font-size: 1.3rem; color: #BBB; margin: 15px 0 0; }
+        header p span { color: var(--accent-neon); font-weight: bold; }
+        .container { max-width: 1100px; margin: auto; padding: 20px; }
+        section { background: var(--card-bg); padding: 40px; margin: 30px 0; border-radius: 12px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        h2 { font-size: 1.8rem; text-transform: uppercase; color: var(--bg-dark); margin-top: 0; position: relative; padding-bottom: 10px; }
+        h2::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 4px; background-color: var(--accent-neon); }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 30px; }
+        .card { background: var(--bg-dark); color: var(--text-light); padding: 30px 20px; border-radius: 10px; text-align: center; }
+        .card .num { font-size: 3rem; font-weight: 900; color: var(--accent-neon); margin-bottom: 10px; }
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin-top: 25px; }
+        .gallery-item { position: relative; overflow: hidden; border-radius: 8px; aspect-ratio: 1 / 1; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+        .gallery-item:hover img { transform: scale(1.1); }
+        .gallery-desc { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0, 0, 0, 0.8); color: #fff; padding: 10px; font-size: 0.9rem; text-align: center; }
+        .table-responsive { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; margin-top: 25px; }
+        th, td { padding: 16px; text-align: left; border-bottom: 1px solid #E0E0E0; }
+        th { background-color: var(--bg-dark); color: var(--text-light); text-transform: uppercase; }
+        .badge { background: var(--accent-neon); color: var(--text-dark); padding: 5px 12px; font-weight: bold; border-radius: 20px; font-size: 0.85rem; }
+        .contact-form { display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 600px; margin: 25px auto 0 auto; }
+        .form-group { display: flex; flex-direction: column; }
+        .form-group label { margin-bottom: 8px; font-weight: 600; }
+        .form-group input, .form-group textarea, .form-group select { padding: 14px; border: 2px solid #E0E0E0; border-radius: 8px; font-size: 1rem; }
+        .btn-submit { background-color: var(--bg-dark); color: var(--text-light); border: none; padding: 16px 20px; font-size: 1rem; font-weight: bold; text-transform: uppercase; border-radius: 8px; cursor: pointer; transition: 0.3s; }
+        .btn-submit:hover { background-color: var(--accent-neon); color: var(--text-dark); }
+        footer { text-align: center; padding: 30px; background: var(--bg-dark); color: #777; margin-top: 50px; }
+        footer a { color: var(--accent-neon); text-decoration: none; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Илима Гусейнова</h1>
+        <p>Профессиональная теннисистка | <span>Первая ракетка Туркменистана</span></p>
+    </header>
+    <div class="container">
+        <!-- Рейтинги -->
+        <section>
+            <h2>Текущие рейтинги</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="num">№ 8</div>
+                    <p>В ТОП-10 лучших теннисисток Азии (U16)</p>
+                </div>
+                <div class="card">
+                    <div class="num">№ 1</div>
+                    <p>Первая ракетка Туркменистана</p>
+                </div>
+                <div class="card">
+                    <div class="num">ITF</div>
+                    <p>Мировой юниорский рейтинг</p>
+                </div>
+            </div>
+        </section>
+        <!-- Галерея -->
+        <section>
+            <h2>Галерея наград и моментов</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="https://unsplash.com" alt="Награда">
+                    <div class="gallery-desc">Чемпионат Central Asia — Золото</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://unsplash.com" alt="Кубок">
+                    <div class="gallery-desc">Трофей Asian 14 & Under</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://unsplash.com" alt="Корт">
+                    <div class="gallery-desc">Академия тенниса «Ашхабад»</div>
+                </div>
+            </div>
+        </section>
+        <!-- Таблица побед -->
+        <section>
+            <h2>Ключевые победы</h2>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Турнир</th>
+                            <th>Локация</th>
+                            <th>Результат</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Чемпионат Центральной и Западной Азии (U14)</td>
+                            <td>Маскат, Оман</td>
+                            <td><span class="badge">2х Золото</span> Одиночный разряд</td>
+                        </tr>
+                        <tr>
+                            <td>Asian 14 & Under Grade A</td>
+                            <td>Хайдарабад, Индия</td>
+                            <td><span class="badge">Золото</span> Парный разряд</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <!-- Форма связи -->
+        <section>
+            <h2>Связаться с командой</h2>
+            <p style="text-align: center; color: #666;">Форма для связи с тренером Мирали Гасановым.</p>
+            <form class="contact-form" action="https://formspree.io" method="POST">
+                <div class="form-group">
+                    <label for="name">Ваше имя</label>
+                    <input type="text" id="name" name="name" required placeholder="Имя или Компания">
+                </div>
+                <div class="form-group">
+                    <label for="email">Ваш Email</label>
+                    <input type="email" id="email" name="_replyto" required placeholder="example@mail.com">
+                </div>
+                <div class="form-group">
+                    <label for="recipient">Кому сообщение</label>
+                    <select id="recipient" name="recipient" required>
+                        <option value="Главный тренер">Главному тренеру (Мирали Гасанову)</option>
+                        <option value="Менеджер">Менеджеру</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Сообщение</label>
+                    <textarea id="message" name="message" rows="4" required placeholder="Текст обращения..."></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Отправить сообщение</button>
+            </form>
+        </section>
+    </div>
+    <footer>
+        <p>© 2026 Портфолио Илимы Гусейновой. Разработано на <a href="https://github.com" target="_blank">GitHub Pages</a>.</p>
+    </footer>
+</body>
+</html>
