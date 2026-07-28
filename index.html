@@ -3,194 +3,258 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ilima Guseynova | Tennis Recruiting Portfolio</title>
+    <title>Ilima Guseynova | Official Recruiting Portfolio</title>
+    <!-- Подключаем премиальный спортивный шрифт Syne и динамичный Inter -->
+    <link href="https://googleapis.com" rel="stylesheet">
     <style>
         :root {
-            --bg-main: #0B0C10;      /* Глубокий темный */
-            --bg-card: #1F2833;      /* Графитовый для блоков */
-            --accent: #CCFF00;       /* Теннисный неоновый */
-            --text-light: #FFFFFF;
-            --text-muted: #C5C6C7;
+            --bg-dark: #060709;      /* Ультра-черный */
+            --bg-surface: rgba(20, 24, 33, 0.65); /* Матовое стекло */
+            --tennis-neon: #D4FF00;  /* Заряженный неоновый вольт */
+            --tennis-glow: rgba(212, 255, 0, 0.25);
+            --text-main: #FFFFFF;
+            --text-gray: #A0A5B5;
+            --border: rgba(255, 255, 255, 0.07);
         }
+
+        * { box-sizing: border-box; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
 
         body {
-            font-family: 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: var(--bg-main);
-            color: var(--text-light);
-            line-height: 1.6;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(212, 255, 0, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(0, 180, 216, 0.03) 0%, transparent 40%);
         }
 
-        /* Переключатель языков */
-        .lang-switcher {
+        /* Кнопка переключения языков */
+        .lang-btn {
             position: fixed;
-            top: 20px;
-            right: 20px;
+            top: 25px;
+            right: 25px;
             z-index: 1000;
-            background: var(--accent);
+            background: backdrop-filter;
+            background-color: rgba(255, 255, 255, 0.07);
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            padding: 12px 24px;
+            font-weight: 800;
+            font-family: 'Syne', sans-serif;
+            border-radius: 40px;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            letter-spacing: 1px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+        }
+        .lang-btn:hover {
+            background-color: var(--tennis-neon);
+            color: #000;
+            box-shadow: 0 0 20px var(--tennis-glow);
+            transform: scale(1.05);
+        }
+
+        /* Невероятный Кинематографичный Главный Экран */
+        header {
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            padding: 40px 20px;
+            background: linear-gradient(to bottom, rgba(6,7,9,0.2), var(--bg-dark)), url('https://unsplash.com') no-repeat center center/cover;
+            background-attachment: fixed;
+        }
+
+        header h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(3rem, 8vw, 6.5rem);
+            font-weight: 800;
+            text-transform: uppercase;
+            line-height: 0.9;
+            margin: 0;
+            letter-spacing: -2px;
+            background: linear-gradient(180deg, #FFFFFF 30%, #A0A5B5 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header .subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.8rem);
+            margin: 25px 0;
+            font-weight: 300;
+            color: var(--text-gray);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
+
+        header .badge-row {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        header .hero-badge {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        header .hero-badge span { color: var(--tennis-neon); }
+
+        /* Контейнер и Стеклянные Секции */
+        .container { max-width: 1200px; margin: auto; padding: 0 25px; }
+        
+        section {
+            background: var(--bg-surface);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            padding: 50px;
+            margin: 60px 0;
+            border-radius: 24px;
+            border: 1px solid var(--border);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            opacity: 0;
+            transform: translateY(40px);
+            animation: reveal 1s forwards cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        section:nth-child(1) { animation-delay: 0.2s; }
+        section:nth-child(2) { animation-delay: 0.4s; }
+        section:nth-child(3) { animation-delay: 0.6s; }
+
+        @keyframes reveal { to { opacity: 1; transform: translateY(0); } }
+
+        h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            text-transform: uppercase;
+            color: var(--text-main);
+            margin-top: 0;
+            margin-bottom: 35px;
+            letter-spacing: -1px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        h2::before {
+            content: '';
+            width: 12px;
+            height: 35px;
+            background: var(--tennis-neon);
+            display: inline-block;
+            box-shadow: 0 0 15px var(--tennis-neon);
+            border-radius: 4px;
+        }
+
+        /* Ультра-Сетка Метрик */
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; }
+        
+        .stat-card {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--border);
+            padding: 35px 25px;
+            border-radius: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .stat-card:hover {
+            border-color: var(--tennis-neon);
+            box-shadow: 0 0 30px var(--tennis-glow);
+            transform: translateY(-5px);
+        }
+        .stat-card .value {
+            font-family: 'Syne', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--tennis-neon);
+            line-height: 1;
+        }
+        .stat-card .label {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            margin-top: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        /* Премиум Видео-Контейнер */
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.8);
+        }
+        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
+
+        /* Футуристичные карточки контактов/тренеров */
+        .staff-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .staff-card {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--border);
+            padding: 25px;
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+        }
+        .staff-card:hover { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.2); }
+        .staff-card .role { font-size: 0.8rem; text-transform: uppercase; color: var(--tennis-neon); font-weight: 800; letter-spacing: 1px; margin-bottom: 5px;}
+        .staff-card .name { font-size: 1.3rem; font-weight: 600; }
+
+        /* Премиум таблицы достижений */
+        .table-responsive { overflow-x: auto; margin-top: 20px; }
+        table { width: 100%; border-collapse: collapse; text-align: left; }
+        th, td { padding: 20px; border-bottom: 1px solid var(--border); }
+        th { font-family: 'Syne', sans-serif; text-transform: uppercase; color: var(--text-gray); font-size: 0.85rem; letter-spacing: 1px; }
+        td { font-size: 1.05rem; }
+        tr:hover td { background: rgba(255,255,255,0.02); color: var(--tennis-neon); }
+        .badge { background: var(--tennis-neon); color: #000; padding: 6px 14px; font-weight: 800; border-radius: 6px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; }
+
+        /* Инопланетная Форма Связи */
+        .contact-form { display: grid; grid-template-columns: 1fr; gap: 25px; max-width: 700px; margin: 40px auto 0 auto; }
+        .form-group { display: flex; flex-direction: column; }
+        .form-group label { margin-bottom: 10px; font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-gray); }
+        .form-group input, .form-group textarea, .form-group select {
+            padding: 18px;
+            background: rgba(0,0,0,0.4);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            font-size: 1rem;
+            color: white;
+            font-family: 'Inter', sans-serif;
+        }
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            border-color: var(--tennis-neon);
+            outline: none;
+            box-shadow: 0 0 15px rgba(212,255,0,0.15);
+        }
+        
+        .btn-submit {
+            background-color: var(--tennis-neon);
             color: #000;
             border: none;
-            padding: 10px 18px;
-            font-weight: bold;
-            border-radius: 30px;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(204,255,0,0.4);
-            font-size: 0.95rem;
+            padding: 20px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            font-family: 'Syne', sans-serif;
             text-transform: uppercase;
-        }
-
-        header {
-            background: linear-gradient(rgba(11,12,16,0.6), rgba(11,12,16,0.95)), url('https://unsplash.com') no-repeat center center/cover;
-            text-align: center;
-            padding: 140px 20px 80px 20px;
-            border-bottom: 3px solid var(--accent);
-        }
-
-        header h1 { font-size: 3.5rem; text-transform: uppercase; margin: 0; letter-spacing: 3px; }
-        header p { font-size: 1.4rem; color: var(--text-muted); margin: 15px 0; }
-        header .highlight { color: var(--accent); font-weight: bold; }
-
-        .container { max-width: 1100px; margin: auto; padding: 20px; }
-        
-        section { background: var(--bg-card); padding: 40px; margin: 35px 0; border-radius: 16px; border: 1px solid rgba(255,255,255,0.05); }
-        h2 { font-size: 2rem; text-transform: uppercase; color: var(--accent); margin-top: 0; letter-spacing: 1px; }
-
-        /* Рекрутинговые метрики (Сетка) */
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 25px; }
-        .stat-card { background: rgba(0,0,0,0.3); padding: 25px; border-radius: 12px; text-align: center; border-left: 4px solid var(--accent); }
-        .stat-card .value { font-size: 2.2rem; font-weight: 800; color: var(--text-light); }
-        .stat-card .label { font-size: 0.95rem; color: var(--text-muted); margin-top: 5px; text-transform: uppercase; }
-
-        /* Блок Видео */
-        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; background: #000; border-radius: 12px; margin-top: 20px; border: 2px solid rgba(255,255,255,0.1); }
-        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-
-        /* Таблицы */
-        .table-responsive { overflow-x: auto; }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th, td { padding: 16px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.1); }
-        th { background-color: rgba(0,0,0,0.4); color: var(--accent); text-transform: uppercase; font-size: 0.9rem; }
-        .badge { background: var(--accent); color: #000; padding: 4px 10px; font-weight: bold; border-radius: 4px; font-size: 0.85rem; text-transform: uppercase; }
-
-        /* Форма обратной связи */
-        .contact-form { display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 650px; margin: 25px auto 0 auto; }
-        .form-group { display: flex; flex-direction: column; }
-        .form-group label { margin-bottom: 8px; font-weight: 600; color: var(--text-muted); }
-        .form-group input, .form-group textarea, .form-group select { padding: 14px; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; font-size: 1rem; color: white; }
-        .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--accent); outline: none; }
-        
-        .btn-submit { background-color: var(--accent); color: #000; border: none; padding: 16px 20px; font-size: 1rem; font-weight: bold; text-transform: uppercase; border-radius: 8px; cursor: pointer; transition: 0.3s; letter-spacing: 1px; }
-        .btn-submit:hover { opacity: 0.9; box-shadow: 0 0 15px rgba(204,255,0,0.6); }
-
-        footer { text-align: center; padding: 40px; background: #050508; color: #555; margin-top: 60px; border-top: 1px solid rgba(255,255,255,0.05); }
-        footer a { color: var(--accent); text-decoration: none; }
-
-        /* Скрытие элементов для мультиязычности */
-        [lang="en"] { display: none; }
-    </style>
-</head>
-<body>
-
-    <button class="lang-switcher" onclick="toggleLanguage()">EN / RU</button>
-
-    <header>
-        <h1 class="lang ru">Илима Гусейнова</h1>
-        <h1 class="lang en">ЭТО СКОРО СТАНЕТ ТВОИМ САЙТОМ И ОТЕБЕ УЗНАЕТ ВЕСЬ МИР</h1>
-        
-        <p class="lang ru">Профессиональное теннисное резюме | Class of <span class="highlight">2029</span></p>
-        <p class="lang en">Tennis Recruiting Portfolio | Class of <span class="highlight">2029</span></p>
-        
-        <p class="lang ru">Первая ракетка Туркменистана | Рост: <span class="highlight">172 см</span> | Правша</p>
-        <p class="lang en">#1 Player in Turkmenistan | Height: <span class="highlight">5'8" (172 cm)</span> | Right-handed</p>
-    </header>
-
-    <div class="container">
-        
-        <!-- Ключевые показатели -->
-        <section>
-            <h2 class="lang ru">Теннисный и академический профиль</h2>
-            <h2 class="lang en">Tennis & Academic Profile</h2>
-            
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="value">№ 1</div>
-                    <div class="lang ru label">Рейтинг женщины (ТМ)</div>
-                    <div class="lang en label">Women's National Rank</div>
-                </div>
-                <div class="stat-card">
-                    <div class="value">TOP 10</div>
-                    <div class="lang ru label">Азия U16</div>
-                    <div class="lang en label">Asia U16 Rank</div>
-                </div>
-                <div class="stat-card">
-                    <div class="value">7.80*</div>
-                    <div class="lang ru label">Ожидаемый UTR</div>
-                    <div class="lang en label">Estimated UTR</div>
-                </div>
-                <div class="stat-card">
-                    <div class="value">2029</div>
-                    <div class="lang ru label">Год поступления</div>
-                    <div class="lang en label">Graduation Year</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Видео рекрутинга (ЗАХВАТ ВНИМАНИЯ) -->
-        <section>
-            <h2 class="lang ru">Видео игры (Рекрутинговое видео)</h2>
-            <h2 class="lang en">Recruiting & Match Video</h2>
-            <p class="lang ru" style="color: var(--text-muted)">Посмотрите технические нарезки ударов с задней линии, подач и фрагменты недавних международных матчей.</p>
-            <p class="lang en" style="color: var(--text-muted)">Watch technical showcases of groundstrokes, serves, net play, and unedited match-play footage.</p>
-            
-            <div class="video-container">
-                <!-- Чтобы вставить реальное видео, замените ссылку ниже на код с YouTube (Поделиться -> Встроить) -->
-                <iframe src="https://youtube.com" title="Recruiting Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-        </section>
-
-        <!-- Важнейшие победы -->
-        <section>
-            <h2 class="lang ru">Международные</h2>
-            <h2 class="lang en">International Highlights</h2>
-            
-            <div class="table-responsive">
-                <table>
-                    <thead>
-                        <tr>
-                            <th class="lang ru">Турнир</th>
-                            <th class="lang en">Tournament</th>
-                            <th class="lang ru">Локация</th>
-                            <th class="lang en">Location</th>
-                            <th class="lang ru">Результат</th>
-                            <th class="lang en">Result</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Central & Western Asia Championship (U14)</td>
-                            <td>Muscat, Oman</td>
-                            <td><span class="badge">2x Gold</span> Single</td>
-                        </tr>
-                        <tr>
-                            <td>Asian 14 & Under Grade A</td>
-                            <td>Hyderabad, India</td>
-                            <td><span class="badge">Gold</span> Doubles</td>
-                        </tr>
-                        <tr>
-                            <td>Selangor Asian 14 & Under Grade A</td>
-                            <td>Malaysia</td>
-                            <td><span class="badge">Silver</span> Doubles</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <!-- Команда и Контакты -->
-        <section>
-            <h2 class="lang ru">Контакты и Команда</h2>
-            <h2 class="lang en">Contact & Staff</h2>
-            
-            <div style="margin-bottom: 25px;">
-                <p><strong>Manager / Parent:</strong> Пирвердиян Мая Ровшановна (Maya Pirverdiyeva)</p>
+            border-radius: 12px;
+            cursor: pointer;
+            letter-spacing: 1px;
+            margin-top: 10px;
