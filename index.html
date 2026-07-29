@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ilima Guseynova // Official Athlete Portfolio</title>
-    <!-- Подключаем шрифты -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -26,11 +25,9 @@
             letter-spacing: -0.01em;
         }
 
-        /* Управление языками (скрытие/показ текста) */
         body.lang-ru .en-text { display: none !important; }
         body:not(.lang-ru) .ru-text { display: none !important; }
 
-        /* Премиум Меню */
         nav {
             position: fixed;
             top: 0;
@@ -83,7 +80,6 @@
         }
         .lang-switch:hover { border-color: var(--accent-gold); color: var(--accent-gold); }
 
-        /* Главный Герой-Экран с вашей фотографией */
         header {
             height: 100vh;
             display: flex;
@@ -160,10 +156,8 @@
         }
         .btn-outline:hover { border-color: var(--text-main); background: rgba(255,255,255,0.1); }
 
-        /* Контейнер */
         .container { max-width: 1400px; margin: auto; padding: 120px 60px; }
 
-        /* Секции */
         section { margin-bottom: 140px; }
 
         .section-header {
@@ -190,27 +184,51 @@
             font-weight: 700;
         }
 
-        /* Премиум Метрики */
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            align-items: stretch; /* Растягивает все окошки по высоте самого высокого */
         }
 
         .stat-item {
             background: var(--surface-color);
             border: 1px solid var(--border-color);
-            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            transition: all 0.3s ease;
         }
 
         .stat-item:hover { border-color: var(--accent-gold); }
+
+        /* Класс для окошек с контентом (текст/иконки) */
+        .stat-item-content {
+            padding: 15px 10px;
+            min-height: 200px; /* Задаем комфортную высоту только окошкам с контентом */
+        }
+
+        /* Класс для окошек только с логотипом (идеально подстраиваются под картинку) */
+        .stat-item-logo {
+            padding: 0;
+            min-height: auto; /* Убираем жесткую высоту, подстраивается под логотип */
+        }
+        
+        /* Для мобильных устройств */
+        @media (max-width: 900px) {
+            .stat-item-logo {
+                min-height: 150px; /* Чтобы на телефонах логотип не сплющивался */
+            }
+        }
 
         .stat-number {
             font-family: 'Cinzel', serif;
             font-size: 3rem;
             font-weight: 700;
             color: var(--text-main);
-            margin-bottom: 10px;
+            margin-bottom: 5px;
             text-align: center;
         }
 
@@ -222,44 +240,35 @@
             text-align: center;
         }
 
-        /* Стили для логотипов - ИНДИВИДУАЛЬНЫЕ РАЗМЕРЫ */
         .logo-utr {
-            max-height: 28px;    /* ← Измените размер логотипа UTR здесь */
+            max-height: 90px;
             width: auto;
             object-fit: contain;
         }
 
         .logo-itf {
-            max-height: 35px;    /* ← Измените размер логотипа ITF здесь */
-            width: auto;
-            object-fit: contain;
-        }
-
-        .logo-wtn {
-            max-height: 30px;    /* ← Измените размер логотипа WTN здесь */
+            max-height: 80px;
             width: auto;
             object-fit: contain;
         }
 
         .stat-header {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            margin-bottom: 12px;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
         }
 
         .stat-header-left {
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 8px;
+            width: 100%;
         }
 
-        .stat-header .stat-label {
-            font-size: 0.65rem;
-            margin-bottom: 0;
-        }
-
-        /* Сетка профиля и достижений */
         .grid-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -290,7 +299,6 @@
 
         .feature-list li span:last-child { color: var(--accent-gold); }
 
-        /* Видео Галерея Хайлайтов */
         .video-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -322,7 +330,6 @@
             font-size: 0.85rem;
         }
 
-        /* Форма Контактов для Скаутов */
         .contact-box {
             background: var(--surface-color);
             border: 1px solid var(--border-color);
@@ -397,14 +404,14 @@
             .nav-links { display: none; }
             header { padding: 0 20px 50px 20px; }
             .container { padding: 80px 20px; }
-            .stats-grid, .grid-2, .video-grid, .form-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .grid-2, .video-grid, .form-grid { grid-template-columns: 1fr; }
             .contact-box { padding: 30px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Навигация -->
     <nav>
         <div class="logo">ILIMA GUSEYNOVA</div>
         <div class="nav-links">
@@ -428,7 +435,6 @@
         <button class="lang-switch" id="langToggle">RU</button>
     </nav>
 
-    <!-- Главный экран -->
     <header>
         <div class="hero-subtitle">
             <span class="en-text"></span>
@@ -456,7 +462,6 @@
 
     <div class="container">
 
-        <!-- Статистика -->
         <section id="stats">
             <div class="section-header">
                 <div>
@@ -471,71 +476,92 @@
                 </div>
             </div>
             <div class="stats-grid">
-                <!-- Одиночный UTR -->
-                <div class="stat-item" style="border-top: 3px solid var(--accent-gold);">
+                <!-- 1. Одиночный UTR -->
+                <div class="stat-item stat-item-content" style="border-top: 3px solid var(--accent-gold);">
                     <div class="stat-header">
                         <div class="stat-header-left">
                             <img src="images/utr-logo.png" alt="UTR Logo" class="logo-utr">
-                            <span style="font-size: 0.9rem;">✔</span>
                         </div>
-                        <span class="stat-label" style="font-size: 0.65rem;">
-                            <span class="en-text">Singles</span>
-                            <span class="ru-text">Одиночный</span>
-                        </span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 5px; color: var(--accent-gold);">
+                        <span style="font-family: 'Cinzel', serif; font-size: 1.1rem; font-weight: 700; letter-spacing: 2px;">UTR</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2l9 5v10l-9 5-9-5V7l9-5z"></path>
+                            <path d="M9 12l2 2 4-4"></path>
+                        </svg>
+                    </div>
+                    <div class="stat-label" style="font-size: 0.85rem; margin-bottom: 5px; font-weight: 600; color: var(--text-main);">
+                        <span class="en-text">Singles</span>
+                        <span class="ru-text">Одиночный</span>
                     </div>
                     <div class="stat-number">7.51</div>
                 </div>
 
-                <!-- Парный UTR -->
-                <div class="stat-item" style="border-top: 3px solid var(--border-color);">
+                <!-- 2. Парный UTR -->
+                <div class="stat-item stat-item-content" style="border-top: 3px solid var(--accent-gold);">
                     <div class="stat-header">
                         <div class="stat-header-left">
                             <img src="images/utr-logo.png" alt="UTR Logo" class="logo-utr">
-                            <span style="font-size: 0.9rem;">✔</span>
                         </div>
-                        <span class="stat-label" style="font-size: 0.65rem;">
-                            <span class="en-text">Doubles</span>
-                            <span class="ru-text">Парный</span>
-                        </span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 5px; color: var(--accent-gold);">
+                        <span style="font-family: 'Cinzel', serif; font-size: 1.1rem; font-weight: 700; letter-spacing: 2px;">UTR</span>
+                        <svg width="22" height="20" viewBox="0 0 28 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 21v-2a4 4 0 0 1 4-4h1"></path>
+                            <circle cx="9" cy="7" r="3"></circle>
+                            <path d="M17 21v-2a4 4 0 0 1 4-4h1"></path>
+                            <circle cx="21" cy="7" r="3"></circle>
+                            <path d="M17 17h-4"></path>
+                        </svg>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2l9 5v10l-9 5-9-5V7l9-5z"></path>
+                            <path d="M9 12l2 2 4-4"></path>
+                        </svg>
+                    </div>
+                    <div class="stat-label" style="font-size: 0.85rem; margin-bottom: 5px; font-weight: 600; color: var(--text-main);">
+                        <span class="en-text">Doubles</span>
+                        <span class="ru-text">Парный</span>
                     </div>
                     <div class="stat-number">8.53</div>
                 </div>
 
-                <!-- ITF Рейтинг -->
-                <div class="stat-item" style="display: flex; flex-direction: column; justify-content: center; align-items: center; border-top: 3px solid var(--border-color);">
-                    <div class="stat-header" style="width: 100%;">
+                <!-- 3. ITF Рейтинг -->
+                <div class="stat-item stat-item-content" style="border-top: 3px solid var(--accent-gold);">
+                    <div class="stat-header" style="width: 100%; height: 100%; padding: 15px;">
                         <div class="stat-header-left">
                             <img src="images/itf-logo.png" alt="ITF Logo" class="logo-itf">
-                            <span style="font-size: 0.9rem;">✔</span>
                         </div>
-                        <span class="stat-label" style="font-size: 0.65rem;">
-                            <span class="en-text"></span>
-                            <span class="ru-text"></span>
-                        </span>
-                    </div>
-                    <div style="font-family: 'Cinzel', serif; font-size: 3.5rem; font-weight: 700; color: var(--text-main); text-align: center; line-height: 1.2;">
-                        1950
+                        <div style="font-family: 'Cinzel', serif; font-size: 3rem; font-weight: 700; color: var(--text-main); text-align: center; line-height: 1.2; margin-top: 5px;">
+                            1950
+                        </div>
                     </div>
                 </div>
 
-                <!-- WTN -->
-                <div class="stat-item" style="display: flex; flex-direction: column; justify-content: center; align-items: center; border-top: 3px solid var(--border-color);">
-                    <div class="stat-header" style="width: 100%;">
-                        <div class="stat-header-left">
-                            <img src="images/wtn-logo.png" alt="WTN Logo" class="logo-wtn">
-                            <span style="font-size: 0.9rem;">✔</span>
+                <!-- 4. WTN Singles (Идеально подогнано под логотип) -->
+                <div class="stat-item stat-item-logo" style="border-top: 3px solid var(--accent-gold); padding: 0;">
+                    <div class="stat-header" style="width: 100%; height: 100%; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center;">
+                        <div class="stat-header-left" style="height: 100%; width: 100%; display: flex; justify-content: center; align-items: center;">
+                            <img src="images/wtn-logo-singles.png" alt="WTN Singles Logo" style="width: 100%; height: auto; max-height: 100%; object-fit: contain; display: block;">
                         </div>
-                        <span class="stat-label" style="font-size: 0.65rem;">
-                            <span class="en-text"></span>
-                            <span class="ru-text"></span>
-                        </span>
                     </div>
-                    <div class="stat-number">27.9</div>
                 </div>
+
+                <!-- 5. WTN Doubles (Идеально подогнано под логотип) -->
+                <div class="stat-item stat-item-logo" style="border-top: 3px solid var(--accent-gold); padding: 0;">
+                    <div class="stat-header" style="width: 100%; height: 100%; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center;">
+                        <div class="stat-header-left" style="height: 100%; width: 100%; display: flex; justify-content: center; align-items: center;">
+                            <img src="images/wtn-logo-doubles.png" alt="WTN Doubles Logo" style="width: 100%; height: auto; max-height: 100%; object-fit: contain; display: block;">
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
-        <!-- Профиль / О игроке -->
         <section id="about">
             <div class="section-header">
                 <div>
@@ -617,7 +643,6 @@
             </div>
         </section>
 
-        <!-- Видео / Хайлайты -->
         <section id="media">
             <div class="section-header">
                 <div>
@@ -653,7 +678,6 @@
             </div>
         </section>
 
-        <!-- Форма связи для тренеров -->
         <section id="contact">
             <div class="contact-box">
                 <div class="section-tag" style="text-align: center;">
@@ -722,7 +746,6 @@
         </p>
     </footer>
 
-    <!-- Скрипт мгновенного переключения языков -->
     <script>
         const langToggle = document.getElementById('langToggle');
         let currentLang = 'en';
