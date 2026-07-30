@@ -184,11 +184,20 @@
             font-weight: 700;
         }
 
+        /* ===== 6 окон 800x800 ===== */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
             gap: 20px;
             align-items: stretch;
+        }
+
+        .stats-grid-second-row {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            align-items: stretch;
+            margin-top: 20px;
         }
 
         .stat-item {
@@ -200,22 +209,30 @@
             align-items: center;
             overflow: hidden;
             transition: all 0.3s ease;
+            width: 800px;
+            height: 800px;
+            flex-shrink: 0;
         }
 
         .stat-item:hover { border-color: var(--accent-gold); }
 
         .stat-item-content {
             padding: 15px 10px;
-            min-height: auto;
             width: 100%;
             height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
         .stat-item-logo {
             padding: 0;
-            min-height: auto;
             width: 100%;
             height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .stat-number {
@@ -235,10 +252,23 @@
             text-align: center;
         }
 
+        /* ===== АНИМАЦИЯ ДЛЯ UTR ЛОГОТИПОВ ===== */
         .logo-utr {
-            max-height: 90px;
+            max-height: 100px;
             width: auto;
             object-fit: contain;
+            animation: float-utr 2.5s ease-in-out infinite;
+        }
+
+        @keyframes float-utr {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Задержка для второго логотипа, чтобы двигались не синхронно */
+        .stat-item:nth-child(2) .logo-utr {
+            animation-delay: 0.8s;
         }
 
         .logo-itf {
@@ -264,6 +294,119 @@
             width: 100%;
         }
 
+        /* ATF wrapper */
+        .atf-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            padding: 10px 0;
+        }
+        .atf-logo {
+            max-height: 80px;
+            width: auto;
+            object-fit: contain;
+            margin-bottom: 8px;
+        }
+        .atf-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-main);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .atf-number {
+            font-family: 'Cinzel', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--text-main);
+            line-height: 1;
+        }
+
+        /* ITF wrapper */
+        .itf-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            padding: 15px 10px;
+        }
+        .itf-logo {
+            max-height: 130px;
+            width: auto;
+            object-fit: contain;
+            margin-top: -35px;
+            margin-bottom: 5px;
+        }
+        .itf-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-main);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .itf-number {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--text-main);
+            text-align: center;
+            line-height: 1.2;
+            transform: translateY(10px);
+        }
+
+        /* Принудительно 800x800 для всех шести окон */
+        .stat-item {
+            width: 800px;
+            height: 800px;
+            flex-shrink: 0;
+        }
+
+        /* Адаптив: на маленьких экранах окна становятся гибкими, но сохраняют пропорции */
+        @media (max-width: 1700px) {
+            .stat-item {
+                width: 100%;
+                height: auto;
+                aspect-ratio: 1 / 1;
+                max-width: 800px;
+                max-height: 800px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            nav { padding: 20px 20px; }
+            .nav-links { display: none; }
+            header { padding: 0 20px 50px 20px; }
+            .container { padding: 80px 20px; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .stats-grid-second-row { grid-template-columns: repeat(2, 1fr); }
+            .stat-item {
+                width: 100%;
+                height: auto;
+                aspect-ratio: 1 / 1;
+                max-width: 400px;
+                max-height: 400px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .stats-grid { grid-template-columns: 1fr; }
+            .stats-grid-second-row { grid-template-columns: 1fr; }
+            .stat-item {
+                max-width: 100%;
+                max-height: 100%;
+            }
+        }
+
+        /* остальные стили (about, video, contact) без изменений */
         .grid-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -393,16 +536,6 @@
             letter-spacing: 2px;
             text-transform: uppercase;
         }
-
-        @media (max-width: 900px) {
-            nav { padding: 20px 20px; }
-            .nav-links { display: none; }
-            header { padding: 0 20px 50px 20px; }
-            .container { padding: 80px 20px; }
-            .stats-grid { grid-template-columns: repeat(2, 1fr); }
-            .grid-2, .video-grid, .form-grid { grid-template-columns: 1fr; }
-            .contact-box { padding: 30px; }
-        }
     </style>
 </head>
 <body>
@@ -470,6 +603,8 @@
                     </h2>
                 </div>
             </div>
+
+            <!-- Первый ряд: 5 окон 800x800 -->
             <div class="stats-grid">
                 <!-- 1. Одиночный UTR -->
                 <div class="stat-item stat-item-content" style="border-top: 3px solid var(--accent-gold);">
@@ -479,7 +614,8 @@
                         </div>
                     </div>
                     <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 5px; color: var(--accent-gold);">
-                        <span style="font-family: 'Cinzel', serif; font-size: 1.1rem; font-weight: 700; letter-spacing: 2px;">UTR</span>
+                        <span style="font-family: 'Cinzel', serif; font-size: 1.1rem; font-weight: 700; letter-spacing: 2px;">
+                        </span>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                             <circle cx="12" cy="7" r="4"></circle>
@@ -496,7 +632,7 @@
                     <div class="stat-number">7.51</div>
                 </div>
 
-                <!-- 2. Парный UTR -->
+                <!-- 2. Парный UTR (исправлено: убрана надпись UTR) -->
                 <div class="stat-item stat-item-content" style="border-top: 3px solid var(--accent-gold);">
                     <div class="stat-header">
                         <div class="stat-header-left">
@@ -504,7 +640,7 @@
                         </div>
                     </div>
                     <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 5px; color: var(--accent-gold);">
-                        <span style="font-family: 'Cinzel', serif; font-size: 1.1rem; font-weight: 700; letter-spacing: 2px;">UTR</span>
+                        <!-- Убрана надпись UTR, оставлены только иконки -->
                         <svg width="22" height="20" viewBox="0 0 28 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M5 21v-2a4 4 0 0 1 4-4h1"></path>
                             <circle cx="9" cy="7" r="3"></circle>
@@ -524,16 +660,16 @@
                     <div class="stat-number">8.53</div>
                 </div>
 
-                <!-- 3. ITF Рейтинг (ОБНОВЛЕННЫЙ БЛОК, ЦИФРА ДВИГАЕТСЯ БЕЗ ЛОМКИ КВАДРАТА) -->
+                <!-- 3. ITF Рейтинг -->
                 <div class="stat-item stat-item-content" style="border-top: 3px solid var(--accent-gold);">
                     <div class="stat-header" style="width: 100%; height: 100%; padding: 15px;">
-                        <div class="stat-header-left">
-                            <!-- МЕНЯЙТЕ margin-top, ЧТОБЫ ДВИГАТЬ ЛОГОТИП -->
-                            <img src="images/world-tennis-logo.png" alt="World Tennis Logo" class="logo-itf" style="margin-top: -70px;">
-                        </div>
-                        <!-- МЕНЯЙТЕ translateY, ЧТОБЫ ДВИГАТЬ ЦИФРУ 1950 (НЕ ЛОМАЕТ ВЫСОТУ) -->
-                        <div style="font-family: 'Cinzel', serif; font-size: 3rem; font-weight: 700; color: var(--text-main); text-align: center; line-height: 1.2; transform: translateY(35px);">
-                            1950
+                        <div class="itf-wrapper">
+                            <img src="images/world-tennis-logo.png" alt="World Tennis Logo" class="itf-logo">
+                            <div class="itf-label">
+                                <span class="en-text">RANKING</span>
+                                <span class="ru-text">РЕЙТИНГ</span>
+                            </div>
+                            <div class="itf-number">1950</div>
                         </div>
                     </div>
                 </div>
@@ -555,7 +691,23 @@
                         </div>
                     </div>
                 </div>
+            </div>
 
+            <!-- Второй ряд: 1 окно (ATF) 800x800 -->
+            <div class="stats-grid-second-row">
+                <!-- 6. ATF -->
+                <div class="stat-item stat-item-content" style="border-top: 3px solid var(--accent-gold); grid-column: 1 / 2;">
+                    <div class="stat-header" style="width: 100%; height: 100%;">
+                        <div class="atf-wrapper">
+                            <img src="images/atf-logo.png" alt="ATF Logo" class="atf-logo">
+                            <div class="atf-label">
+                                <span class="en-text">RANKING</span>
+                                <span class="ru-text">РЕЙТИНГ</span>
+                            </div>
+                            <div class="atf-number">14</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
