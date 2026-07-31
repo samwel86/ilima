@@ -13,6 +13,38 @@
             --text-main: #FFFFFF;
             --text-muted: #8E8E93;
             --border-color: rgba(255, 255, 255, 0.1);
+            
+            /* Переменные для 1-го окна (UTR Singles) */
+            --utr-singles-logo-offset: 0px;
+            --utr-singles-label-offset: 0px;
+            --utr-singles-number-offset: 0px;
+
+            /* Переменные для 2-го окна (UTR Doubles) */
+            --utr-doubles-logo-offset: 0px;
+            --utr-doubles-label-offset: 0px;
+            --utr-doubles-number-offset: 0px;
+
+            /* Переменные для 3-го окна (ITF Ranking) */
+            --itf-logo-offset: 5px;
+            --itf-label-offset: 10px;
+            --itf-number-offset: -30px;
+
+            /* Переменные для 6-го окна (ATF) */
+            --atf-logo-offset: -30px;
+            --atf-label-offset: 25px;
+            --atf-number-offset: 25px;
+
+            /* Переменные для 7-го окна (WTT Singles) */
+            --wtt-singles-logo-offset: -10px;
+            --wtt-singles-label-offset: -10px;
+            --wtt-singles-number-offset: -20px;
+            --wtt-singles-icon-offset: -30px;
+
+            /* Переменные для 8-го окна (WTT Doubles) */
+            --wtt-doubles-logo-offset: -10px;
+            --wtt-doubles-label-offset: -10px;
+            --wtt-doubles-number-offset: -20px;
+            --wtt-doubles-icon-offset: -30px;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
@@ -184,20 +216,12 @@
             font-weight: 700;
         }
 
-        /* ===== 6 окон 800x800 ===== */
+        /* ===== ОДНА ОБЩАЯ СЕТКА ДЛЯ ВСЕХ 8 ОКОН ===== */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
             gap: 20px;
             align-items: stretch;
-        }
-
-        .stats-grid-second-row {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 20px;
-            align-items: stretch;
-            margin-top: 20px;
         }
 
         .stat-item {
@@ -252,7 +276,7 @@
             text-align: center;
         }
 
-        /* ===== АНИМАЦИЯ ДЛЯ UTR ЛОГОТИПОВ ===== */
+        /* ===== ОБЩИЕ СТИЛИ ДЛЯ UTR ===== */
         .logo-utr {
             max-height: 100px;
             width: auto;
@@ -266,15 +290,96 @@
             100% { transform: translateY(0px); }
         }
 
-        /* Задержка для второго логотипа, чтобы двигались не синхронно */
-        .stat-item:nth-child(2) .logo-utr {
-            animation-delay: 0.8s;
+        /* ===== ИНДИВИДУАЛЬНЫЕ СТИЛИ ДЛЯ 1-ГО ОКНА (UTR Singles) ===== */
+        .stat-item:nth-child(1) .logo-utr {
+            transform: translateY(var(--utr-singles-logo-offset));
+            animation-delay: 0s;
+        }
+        .stat-item:nth-child(1) .stat-label {
+            transform: translateY(var(--utr-singles-label-offset));
+        }
+        .stat-item:nth-child(1) .stat-number {
+            transform: translateY(var(--utr-singles-number-offset));
         }
 
+        /* ===== ИНДИВИДУАЛЬНЫЕ СТИЛИ ДЛЯ 2-ГО ОКНА (UTR Doubles) ===== */
+        .stat-item:nth-child(2) .logo-utr {
+            transform: translateY(var(--utr-doubles-logo-offset));
+            animation-delay: 0.8s;
+        }
+        .stat-item:nth-child(2) .stat-label {
+            transform: translateY(var(--utr-doubles-label-offset));
+        }
+        .stat-item:nth-child(2) .stat-number {
+            transform: translateY(var(--utr-doubles-number-offset));
+        }
+
+        /* ===== СТИЛИ ДЛЯ ITF ===== */
         .logo-itf {
             max-height: 130px;
             width: auto;
             object-fit: contain;
+            animation: pulse-glow 2.8s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+            0% { opacity: 1; filter: brightness(1) drop-shadow(0 0 0px rgba(212, 175, 55, 0)); }
+            50% { opacity: 0.25; filter: brightness(0.5) drop-shadow(0 0 20px rgba(212, 175, 55, 0.3)); }
+            100% { opacity: 1; filter: brightness(1) drop-shadow(0 0 0px rgba(212, 175, 55, 0)); }
+        }
+
+        .itf-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            padding: 15px 10px;
+        }
+        .itf-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-main);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+        .itf-number {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--text-main);
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        /* ===== ИНДИВИДУАЛЬНЫЕ СТИЛИ ДЛЯ 3-ГО ОКНА (ITF) ===== */
+        .stat-item:nth-child(3) .logo-itf {
+            transform: translateY(var(--itf-logo-offset));
+        }
+        .stat-item:nth-child(3) .itf-label {
+            transform: translateY(var(--itf-label-offset));
+        }
+        .stat-item:nth-child(3) .itf-number {
+            transform: translateY(var(--itf-number-offset));
+        }
+
+        /* ===== СТИЛИ ДЛЯ ATF ===== */
+        .logo-atf {
+            max-height: 90px;
+            width: auto;
+            object-fit: contain;
+            animation: pulse-glow-atf 2.8s ease-in-out infinite;
+            animation-delay: 0.5s;
+            transform: translateY(var(--atf-logo-offset));
+        }
+
+        @keyframes pulse-glow-atf {
+            0% { opacity: 1; filter: brightness(1) drop-shadow(0 0 0px rgba(212, 175, 55, 0)); }
+            50% { opacity: 0.2; filter: brightness(0.4) drop-shadow(0 0 25px rgba(212, 175, 55, 0.4)); }
+            100% { opacity: 1; filter: brightness(1) drop-shadow(0 0 0px rgba(212, 175, 55, 0)); }
         }
 
         .stat-header {
@@ -294,7 +399,6 @@
             width: 100%;
         }
 
-        /* ATF wrapper */
         .atf-wrapper {
             display: flex;
             flex-direction: column;
@@ -304,12 +408,6 @@
             height: 100%;
             padding: 10px 0;
         }
-        .atf-logo {
-            max-height: 80px;
-            width: auto;
-            object-fit: contain;
-            margin-bottom: 8px;
-        }
         .atf-label {
             font-size: 0.85rem;
             font-weight: 600;
@@ -318,6 +416,8 @@
             letter-spacing: 2px;
             margin-bottom: 20px;
             text-align: center;
+            margin-top: -30px;
+            transform: translateY(var(--atf-label-offset));
         }
         .atf-number {
             font-family: 'Cinzel', serif;
@@ -325,52 +425,85 @@
             font-weight: 700;
             color: var(--text-main);
             line-height: 1;
+            transform: translateY(var(--atf-number-offset));
         }
 
-        /* ITF wrapper */
-        .itf-wrapper {
+        /* ===== СТИЛИ ДЛЯ WTT ===== */
+        .wtt-wrapper {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             width: 100%;
             height: 100%;
-            padding: 15px 10px;
+            padding: 10px 0;
         }
-        .itf-logo {
+        .wtt-logo {
             max-height: 130px;
             width: auto;
             object-fit: contain;
-            margin-top: -35px;
-            margin-bottom: 5px;
+            animation: pulse-glow-wtt 2.8s ease-in-out infinite;
         }
-        .itf-label {
+        @keyframes pulse-glow-wtt {
+            0% { opacity: 1; filter: brightness(1) drop-shadow(0 0 0px rgba(212, 175, 55, 0)); }
+            50% { opacity: 0.2; filter: brightness(0.4) drop-shadow(0 0 25px rgba(212, 175, 55, 0.4)); }
+            100% { opacity: 1; filter: brightness(1) drop-shadow(0 0 0px rgba(212, 175, 55, 0)); }
+        }
+        .wtt-label {
             font-size: 0.85rem;
             font-weight: 600;
             color: var(--text-main);
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             text-align: center;
+            margin-top: -20px;
         }
-        .itf-number {
+        .wtt-number {
             font-family: 'Cinzel', serif;
-            font-size: 3rem;
+            font-size: 2.8rem;
             font-weight: 700;
             color: var(--text-main);
             text-align: center;
-            line-height: 1.2;
-            transform: translateY(10px);
+            line-height: 1;
         }
 
-        /* Принудительно 800x800 для всех шести окон */
+        /* ===== ИНДИВИДУАЛЬНЫЕ СТИЛИ ДЛЯ 7-ГО ОКНА (WTT Singles) ===== */
+        .stat-item:nth-child(7) .wtt-logo {
+            transform: translateY(var(--wtt-singles-logo-offset));
+            animation-delay: 0.3s;
+        }
+        .stat-item:nth-child(7) .wtt-label {
+            transform: translateY(var(--wtt-singles-label-offset));
+        }
+        .stat-item:nth-child(7) .wtt-number {
+            transform: translateY(var(--wtt-singles-number-offset));
+        }
+        .stat-item:nth-child(7) .wtt-icon-wrapper {
+            transform: translateY(var(--wtt-singles-icon-offset));
+        }
+
+        /* ===== ИНДИВИДУАЛЬНЫЕ СТИЛИ ДЛЯ 8-ГО ОКНА (WTT Doubles) ===== */
+        .stat-item:nth-child(8) .wtt-logo {
+            transform: translateY(var(--wtt-doubles-logo-offset));
+            animation-delay: 0.9s;
+        }
+        .stat-item:nth-child(8) .wtt-label {
+            transform: translateY(var(--wtt-doubles-label-offset));
+        }
+        .stat-item:nth-child(8) .wtt-number {
+            transform: translateY(var(--wtt-doubles-number-offset));
+        }
+        .stat-item:nth-child(8) .wtt-icon-wrapper {
+            transform: translateY(var(--wtt-doubles-icon-offset));
+        }
+
         .stat-item {
             width: 800px;
             height: 800px;
             flex-shrink: 0;
         }
 
-        /* Адаптив: на маленьких экранах окна становятся гибкими, но сохраняют пропорции */
         @media (max-width: 1700px) {
             .stat-item {
                 width: 100%;
@@ -387,7 +520,6 @@
             header { padding: 0 20px 50px 20px; }
             .container { padding: 80px 20px; }
             .stats-grid { grid-template-columns: repeat(2, 1fr); }
-            .stats-grid-second-row { grid-template-columns: repeat(2, 1fr); }
             .stat-item {
                 width: 100%;
                 height: auto;
@@ -399,14 +531,12 @@
 
         @media (max-width: 500px) {
             .stats-grid { grid-template-columns: 1fr; }
-            .stats-grid-second-row { grid-template-columns: 1fr; }
             .stat-item {
                 max-width: 100%;
                 max-height: 100%;
             }
         }
 
-        /* остальные стили (about, video, contact) без изменений */
         .grid-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -604,8 +734,9 @@
                 </div>
             </div>
 
-            <!-- Первый ряд: 5 окон 800x800 -->
+            <!-- ===== ВСЕ 8 ОКОН В ОДНОЙ СЕТКЕ ПО ПОРЯДКУ ===== -->
             <div class="stats-grid">
+
                 <!-- 1. Одиночный UTR -->
                 <div class="stat-item stat-item-content" style="border-top: 3px solid var(--accent-gold);">
                     <div class="stat-header">
@@ -613,9 +744,7 @@
                             <img src="images/utr-logo.png" alt="UTR Logo" class="logo-utr">
                         </div>
                     </div>
-                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 5px; color: var(--accent-gold);">
-                        <span style="font-family: 'Cinzel', serif; font-size: 1.1rem; font-weight: 700; letter-spacing: 2px;">
-                        </span>
+                    <div style="display: flex; justify-content: center; align-items: center; gap: 15px; margin-bottom: 5px; color: var(--accent-gold); width: 100%;">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                             <circle cx="12" cy="7" r="4"></circle>
@@ -632,15 +761,14 @@
                     <div class="stat-number">7.51</div>
                 </div>
 
-                <!-- 2. Парный UTR (исправлено: убрана надпись UTR) -->
+                <!-- 2. Парный UTR -->
                 <div class="stat-item stat-item-content" style="border-top: 3px solid var(--accent-gold);">
                     <div class="stat-header">
                         <div class="stat-header-left">
                             <img src="images/utr-logo.png" alt="UTR Logo" class="logo-utr">
                         </div>
                     </div>
-                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 5px; color: var(--accent-gold);">
-                        <!-- Убрана надпись UTR, оставлены только иконки -->
+                    <div style="display: flex; justify-content: center; align-items: center; gap: 15px; margin-bottom: 5px; color: var(--accent-gold); width: 100%;">
                         <svg width="22" height="20" viewBox="0 0 28 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M5 21v-2a4 4 0 0 1 4-4h1"></path>
                             <circle cx="9" cy="7" r="3"></circle>
@@ -664,7 +792,7 @@
                 <div class="stat-item stat-item-content" style="border-top: 3px solid var(--accent-gold);">
                     <div class="stat-header" style="width: 100%; height: 100%; padding: 15px;">
                         <div class="itf-wrapper">
-                            <img src="images/world-tennis-logo.png" alt="World Tennis Logo" class="itf-logo">
+                            <img src="images/world-tennis-logo.png" alt="World Tennis Logo" class="logo-itf">
                             <div class="itf-label">
                                 <span class="en-text">RANKING</span>
                                 <span class="ru-text">РЕЙТИНГ</span>
@@ -691,15 +819,12 @@
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Второй ряд: 1 окно (ATF) 800x800 -->
-            <div class="stats-grid-second-row">
                 <!-- 6. ATF -->
-                <div class="stat-item stat-item-content" style="border-top: 3px solid var(--accent-gold); grid-column: 1 / 2;">
+                <div class="stat-item stat-item-content" style="border-top: 3px solid var(--accent-gold);">
                     <div class="stat-header" style="width: 100%; height: 100%;">
                         <div class="atf-wrapper">
-                            <img src="images/atf-logo.png" alt="ATF Logo" class="atf-logo">
+                            <img src="images/atf-logo.png" alt="ATF Logo" class="logo-atf">
                             <div class="atf-label">
                                 <span class="en-text">RANKING</span>
                                 <span class="ru-text">РЕЙТИНГ</span>
@@ -708,7 +833,53 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- 7. WORLD TENNIS TITLES SINGLES -->
+                <div class="stat-item stat-item-content" style="border-top: 3px solid var(--accent-gold);">
+                    <div class="stat-header" style="width: 100%; height: 100%;">
+                        <div class="wtt-wrapper">
+                            <img src="images/world-tennis-logo.png" alt="World Tennis Logo" class="wtt-logo">
+                            <div class="wtt-icon-wrapper" style="display: flex; justify-content: center; align-items: center; gap: 15px; margin-bottom: 5px; color: var(--accent-gold); width: 100%;">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                            </div>
+                            <div class="wtt-label">
+                                <span class="en-text">SINGLES TITLES</span>
+                                <span class="ru-text">ОДИНОЧНЫЙ ТИТУЛ</span>
+                            </div>
+                            <div class="wtt-number">0</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8. WORLD TENNIS TITLES DOUBLES -->
+                <div class="stat-item stat-item-content" style="border-top: 3px solid var(--accent-gold);">
+                    <div class="stat-header" style="width: 100%; height: 100%;">
+                        <div class="wtt-wrapper">
+                            <img src="images/world-tennis-logo.png" alt="World Tennis Logo" class="wtt-logo">
+                            <div class="wtt-icon-wrapper" style="display: flex; justify-content: center; align-items: center; gap: 15px; margin-bottom: 5px; color: var(--accent-gold); width: 100%;">
+                                <svg width="22" height="20" viewBox="0 0 28 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 21v-2a4 4 0 0 1 4-4h1"></path>
+                                    <circle cx="9" cy="7" r="3"></circle>
+                                    <path d="M17 21v-2a4 4 0 0 1 4-4h1"></path>
+                                    <circle cx="21" cy="7" r="3"></circle>
+                                    <path d="M17 17h-4"></path>
+                                </svg>
+                            </div>
+                            <div class="wtt-label">
+                                <span class="en-text">DOUBLES TITLES</span>
+                                <span class="ru-text">ПАРНЫЙ ТИТУЛ</span>
+                            </div>
+                            <div class="wtt-number">2</div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
+            <!-- ===== КОНЕЦ ВСЕХ 8 ОКОН ===== -->
+
         </section>
 
         <section id="about">
