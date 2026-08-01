@@ -462,6 +462,132 @@
             100% { opacity: 1; filter: brightness(1) drop-shadow(0 0 0px rgba(212, 175, 55, 0)); }
         }
 
+        /* ===== ОБЩИЕ СТИЛИ ДЛЯ ХЕДЕРОВ ===== */
+        .stat-header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+        }
+
+        .stat-header-left {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+        }
+
+        .wtt-icon-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 5px;
+            color: var(--accent-gold);
+            width: 100%;
+        }
+
+        .wtt-icon-wrapper svg {
+            width: clamp(16px, 2vw, 22px);
+            height: auto;
+        }
+
+        /* ===== СТИЛИ ДЛЯ ITF (ОКНО 3) ===== */
+        .itf-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            padding: clamp(5px, 1.5vw, 15px);
+        }
+
+        .itf-label {
+            font-size: clamp(0.6rem, 0.8vw, 0.85rem);
+            font-weight: 600;
+            color: var(--text-main);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: clamp(10px, 3vw, 50px);
+            text-align: center;
+        }
+
+        .itf-number {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.5rem, 3vw, 3rem);
+            font-weight: 700;
+            color: var(--text-main);
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        /* ===== СТИЛИ ДЛЯ ATF (ОКНО 6) ===== */
+        .atf-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            padding: clamp(5px, 1.5vw, 10px) 0;
+        }
+
+        .atf-label {
+            font-size: clamp(0.6rem, 0.8vw, 0.85rem);
+            font-weight: 600;
+            color: var(--text-main);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: clamp(5px, 1.5vw, 20px);
+            text-align: center;
+            margin-top: clamp(-10px, -2vw, -30px);
+            transform: translateY(var(--atf-label-offset));
+        }
+
+        .atf-number {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.5rem, 2.8vw, 2.8rem);
+            font-weight: 700;
+            color: var(--text-main);
+            line-height: 1;
+            transform: translateY(var(--atf-number-offset));
+        }
+
+        /* ===== СТИЛИ ДЛЯ WTT (ОКНА 7 И 8) ===== */
+        .wtt-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            padding: clamp(5px, 1.5vw, 10px) 0;
+        }
+
+        .wtt-label {
+            font-size: clamp(0.5rem, 0.7vw, 0.85rem);
+            font-weight: 600;
+            color: var(--text-main);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: clamp(5px, 2vw, 30px);
+            text-align: center;
+            margin-top: clamp(-5px, -1.5vw, -20px);
+        }
+
+        .wtt-number {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.5rem, 2.8vw, 2.8rem);
+            font-weight: 700;
+            color: var(--text-main);
+            text-align: center;
+            line-height: 1;
+        }
+
         /* ===== ИНДИВИДУАЛЬНЫЕ СТИЛИ ДЛЯ ОКОН ===== */
         .stat-item:nth-child(1) .logo-utr {
             transform: translateY(var(--utr-singles-logo-offset));
@@ -495,6 +621,16 @@
             transform: translateY(var(--itf-number-offset));
         }
 
+        .stat-item:nth-child(6) .logo-atf {
+            transform: translateY(var(--atf-logo-offset));
+        }
+        .stat-item:nth-child(6) .atf-label {
+            transform: translateY(var(--atf-label-offset));
+        }
+        .stat-item:nth-child(6) .atf-number {
+            transform: translateY(var(--atf-number-offset));
+        }
+
         .stat-item:nth-child(7) .wtt-logo {
             transform: translateY(var(--wtt-singles-logo-offset));
             animation-delay: 0.3s;
@@ -521,120 +657,6 @@
         }
         .stat-item:nth-child(8) .wtt-icon-wrapper {
             transform: translateY(var(--wtt-doubles-icon-offset));
-        }
-
-        .stat-header {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            width: 100%;
-            height: 100%;
-        }
-
-        .stat-header-left {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            width: 100%;
-        }
-
-        .itf-wrapper {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            height: 100%;
-            padding: clamp(5px, 1.5vw, 15px);
-        }
-        .itf-label {
-            font-size: clamp(0.6rem, 0.8vw, 0.85rem);
-            font-weight: 600;
-            color: var(--text-main);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: clamp(10px, 3vw, 50px);
-            text-align: center;
-        }
-        .itf-number {
-            font-family: 'Cinzel', serif;
-            font-size: clamp(1.5rem, 3vw, 3rem);
-            font-weight: 700;
-            color: var(--text-main);
-            text-align: center;
-            line-height: 1.2;
-        }
-
-        .atf-wrapper {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            height: 100%;
-            padding: clamp(5px, 1.5vw, 10px) 0;
-        }
-        .atf-label {
-            font-size: clamp(0.6rem, 0.8vw, 0.85rem);
-            font-weight: 600;
-            color: var(--text-main);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: clamp(5px, 1.5vw, 20px);
-            text-align: center;
-            margin-top: clamp(-10px, -2vw, -30px);
-            transform: translateY(var(--atf-label-offset));
-        }
-        .atf-number {
-            font-family: 'Cinzel', serif;
-            font-size: clamp(1.5rem, 2.8vw, 2.8rem);
-            font-weight: 700;
-            color: var(--text-main);
-            line-height: 1;
-            transform: translateY(var(--atf-number-offset));
-        }
-
-        .wtt-wrapper {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            height: 100%;
-            padding: clamp(5px, 1.5vw, 10px) 0;
-        }
-        .wtt-label {
-            font-size: clamp(0.5rem, 0.7vw, 0.85rem);
-            font-weight: 600;
-            color: var(--text-main);
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: clamp(5px, 2vw, 30px);
-            text-align: center;
-            margin-top: clamp(-5px, -1.5vw, -20px);
-        }
-        .wtt-number {
-            font-family: 'Cinzel', serif;
-            font-size: clamp(1.5rem, 2.8vw, 2.8rem);
-            font-weight: 700;
-            color: var(--text-main);
-            text-align: center;
-            line-height: 1;
-        }
-        .wtt-icon-wrapper {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 5px;
-            color: var(--accent-gold);
-            width: 100%;
-        }
-        .wtt-icon-wrapper svg {
-            width: clamp(16px, 2vw, 22px);
-            height: auto;
         }
 
         /* ===== ABOUT ===== */
@@ -776,8 +798,6 @@
         }
 
         /* ===== АДАПТИВНОСТЬ ===== */
-
-        /* Планшеты и маленькие ноутбуки */
         @media (max-width: 1200px) {
             .stats-grid {
                 grid-template-columns: repeat(4, 1fr);
@@ -836,6 +856,65 @@
             #hero-slider {
                 min-height: 400px;
                 padding-bottom: 40px;
+            }
+
+            /* Исправления для окон 3, 7, 8 на мобильных */
+            .stat-item:nth-child(3) .itf-wrapper {
+                padding: 5px;
+            }
+            .stat-item:nth-child(3) .itf-label {
+                font-size: 0.5rem;
+                margin-bottom: 5px;
+            }
+            .stat-item:nth-child(3) .itf-number {
+                font-size: 1.2rem;
+            }
+            .stat-item:nth-child(3) .logo-itf {
+                max-height: 40px;
+            }
+
+            .stat-item:nth-child(7) .wtt-wrapper,
+            .stat-item:nth-child(8) .wtt-wrapper {
+                padding: 5px 0;
+            }
+            .stat-item:nth-child(7) .wtt-label,
+            .stat-item:nth-child(8) .wtt-label {
+                font-size: 0.45rem;
+                margin-bottom: 3px;
+                margin-top: -5px;
+                letter-spacing: 0.5px;
+            }
+            .stat-item:nth-child(7) .wtt-number,
+            .stat-item:nth-child(8) .wtt-number {
+                font-size: 1.2rem;
+            }
+            .stat-item:nth-child(7) .wtt-logo,
+            .stat-item:nth-child(8) .wtt-logo {
+                max-height: 40px;
+            }
+            .stat-item:nth-child(7) .wtt-icon-wrapper,
+            .stat-item:nth-child(8) .wtt-icon-wrapper {
+                gap: 8px;
+                margin-bottom: 2px;
+            }
+            .stat-item:nth-child(7) .wtt-icon-wrapper svg,
+            .stat-item:nth-child(8) .wtt-icon-wrapper svg {
+                width: 14px;
+            }
+
+            .stat-item:nth-child(6) .atf-wrapper {
+                padding: 5px 0;
+            }
+            .stat-item:nth-child(6) .atf-label {
+                font-size: 0.5rem;
+                margin-bottom: 3px;
+                margin-top: -5px;
+            }
+            .stat-item:nth-child(6) .atf-number {
+                font-size: 1.2rem;
+            }
+            .stat-item:nth-child(6) .logo-atf {
+                max-height: 35px;
             }
         }
 
@@ -907,11 +986,17 @@
             }
             
             .logo-utr, .logo-itf, .logo-atf, .wtt-logo {
-                max-height: 35px;
+                max-height: 30px;
+            }
+
+            .stat-item:nth-child(3) .itf-number,
+            .stat-item:nth-child(6) .atf-number,
+            .stat-item:nth-child(7) .wtt-number,
+            .stat-item:nth-child(8) .wtt-number {
+                font-size: 1rem;
             }
         }
 
-        /* Для очень больших экранов */
         @media (min-width: 1920px) {
             .container {
                 max-width: 1600px;
