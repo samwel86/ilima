@@ -112,19 +112,55 @@
         }
         .lang-switch:hover { border-color: var(--accent-gold); color: var(--accent-gold); }
 
-        header {
+        /* ===== СТИЛИ ДЛЯ НОВОГО СЛАЙДЕРА В ШАПКЕ (БЕЗ ЗУМА) ===== */
+        #hero-slider {
+            position: relative;
             height: 100vh;
+            padding: 0 60px 80px 60px;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            padding: 0 60px 80px 60px;
-            position: relative;
+            overflow: hidden;
             background-color: #050505;
-            background-image: linear-gradient(0deg, #050505 0%, rgba(5,5,5,0.2) 40%, rgba(5,5,5,0.6) 100%), 
-                              url('ilima-hero.jpg');
-            background-repeat: no-repeat;
-            background-position: center 10%;
-            background-size: 95% auto;
+        }
+
+        .hero-slides {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .hero-slides .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 20%;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+
+        .hero-slides .slide.active {
+            opacity: 1;
+        }
+
+        /* Затемнение поверх фото, чтобы текст читался как в оригинале */
+        .hero-slides::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(0deg, #050505 0%, rgba(5,5,5,0.2) 40%, rgba(5,5,5,0.6) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
         }
 
         .hero-subtitle {
@@ -136,7 +172,7 @@
             font-weight: 700;
         }
 
-        header h1 {
+        #hero-slider h1 {
             font-family: 'Cinzel', serif;
             font-size: clamp(3rem, 7vw, 6.5rem);
             font-weight: 700;
@@ -517,7 +553,7 @@
         @media (max-width: 900px) {
             nav { padding: 20px 20px; }
             .nav-links { display: none; }
-            header { padding: 0 20px 50px 20px; }
+            #hero-slider { padding: 0 20px 50px 20px; }
             .container { padding: 80px 20px; }
             .stats-grid { grid-template-columns: repeat(2, 1fr); }
             .stat-item {
@@ -693,28 +729,41 @@
         <button class="lang-switch" id="langToggle">RU</button>
     </nav>
 
-    <header>
-        <div class="hero-subtitle">
-            <span class="en-text"></span>
-            <span class="ru-text"></span>
+    <!-- ЗАМЕНЕННЫЙ HEADER СО СЛАЙДЕРОМ -->
+    <header id="hero-slider">
+        <div class="hero-slides">
+            <img src="images/ilima-hero-1.jpg" class="slide active" alt="Ilima Tennis 1">
+            <img src="images/ilima-hero-2.jpg" class="slide" alt="Ilima Tennis 2">
+            <img src="images/ilima-hero-3.jpg" class="slide" alt="Ilima Tennis 3">
+            <img src="images/ilima-hero-4.jpg" class="slide" alt="Ilima Tennis 4">
+            <img src="images/ilima-hero-5.jpg" class="slide" alt="Ilima Tennis 5">
+            <img src="images/ilima-hero-6.jpg" class="slide" alt="Ilima Tennis 6">
+            <img src="images/ilima-hero-7.jpg" class="slide" alt="Ilima Tennis 7">
         </div>
-        <h1>
-            <span class="en-text"></span>
-            <span class="ru-text"></span>
-        </h1>
-        <p class="hero-desc">
-            <span class="en-text">High-performance competitive tennis athlete dedicated to achieving elite athletic benchmarks and academic success at the collegiate level in the United States.</span>
-            <span class="ru-text">Профессиональная теннисистка, нацеленная на достижение высоких спортивных результатов и академического успеха в университетской лиге США.</span>
-        </p>
-        <div class="hero-actions">
-            <a href="#contact" class="btn-primary">
-                <span class="en-text">Coaches Portal</span>
-                <span class="ru-text">Портал для тренеров</span>
-            </a>
-            <a href="#media" class="btn-outline">
-                <span class="en-text">Watch Highlights</span>
-                <span class="ru-text">Смотреть хайлайты</span>
-            </a>
+
+        <div class="hero-content">
+            <div class="hero-subtitle">
+                <span class="en-text"></span>
+                <span class="ru-text"></span>
+            </div>
+            <h1>
+                <span class="en-text"></span>
+                <span class="ru-text"></span>
+            </h1>
+            <p class="hero-desc">
+                <span class="en-text">High-performance competitive tennis athlete dedicated to achieving elite athletic benchmarks and academic success at the collegiate level in the United States.</span>
+                <span class="ru-text">Профессиональная теннисистка, нацеленная на достижение высоких спортивных результатов и академического успеха в университетской лиге США.</span>
+            </p>
+            <div class="hero-actions">
+                <a href="#contact" class="btn-primary">
+                    <span class="en-text">Coaches Portal</span>
+                    <span class="ru-text">Портал для тренеров</span>
+                </a>
+                <a href="#media" class="btn-outline">
+                    <span class="en-text">Watch Highlights</span>
+                    <span class="ru-text">Смотреть хайлайты</span>
+                </a>
+            </div>
         </div>
     </header>
 
@@ -1080,6 +1129,18 @@
                 document.body.classList.remove('lang-ru');
             }
         });
+
+        // --- Скрипт слайд-шоу шапки ---
+        const slides = document.querySelectorAll('.hero-slides .slide');
+        let currentSlide = 0;
+
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        setInterval(nextSlide, 5000);
     </script>
 
 </body>
