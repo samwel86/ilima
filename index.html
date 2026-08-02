@@ -832,6 +832,11 @@
                 right: 5px;
             }
         }
+
+        /* ===== ДОПОЛНИТЕЛЬНЫЕ СТИЛИ ДЛЯ TIKTOK ПЛЕЕРА ===== */
+        .tiktok-embed {
+            margin: 0 auto !important;
+        }
     </style>
 </head>
 <body>
@@ -1176,18 +1181,39 @@
                 </div>
             </div>
             <div class="video-grid">
+                <!-- ПЕРВОЕ ВИДЕО: TIKTOK (ЗАМЕНА) -->
+                <div class="video-card">
+                    <div class="video-frame">
+                        <blockquote class="tiktok-embed" 
+                            cite="https://www.tiktok.com/@ilima.guseynova/video/7600784149879721237" 
+                            data-video-id="7600784149879721237" 
+                            data-embed-from="oembed" 
+                            style="max-width:100%; min-width:100%; position:absolute; top:0; left:0; width:100%; height:100%; margin:0; border:none;">
+                            <section>
+                                <a target="_blank" title="@ilima.guseynova" href="https://www.tiktok.com/@ilima.guseynova?refer=embed">@ilima.guseynova</a>
+                                <p>Тренировка подачи 185км/ч 
+                                    <a title="tennis" target="_blank" href="https://www.tiktok.com/tag/tennis?refer=embed">#tennis</a>
+                                    <a title="тренировканакорте" target="_blank" href="https://www.tiktok.com/tag/%D1%82%D1%80%D0%B5%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%BA%D0%B0%D0%BD%D0%B0%D0%BA%D0%BE%D1%80%D1%82%D0%B5?refer=embed">#тренировканакорте</a>
+                                    <a title="теннис" target="_blank" href="https://www.tiktok.com/tag/%D1%82%D0%B5%D0%BD%D0%BD%D0%B8%D1%81?refer=embed">#теннис</a>
+                                    <a title="илимагусейнова" target="_blank" href="https://www.tiktok.com/tag/%D0%B8%D0%BB%D0%B8%D0%BC%D0%B0%D0%B3%D1%83%D1%81%D0%B5%D0%B9%D0%BD%D0%BE%D0%B2%D0%B0?refer=embed">#илимагусейнова</a>
+                                    <a title="tennisplayer" target="_blank" href="https://www.tiktok.com/tag/tennisplayer?refer=embed">#tennisplayer</a>
+                                    @KirschbaumArgentina @ucf.wtennis @Athletic sport @tkm_sport1 @adidas @hyundai_turkmenistan @Wilson Tennis @Babolat oficial @Nike @tecnifibretr @Nury Tekaev @polinagurewa @PUMA @milliresmihabarlar @sportportal.tm @𝗧𝗨𝗥𝗞𝗠𝗘𝗡𝗣𝗢𝗥𝗧𝗔𝗟 @turkmensport
+                                </p>
+                                <a target="_blank" title="♬ оригинальный звук - ilima guseynova" href="https://www.tiktok.com/music/оригинальный-звук-7600784195703212807?refer=embed">♬ оригинальный звук - ilima guseynova</a>
+                            </section>
+                        </blockquote>
+                        <script async src="https://www.tiktok.com/embed.js"></script>
+                    </div>
+                    <div class="video-info">
+                        <span class="en-text">TikTok Highlights // Serve Practice 185km/h</span>
+                        <span class="ru-text">TikTok Хайлайты // Тренировка подачи 185км/ч</span>
+                    </div>
+                </div>
+
+                <!-- ВТОРОЕ ВИДЕО: YOUTUBE (оставлен) -->
                 <div class="video-card">
                     <div class="video-frame">
                         <iframe src="https://www.youtube.com/embed/tGcM8NB9OCs" allowfullscreen></iframe>
-                    </div>
-                    <div class="video-info">
-                        <span class="en-text">Singles Match Footage // Tournament Season</span>
-                        <span class="ru-text">Одиночные матчи // Турнирный сезон</span>
-                    </div>
-                </div>
-                <div class="video-card">
-                    <div class="video-frame">
-                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
                     </div>
                     <div class="video-info">
                         <span class="en-text">Practice Sessions & Drills Overview</span>
@@ -1303,7 +1329,7 @@
 
         function resetInterval() {
             clearInterval(slideInterval);
-            slideInterval = setInterval(nextSlide, 2300); // ← ИЗМЕНЕНО НА 3 СЕКУНДЫ
+            slideInterval = setInterval(nextSlide, 2300);
         }
 
         document.getElementById('arrowRight').addEventListener('click', () => {
@@ -1316,7 +1342,7 @@
             resetInterval();
         });
 
-        slideInterval = setInterval(nextSlide, 2300); // ← ИЗМЕНЕНО НА 3 СЕКУНДЫ
+        slideInterval = setInterval(nextSlide, 2300);
     </script>
 
 </body>
