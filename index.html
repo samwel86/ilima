@@ -752,49 +752,53 @@
             text-transform: uppercase;
         }
 
-        /* ===== СТИЛИ ДЛЯ СТРЕЛОК СЛАЙДЕРА (БЕЗ КРУГА) ===== */
+        /* ===== СТИЛИ ДЛЯ СТРЕЛОК СЛАЙДЕРА ===== */
         .slider-arrow {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
             z-index: 10;
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 4rem;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             cursor: pointer;
-            user-select: none;
+            font-size: 2rem;
             transition: all 0.3s ease;
-            text-shadow: 0 0 20px rgba(0,0,0,0.8);
-            font-weight: 300;
-            line-height: 1;
-            padding: 0 15px;
-            background: none;
-            border: none;
-            font-family: 'Georgia', serif;
+            user-select: none;
         }
 
         .slider-arrow:hover {
-            color: var(--accent-gold);
-            transform: translateY(-50%) scale(1.2);
+            background: rgba(212, 175, 55, 0.7);
+            border-color: var(--accent-gold);
+            transform: translateY(-50%) scale(1.1);
         }
 
         .slider-arrow-left {
-            left: 15px;
+            left: 20px;
         }
 
         .slider-arrow-right {
-            right: 15px;
+            right: 20px;
         }
 
         @media (max-width: 600px) {
             .slider-arrow {
-                font-size: 2.5rem;
-                padding: 0 10px;
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
             }
             .slider-arrow-left {
-                left: 5px;
+                left: 10px;
             }
             .slider-arrow-right {
-                right: 5px;
+                right: 10px;
             }
         }
     </style>
@@ -830,19 +834,21 @@
     <!-- СЛАЙДЕР С ИНДИВИДУАЛЬНЫМИ ПОЗИЦИЯМИ ДЛЯ КАЖДОГО ФОТО -->
     <header id="hero-slider">
         <div class="hero-slides">
-            <img src="images/ilima-hero-1.jpg" class="slide active" alt="Ilima Tennis 1" style="object-position: center   0%;">
-            <img src="images/ilima-hero-2.jpg" class="slide" alt="Ilima Tennis 2" style="object-position: center   0%;">
-            <img src="images/ilima-hero-3.jpg" class="slide" alt="Ilima Tennis 3" style="object-position: center   0%;">
-            <img src="images/ilima-hero-4.jpg" class="slide" alt="Ilima Tennis 4" style="object-position: center   0%;">
-            <img src="images/ilima-hero-5.jpg" class="slide" alt="Ilima Tennis 5" style="object-position: center   0%;">
-            <img src="images/ilima-hero-6.jpg" class="slide" alt="Ilima Tennis 6" style="object-position: center   0%;">
-            <img src="images/ilima-hero-7.jpg" class="slide" alt="Ilima Tennis 7" style="object-position: center   0%;">
-            <img src="images/ilima-hero-8.jpg" class="slide" alt="Ilima Tennis 8" style="object-position: center   0%;">
+            <!-- Для каждого фото добавлен style="object-position: center X%;" -->
+            <!-- Меняйте число от 0% до 100% для поднятия/опускания фото -->
+            <img src="images/ilima-hero-1.jpg" class="slide active" alt="Ilima Tennis 1" style="object-position: center 0%;">
+            <img src="images/ilima-hero-2.jpg" class="slide" alt="Ilima Tennis 2" style="object-position: center 0%;">
+            <img src="images/ilima-hero-3.jpg" class="slide" alt="Ilima Tennis 3" style="object-position: center 0%;">
+            <img src="images/ilima-hero-4.jpg" class="slide" alt="Ilima Tennis 4" style="object-position: center 0%;">
+            <img src="images/ilima-hero-5.jpg" class="slide" alt="Ilima Tennis 5" style="object-position: center 0%;">
+            <img src="images/ilima-hero-6.jpg" class="slide" alt="Ilima Tennis 6" style="object-position: center 0%;">
+            <img src="images/ilima-hero-7.jpg" class="slide" alt="Ilima Tennis 7" style="object-position: center 0%;">
+			<img src="images/ilima-hero-8.jpg" class="slide" alt="Ilima Tennis 8" style="object-position: center 0%;">
         </div>
 
-        <!-- СТРЕЛКИ БЕЗ КРУГА -->
-        <button class="slider-arrow slider-arrow-left" id="arrowLeft">‹</button>
-        <button class="slider-arrow slider-arrow-right" id="arrowRight">›</button>
+        <!-- СТРЕЛКИ ДЛЯ ПЕРЕКЛЮЧЕНИЯ ФОТО -->
+        <div class="slider-arrow slider-arrow-left" id="arrowLeft">‹</div>
+        <div class="slider-arrow slider-arrow-right" id="arrowRight">›</div>
 
         <div class="hero-content">
             <div class="hero-subtitle">
@@ -886,6 +892,7 @@
                 </div>
             </div>
 
+            <!-- ===== ВСЕ 8 ОКОН В ОДНОЙ СЕТКЕ ПО ПОРЯДКУ ===== -->
             <div class="stats-grid">
 
                 <!-- 1. Одиночный UTR -->
@@ -1029,6 +1036,7 @@
                 </div>
 
             </div>
+            <!-- ===== КОНЕЦ ВСЕХ 8 ОКОН ===== -->
 
         </section>
 
@@ -1252,11 +1260,13 @@
             showSlide(currentSlide);
         }
 
+        // Останавливаем автопрокрутку при ручном управлении
         function resetInterval() {
             clearInterval(slideInterval);
-            slideInterval = setInterval(nextSlide, 2300); // ← ИЗМЕНЕНО НА 3 СЕКУНДЫ
+            slideInterval = setInterval(nextSlide, 5000);
         }
 
+        // Кнопки
         document.getElementById('arrowRight').addEventListener('click', () => {
             nextSlide();
             resetInterval();
@@ -1267,7 +1277,8 @@
             resetInterval();
         });
 
-        slideInterval = setInterval(nextSlide, 2300); // ← ИЗМЕНЕНО НА 3 СЕКУНДЫ
+        // Запускаем автопрокрутку
+        slideInterval = setInterval(nextSlide, 5000);
     </script>
 
 </body>
