@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
     <title>Ilima Guseynova // Official Athlete Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
@@ -13,7 +13,7 @@
             --text-main: #FFFFFF;
             --text-muted: #8E8E93;
             --border-color: rgba(255, 255, 255, 0.1);
-            
+
             /* Переменные для 1-го окна (UTR Singles) */
             --utr-singles-logo-offset: 0px;
             --utr-singles-label-offset: 0px;
@@ -52,6 +52,11 @@
             --flag-top: 50%;
             --flag-left: 0px;
             --flag-rotate: 0deg;
+
+            /* Переменные для 9-го окна (ATF TITLES) - теперь как в 8-м */
+            --atf-titles-logo-offset: -25px;
+            --atf-titles-label-offset: 20px;
+            --atf-titles-number-offset: 10px;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
@@ -98,7 +103,6 @@
             line-height: 1;
         }
 
-        /* ===== ФЛАГ (АБСОЛЮТНОЕ ПОЗИЦИОНИРОВАНИЕ) ===== */
         .logo-flag {
             display: inline-block;
             width: var(--flag-width);
@@ -149,7 +153,6 @@
         }
         .lang-switch:hover { border-color: var(--accent-gold); color: var(--accent-gold); }
 
-        /* ===== СТИЛИ ДЛЯ НОВОГО СЛАЙДЕРА В ШАПКЕ ===== */
         #hero-slider {
             position: relative;
             height: 100vh;
@@ -185,7 +188,6 @@
             opacity: 1;
         }
 
-        /* Затемнение поверх фото */
         .hero-slides::after {
             content: '';
             position: absolute;
@@ -348,7 +350,6 @@
             text-align: center;
         }
 
-        /* ===== ОБЩИЕ СТИЛИ ДЛЯ UTR ===== */
         .logo-utr {
             max-height: 100px;
             width: auto;
@@ -362,7 +363,6 @@
             100% { transform: translateY(0px); }
         }
 
-        /* ===== ИНДИВИДУАЛЬНЫЕ СТИЛИ ДЛЯ 1-ГО ОКНА (UTR Singles) ===== */
         .stat-item:nth-child(1) .logo-utr {
             transform: translateY(var(--utr-singles-logo-offset));
             animation-delay: 0s;
@@ -374,7 +374,6 @@
             transform: translateY(var(--utr-singles-number-offset));
         }
 
-        /* ===== ИНДИВИДУАЛЬНЫЕ СТИЛИ ДЛЯ 2-ГО ОКНА (UTR Doubles) ===== */
         .stat-item:nth-child(2) .logo-utr {
             transform: translateY(var(--utr-doubles-logo-offset));
             animation-delay: 0.8s;
@@ -386,7 +385,6 @@
             transform: translateY(var(--utr-doubles-number-offset));
         }
 
-        /* ===== СТИЛИ ДЛЯ ITF ===== */
         .logo-itf {
             max-height: 130px;
             width: auto;
@@ -427,7 +425,6 @@
             line-height: 1.2;
         }
 
-        /* ===== ИНДИВИДУАЛЬНЫЕ СТИЛИ ДЛЯ 3-ГО ОКНА (ITF) ===== */
         .stat-item:nth-child(3) .logo-itf {
             transform: translateY(var(--itf-logo-offset));
         }
@@ -438,7 +435,6 @@
             transform: translateY(var(--itf-number-offset));
         }
 
-        /* ===== СТИЛИ ДЛЯ ATF ===== */
         .logo-atf {
             max-height: 90px;
             width: auto;
@@ -500,7 +496,6 @@
             transform: translateY(var(--atf-number-offset));
         }
 
-        /* ===== СТИЛИ ДЛЯ WTT ===== */
         .wtt-wrapper {
             display: flex;
             flex-direction: column;
@@ -540,7 +535,6 @@
             line-height: 1;
         }
 
-        /* ===== ИНДИВИДУАЛЬНЫЕ СТИЛИ ДЛЯ 7-ГО ОКНА (WTT Singles) ===== */
         .stat-item:nth-child(7) .wtt-logo {
             transform: translateY(var(--wtt-singles-logo-offset));
             animation-delay: 0.3s;
@@ -555,7 +549,6 @@
             transform: translateY(var(--wtt-singles-icon-offset));
         }
 
-        /* ===== ИНДИВИДУАЛЬНЫЕ СТИЛИ ДЛЯ 8-ГО ОКНА (WTT Doubles) ===== */
         .stat-item:nth-child(8) .wtt-logo {
             transform: translateY(var(--wtt-doubles-logo-offset));
             animation-delay: 0.9s;
@@ -568,6 +561,35 @@
         }
         .stat-item:nth-child(8) .wtt-icon-wrapper {
             transform: translateY(var(--wtt-doubles-icon-offset));
+        }
+
+        .stat-item:nth-child(9) .logo-atf-titles {
+            max-height: 100px;
+            width: auto;
+            object-fit: contain;
+            animation: pulse-glow-atf 2.8s ease-in-out infinite;
+            animation-delay: 0.7s;
+            transform: translateY(var(--atf-titles-logo-offset));
+        }
+        .stat-item:nth-child(9) .atf-titles-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-main);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            text-align: center;
+            margin-top: -20px;
+            transform: translateY(var(--atf-titles-label-offset));
+        }
+        .stat-item:nth-child(9) .atf-titles-number {
+            font-family: 'Cinzel', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--text-main);
+            text-align: center;
+            line-height: 1;
+            transform: translateY(var(--atf-titles-number-offset));
         }
 
         .stat-item {
@@ -586,40 +608,139 @@
             }
         }
 
+        /* ===== ОСНОВНЫЕ ПРАВКИ ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ ===== */
         @media (max-width: 900px) {
             nav { padding: 20px 20px; }
             .nav-links { display: none; }
             #hero-slider { padding: 0 20px 50px 20px; }
-            .container { padding: 80px 20px; }
-            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .container { padding: 60px 20px; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
             .stat-item {
                 width: 100%;
                 height: auto;
                 aspect-ratio: 1 / 1;
-                max-width: 400px;
-                max-height: 400px;
+                max-width: 100%;
+                max-height: 100%;
+                min-height: 0;
             }
+            .stat-number {
+                font-size: 1.8rem;
+            }
+            .stat-label {
+                font-size: 0.6rem;
+                letter-spacing: 1px;
+            }
+            .logo-utr { max-height: 60px; }
+            .logo-itf { max-height: 70px; }
+            .logo-atf { max-height: 60px; }
+            .wtt-logo { max-height: 70px; }
+            .stat-item:nth-child(9) .logo-atf-titles { max-height: 60px; }
+            .itf-number { font-size: 1.8rem; }
+            .atf-number { font-size: 1.8rem; }
+            .wtt-number { font-size: 1.8rem; }
+            .stat-item:nth-child(9) .atf-titles-number { font-size: 1.8rem; }
+            .itf-label { font-size: 0.6rem; margin-bottom: 20px; }
+            .atf-label { font-size: 0.6rem; margin-bottom: 10px; margin-top: -10px; }
+            .wtt-label { font-size: 0.6rem; margin-bottom: 10px; margin-top: -10px; }
+            .stat-item:nth-child(9) .atf-titles-label { font-size: 0.6rem; margin-bottom: 10px; margin-top: -10px; }
+            .stat-item-content { padding: 8px 6px; }
+            .wtt-wrapper { padding: 6px 0; }
+            .atf-wrapper { padding: 6px 0; }
+            .itf-wrapper { padding: 8px 6px; }
             .logo-wrapper {
                 padding-right: 80px;
             }
             .logo {
                 font-size: 1rem;
             }
+            .hero-actions {
+                flex-direction: column;
+                gap: 12px;
+            }
+            .btn-primary, .btn-outline {
+                text-align: center;
+                padding: 14px 20px;
+                font-size: 0.7rem;
+            }
+            .grid-2 {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .video-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .contact-box {
+                padding: 30px 20px;
+            }
+            .form-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .input-group.full { grid-column: span 1; }
+            .submit-btn { grid-column: span 1; }
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+                margin-bottom: 30px;
+            }
+            .slider-arrow {
+                font-size: 2.5rem;
+                padding: 0 8px;
+            }
+            .slider-arrow-left { left: 5px; }
+            .slider-arrow-right { right: 5px; }
         }
 
         @media (max-width: 500px) {
-            .stats-grid { grid-template-columns: 1fr; }
-            .stat-item {
-                max-width: 100%;
-                max-height: 100%;
-            }
-            .logo-wrapper {
-                padding-right: 60px;
-            }
-            .logo {
-                font-size: 0.85rem;
-                letter-spacing: 2px;
-            }
+            .stats-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+            .stat-item { aspect-ratio: 1 / 1; }
+            .stat-number { font-size: 1.4rem; }
+            .logo-utr { max-height: 45px; }
+            .logo-itf { max-height: 50px; }
+            .logo-atf { max-height: 45px; }
+            .wtt-logo { max-height: 50px; }
+            .stat-item:nth-child(9) .logo-atf-titles { max-height: 45px; }
+            .itf-number { font-size: 1.4rem; }
+            .atf-number { font-size: 1.4rem; }
+            .wtt-number { font-size: 1.4rem; }
+            .stat-item:nth-child(9) .atf-titles-number { font-size: 1.4rem; }
+            .stat-label { font-size: 0.5rem; letter-spacing: 0.5px; }
+            .itf-label { font-size: 0.5rem; }
+            .atf-label { font-size: 0.5rem; }
+            .wtt-label { font-size: 0.5rem; }
+            .stat-item:nth-child(9) .atf-titles-label { font-size: 0.5rem; }
+            .stat-item-content { padding: 4px 4px; }
+            .container { padding: 40px 12px; }
+            section { margin-bottom: 60px; }
+            .logo-wrapper { padding-right: 60px; }
+            .logo { font-size: 0.8rem; letter-spacing: 1px; }
+            .slider-arrow { font-size: 2rem; }
+            #hero-slider h1 { font-size: clamp(2rem, 10vw, 3rem); }
+            .hero-desc { font-size: 0.9rem; }
+            .slider-arrow-left { left: 2px; }
+            .slider-arrow-right { right: 2px; }
+        }
+
+        /* для очень маленьких экранов — ещё мельче */
+        @media (max-width: 380px) {
+            .stats-grid { gap: 5px; }
+            .stat-number { font-size: 1.1rem; }
+            .logo-utr { max-height: 35px; }
+            .logo-itf { max-height: 38px; }
+            .logo-atf { max-height: 35px; }
+            .wtt-logo { max-height: 38px; }
+            .stat-item:nth-child(9) .logo-atf-titles { max-height: 35px; }
+            .itf-number { font-size: 1.1rem; }
+            .atf-number { font-size: 1.1rem; }
+            .wtt-number { font-size: 1.1rem; }
+            .stat-item:nth-child(9) .atf-titles-number { font-size: 1.1rem; }
+            .stat-label { font-size: 0.4rem; }
+            .itf-label { font-size: 0.4rem; }
+            .atf-label { font-size: 0.4rem; }
+            .wtt-label { font-size: 0.4rem; }
+            .stat-item:nth-child(9) .atf-titles-label { font-size: 0.4rem; }
         }
 
         .grid-2 {
@@ -752,7 +873,6 @@
             text-transform: uppercase;
         }
 
-        /* ===== СТИЛИ ДЛЯ СТРЕЛОК СЛАЙДЕРА (БЕЗ КРУГА) ===== */
         .slider-arrow {
             position: absolute;
             top: 50%;
@@ -777,25 +897,13 @@
             transform: translateY(-50%) scale(1.2);
         }
 
-        .slider-arrow-left {
-            left: 15px;
-        }
-
-        .slider-arrow-right {
-            right: 15px;
-        }
+        .slider-arrow-left { left: 15px; }
+        .slider-arrow-right { right: 15px; }
 
         @media (max-width: 600px) {
-            .slider-arrow {
-                font-size: 2.5rem;
-                padding: 0 10px;
-            }
-            .slider-arrow-left {
-                left: 5px;
-            }
-            .slider-arrow-right {
-                right: 5px;
-            }
+            .slider-arrow { font-size: 2.5rem; padding: 0 10px; }
+            .slider-arrow-left { left: 5px; }
+            .slider-arrow-right { right: 5px; }
         }
     </style>
 </head>
@@ -827,7 +935,6 @@
         <button class="lang-switch" id="langToggle">RU</button>
     </nav>
 
-    <!-- СЛАЙДЕР С ИНДИВИДУАЛЬНЫМИ ПОЗИЦИЯМИ ДЛЯ КАЖДОГО ФОТО -->
     <header id="hero-slider">
         <div class="hero-slides">
             <img src="images/ilima-hero-1.jpg" class="slide active" alt="Ilima Tennis 1" style="object-position: center 0%;">
@@ -840,7 +947,6 @@
             <img src="images/ilima-hero-8.jpg" class="slide" alt="Ilima Tennis 8" style="object-position: center  -50%;">
         </div>
 
-        <!-- СТРЕЛКИ БЕЗ КРУГА -->
         <button class="slider-arrow slider-arrow-left" id="arrowLeft">‹</button>
         <button class="slider-arrow slider-arrow-right" id="arrowRight">›</button>
 
@@ -1028,6 +1134,20 @@
                     </div>
                 </div>
 
+                <!-- 9. ATF TITLES -->
+                <div class="stat-item stat-item-content" style="border-top: 3px solid var(--accent-gold);">
+                    <div class="stat-header" style="width: 100%; height: 100%;">
+                        <div class="atf-wrapper" style="padding: 10px 0;">
+                            <img src="images/atf-titles-logo.png" alt="ATF Titles Logo" class="logo-atf-titles">
+                            <div class="atf-titles-label">
+                                <span class="en-text">TITLES</span>
+                                <span class="ru-text">ТИТУЛЫ</span>
+                            </div>
+                            <div class="atf-titles-number">3</div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
         </section>
@@ -1129,20 +1249,20 @@
             <div class="video-grid">
                 <div class="video-card">
                     <div class="video-frame">
-                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                        <iframe src="https://1024terabox.com/s/1RhAmyn0CMqKy7jCHzH95hg" allowfullscreen></iframe>
                     </div>
                     <div class="video-info">
-                        <span class="en-text">Singles Match Footage // Tournament Season</span>
-                        <span class="ru-text">Одиночные матчи // Турнирный сезон</span>
+                        <span class="en-text">Full Highlights // Tournament Season</span>
+                        <span class="ru-text">Полные хайлайты // Турнирный сезон</span>
                     </div>
                 </div>
                 <div class="video-card">
                     <div class="video-frame">
-                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                        <iframe src="https://1024terabox.com/s/1RhAmyn0CMqKy7jCHzH95hg" allowfullscreen></iframe>
                     </div>
                     <div class="video-info">
-                        <span class="en-text">Practice Sessions & Drills Overview</span>
-                        <span class="ru-text">Тренировочные сессии и упражнения</span>
+                        <span class="en-text">Best Moments & Match Analysis</span>
+                        <span class="ru-text">Лучшие моменты и анализ матчей</span>
                     </div>
                 </div>
             </div>
@@ -1162,7 +1282,7 @@
                     <span class="en-text">University coaches and athletic representatives can submit inquiries regarding roster placement and scholarship opportunities.</span>
                     <span class="ru-text">Тренеры университетов и спортивные представители могут отправлять запросы относительно мест в составе и возможностей стипендий.</span>
                 </p>
-                
+
                 <form class="form-grid">
                     <div class="input-group">
                         <label>
@@ -1231,7 +1351,6 @@
             }
         });
 
-        // --- Скрипт слайд-шоу шапки с ручным управлением ---
         const slides = document.querySelectorAll('.hero-slides .slide');
         let currentSlide = 0;
         let slideInterval;
@@ -1254,7 +1373,7 @@
 
         function resetInterval() {
             clearInterval(slideInterval);
-            slideInterval = setInterval(nextSlide, 2300); // ← ИЗМЕНЕНО НА 3 СЕКУНДЫ
+            slideInterval = setInterval(nextSlide, 2300);
         }
 
         document.getElementById('arrowRight').addEventListener('click', () => {
@@ -1267,7 +1386,7 @@
             resetInterval();
         });
 
-        slideInterval = setInterval(nextSlide, 2300); // ← ИЗМЕНЕНО НА 3 СЕКУНДЫ
+        slideInterval = setInterval(nextSlide, 2300);
     </script>
 
 </body>
