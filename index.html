@@ -53,10 +53,10 @@
             --flag-left: 0px;
             --flag-rotate: 0deg;
 
-            /* Переменные для 9-го окна (ATF TITLES) - теперь как в 8-м */
-            --atf-titles-logo-offset: 0px;
-            --atf-titles-label-offset: 0px;
-            --atf-titles-number-offset: 0px;
+            /* Переменные для 9-го окна (ATF TITLES) */
+            --atf-titles-logo-offset: -20px;
+            --atf-titles-label-offset: 25px;
+            --atf-titles-number-offset: 10px;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
@@ -122,6 +122,40 @@
             top: 50%;
             right: 0;
             transform: translateY(-50%) rotate(var(--flag-rotate));
+        }
+
+        /* ===== СОЦИАЛЬНЫЕ ИКОНКИ РЯДОМ С ФЛАГОМ ===== */
+        .social-icons {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            position: absolute;
+            top: 50%;
+            right: -160px;
+            transform: translateY(-50%);
+            z-index: 2;
+        }
+
+        .social-icons a {
+            color: var(--text-muted);
+            line-height: 1;
+            text-decoration: none;
+            transition: color 0.3s ease, transform 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .social-icons a:hover {
+            color: var(--accent-gold);
+            transform: scale(1.15);
+        }
+
+        .social-icons .social-icon {
+            width: 26px;
+            height: 26px;
+            fill: currentColor;
+            display: block;
         }
 
         .nav-links {
@@ -575,9 +609,9 @@
             transform: translateY(var(--wtt-doubles-icon-offset));
         }
 
-        /* ===== СТИЛИ ДЛЯ 9-ГО ОКНА (ATF TITLES) - теперь как в 8-м ===== */
+        /* ===== СТИЛИ ДЛЯ 9-ГО ОКНА (ATF TITLES) - ИСПРАВЛЕНО ===== */
         .stat-item:nth-child(9) .logo-atf-titles {
-            max-height: 100px;
+            max-height: 90px;  /* ← МЕНЯЙТЕ ЗДЕСЬ РАЗМЕР */
             width: auto;
             object-fit: contain;
             animation: pulse-glow-atf 2.8s ease-in-out infinite;
@@ -640,6 +674,14 @@
             .logo {
                 font-size: 1rem;
             }
+            .social-icons {
+                right: -130px;
+                gap: 8px;
+            }
+            .social-icons .social-icon {
+                width: 20px;
+                height: 20px;
+            }
         }
 
         @media (max-width: 500px) {
@@ -654,6 +696,14 @@
             .logo {
                 font-size: 0.85rem;
                 letter-spacing: 2px;
+            }
+            .social-icons {
+                right: -100px;
+                gap: 6px;
+            }
+            .social-icons .social-icon {
+                width: 18px;
+                height: 18px;
             }
         }
 
@@ -837,6 +887,11 @@
         .tiktok-embed {
             margin: 0 auto !important;
         }
+
+        /* ===== НАСТРОЙКА ЦВЕТА ТЕКСТА В HERO-DESC ===== */
+        .hero-desc {
+            color: #FFD700; /* ← МЕНЯЙ ЦВЕТ ЗДЕСЬ */
+        }
     </style>
 </head>
 <body>
@@ -845,6 +900,33 @@
         <div class="logo-wrapper">
             <div class="logo">ILIMA GUSEYNOVA</div>
             <span class="logo-flag"></span>
+            <!-- СОЦИАЛЬНЫЕ ИКОНКИ (ОБНОВЛЕННЫЕ) -->
+            <div class="social-icons">
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/ilima_guseynova/" target="_blank" aria-label="Instagram">
+                    <svg class="social-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M 8 3 C 5.243 3 3 5.243 3 8 L 3 16 C 3 18.757 5.243 21 8 21 L 16 21 C 18.757 21 21 18.757 21 16 L 21 8 C 21 5.243 18.757 3 16 3 L 8 3 z M 8 5 L 16 5 C 17.654 5 19 6.346 19 8 L 19 16 C 19 17.654 17.654 19 16 19 L 8 19 C 6.346 19 5 17.654 5 16 L 5 8 C 5 6.346 6.346 5 8 5 z M 17 6 A 1 1 0 0 0 16 7 A 1 1 0 0 0 17 8 A 1 1 0 0 0 18 7 A 1 1 0 0 0 17 6 z M 12 7 C 9.243 7 7 9.243 7 12 C 7 14.757 9.243 17 12 17 C 14.757 17 17 14.757 17 12 C 17 9.243 14.757 7 12 7 z M 12 9 C 13.654 9 15 10.346 15 12 C 15 13.654 13.654 15 12 15 C 10.346 15 9 13.654 9 12 C 9 10.346 10.346 9 12 9 z"/>
+                    </svg>
+                </a>
+                <!-- TikTok (улучшенный логотип) -->
+                <a href="https://www.tiktok.com/@ilima.guseynova" target="_blank" aria-label="TikTok">
+                    <svg class="social-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16.6 5.82c-.68-.58-1.24-1.3-1.6-2.12h-2.8v13.7c0 1.72-1.4 3.1-3.1 3.1-1.7 0-3.1-1.38-3.1-3.1 0-1.72 1.4-3.1 3.1-3.1.44 0 .86.08 1.24.22v-2.8c-.46-.1-.94-.16-1.44-.16-3.06 0-5.6 2.54-5.6 5.6 0 3.06 2.54 5.6 5.6 5.6 3.06 0 5.6-2.54 5.6-5.6V9.68c1.16.86 2.58 1.36 4.1 1.36V8.24c-.68 0-1.34-.14-1.9-.42z"/>
+                    </svg>
+                </a>
+                <!-- Facebook -->
+                <a href="https://www.facebook.com/IlimaTennisPRO/" target="_blank" aria-label="Facebook">
+                    <svg class="social-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M 22 12 C 22 6.477 17.523 2 12 2 C 6.477 2 2 6.477 2 12 C 2 16.991 5.657 21.128 10.438 21.879 L 10.438 14.891 L 7.898 14.891 L 7.898 12 L 10.438 12 L 10.438 9.797 C 10.438 7.291 11.93 5.907 14.215 5.907 C 15.308 5.907 16.453 6.102 16.453 6.102 L 16.453 8.562 L 15.193 8.562 C 13.95 8.562 13.562 9.332 13.562 10.124 L 13.562 12 L 16.336 12 L 15.892 14.891 L 13.562 14.891 L 13.562 21.879 C 18.343 21.129 22 16.99 22 12 Z"/>
+                    </svg>
+                </a>
+                <!-- X (Twitter) -->
+                <a href="#" target="_blank" aria-label="X.com">
+                    <svg class="social-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M 18.244 2.25 L 21.552 2.25 L 14.325 10.51 L 22.828 21.75 L 16.17 21.75 L 10.956 14.933 L 4.99 21.75 L 1.68 21.75 L 9.41 12.915 L 1.254 2.25 L 8.08 2.25 L 12.794 8.481 Z M 17.083 19.771 L 18.912 19.771 L 7.083 4.127 L 5.117 4.127 Z"/>
+                    </svg>
+                </a>
+            </div>
         </div>
         <div class="nav-links">
             <a href="#stats">
@@ -894,8 +976,8 @@
                 <span class="ru-text"></span>
             </h1>
             <p class="hero-desc">
-                <span class="en-text">High-performance competitive tennis athlete dedicated to achieving elite athletic benchmarks and academic success at the collegiate level in the United States.</span>
-                <span class="ru-text">Профессиональная теннисистка, нацеленная на достижение высоких спортивных результатов и академического успеха в университетской лиге США.</span>
+                <span class="en-text">Ilima Guseynova is an athlete who refuses to take the easy road. Every shot brings her closer to a bigger vision: not just joining the NCAA, but becoming a leader who elevates her team. With international tournaments already on her record, she now sets her sights on the top U.S. universities — where sport and education work as one.</span>
+                <span class="ru-text">Илима Гусейнова — теннисистка, которая не ищет лёгких путей. С каждым ударом она приближается к своей цели: стать не просто игроком NCAA, а лидером, который вдохновляет команду. За её плечами — турниры международного уровня, в планах — лучшие университеты Америки, где спорт и учёба идут рука об руку.</span>
             </p>
             <div class="hero-actions">
                 <a href="#contact" class="btn-primary">
@@ -1068,16 +1150,16 @@
                     </div>
                 </div>
 
-                <!-- 9. ATF TITLES (ТЕПЕРЬ УПРАВЛЯЕТСЯ КАК 8-Е ОКНО) -->
+                <!-- 9. ATF TITLES (ИСПРАВЛЕНО - УДАЛЕН ИНЛАЙН-СТИЛЬ) -->
                 <div class="stat-item stat-item-content" style="border-top: 3px solid var(--accent-gold);">
                     <div class="stat-header" style="width: 100%; height: 100%;">
                         <div class="atf-wrapper" style="padding: 10px 0;">
-                            <img src="images/atf-titles-logo.png" alt="ATF Titles Logo" class="logo-atf-titles" style="max-height: 100px; width: auto; object-fit: contain; animation: pulse-glow-atf 2.8s ease-in-out infinite; animation-delay: 0.7s;">
-                            <div class="atf-titles-label" style="font-size: 0.85rem; font-weight: 600; color: var(--text-main); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 30px; text-align: center; margin-top: -20px;">
+                            <img src="images/atf-titles-logo.png" alt="ATF Titles Logo" class="logo-atf-titles">
+                            <div class="atf-titles-label">
                                 <span class="en-text">TITLES</span>
                                 <span class="ru-text">ТИТУЛЫ</span>
                             </div>
-                            <div class="atf-titles-number" style="font-family: 'Cinzel', serif; font-size: 2.8rem; font-weight: 700; color: var(--text-main); text-align: center; line-height: 1;">3</div>
+                            <div class="atf-titles-number">23</div>
                         </div>
                     </div>
                 </div>
