@@ -349,9 +349,8 @@
             align-items: center;
             overflow: hidden;
             transition: all 0.3s ease;
-            width: 800px;
-            height: 800px;
-            flex-shrink: 0;
+            width: 100%;
+            aspect-ratio: 1 / 1;
         }
 
         .stat-item:hover { border-color: var(--accent-gold); }
@@ -690,35 +689,12 @@
             transform: translateY(var(--bjkc-number-offset));
         }
 
-        .stat-item {
-            width: 800px;
-            height: 800px;
-            flex-shrink: 0;
-        }
-
-        @media (max-width: 1700px) {
-            .stat-item {
-                width: 100%;
-                height: auto;
-                aspect-ratio: 1 / 1;
-                max-width: 800px;
-                max-height: 800px;
-            }
-        }
-
         @media (max-width: 900px) {
             nav { padding: 20px 20px; }
             .nav-links { display: none; }
             #hero-slider { padding: 0 20px 50px 20px; }
             .container { padding: 80px 20px; }
             .stats-grid { grid-template-columns: repeat(2, 1fr); }
-            .stat-item {
-                width: 100%;
-                height: auto;
-                aspect-ratio: 1 / 1;
-                max-width: 400px;
-                max-height: 400px;
-            }
             .logo-wrapper {
                 padding-right: 80px;
             }
@@ -737,10 +713,6 @@
 
         @media (max-width: 500px) {
             .stats-grid { grid-template-columns: 1fr; }
-            .stat-item {
-                max-width: 100%;
-                max-height: 100%;
-            }
             .logo-wrapper {
                 padding-right: 60px;
             }
@@ -788,35 +760,86 @@
 
         .feature-list li span:last-child { color: var(--accent-gold); }
 
-        .video-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
+        /* ===== НОВЫЕ СТИЛИ ДЛЯ ВИДЕО-СЕТКИ (4 КОЛОНКИ) ===== */
+        .tab-content.active {
+            display: grid !important;
+            grid-template-columns: repeat(4, 1fr) !important;
+            gap: 16px !important;
         }
 
         .video-card {
             background: var(--surface-color);
             border: 1px solid var(--border-color);
             overflow: hidden;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .video-card:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-2px);
         }
 
         .video-frame {
             position: relative;
             padding-bottom: 56.25%;
             height: 0;
+            background: #0a0a0a;
         }
 
         .video-frame iframe {
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%; border: none;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
         }
 
         .video-info {
-            padding: 25px;
+            padding: 10px 12px;
             font-weight: 600;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
             text-transform: uppercase;
-            font-size: 0.85rem;
+            font-size: 0.6rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-color);
+            line-height: 1.3;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Адаптив для видео-сетки */
+        @media (max-width: 1200px) {
+            .tab-content.active {
+                grid-template-columns: repeat(3, 1fr) !important;
+                gap: 14px !important;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .tab-content.active {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 12px !important;
+            }
+            .video-info {
+                font-size: 0.55rem;
+                padding: 8px 10px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .tab-content.active {
+                grid-template-columns: 1fr !important;
+                gap: 16px !important;
+            }
+            .video-info {
+                font-size: 0.7rem;
+                padding: 12px 14px;
+                white-space: normal;
+            }
         }
 
         .contact-box {
@@ -986,6 +1009,71 @@
 
         .success-message p {
             color: var(--text-muted);
+        }
+
+        /* ===== НОВЫЕ СТИЛИ ДЛЯ ТАБОВ ===== */
+        .tabs-wrapper {
+            margin-bottom: 40px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .tabs {
+            display: flex;
+            gap: 0;
+            padding: 0;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            padding: 15px 30px;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .tab-btn:hover {
+            color: var(--text-main);
+        }
+
+        .tab-btn.active {
+            color: var(--text-main);
+            border-bottom-color: var(--accent-gold);
+        }
+
+        .tab-btn .tab-badge {
+            display: inline-block;
+            background: var(--accent-gold);
+            color: #000;
+            font-size: 0.6rem;
+            padding: 2px 8px;
+            border-radius: 10px;
+            margin-left: 6px;
+            font-weight: 700;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        /* Адаптив для табов */
+        @media (max-width: 600px) {
+            .tab-btn {
+                font-size: 0.7rem;
+                padding: 12px 16px;
+                letter-spacing: 1px;
+            }
+            .tab-btn .tab-badge {
+                font-size: 0.5rem;
+                padding: 1px 6px;
+            }
         }
     </style>
 </head>
@@ -1358,6 +1446,9 @@
             </div>
         </section>
 
+        <!-- ============================================ -->
+        <!-- СЕКЦИЯ MEDIA С ТАБАМИ                         -->
+        <!-- ============================================ -->
         <section id="media">
             <div class="section-header">
                 <div>
@@ -1366,13 +1457,85 @@
                         <span class="ru-text">Видео-скаутинг</span>
                     </div>
                     <h2 class="section-title">
-                        <span class="en-text">Match Highlights</span>
-                        <span class="ru-text">Хайлайты матчей</span>
+                        <span class="en-text">Match Videos</span>
+                        <span class="ru-text">Видео матчей</span>
                     </h2>
                 </div>
             </div>
-            <div class="video-grid">
-                <!-- ПЕРВОЕ ВИДЕО: VIMEO (РОЛАН ГАРРОС) -->
+
+            <!-- ТАБЫ -->
+            <div class="tabs-wrapper">
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="highlights">
+                        <span class="en-text">Highlights</span>
+                        <span class="ru-text">Хайлайты</span>
+                        <span class="tab-badge">3</span>
+                    </button>
+                    <button class="tab-btn" data-tab="fullmatches">
+                        <span class="en-text">Full Matches</span>
+                        <span class="ru-text">Полные матчи</span>
+                        <span class="tab-badge">4</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- ===== ВКЛАДКА: HIGHLIGHTS (ПОЛНЫЕ МАТЧИ) ===== -->
+            <div id="highlights-content" class="tab-content active">
+                
+                <!-- Хайлайт 1 -->
+                <div class="video-card">
+                    <div class="video-frame">
+                        <div class="vimeo-wrapper">
+                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write" 
+                                    allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <span class="en-text">Full Match: Ilima Guseynova vs. [Opponent] — [Tournament Name]</span>
+                        <span class="ru-text">Полный матч: Илима Гусейнова vs. [Соперник] — [Название турнира]</span>
+                    </div>
+                </div>
+
+                <!-- Хайлайт 2 -->
+                <div class="video-card">
+                    <div class="video-frame">
+                        <div class="vimeo-wrapper">
+                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write" 
+                                    allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <span class="en-text">Full Match: Ilima Guseynova vs. [Opponent] — [Tournament Name]</span>
+                        <span class="ru-text">Полный матч: Илима Гусейнова vs. [Соперник] — [Название турнира]</span>
+                    </div>
+                </div>
+
+                <!-- Хайлайт 3 -->
+                <div class="video-card">
+                    <div class="video-frame">
+                        <div class="vimeo-wrapper">
+                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write" 
+                                    allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <span class="en-text">Full Match: Ilima Guseynova vs. [Opponent] — [Tournament Name]</span>
+                        <span class="ru-text">Полный матч: Илима Гусейнова vs. [Соперник] — [Название турнира]</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- ===== ВКЛАДКА: FULL MATCHES (ХАЙЛАЙТЫ) ===== -->
+            <div id="fullmatches-content" class="tab-content">
+
+                <!-- Полный матч 1: Roland Garros (Court 1) -->
                 <div class="video-card">
                     <div class="video-frame">
                         <div class="vimeo-wrapper">
@@ -1383,61 +1546,59 @@
                         </div>
                     </div>
                     <div class="video-info">
-                        <span class="en-text">Roland Garros Junior Series by Renault-Qualifications West and Central Asia Ilima Guseynova & Hana Shabanpour Court 1</span>
-                        <span class="ru-text">Roland Garros Junior Series by Renault—Квалификация Западной и Центральной Азии Илима Гусейнова & Хана Шабанпур Корт 1</span>
+                        <span class="en-text">Roland Garros Junior Series — Ilima Guseynova & Hana Shabanpour (Court 1)</span>
+                        <span class="ru-text">Roland Garros Junior Series — Илима Гусейнова & Хана Шабанпур (Корт 1)</span>
                     </div>
                 </div>
 
-                <!-- ВТОРОЕ ВИДЕО: НОВОЕ С GOOGLE DRIVE Billie Jean King Cup -->
-<div class="video-card">
-    <div class="video-frame">
-        <div class="vimeo-wrapper">
-            <iframe src="https://drive.google.com/file/d/1aDKb1hioGWNLEM5UIyOQObZp_fhrAUnK/preview" 
-                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write" 
-                    allowfullscreen>
-            </iframe>
-        </div>
-    </div>
-    <div class="video-info">
-        <span class="en-text">Ushna Suhail vs. Ilima Guseynova — Billie Jean King Cup (The World Cup of Tennis)</span>
-        <span class="ru-text">Ушна Сухайл против Илимы Гусейновой — Кубок Билли Джин Кинг (Командный чемпионат мира по теннису)</span>
-    </div>
-</div>
-	                <!-- ТРЕТЬЕ ВИДЕО (ДОПОЛНИТЕЛЬНОЕ) -->			
+                <!-- Полный матч 2: Billie Jean King Cup -->
+                <div class="video-card">
+                    <div class="video-frame">
+                        <div class="vimeo-wrapper">
+                            <iframe src="https://drive.google.com/file/d/1aDKb1hioGWNLEM5UIyOQObZp_fhrAUnK/preview" 
+                                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write" 
+                                    allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <span class="en-text">Billie Jean King Cup — Ushna Suhail vs. Ilima Guseynova</span>
+                        <span class="ru-text">Кубок Билли Джин Кинг — Ушна Сухайл vs. Илима Гусейнова</span>
+                    </div>
+                </div>
+
+                <!-- Полный матч 3: Roland Garros (Court 2) -->
                 <div class="video-card">
                     <div class="video-frame">
                         <div class="vimeo-wrapper">
                             <iframe src="https://drive.google.com/file/d/1gU2tSzmGK9dv8ksBvUi3mycfub1IDIHV/preview" 
-                                    width="640" 
-                                    height="480" 
                                     allow="autoplay; fullscreen; picture-in-picture; clipboard-write" 
                                     allowfullscreen>
                             </iframe>
                         </div>
                     </div>
                     <div class="video-info">
-                        <span class="en-text">Roland Garros Junior Series by Renault-Qualifications West and Central Asia Ilima Guseynova & Sofiya Malysheva Court 2</span>
-                        <span class="ru-text">Roland Garros Junior Series by Renault—Квалификация Западной и Центральной Азии Илима Гусейнова & София Малышева Корт 2</span>
+                        <span class="en-text">Roland Garros Junior Series — Ilima Guseynova & Sofiya Malysheva (Court 2)</span>
+                        <span class="ru-text">Roland Garros Junior Series — Илима Гусейнова & София Малышева (Корт 2)</span>
                     </div>
                 </div>
 
-                <!-- ЧЕТВЁРТОЕ ВИДЕО (НОВОЕ, ЗАМЕНА) -->
+                <!-- Полный матч 4: ITF Juniors J30 Fergana - НОВОЕ ВИДЕО -->
                 <div class="video-card">
                     <div class="video-frame">
                         <div class="vimeo-wrapper">
-                            <iframe src="https://drive.google.com/file/d/1WZFkOUVQ6nnk_konYo4Qox-IS4vKTRXs/preview" 
-                                    width="640" 
-                                    height="480" 
+                            <iframe src="https://drive.google.com/file/d/1LgFvsj8lwzjIJYc-hdSwAn7xpqPAx5ZJ/preview" 
                                     allow="autoplay; fullscreen; picture-in-picture; clipboard-write" 
                                     allowfullscreen>
                             </iframe>
                         </div>
                     </div>
                     <div class="video-info">
-                        <span class="en-text">Ilima Guseynova & Zhanataeva Court 2 — Roland Garros Junior Series by Renault</span>
-                        <span class="ru-text">Илима Гусейнова & Жанатаева Корт 2 — Roland Garros Junior Series by Renault</span>
+                        <span class="en-text">ITF Juniors J30 Fergana ILIMA GUSEYNOVA & VIKTORIYA OLEINIKOVA </span>
+                        <span class="ru-text">ITF Juniors J30 Фергана ИЛИМА ГУСЕЙНОВА И ВИКТОРИЯ ОЛЕЙНИКОВА</span>
                     </div>
                 </div>
+
             </div>
         </section>
 
@@ -1604,6 +1765,52 @@
                 }
             } catch (error) {
                 alert('Network error. Please check your connection and try again.');
+            }
+        });
+
+        // ===== СКРИПТ ДЛЯ РАБОТЫ ТАБОВ =====
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = {
+                highlights: document.getElementById('highlights-content'),
+                fullmatches: document.getElementById('fullmatches-content')
+            };
+
+            // Функция для переключения вкладок
+            function switchTab(tabId) {
+                // Обновляем активный класс у кнопок
+                tabBtns.forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.dataset.tab === tabId) {
+                        btn.classList.add('active');
+                    }
+                });
+
+                // Показываем/скрываем контент
+                Object.keys(tabContents).forEach(key => {
+                    const content = tabContents[key];
+                    if (key === tabId) {
+                        content.style.display = 'grid';
+                        content.classList.add('active');
+                    } else {
+                        content.style.display = 'none';
+                        content.classList.remove('active');
+                    }
+                });
+            }
+
+            // Обработчики кликов по кнопкам табов
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const tabId = this.dataset.tab;
+                    switchTab(tabId);
+                });
+            });
+
+            // При загрузке показываем активную вкладку (Highlights)
+            const activeTab = document.querySelector('.tab-btn.active');
+            if (activeTab) {
+                switchTab(activeTab.dataset.tab);
             }
         });
     </script>
