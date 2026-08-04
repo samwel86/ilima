@@ -57,6 +57,12 @@
             --atf-titles-logo-offset: -20px;
             --atf-titles-label-offset: 25px;
             --atf-titles-number-offset: 10px;
+
+            /* Переменные для 10-го окна (Billie Jean King Cup) */
+            --bjkc-logo-offset: -10px;
+            --bjkc-label-offset: 0px;
+            --bjkc-number-offset: -15px;
+            --bjkc-icon-offset: -30px;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
@@ -327,7 +333,7 @@
             font-weight: 700;
         }
 
-        /* ===== ОДНА ОБЩАЯ СЕТКА ДЛЯ ВСЕХ 8 ОКОН ===== */
+        /* ===== ОДНА ОБЩАЯ СЕТКА ДЛЯ ВСЕХ 10 ОКОН ===== */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
@@ -609,9 +615,9 @@
             transform: translateY(var(--wtt-doubles-icon-offset));
         }
 
-        /* ===== СТИЛИ ДЛЯ 9-ГО ОКНА (ATF TITLES) - ИСПРАВЛЕНО ===== */
+        /* ===== СТИЛИ ДЛЯ 9-ГО ОКНА (ATF TITLES) ===== */
         .stat-item:nth-child(9) .logo-atf-titles {
-            max-height: 90px;  /* ← МЕНЯЙТЕ ЗДЕСЬ РАЗМЕР */
+            max-height: 90px;
             width: auto;
             object-fit: contain;
             animation: pulse-glow-atf 2.8s ease-in-out infinite;
@@ -637,6 +643,52 @@
             text-align: center;
             line-height: 1;
             transform: translateY(var(--atf-titles-number-offset));
+        }
+
+        /* ===== СТИЛИ ДЛЯ 10-ГО ОКНА (Billie Jean King Cup) ===== */
+        .bjkc-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            padding: 10px 0;
+        }
+        .bjkc-logo {
+            max-height: 140px;
+            width: auto;
+            object-fit: contain;
+            animation: pulse-glow-wtt 2.8s ease-in-out infinite;
+        }
+        .bjkc-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-main);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            text-align: center;
+            margin-top: -20px;
+        }
+        .bjkc-number {
+            font-family: 'Cinzel', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--text-main);
+            text-align: center;
+            line-height: 1;
+        }
+
+        .stat-item:nth-child(10) .bjkc-logo {
+            transform: translateY(var(--bjkc-logo-offset));
+            animation-delay: 1.0s;
+        }
+        .stat-item:nth-child(10) .bjkc-label {
+            transform: translateY(var(--bjkc-label-offset));
+        }
+        .stat-item:nth-child(10) .bjkc-number {
+            transform: translateY(var(--bjkc-number-offset));
         }
 
         .stat-item {
@@ -890,7 +942,7 @@
 
         /* ===== НАСТРОЙКА ЦВЕТА ТЕКСТА В HERO-DESC ===== */
         .hero-desc {
-            color: #FFD700; /* ← МЕНЯЙ ЦВЕТ ЗДЕСЬ */
+            color: #FFD700;
         }
 
         /* ===== СТИЛИ ДЛЯ VIMEO ВИДЕО ===== */
@@ -1194,7 +1246,7 @@
                     </div>
                 </div>
 
-                <!-- 9. ATF TITLES (ИСПРАВЛЕНО - УДАЛЕН ИНЛАЙН-СТИЛЬ) -->
+                <!-- 9. ATF TITLES -->
                 <div class="stat-item stat-item-content" style="border-top: 3px solid var(--accent-gold);">
                     <div class="stat-header" style="width: 100%; height: 100%;">
                         <div class="atf-wrapper" style="padding: 10px 0;">
@@ -1204,6 +1256,20 @@
                                 <span class="ru-text">ТИТУЛЫ</span>
                             </div>
                             <div class="atf-titles-number">23</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 10. BILLIE JEAN KING CUP (БЕЗ ИКОНКИ ЧЕЛОВЕЧКОВ) -->
+                <div class="stat-item stat-item-content" style="border-top: 3px solid var(--accent-gold);">
+                    <div class="stat-header" style="width: 100%; height: 100%;">
+                        <div class="bjkc-wrapper">
+                            <img src="images/billie-jean-king-cup-logo.png" alt="Billie Jean King Cup Logo" class="bjkc-logo">
+                            <div class="bjkc-label">
+                                <span class="en-text">PARTICIPANT</span>
+                                <span class="ru-text">УЧАСТНИЦА</span>
+                            </div>
+                            <div class="bjkc-number">2</div>
                         </div>
                     </div>
                 </div>
