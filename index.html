@@ -1120,9 +1120,13 @@
                 <span class="en-text">Profile</span>
                 <span class="ru-text">Профиль</span>
             </a>
-            <a href="#media">
+            <a href="#media" data-tab="highlights">
                 <span class="en-text">Highlights</span>
                 <span class="ru-text">Хайлайты</span>
+            </a>
+            <a href="#media" data-tab="fullmatches">
+                <span class="en-text">Full Matches</span>
+                <span class="ru-text">Полные матчи</span>
             </a>
             <a href="#contact">
                 <span class="en-text">Recruiting</span>
@@ -1474,12 +1478,12 @@
                     <button class="tab-btn" data-tab="fullmatches">
                         <span class="en-text">Full Matches</span>
                         <span class="ru-text">Полные матчи</span>
-                        <span class="tab-badge">4</span>
+                        <span class="tab-badge">5</span>
                     </button>
                 </div>
             </div>
 
-            <!-- ===== ВКЛАДКА: HIGHLIGHTS (ПОЛНЫЕ МАТЧИ) ===== -->
+            <!-- ===== ВКЛАДКА: HIGHLIGHTS ===== -->
             <div id="highlights-content" class="tab-content active">
                 
                 <!-- Хайлайт 1 -->
@@ -1532,7 +1536,7 @@
 
             </div>
 
-            <!-- ===== ВКЛАДКА: FULL MATCHES (ХАЙЛАЙТЫ) ===== -->
+            <!-- ===== ВКЛАДКА: FULL MATCHES ===== -->
             <div id="fullmatches-content" class="tab-content">
 
                 <!-- Полный матч 1: Roland Garros (Court 1) -->
@@ -1546,8 +1550,8 @@
                         </div>
                     </div>
                     <div class="video-info">
-                        <span class="en-text">Roland Garros Junior Series — Ilima Guseynova & Hana Shabanpour (Court 1)</span>
-                        <span class="ru-text">Roland Garros Junior Series — Илима Гусейнова & Хана Шабанпур (Корт 1)</span>
+                        <span class="en-text">Roland Garros Junior Series By Renault Qualifications West And Central Asia Ilima Guseynova & Hana Shabanpour (Court 1)</span>
+                        <span class="ru-text">Roland Garros Junior Series By Renault Qualifications West And Central Asia Илима Гусейнова & Хана Шабанпур (Корт 1)</span>
                     </div>
                 </div>
 
@@ -1578,12 +1582,12 @@
                         </div>
                     </div>
                     <div class="video-info">
-                        <span class="en-text">Roland Garros Junior Series — Ilima Guseynova & Sofiya Malysheva (Court 2)</span>
-                        <span class="ru-text">Roland Garros Junior Series — Илима Гусейнова & София Малышева (Корт 2)</span>
+                        <span class="en-text">Roland Garros Junior Series By Renault Qualifications West And Central Asia Ilima Guseynova & Sofiya Malysheva (Court 2)</span>
+                        <span class="ru-text">Roland Garros Junior Series By Renault Qualifications West And Central Asia Илима Гусейнова & София Малышева (Корт 2)</span>
                     </div>
                 </div>
 
-                <!-- Полный матч 4: ITF Juniors J30 Fergana - НОВОЕ ВИДЕО -->
+                <!-- Полный матч 4: ITF Juniors J30 Fergana -->
                 <div class="video-card">
                     <div class="video-frame">
                         <div class="vimeo-wrapper">
@@ -1594,8 +1598,24 @@
                         </div>
                     </div>
                     <div class="video-info">
-                        <span class="en-text">ITF Juniors J30 Fergana ILIMA GUSEYNOVA & VIKTORIYA OLEINIKOVA </span>
+                        <span class="en-text">ITF Juniors J30 Fergana ILIMA GUSEYNOVA & VIKTORIYA OLEINIKOVA</span>
                         <span class="ru-text">ITF Juniors J30 Фергана ИЛИМА ГУСЕЙНОВА И ВИКТОРИЯ ОЛЕЙНИКОВА</span>
+                    </div>
+                </div>
+
+                <!-- Полный матч 5: Roland Garros -->
+                <div class="video-card">
+                    <div class="video-frame">
+                        <div class="vimeo-wrapper">
+                            <iframe src="https://drive.google.com/file/d/1dZF6ZxuU9iC1PTzXtFeBcvudw-fO7lo7/preview" 
+                                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write" 
+                                    allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <span class="en-text">Roland Garros Junior Series By Renault Qualifications West And Central Asia Ilima Guseynova & Zinira Zhunusova Court 2 </span>
+                        <span class="ru-text">Roland Garros Junior Series By Renault Qualifications West And Central Asia Илима Гусейнова & Зинира Жунусова Корт 2</span>
                     </div>
                 </div>
 
@@ -1804,6 +1824,22 @@
                 btn.addEventListener('click', function() {
                     const tabId = this.dataset.tab;
                     switchTab(tabId);
+                });
+            });
+
+            // Обработка навигационных ссылок с data-tab
+            const navLinks = document.querySelectorAll('.nav-links a[data-tab]');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const tabId = this.dataset.tab;
+                    const targetSection = document.querySelector(this.getAttribute('href'));
+                    if (targetSection) {
+                        targetSection.scrollIntoView({ behavior: 'smooth' });
+                        setTimeout(() => {
+                            switchTab(tabId);
+                        }, 500);
+                    }
                 });
             });
 
