@@ -136,7 +136,7 @@
             gap: 12px;
             position: absolute;
             top: 50%;
-            right: -160px;
+            right: -110px;
             transform: translateY(-50%);
             z-index: 2;
         }
@@ -721,7 +721,7 @@
                 letter-spacing: 2px;
             }
             .social-icons {
-                right: -100px;
+                right: -110px;
                 gap: 6px;
             }
             .social-icons .social-icon {
@@ -1128,6 +1128,15 @@
                 <span class="en-text">Full Matches</span>
                 <span class="ru-text">Полные матчи</span>
             </a>
+            <a href="#media" data-tab="training">
+                <span class="en-text">Training</span>
+                <span class="ru-text">Тренировки</span>
+            </a>
+            <!-- НОВАЯ КНОПКА PHOTO -->
+            <a href="#media" data-tab="photo">
+                <span class="en-text">Photo</span>
+                <span class="ru-text">Фото</span>
+            </a>
             <a href="#contact">
                 <span class="en-text">Recruiting</span>
                 <span class="ru-text">Рекрутинг</span>
@@ -1480,6 +1489,17 @@
                         <span class="ru-text">Полные матчи</span>
                         <span class="tab-badge">5</span>
                     </button>
+                    <button class="tab-btn" data-tab="training">
+                        <span class="en-text">Training</span>
+                        <span class="ru-text">Тренировки</span>
+                        <span class="tab-badge">2</span>
+                    </button>
+                    <!-- НОВАЯ КНОПКА PHOTO В ТАБАХ -->
+                    <button class="tab-btn" data-tab="photo">
+                        <span class="en-text">Photo</span>
+                        <span class="ru-text">Фото</span>
+                        <span class="tab-badge">6</span>
+                    </button>
                 </div>
             </div>
 
@@ -1620,6 +1640,68 @@
                 </div>
 
             </div>
+
+            <!-- ===== ВКЛАДКА: TRAINING ===== -->
+            <div id="training-content" class="tab-content">
+
+                <!-- Тренировка 1 -->
+                <div class="video-card">
+                    <div class="video-frame">
+                        <div class="vimeo-wrapper">
+                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write" 
+                                    allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <span class="en-text">Training Session: Ilima Guseynova — [Location]</span>
+                        <span class="ru-text">Тренировка: Илима Гусейнова — [Место]</span>
+                    </div>
+                </div>
+
+                <!-- Тренировка 2 -->
+                <div class="video-card">
+                    <div class="video-frame">
+                        <div class="vimeo-wrapper">
+                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write" 
+                                    allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <span class="en-text">Training Session: Ilima Guseynova — [Location]</span>
+                        <span class="ru-text">Тренировка: Илима Гусейнова — [Место]</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- ===== НОВАЯ ВКЛАДКА: PHOTO ===== -->
+            <div id="photo-content" class="tab-content">
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; width: 100%;">
+                    <div style="background: var(--surface-color); border: 1px solid var(--border-color); aspect-ratio: 1/1; overflow: hidden; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px;">
+                        📷 Photo 1
+                    </div>
+                    <div style="background: var(--surface-color); border: 1px solid var(--border-color); aspect-ratio: 1/1; overflow: hidden; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px;">
+                        📷 Photo 2
+                    </div>
+                    <div style="background: var(--surface-color); border: 1px solid var(--border-color); aspect-ratio: 1/1; overflow: hidden; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px;">
+                        📷 Photo 3
+                    </div>
+                    <div style="background: var(--surface-color); border: 1px solid var(--border-color); aspect-ratio: 1/1; overflow: hidden; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px;">
+                        📷 Photo 4
+                    </div>
+                    <div style="background: var(--surface-color); border: 1px solid var(--border-color); aspect-ratio: 1/1; overflow: hidden; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px;">
+                        📷 Photo 5
+                    </div>
+                    <div style="background: var(--surface-color); border: 1px solid var(--border-color); aspect-ratio: 1/1; overflow: hidden; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px;">
+                        📷 Photo 6
+                    </div>
+                </div>
+            </div>
+
         </section>
 
         <section id="contact">
@@ -1793,7 +1875,9 @@
             const tabBtns = document.querySelectorAll('.tab-btn');
             const tabContents = {
                 highlights: document.getElementById('highlights-content'),
-                fullmatches: document.getElementById('fullmatches-content')
+                fullmatches: document.getElementById('fullmatches-content'),
+                training: document.getElementById('training-content'),
+                photo: document.getElementById('photo-content')
             };
 
             // Функция для переключения вкладок
