@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ilima Guseynova // Official Athlete Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
     <style>
         :root {
             --bg-color: #050505;
@@ -13,7 +13,7 @@
             --text-main: #FFFFFF;
             --text-muted: #8E8E93;
             --border-color: rgba(255, 255, 255, 0.1);
-            
+
             /* Переменные для 1-го окна (UTR Singles) */
             --utr-singles-logo-offset: 0px;
             --utr-singles-label-offset: 0px;
@@ -65,7 +65,12 @@
             --bjkc-icon-offset: -30px;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
@@ -75,8 +80,12 @@
             letter-spacing: -0.01em;
         }
 
-        body.lang-ru .en-text { display: none !important; }
-        body:not(.lang-ru) .ru-text { display: none !important; }
+        body.lang-ru .en-text {
+            display: none !important;
+        }
+        body:not(.lang-ru) .ru-text {
+            display: none !important;
+        }
 
         nav {
             position: fixed;
@@ -88,7 +97,7 @@
             align-items: center;
             padding: 20px 50px;
             z-index: 1000;
-            background: linear-gradient(to bottom, rgba(5,5,5,0.9), transparent);
+            background: linear-gradient(to bottom, rgba(5, 5, 5, 0.9), transparent);
             backdrop-filter: blur(8px);
         }
 
@@ -109,7 +118,6 @@
             line-height: 1;
         }
 
-        /* ===== ФЛАГ (АБСОЛЮТНОЕ ПОЗИЦИОНИРОВАНИЕ) ===== */
         .logo-flag {
             display: inline-block;
             width: var(--flag-width);
@@ -129,7 +137,6 @@
             transform: translateY(-50%) rotate(var(--flag-rotate));
         }
 
-        /* ===== СОЦИАЛЬНЫЕ ИКОНКИ РЯДОМ С ФЛАГОМ ===== */
         .social-icons {
             display: flex;
             align-items: center;
@@ -165,7 +172,7 @@
 
         .nav-links {
             display: flex;
-            gap: 40px;
+            gap: 30px;
             align-items: center;
         }
 
@@ -178,7 +185,9 @@
             font-weight: 600;
         }
 
-        .nav-links a:hover { color: var(--accent-gold); }
+        .nav-links a:hover {
+            color: var(--accent-gold);
+        }
 
         .lang-switch {
             border: 1px solid var(--border-color);
@@ -191,7 +200,10 @@
             letter-spacing: 1px;
             font-weight: 700;
         }
-        .lang-switch:hover { border-color: var(--accent-gold); color: var(--accent-gold); }
+        .lang-switch:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+        }
 
         /* ===== СТИЛИ ДЛЯ НОВОГО СЛАЙДЕРА В ШАПКЕ ===== */
         #hero-slider {
@@ -229,12 +241,14 @@
             opacity: 1;
         }
 
-        /* Затемнение поверх фото */
         .hero-slides::after {
             content: '';
             position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(0deg, #050505 0%, rgba(5,5,5,0.2) 40%, rgba(5,5,5,0.6) 100%);
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(0deg, #050505 0%, rgba(5, 5, 5, 0.2) 40%, rgba(5, 5, 5, 0.6) 100%);
             z-index: 1;
         }
 
@@ -260,7 +274,7 @@
             line-height: 1;
             margin-bottom: 25px;
             letter-spacing: 2px;
-            text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
         }
 
         .hero-desc {
@@ -269,7 +283,7 @@
             font-size: 1.1rem;
             line-height: 1.6;
             margin-bottom: 40px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
         }
 
         .hero-actions {
@@ -288,7 +302,9 @@
             letter-spacing: 2px;
             border-radius: 2px;
         }
-        .btn-primary:hover { background: var(--accent-gold); }
+        .btn-primary:hover {
+            background: var(--accent-gold);
+        }
 
         .btn-outline {
             border: 1px solid var(--border-color);
@@ -300,13 +316,22 @@
             font-size: 0.8rem;
             letter-spacing: 2px;
             border-radius: 2px;
-            background: rgba(0,0,0,0.4);
+            background: rgba(0, 0, 0, 0.4);
         }
-        .btn-outline:hover { border-color: var(--text-main); background: rgba(255,255,255,0.1); }
+        .btn-outline:hover {
+            border-color: var(--text-main);
+            background: rgba(255, 255, 255, 0.1);
+        }
 
-        .container { max-width: 1400px; margin: auto; padding: 120px 60px; }
+        .container {
+            max-width: 1400px;
+            margin: auto;
+            padding: 120px 60px;
+        }
 
-        section { margin-bottom: 140px; }
+        section {
+            margin-bottom: 140px;
+        }
 
         .section-header {
             display: flex;
@@ -353,7 +378,9 @@
             aspect-ratio: 1 / 1;
         }
 
-        .stat-item:hover { border-color: var(--accent-gold); }
+        .stat-item:hover {
+            border-color: var(--accent-gold);
+        }
 
         .stat-item-content {
             padding: 15px 10px;
@@ -400,9 +427,15 @@
         }
 
         @keyframes float-utr {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-12px); }
-            100% { transform: translateY(0px); }
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-12px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
         }
 
         /* ===== ИНДИВИДУАЛЬНЫЕ СТИЛИ ДЛЯ 1-ГО ОКНА (UTR Singles) ===== */
@@ -438,9 +471,18 @@
         }
 
         @keyframes pulse-glow {
-            0% { opacity: 1; filter: brightness(1) drop-shadow(0 0 0px rgba(212, 175, 55, 0)); }
-            50% { opacity: 0.25; filter: brightness(0.5) drop-shadow(0 0 20px rgba(212, 175, 55, 0.3)); }
-            100% { opacity: 1; filter: brightness(1) drop-shadow(0 0 0px rgba(212, 175, 55, 0)); }
+            0% {
+                opacity: 1;
+                filter: brightness(1) drop-shadow(0 0 0px rgba(212, 175, 55, 0));
+            }
+            50% {
+                opacity: 0.25;
+                filter: brightness(0.5) drop-shadow(0 0 20px rgba(212, 175, 55, 0.3));
+            }
+            100% {
+                opacity: 1;
+                filter: brightness(1) drop-shadow(0 0 0px rgba(212, 175, 55, 0));
+            }
         }
 
         .itf-wrapper {
@@ -492,9 +534,18 @@
         }
 
         @keyframes pulse-glow-atf {
-            0% { opacity: 1; filter: brightness(1) drop-shadow(0 0 0px rgba(212, 175, 55, 0)); }
-            50% { opacity: 0.2; filter: brightness(0.4) drop-shadow(0 0 25px rgba(212, 175, 55, 0.4)); }
-            100% { opacity: 1; filter: brightness(1) drop-shadow(0 0 0px rgba(212, 175, 55, 0)); }
+            0% {
+                opacity: 1;
+                filter: brightness(1) drop-shadow(0 0 0px rgba(212, 175, 55, 0));
+            }
+            50% {
+                opacity: 0.2;
+                filter: brightness(0.4) drop-shadow(0 0 25px rgba(212, 175, 55, 0.4));
+            }
+            100% {
+                opacity: 1;
+                filter: brightness(1) drop-shadow(0 0 0px rgba(212, 175, 55, 0));
+            }
         }
 
         .stat-header {
@@ -560,9 +611,18 @@
             animation: pulse-glow-wtt 2.8s ease-in-out infinite;
         }
         @keyframes pulse-glow-wtt {
-            0% { opacity: 1; filter: brightness(1) drop-shadow(0 0 0px rgba(212, 175, 55, 0)); }
-            50% { opacity: 0.2; filter: brightness(0.4) drop-shadow(0 0 25px rgba(212, 175, 55, 0.4)); }
-            100% { opacity: 1; filter: brightness(1) drop-shadow(0 0 0px rgba(212, 175, 55, 0)); }
+            0% {
+                opacity: 1;
+                filter: brightness(1) drop-shadow(0 0 0px rgba(212, 175, 55, 0));
+            }
+            50% {
+                opacity: 0.2;
+                filter: brightness(0.4) drop-shadow(0 0 25px rgba(212, 175, 55, 0.4));
+            }
+            100% {
+                opacity: 1;
+                filter: brightness(1) drop-shadow(0 0 0px rgba(212, 175, 55, 0));
+            }
         }
         .wtt-label {
             font-size: 0.85rem;
@@ -690,11 +750,21 @@
         }
 
         @media (max-width: 900px) {
-            nav { padding: 20px 20px; }
-            .nav-links { display: none; }
-            #hero-slider { padding: 0 20px 50px 20px; }
-            .container { padding: 80px 20px; }
-            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            nav {
+                padding: 20px 20px;
+            }
+            .nav-links {
+                display: none;
+            }
+            #hero-slider {
+                padding: 0 20px 50px 20px;
+            }
+            .container {
+                padding: 80px 20px;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
             .logo-wrapper {
                 padding-right: 80px;
             }
@@ -712,7 +782,9 @@
         }
 
         @media (max-width: 500px) {
-            .stats-grid { grid-template-columns: 1fr; }
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
             .logo-wrapper {
                 padding-right: 60px;
             }
@@ -758,7 +830,9 @@
             font-weight: 600;
         }
 
-        .feature-list li span:last-child { color: var(--accent-gold); }
+        .feature-list li span:last-child {
+            color: var(--accent-gold);
+        }
 
         /* ===== НОВЫЕ СТИЛИ ДЛЯ ВИДЕО-СЕТКИ (4 КОЛОНКИ) ===== */
         .tab-content.active {
@@ -862,7 +936,9 @@
             flex-direction: column;
         }
 
-        .input-group.full { grid-column: span 2; }
+        .input-group.full {
+            grid-column: span 2;
+        }
 
         .input-group label {
             font-size: 0.75rem;
@@ -872,7 +948,8 @@
             margin-bottom: 12px;
         }
 
-        .input-group input, .input-group textarea {
+        .input-group input,
+        .input-group textarea {
             background: #050505;
             border: 1px solid var(--border-color);
             padding: 18px;
@@ -881,7 +958,8 @@
             font-size: 1rem;
         }
 
-        .input-group input:focus, .input-group textarea:focus {
+        .input-group input:focus,
+        .input-group textarea:focus {
             border-color: var(--accent-gold);
             outline: none;
         }
@@ -899,7 +977,9 @@
             margin-top: 20px;
         }
 
-        .submit-btn:hover { background: #fff; }
+        .submit-btn:hover {
+            background: #fff;
+        }
 
         footer {
             border-top: 1px solid var(--border-color);
@@ -922,7 +1002,7 @@
             cursor: pointer;
             user-select: none;
             transition: all 0.3s ease;
-            text-shadow: 0 0 20px rgba(0,0,0,0.8);
+            text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
             font-weight: 300;
             line-height: 1;
             padding: 0 15px;
@@ -1101,7 +1181,7 @@
             max-height: 85vh;
             object-fit: contain;
             border-radius: 4px;
-            box-shadow: 0 0 60px rgba(0,0,0,0.8);
+            box-shadow: 0 0 60px rgba(0, 0, 0, 0.8);
             cursor: default;
         }
 
@@ -1140,7 +1220,7 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            color: rgba(255,255,255,0.6);
+            color: rgba(255, 255, 255, 0.6);
             font-size: 4rem;
             font-weight: 300;
             cursor: pointer;
@@ -1158,8 +1238,12 @@
             transform: translateY(-50%) scale(1.1);
         }
 
-        .lightbox-prev { left: 20px; }
-        .lightbox-next { right: 20px; }
+        .lightbox-prev {
+            left: 20px;
+        }
+        .lightbox-next {
+            right: 20px;
+        }
 
         @media (max-width: 600px) {
             .lightbox-prev,
@@ -1167,15 +1251,24 @@
                 font-size: 2.5rem;
                 padding: 0 10px;
             }
-            .lightbox-prev { left: 5px; }
-            .lightbox-next { right: 5px; }
+            .lightbox-prev {
+                left: 5px;
+            }
+            .lightbox-next {
+                right: 5px;
+            }
             .lightbox-close {
                 font-size: 2.5rem;
                 top: 20px;
                 right: 20px;
             }
-            .lightbox { padding: 20px; }
-            .lightbox-counter { font-size: 0.7rem; bottom: 15px; }
+            .lightbox {
+                padding: 20px;
+            }
+            .lightbox-counter {
+                font-size: 0.7rem;
+                bottom: 15px;
+            }
         }
 
         /* Стиль для фото-карточек — курсор-указатель */
@@ -1185,6 +1278,16 @@
         }
 
         .photo-item:hover {
+            transform: scale(1.02);
+            border-color: var(--accent-gold) !important;
+        }
+
+        /* ===== НОВЫЙ РАЗДЕЛ STARS (аналогичен PHOTO) ===== */
+        #stars-content .photo-item {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        #stars-content .photo-item:hover {
             transform: scale(1.02);
             border-color: var(--accent-gold) !important;
         }
@@ -1201,25 +1304,25 @@
                 <!-- Instagram -->
                 <a href="https://www.instagram.com/ilima_guseynova/" target="_blank" aria-label="Instagram">
                     <svg class="social-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M 8 3 C 5.243 3 3 5.243 3 8 L 3 16 C 3 18.757 5.243 21 8 21 L 16 21 C 18.757 21 21 18.757 21 16 L 21 8 C 21 5.243 18.757 3 16 3 L 8 3 z M 8 5 L 16 5 C 17.654 5 19 6.346 19 8 L 19 16 C 19 17.654 17.654 19 16 19 L 8 19 C 6.346 19 5 17.654 5 16 L 5 8 C 5 6.346 6.346 5 8 5 z M 17 6 A 1 1 0 0 0 16 7 A 1 1 0 0 0 17 8 A 1 1 0 0 0 18 7 A 1 1 0 0 0 17 6 z M 12 7 C 9.243 7 7 9.243 7 12 C 7 14.757 9.243 17 12 17 C 14.757 17 17 14.757 17 12 C 17 9.243 14.757 7 12 7 z M 12 9 C 13.654 9 15 10.346 15 12 C 15 13.654 13.654 15 12 15 C 10.346 15 9 13.654 9 12 C 9 10.346 10.346 9 12 9 z"/>
+                        <path d="M 8 3 C 5.243 3 3 5.243 3 8 L 3 16 C 3 18.757 5.243 21 8 21 L 16 21 C 18.757 21 21 18.757 21 16 L 21 8 C 21 5.243 18.757 3 16 3 L 8 3 z M 8 5 L 16 5 C 17.654 5 19 6.346 19 8 L 19 16 C 19 17.654 17.654 19 16 19 L 8 19 C 6.346 19 5 17.654 5 16 L 5 8 C 5 6.346 6.346 5 8 5 z M 17 6 A 1 1 0 0 0 16 7 A 1 1 0 0 0 17 8 A 1 1 0 0 0 18 7 A 1 1 0 0 0 17 6 z M 12 7 C 9.243 7 7 9.243 7 12 C 7 14.757 9.243 17 12 17 C 14.757 17 17 14.757 17 12 C 17 9.243 14.757 7 12 7 z M 12 9 C 13.654 9 15 10.346 15 12 C 15 13.654 13.654 15 12 15 C 10.346 15 9 13.654 9 12 C 9 10.346 10.346 9 12 9 z" />
                     </svg>
                 </a>
                 <!-- TikTok (улучшенный логотип) -->
                 <a href="https://www.tiktok.com/@ilima.guseynova" target="_blank" aria-label="TikTok">
                     <svg class="social-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M16.6 5.82c-.68-.58-1.24-1.3-1.6-2.12h-2.8v13.7c0 1.72-1.4 3.1-3.1 3.1-1.7 0-3.1-1.38-3.1-3.1 0-1.72 1.4-3.1 3.1-3.1.44 0 .86.08 1.24.22v-2.8c-.46-.1-.94-.16-1.44-.16-3.06 0-5.6 2.54-5.6 5.6 0 3.06 2.54 5.6 5.6 5.6 3.06 0 5.6-2.54 5.6-5.6V9.68c1.16.86 2.58 1.36 4.1 1.36V8.24c-.68 0-1.34-.14-1.9-.42z"/>
+                        <path d="M16.6 5.82c-.68-.58-1.24-1.3-1.6-2.12h-2.8v13.7c0 1.72-1.4 3.1-3.1 3.1-1.7 0-3.1-1.38-3.1-3.1 0-1.72 1.4-3.1 3.1-3.1.44 0 .86.08 1.24.22v-2.8c-.46-.1-.94-.16-1.44-.16-3.06 0-5.6 2.54-5.6 5.6 0 3.06 2.54 5.6 5.6 5.6 3.06 0 5.6-2.54 5.6-5.6V9.68c1.16.86 2.58 1.36 4.1 1.36V8.24c-.68 0-1.34-.14-1.9-.42z" />
                     </svg>
                 </a>
                 <!-- Facebook -->
                 <a href="https://www.facebook.com/IlimaTennisPRO/" target="_blank" aria-label="Facebook">
                     <svg class="social-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M 22 12 C 22 6.477 17.523 2 12 2 C 6.477 2 2 6.477 2 12 C 2 16.991 5.657 21.128 10.438 21.879 L 10.438 14.891 L 7.898 14.891 L 7.898 12 L 10.438 12 L 10.438 9.797 C 10.438 7.291 11.93 5.907 14.215 5.907 C 15.308 5.907 16.453 6.102 16.453 6.102 L 16.453 8.562 L 15.193 8.562 C 13.95 8.562 13.562 9.332 13.562 10.124 L 13.562 12 L 16.336 12 L 15.892 14.891 L 13.562 14.891 L 13.562 21.879 C 18.343 21.129 22 16.99 22 12 Z"/>
+                        <path d="M 22 12 C 22 6.477 17.523 2 12 2 C 6.477 2 2 6.477 2 12 C 2 16.991 5.657 21.128 10.438 21.879 L 10.438 14.891 L 7.898 14.891 L 7.898 12 L 10.438 12 L 10.438 9.797 C 10.438 7.291 11.93 5.907 14.215 5.907 C 15.308 5.907 16.453 6.102 16.453 6.102 L 16.453 8.562 L 15.193 8.562 C 13.95 8.562 13.562 9.332 13.562 10.124 L 13.562 12 L 16.336 12 L 15.892 14.891 L 13.562 14.891 L 13.562 21.879 C 18.343 21.129 22 16.99 22 12 Z" />
                     </svg>
                 </a>
                 <!-- X (Twitter) -->
                 <a href="https://x.com/ilimguseynova" target="_blank" aria-label="X.com">
                     <svg class="social-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M 18.244 2.25 L 21.552 2.25 L 14.325 10.51 L 22.828 21.75 L 16.17 21.75 L 10.956 14.933 L 4.99 21.75 L 1.68 21.75 L 9.41 12.915 L 1.254 2.25 L 8.08 2.25 L 12.794 8.481 Z M 17.083 19.771 L 18.912 19.771 L 7.083 4.127 L 5.117 4.127 Z"/>
+                        <path d="M 18.244 2.25 L 21.552 2.25 L 14.325 10.51 L 22.828 21.75 L 16.17 21.75 L 10.956 14.933 L 4.99 21.75 L 1.68 21.75 L 9.41 12.915 L 1.254 2.25 L 8.08 2.25 L 12.794 8.481 Z M 17.083 19.771 L 18.912 19.771 L 7.083 4.127 L 5.117 4.127 Z" />
                     </svg>
                 </a>
             </div>
@@ -1250,6 +1353,11 @@
                 <span class="en-text">Photo</span>
                 <span class="ru-text">Фото</span>
             </a>
+            <!-- НОВАЯ КНОПКА STARS -->
+            <a href="#media" data-tab="stars">
+                <span class="en-text">STARS</span>
+                <span class="ru-text">ЗВЁЗДЫ</span>
+            </a>
             <a href="#contact">
                 <span class="en-text">Recruiting</span>
                 <span class="ru-text">Рекрутинг</span>
@@ -1261,14 +1369,14 @@
     <!-- СЛАЙДЕР С ИНДИВИДУАЛЬНЫМИ ПОЗИЦИЯМИ ДЛЯ КАЖДОГО ФОТО -->
     <header id="hero-slider">
         <div class="hero-slides">
-            <img src="images/ilima-hero-1.jpg" class="slide active" alt="Ilima Tennis 1" style="object-position: center 0%;">
-            <img src="images/ilima-hero-2.jpg" class="slide" alt="Ilima Tennis 2" style="object-position: center  -20%;">
-            <img src="images/ilima-hero-3.jpg" class="slide" alt="Ilima Tennis 3" style="object-position: center  -18%;">
-            <img src="images/ilima-hero-4.jpg" class="slide" alt="Ilima Tennis 4" style="object-position: center   0%;">
-            <img src="images/ilima-hero-5.jpg" class="slide" alt="Ilima Tennis 5" style="object-position: center   0%;">
-            <img src="images/ilima-hero-6.jpg" class="slide" alt="Ilima Tennis 6" style="object-position: center   0%;">
-            <img src="images/ilima-hero-7.jpg" class="slide" alt="Ilima Tennis 7" style="object-position: center  -30%;">
-            <img src="images/ilima-hero-8.jpg" class="slide" alt="Ilima Tennis 8" style="object-position: center  -50%;">
+            <img src="images/ilima-hero-1.jpg" class="slide active" alt="Ilima Tennis 1" style="object-position: center 0%;" />
+            <img src="images/ilima-hero-2.jpg" class="slide" alt="Ilima Tennis 2" style="object-position: center  -20%;" />
+            <img src="images/ilima-hero-3.jpg" class="slide" alt="Ilima Tennis 3" style="object-position: center  -18%;" />
+            <img src="images/ilima-hero-4.jpg" class="slide" alt="Ilima Tennis 4" style="object-position: center   0%;" />
+            <img src="images/ilima-hero-5.jpg" class="slide" alt="Ilima Tennis 5" style="object-position: center   0%;" />
+            <img src="images/ilima-hero-6.jpg" class="slide" alt="Ilima Tennis 6" style="object-position: center   0%;" />
+            <img src="images/ilima-hero-7.jpg" class="slide" alt="Ilima Tennis 7" style="object-position: center  -30%;" />
+            <img src="images/ilima-hero-8.jpg" class="slide" alt="Ilima Tennis 8" style="object-position: center  -50%;" />
         </div>
 
         <!-- СТРЕЛКИ БЕЗ КРУГА -->
@@ -1323,7 +1431,7 @@
                 <div class="stat-item stat-item-content" style="border-top: 3px solid var(--accent-gold);">
                     <div class="stat-header">
                         <div class="stat-header-left">
-                            <img src="images/utr-logo.png" alt="UTR Logo" class="logo-utr">
+                            <img src="images/utr-logo.png" alt="UTR Logo" class="logo-utr" />
                         </div>
                     </div>
                     <div style="display: flex; justify-content: center; align-items: center; gap: 15px; margin-bottom: 5px; color: var(--accent-gold); width: 100%;">
@@ -1347,7 +1455,7 @@
                 <div class="stat-item stat-item-content" style="border-top: 3px solid var(--accent-gold);">
                     <div class="stat-header">
                         <div class="stat-header-left">
-                            <img src="images/utr-logo.png" alt="UTR Logo" class="logo-utr">
+                            <img src="images/utr-logo.png" alt="UTR Logo" class="logo-utr" />
                         </div>
                     </div>
                     <div style="display: flex; justify-content: center; align-items: center; gap: 15px; margin-bottom: 5px; color: var(--accent-gold); width: 100%;">
@@ -1374,7 +1482,7 @@
                 <div class="stat-item stat-item-content" style="border-top: 3px solid var(--accent-gold);">
                     <div class="stat-header" style="width: 100%; height: 100%; padding: 15px;">
                         <div class="itf-wrapper">
-                            <img src="images/world-tennis-logo.png" alt="World Tennis Logo" class="logo-itf">
+                            <img src="images/world-tennis-logo.png" alt="World Tennis Logo" class="logo-itf" />
                             <div class="itf-label">
                                 <span class="en-text">RANKING</span>
                                 <span class="ru-text">РЕЙТИНГ</span>
@@ -1388,7 +1496,7 @@
                 <div class="stat-item stat-item-logo" style="border-top: 3px solid var(--accent-gold); padding: 0;">
                     <div class="stat-header" style="width: 100%; height: 100%; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center;">
                         <div class="stat-header-left" style="height: 100%; width: 100%; display: flex; justify-content: center; align-items: center;">
-                            <img src="images/wtn-logo-singles.png" alt="WTN Singles Logo" style="width: 100%; height: auto; max-height: 100%; object-fit: contain; display: block;">
+                            <img src="images/wtn-logo-singles.png" alt="WTN Singles Logo" style="width: 100%; height: auto; max-height: 100%; object-fit: contain; display: block;" />
                         </div>
                     </div>
                 </div>
@@ -1397,7 +1505,7 @@
                 <div class="stat-item stat-item-logo" style="border-top: 3px solid var(--accent-gold); padding: 0;">
                     <div class="stat-header" style="width: 100%; height: 100%; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center;">
                         <div class="stat-header-left" style="height: 100%; width: 100%; display: flex; justify-content: center; align-items: center;">
-                            <img src="images/wtn-logo-doubles.png" alt="WTN Doubles Logo" style="width: 100%; height: auto; max-height: 100%; object-fit: contain; display: block;">
+                            <img src="images/wtn-logo-doubles.png" alt="WTN Doubles Logo" style="width: 100%; height: auto; max-height: 100%; object-fit: contain; display: block;" />
                         </div>
                     </div>
                 </div>
@@ -1406,7 +1514,7 @@
                 <div class="stat-item stat-item-content" style="border-top: 3px solid var(--accent-gold);">
                     <div class="stat-header" style="width: 100%; height: 100%;">
                         <div class="atf-wrapper">
-                            <img src="images/atf-logo.png" alt="ATF Logo" class="logo-atf">
+                            <img src="images/atf-logo.png" alt="ATF Logo" class="logo-atf" />
                             <div class="atf-label">
                                 <span class="en-text">RANKING</span>
                                 <span class="ru-text">РЕЙТИНГ</span>
@@ -1420,7 +1528,7 @@
                 <div class="stat-item stat-item-content" style="border-top: 3px solid var(--accent-gold);">
                     <div class="stat-header" style="width: 100%; height: 100%;">
                         <div class="wtt-wrapper">
-                            <img src="images/world-tennis-logo.png" alt="World Tennis Logo" class="wtt-logo">
+                            <img src="images/world-tennis-logo.png" alt="World Tennis Logo" class="wtt-logo" />
                             <div class="wtt-icon-wrapper" style="display: flex; justify-content: center; align-items: center; gap: 15px; margin-bottom: 5px; color: var(--accent-gold); width: 100%;">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
@@ -1440,7 +1548,7 @@
                 <div class="stat-item stat-item-content" style="border-top: 3px solid var(--accent-gold);">
                     <div class="stat-header" style="width: 100%; height: 100%;">
                         <div class="wtt-wrapper">
-                            <img src="images/world-tennis-logo.png" alt="World Tennis Logo" class="wtt-logo">
+                            <img src="images/world-tennis-logo.png" alt="World Tennis Logo" class="wtt-logo" />
                             <div class="wtt-icon-wrapper" style="display: flex; justify-content: center; align-items: center; gap: 15px; margin-bottom: 5px; color: var(--accent-gold); width: 100%;">
                                 <svg width="22" height="20" viewBox="0 0 28 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M5 21v-2a4 4 0 0 1 4-4h1"></path>
@@ -1463,7 +1571,7 @@
                 <div class="stat-item stat-item-content" style="border-top: 3px solid var(--accent-gold);">
                     <div class="stat-header" style="width: 100%; height: 100%;">
                         <div class="atf-wrapper" style="padding: 10px 0;">
-                            <img src="images/atf-titles-logo.png" alt="ATF Titles Logo" class="logo-atf-titles">
+                            <img src="images/atf-titles-logo.png" alt="ATF Titles Logo" class="logo-atf-titles" />
                             <div class="atf-titles-label">
                                 <span class="en-text">TITLES</span>
                                 <span class="ru-text">ТИТУЛЫ</span>
@@ -1477,7 +1585,7 @@
                 <div class="stat-item stat-item-content" style="border-top: 3px solid var(--accent-gold);">
                     <div class="stat-header" style="width: 100%; height: 100%;">
                         <div class="bjkc-wrapper">
-                            <img src="images/billie-jean-king-cup-logo.png" alt="Billie Jean King Cup Logo" class="bjkc-logo">
+                            <img src="images/billie-jean-king-cup-logo.png" alt="Billie Jean King Cup Logo" class="bjkc-logo" />
                             <div class="bjkc-label">
                                 <span class="en-text">PARTICIPANT</span>
                                 <span class="ru-text">УЧАСТНИЦА</span>
@@ -1611,6 +1719,12 @@
                     <button class="tab-btn" data-tab="photo">
                         <span class="en-text">Photo</span>
                         <span class="ru-text">Фото</span>
+                        <span class="tab-badge">24</span>
+                    </button>
+                    <!-- НОВАЯ КНОПКА STARS В ТАБАХ -->
+                    <button class="tab-btn" data-tab="stars">
+                        <span class="en-text">STARS</span>
+                        <span class="ru-text">ЗВЁЗДЫ</span>
                         <span class="tab-badge">6</span>
                     </button>
                 </div>
@@ -1618,531 +1732,636 @@
 
             <!-- ===== ВКЛАДКА: HIGHLIGHTS ===== -->
             <div id="highlights-content" class="tab-content active">
-                
+
                 <!-- Хайлайт 1 -->
                 <div class="video-card">
                     <div class="video-frame">
                         <div class="vimeo-wrapper">
-                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write" 
-                                    allowfullscreen>
-                            </iframe>
-                        </div>
-                    </div>
-                    <div class="video-info">
-                        <span class="en-text">Full Match: Ilima Guseynova vs. [Opponent] — [Tournament Name]</span>
-                        <span class="ru-text">Полный матч: Илима Гусейнова vs. [Соперник] — [Название турнира]</span>
+                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                            allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+                            allowfullscreen>
+                        </iframe>
                     </div>
                 </div>
-
-                <!-- Хайлайт 2 -->
-                <div class="video-card">
-                    <div class="video-frame">
-                        <div class="vimeo-wrapper">
-                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write" 
-                                    allowfullscreen>
-                            </iframe>
-                        </div>
-                    </div>
-                    <div class="video-info">
-                        <span class="en-text">Full Match: Ilima Guseynova vs. [Opponent] — [Tournament Name]</span>
-                        <span class="ru-text">Полный матч: Илима Гусейнова vs. [Соперник] — [Название турнира]</span>
-                    </div>
-                </div>
-
-                <!-- Хайлайт 3 -->
-                <div class="video-card">
-                    <div class="video-frame">
-                        <div class="vimeo-wrapper">
-                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write" 
-                                    allowfullscreen>
-                            </iframe>
-                        </div>
-                    </div>
-                    <div class="video-info">
-                        <span class="en-text">Full Match: Ilima Guseynova vs. [Opponent] — [Tournament Name]</span>
-                        <span class="ru-text">Полный матч: Илима Гусейнова vs. [Соперник] — [Название турнира]</span>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- ===== ВКЛАДКА: FULL MATCHES ===== -->
-            <div id="fullmatches-content" class="tab-content">
-
-                <!-- Полный матч 1: Roland Garros (Court 1) -->
-                <div class="video-card">
-                    <div class="video-frame">
-                        <div class="vimeo-wrapper">
-                            <iframe src="https://player.vimeo.com/video/1149162690?h=ec&badge=0&autopause=0&player_id=0&app_id=58479" 
-                                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write" 
-                                    allowfullscreen>
-                            </iframe>
-                        </div>
-                    </div>
-                    <div class="video-info">
-                        <span class="en-text">Roland Garros Junior Series By Renault Qualifications West And Central Asia Ilima Guseynova & Hana Shabanpour (Court 1)</span>
-                        <span class="ru-text">Roland Garros Junior Series By Renault Qualifications West And Central Asia Илима Гусейнова & Хана Шабанпур (Корт 1)</span>
-                    </div>
-                </div>
-
-                <!-- Полный матч 2: Billie Jean King Cup -->
-                <div class="video-card">
-                    <div class="video-frame">
-                        <div class="vimeo-wrapper">
-                            <iframe src="https://drive.google.com/file/d/1aDKb1hioGWNLEM5UIyOQObZp_fhrAUnK/preview" 
-                                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write" 
-                                    allowfullscreen>
-                            </iframe>
-                        </div>
-                    </div>
-                    <div class="video-info">
-                        <span class="en-text">Billie Jean King Cup — Ushna Suhail vs. Ilima Guseynova</span>
-                        <span class="ru-text">Кубок Билли Джин Кинг — Ушна Сухайл vs. Илима Гусейнова</span>
-                    </div>
-                </div>
-
-                <!-- Полный матч 3: Roland Garros (Court 2) -->
-                <div class="video-card">
-                    <div class="video-frame">
-                        <div class="vimeo-wrapper">
-                            <iframe src="https://drive.google.com/file/d/1gU2tSzmGK9dv8ksBvUi3mycfub1IDIHV/preview" 
-                                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write" 
-                                    allowfullscreen>
-                            </iframe>
-                        </div>
-                    </div>
-                    <div class="video-info">
-                        <span class="en-text">Roland Garros Junior Series By Renault Qualifications West And Central Asia Ilima Guseynova & Sofiya Malysheva (Court 2)</span>
-                        <span class="ru-text">Roland Garros Junior Series By Renault Qualifications West And Central Asia Илима Гусейнова & София Малышева (Корт 2)</span>
-                    </div>
-                </div>
-
-                <!-- Полный матч 4: ITF Juniors J30 Fergana -->
-                <div class="video-card">
-                    <div class="video-frame">
-                        <div class="vimeo-wrapper">
-                            <iframe src="https://drive.google.com/file/d/1LgFvsj8lwzjIJYc-hdSwAn7xpqPAx5ZJ/preview" 
-                                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write" 
-                                    allowfullscreen>
-                            </iframe>
-                        </div>
-                    </div>
-                    <div class="video-info">
-                        <span class="en-text">ITF Juniors J30 Fergana ILIMA GUSEYNOVA & VIKTORIYA OLEINIKOVA</span>
-                        <span class="ru-text">ITF Juniors J30 Фергана ИЛИМА ГУСЕЙНОВА И ВИКТОРИЯ ОЛЕЙНИКОВА</span>
-                    </div>
-                </div>
-
-                <!-- Полный матч 5: Roland Garros -->
-                <div class="video-card">
-                    <div class="video-frame">
-                        <div class="vimeo-wrapper">
-                            <iframe src="https://drive.google.com/file/d/1dZF6ZxuU9iC1PTzXtFeBcvudw-fO7lo7/preview" 
-                                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write" 
-                                    allowfullscreen>
-                            </iframe>
-                        </div>
-                    </div>
-                    <div class="video-info">
-                        <span class="en-text">Roland Garros Junior Series By Renault Qualifications West And Central Asia Ilima Guseynova & Zinira Zhunusova Court 2 </span>
-                        <span class="ru-text">Roland Garros Junior Series By Renault Qualifications West And Central Asia Илима Гусейнова & Зинира Жунусова Корт 2</span>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- ===== ВКЛАДКА: TRAINING ===== -->
-            <div id="training-content" class="tab-content">
-
-                <!-- Тренировка 1 -->
-                <div class="video-card">
-                    <div class="video-frame">
-                        <div class="vimeo-wrapper">
-                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write" 
-                                    allowfullscreen>
-                            </iframe>
-                        </div>
-                    </div>
-                    <div class="video-info">
-                        <span class="en-text">Training Session: Ilima Guseynova — [Location]</span>
-                        <span class="ru-text">Тренировка: Илима Гусейнова — [Место]</span>
-                    </div>
-                </div>
-
-                <!-- Тренировка 2 -->
-                <div class="video-card">
-                    <div class="video-frame">
-                        <div class="vimeo-wrapper">
-                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write" 
-                                    allowfullscreen>
-                            </iframe>
-                        </div>
-                    </div>
-                    <div class="video-info">
-                        <span class="en-text">Training Session: Ilima Guseynova — [Location]</span>
-                        <span class="ru-text">Тренировка: Илима Гусейнова — [Место]</span>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- ===== ОБНОВЛЁННАЯ ВКЛАДКА: PHOTO С ЛАЙТБОКСОМ ===== -->
-            <div id="photo-content" class="tab-content">
-                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; width: 100%;">
-                    
-                    <div class="photo-item" style="background: var(--surface-color); border: 1px solid var(--border-color); aspect-ratio: 1/1; overflow: hidden; border-radius: 4px;" data-index="0">
-                        <img src="images/photo-1.jpg" alt="Ilima Guseynova Photo 1" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;">
-                    </div>
-                    
-                    <div class="photo-item" style="background: var(--surface-color); border: 1px solid var(--border-color); aspect-ratio: 1/1; overflow: hidden; border-radius: 4px;" data-index="1">
-                        <img src="images/photo-2.jpg" alt="Ilima Guseynova Photo 2" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;">
-                    </div>
-                    
-                    <div class="photo-item" style="background: var(--surface-color); border: 1px solid var(--border-color); aspect-ratio: 1/1; overflow: hidden; border-radius: 4px;" data-index="2">
-                        <img src="images/photo-3.jpg" alt="Ilima Guseynova Photo 3" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;">
-                    </div>
-                    
-                    <div class="photo-item" style="background: var(--surface-color); border: 1px solid var(--border-color); aspect-ratio: 1/1; overflow: hidden; border-radius: 4px;" data-index="3">
-                        <img src="images/photo-4.jpg" alt="Ilima Guseynova Photo 4" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;">
-                    </div>
-                    
-                    <div class="photo-item" style="background: var(--surface-color); border: 1px solid var(--border-color); aspect-ratio: 1/1; overflow: hidden; border-radius: 4px;" data-index="4">
-                        <img src="images/photo-5.jpg" alt="Ilima Guseynova Photo 5" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;">
-                    </div>
-                    
-                    <div class="photo-item" style="background: var(--surface-color); border: 1px solid var(--border-color); aspect-ratio: 1/1; overflow: hidden; border-radius: 4px;" data-index="5">
-                        <img src="images/photo-6.jpg" alt="Ilima Guseynova Photo 6" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;">
-                    </div>
-                    
+                <div class="video-info">
+                    <span class="en-text">Full Match: Ilima Guseynova vs. [Opponent] — [Tournament Name]</span>
+                    <span class="ru-text">Полный матч: Илима Гусейнова vs. [Соперник] — [Название турнира]</span>
                 </div>
             </div>
 
-        </section>
-
-        <section id="contact">
-            <div class="contact-box">
-                <div class="section-tag" style="text-align: center;">
-                    <span class="en-text">Direct Communication</span>
-                    <span class="ru-text">Прямая связь</span>
-                </div>
-                <h2 class="section-title" style="text-align: center; margin-bottom: 20px;">
-                    <span class="en-text">For Coaches & Scouts</span>
-                    <span class="ru-text">Для тренеров и скаутов</span>
-                </h2>
-                <p style="text-align: center; color: var(--text-muted); margin-bottom: 40px; font-size: 0.95rem;">
-                    <span class="en-text">University coaches and athletic representatives can submit inquiries regarding roster placement and scholarship opportunities.</span>
-                    <span class="ru-text">Тренеры университетов и спортивные представители могут отправлять запросы относительно мест в составе и возможностей стипендий.</span>
-                </p>
-                
-                <!-- ===== ФОРМА С ИНТЕГРАЦИЕЙ FORMSPREE ===== -->
-                <form class="form-grid" id="recruitingForm" action="https://formspree.io/f/mnjeelwv" method="POST">
-                    <input type="hidden" name="_subject" value="New Recruiting Inquiry - Ilima Guseynova">
-                    <input type="hidden" name="_captcha" value="false">
-                    
-                    <div class="input-group">
-                        <label>
-                            <span class="en-text">Coach Name *</span>
-                            <span class="ru-text">Имя тренера *</span>
-                        </label>
-                        <input type="text" name="coach_name" placeholder="John Smith" required>
-                    </div>
-                    <div class="input-group">
-                        <label>
-                            <span class="en-text">University / Institution *</span>
-                            <span class="ru-text">Университет / Организация *</span>
-                        </label>
-                        <input type="text" name="university" placeholder="NCAA Div I Program" required>
-                    </div>
-                    <div class="input-group">
-                        <label>
-                            <span class="en-text">Email Address *</span>
-                            <span class="ru-text">Электронная почта *</span>
-                        </label>
-                        <input type="email" name="email" placeholder="coach@university.edu" required>
-                    </div>
-                    <div class="input-group">
-                        <label>
-                            <span class="en-text">Phone / WhatsApp</span>
-                            <span class="ru-text">Телефон / WhatsApp</span>
-                        </label>
-                        <input type="text" name="phone" placeholder="+1 (555) 000-0000">
-                    </div>
-                    <div class="input-group full">
-                        <label>
-                            <span class="en-text">Inquiry Details / Offer Summary *</span>
-                            <span class="ru-text">Детали запроса / предложение *</span>
-                        </label>
-                        <textarea name="message" rows="4" placeholder="Specify your program details, timeline, or scholarship framework..." required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">
-                        <span class="en-text">Send Recruiting Inquiry</span>
-                        <span class="ru-text">Отправить запрос тренеру</span>
-                    </button>
-                </form>
-
-                <!-- ===== СООБЩЕНИЕ ОБ УСПЕШНОЙ ОТПРАВКЕ ===== -->
-                <div id="successMessage" class="success-message">
-                    <h3>✅ Thank You!</h3>
-                    <p>
-                        <span class="en-text">Your inquiry has been sent successfully. Our team will review your message and get back to you shortly.</span>
-                        <span class="ru-text">Ваш запрос успешно отправлен. Наша команда рассмотрит его и свяжется с вами в ближайшее время.</span>
-                    </p>
+            <!-- Хайлайт 2 -->
+            <div class="video-card">
+                <div class="video-frame">
+                    <div class="vimeo-wrapper">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+                        allowfullscreen>
+                    </iframe>
                 </div>
             </div>
-        </section>
+            <div class="video-info">
+                <span class="en-text">Full Match: Ilima Guseynova vs. [Opponent] — [Tournament Name]</span>
+                <span class="ru-text">Полный матч: Илима Гусейнова vs. [Соперник] — [Название турнира]</span>
+            </div>
+        </div>
 
+        <!-- Хайлайт 3 -->
+        <div class="video-card">
+            <div class="video-frame">
+                <div class="vimeo-wrapper">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+        <div class="video-info">
+            <span class="en-text">Full Match: Ilima Guseynova vs. [Opponent] — [Tournament Name]</span>
+            <span class="ru-text">Полный матч: Илима Гусейнова vs. [Соперник] — [Название турнира]</span>
+        </div>
     </div>
 
-    <footer>
-        <p>
-            <span class="en-text">&copy; 2026 Ilima Guseynova. Official Athletic Portfolio. Designed for NCAA Recruiting.</span>
-            <span class="ru-text">&copy; 2026 Илима Гусейнова. Официальное спортивное портфолио. Разработано для рекрутинга в NCAA.</span>
+</div>
+
+<!-- ===== ВКЛАДКА: FULL MATCHES ===== -->
+<div id="fullmatches-content" class="tab-content">
+
+    <!-- Полный матч 1: Roland Garros (Court 1) -->
+    <div class="video-card">
+        <div class="video-frame">
+            <div class="vimeo-wrapper">
+                <iframe src="https://player.vimeo.com/video/1149162690?h=ec&badge=0&autopause=0&player_id=0&app_id=58479"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+    <div class="video-info">
+        <span class="en-text">Roland Garros Junior Series By Renault Qualifications West And Central Asia Ilima Guseynova & Hana Shabanpour (Court 1)</span>
+        <span class="ru-text">Roland Garros Junior Series By Renault Qualifications West And Central Asia Илима Гусейнова & Хана Шабанпур (Корт 1)</span>
+    </div>
+</div>
+
+<!-- Полный матч 2: Billie Jean King Cup -->
+<div class="video-card">
+    <div class="video-frame">
+        <div class="vimeo-wrapper">
+            <iframe src="https://drive.google.com/file/d/1aDKb1hioGWNLEM5UIyOQObZp_fhrAUnK/preview"
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+            allowfullscreen>
+        </iframe>
+    </div>
+</div>
+<div class="video-info">
+    <span class="en-text">Billie Jean King Cup — Ushna Suhail vs. Ilima Guseynova</span>
+    <span class="ru-text">Кубок Билли Джин Кинг — Ушна Сухайл vs. Илима Гусейнова</span>
+</div>
+</div>
+
+<!-- Полный матч 3: Roland Garros (Court 2) -->
+<div class="video-card">
+    <div class="video-frame">
+        <div class="vimeo-wrapper">
+            <iframe src="https://drive.google.com/file/d/1gU2tSzmGK9dv8ksBvUi3mycfub1IDIHV/preview"
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+            allowfullscreen>
+        </iframe>
+    </div>
+</div>
+<div class="video-info">
+    <span class="en-text">Roland Garros Junior Series By Renault Qualifications West And Central Asia Ilima Guseynova & Sofiya Malysheva (Court 2)</span>
+    <span class="ru-text">Roland Garros Junior Series By Renault Qualifications West And Central Asia Илима Гусейнова & София Малышева (Корт 2)</span>
+</div>
+</div>
+
+<!-- Полный матч 4: ITF Juniors J30 Fergana -->
+<div class="video-card">
+    <div class="video-frame">
+        <div class="vimeo-wrapper">
+            <iframe src="https://drive.google.com/file/d/1LgFvsj8lwzjIJYc-hdSwAn7xpqPAx5ZJ/preview"
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+            allowfullscreen>
+        </iframe>
+    </div>
+</div>
+<div class="video-info">
+    <span class="en-text">ITF Juniors J30 Fergana ILIMA GUSEYNOVA & VIKTORIYA OLEINIKOVA</span>
+    <span class="ru-text">ITF Juniors J30 Фергана ИЛИМА ГУСЕЙНОВА И ВИКТОРИЯ ОЛЕЙНИКОВА</span>
+</div>
+</div>
+
+<!-- Полный матч 5: Roland Garros -->
+<div class="video-card">
+    <div class="video-frame">
+        <div class="vimeo-wrapper">
+            <iframe src="https://drive.google.com/file/d/1dZF6ZxuU9iC1PTzXtFeBcvudw-fO7lo7/preview"
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+            allowfullscreen>
+        </iframe>
+    </div>
+</div>
+<div class="video-info">
+    <span class="en-text">Roland Garros Junior Series By Renault Qualifications West And Central Asia Ilima Guseynova & Zinira Zhunusova Court 2 </span>
+    <span class="ru-text">Roland Garros Junior Series By Renault Qualifications West And Central Asia Илима Гусейнова & Зинира Жунусова Корт 2</span>
+</div>
+</div>
+
+</div>
+
+<!-- ===== ВКЛАДКА: TRAINING ===== -->
+<div id="training-content" class="tab-content">
+
+    <!-- Тренировка 1 -->
+    <div class="video-card">
+        <div class="video-frame">
+            <div class="vimeo-wrapper">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+    <div class="video-info">
+        <span class="en-text">Training Session: Ilima Guseynova — [Location]</span>
+        <span class="ru-text">Тренировка: Илима Гусейнова — [Место]</span>
+    </div>
+</div>
+
+<!-- Тренировка 2 -->
+<div class="video-card">
+    <div class="video-frame">
+        <div class="vimeo-wrapper">
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+            allowfullscreen>
+        </iframe>
+    </div>
+</div>
+<div class="video-info">
+    <span class="en-text">Training Session: Ilima Guseynova — [Location]</span>
+    <span class="ru-text">Тренировка: Илима Гусейнова — [Место]</span>
+</div>
+</div>
+
+</div>
+
+<!-- ===== ВКЛАДКА: PHOTO (24 фото) ===== -->
+<div id="photo-content" class="tab-content">
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; width: 100%;">
+
+        <div class="photo-item" style="background: var(--surface-color); border: 1px solid var(--border-color); aspect-ratio: 1/1; overflow: hidden; border-radius: 4px;" data-index="0">
+            <img src="images/photo-1.jpg" alt="Ilima Guseynova Photo 1" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" />
+        </div>
+
+        <div class="photo-item" style="background: var(--surface-color); border: 1px solid var(--border-color); aspect-ratio: 1/1; overflow: hidden; border-radius: 4px;" data-index="1">
+            <img src="images/photo-2.jpg" alt="Ilima Guseynova Photo 2" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" />
+        </div>
+
+        <div class="photo-item" style="background: var(--surface-color); border: 1px solid var(--border-color); aspect-ratio: 1/1; overflow: hidden; border-radius: 4px;" data-index="2">
+            <img src="images/photo-3.jpg" alt="Ilima Guseynova Photo 3" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" />
+        </div>
+
+        <div class="photo-item" style="background: var(--surface-color); border: 1px solid var(--border-color); aspect-ratio: 1/1; overflow: hidden; border-radius: 4px;" data-index="3">
+            <img src="images/photo-4.jpg" alt="Ilima Guseynova Photo 4" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" />
+        </div>
+
+        <div class="photo-item" style="background: var(--surface-color); border: 1px solid var(--border-color); aspect-ratio: 1/1; overflow: hidden; border-radius: 4px;" data-index="4">
+            <img src="images/photo-5.jpg" alt="Ilima Guseynova Photo 5" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" />
+        </div>
+
+        <div class="photo-item" style="background: var(--surface-color); border: 1px solid var(--border-color); aspect-ratio: 1/1; overflow: hidden; border-radius: 4px;" data-index="5">
+            <img src="images/photo-6.jpg" alt="Ilima Guseynova Photo 6" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" />
+        </div>
+
+        <div class="photo-item" style="background: var(--surface-color); border: 1px solid var(--border-color); aspect-ratio: 1/1; overflow: hidden; border-radius: 4px;" data-index="6">
+            <img src="images/photo-7.jpg" alt="Ilima Guseynova Photo 7" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" />
+        </div>
+
+        <div class="photo-item" style="background: var(--surface-color); border: 1px solid var(--border-color); aspect-ratio: 1/1; overflow: hidden; border-radius: 4px;" data-index="7">
+            <img src="images/photo-8.jpg" alt="Ilima Guseynova Photo 8" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" />
+        </div>
+
+        <div class="photo-item" style="background: var(--surface-color); border: 1px solid var(--border-color); aspect-ratio: 1/1; overflow: hidden; border-radius: 4px;" data-index="8">
+            <img src="images/photo-9.jpg" alt="Ilima Guseynova Photo 9" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" />
+        </div>
+
+        <div class="photo-item" style="background: var(--surface-color); border: 1px solid var(--border-color); aspect-ratio: 1/1; overflow: hidden; border-radius: 4px;" data-index="9">
+            <img src="images/photo-10.jpg" alt="Ilima Guseynova Photo 10" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" />
+        </div>
+
+        <div class="photo-item" style="background: var(--surface-color); border: 1px solid var(--border-color); aspect-ratio: 1/1; overflow: hidden; border-radius: 4px;" data-index="10">
+            <img src="images/photo-11.jpg" alt="Ilima Guseynova Photo 11" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" />
+        </div>
+
+        <div class="photo-item" style="background: var(--surface-color); border: 1px solid var(--border-color); aspect-ratio: 1/1; overflow: hidden; border-radius: 4px;" data-index="11">
+            <img src="images/photo-12.jpg" alt="Ilima Guseynova Photo 12" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" />
+        </div>
+
+        <div class="photo-item" style="background: var(--surface-color); border: 1px solid var(--border-color); aspect-ratio: 1/1; overflow: hidden; border-radius: 4px;" data-index="12">
+            <img src="images/photo-13.jpg" alt="Ilima Guseynova Photo 13" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" />
+        </div>
+
+        <div class="photo-item" style="background: var(--surface-color); border: 1px solid var(--border-color); aspect-ratio: 1/1; overflow: hidden; border-radius: 4px;" data-index="13">
+            <img src="images/photo-14.jpg" alt="Ilima Guseynova Photo 14" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" />
+        </div>
+
+        <div class="photo-item" style="background: var(--surface-color); border: 1px solid var(--border-color); aspect-ratio: 1/1; overflow: hidden; border-radius: 4px;" data-index="14">
+            <img src="images/photo-15.jpg" alt="Ilima Guseynova Photo 15" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" />
+        </div>
+
+        <div class="photo-item" style="background: var(--surface-color); border: 1px solid var(--border-color); aspect-ratio: 1/1; overflow: hidden; border-radius: 4px;" data-index="15">
+            <img src="images/photo-16.jpg" alt="Ilima Guseynova Photo 16" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" />
+        </div>
+
+        <div class="photo-item" style="background: var(--surface-color); border: 1px solid var(--border-color); aspect-ratio: 1/1; overflow: hidden; border-radius: 4px;" data-index="16">
+            <img src="images/photo-17.jpg" alt="Ilima Guseynova Photo 17" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" />
+        </div>
+
+        <div class="photo-item" style="background: var(--surface-color); border: 1px solid var(--border-color); aspect-ratio: 1/1; overflow: hidden; border-radius: 4px;" data-index="17">
+            <img src="images/photo-18.jpg" alt="Ilima Guseynova Photo 18" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" />
+        </div>
+
+        <div class="photo-item" style="background: var(--surface-color); border: 1px solid var(--border-color); aspect-ratio: 1/1; overflow: hidden; border-radius: 4px;" data-index="18">
+            <img src="images/photo-19.jpg" alt="Ilima Guseynova Photo 19" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" />
+        </div>
+
+        <div class="photo-item" style="background: var(--surface-color); border: 1px solid var(--border-color); aspect-ratio: 1/1; overflow: hidden; border-radius: 4px;" data-index="19">
+            <img src="images/photo-20.jpg" alt="Ilima Guseynova Photo 20" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" />
+        </div>
+
+        <div class="photo-item" style="background: var(--surface-color); border: 1px solid var(--border-color); aspect-ratio: 1/1; overflow: hidden; border-radius: 4px;" data-index="20">
+            <img src="images/photo-21.jpg" alt="Ilima Guseynova Photo 21" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" />
+        </div>
+
+        <div class="photo-item" style="background: var(--surface-color); border: 1px solid var(--border-color); aspect-ratio: 1/1; overflow: hidden; border-radius: 4px;" data-index="21">
+            <img src="images/photo-22.jpg" alt="Ilima Guseynova Photo 22" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" />
+        </div>
+
+        <div class="photo-item" style="background: var(--surface-color); border: 1px solid var(--border-color); aspect-ratio: 1/1; overflow: hidden; border-radius: 4px;" data-index="22">
+            <img src="images/photo-23.jpg" alt="Ilima Guseynova Photo 23" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" />
+        </div>
+
+        <div class="photo-item" style="background: var(--surface-color); border: 1px solid var(--border-color); aspect-ratio: 1/1; overflow: hidden; border-radius: 4px;" data-index="23">
+            <img src="images/photo-24.jpg" alt="Ilima Guseynova Photo 24" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" />
+        </div>
+
+    </div>
+</div>
+
+<!-- ===== НОВАЯ ВКЛАДКА: STARS (6 фото, полностью аналогична PHOTO) ===== -->
+<div id="stars-content" class="tab-content">
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; width: 100%;">
+
+        <div class="photo-item" style="background: var(--surface-color); border: 1px solid var(--border-color); aspect-ratio: 1/1; overflow: hidden; border-radius: 4px;" data-index="0">
+            <img src="images/photo-1.jpg" alt="STARS Photo 1" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" />
+        </div>
+
+        <div class="photo-item" style="background: var(--surface-color); border: 1px solid var(--border-color); aspect-ratio: 1/1; overflow: hidden; border-radius: 4px;" data-index="1">
+            <img src="images/photo-2.jpg" alt="STARS Photo 2" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" />
+        </div>
+
+        <div class="photo-item" style="background: var(--surface-color); border: 1px solid var(--border-color); aspect-ratio: 1/1; overflow: hidden; border-radius: 4px;" data-index="2">
+            <img src="images/photo-3.jpg" alt="STARS Photo 3" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" />
+        </div>
+
+        <div class="photo-item" style="background: var(--surface-color); border: 1px solid var(--border-color); aspect-ratio: 1/1; overflow: hidden; border-radius: 4px;" data-index="3">
+            <img src="images/photo-4.jpg" alt="STARS Photo 4" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" />
+        </div>
+
+        <div class="photo-item" style="background: var(--surface-color); border: 1px solid var(--border-color); aspect-ratio: 1/1; overflow: hidden; border-radius: 4px;" data-index="4">
+            <img src="images/photo-5.jpg" alt="STARS Photo 5" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" />
+        </div>
+
+        <div class="photo-item" style="background: var(--surface-color); border: 1px solid var(--border-color); aspect-ratio: 1/1; overflow: hidden; border-radius: 4px;" data-index="5">
+            <img src="images/photo-6.jpg" alt="STARS Photo 6" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" />
+        </div>
+
+    </div>
+</div>
+
+</section>
+
+<section id="contact">
+    <div class="contact-box">
+        <div class="section-tag" style="text-align: center;">
+            <span class="en-text">Direct Communication</span>
+            <span class="ru-text">Прямая связь</span>
+        </div>
+        <h2 class="section-title" style="text-align: center; margin-bottom: 20px;">
+            <span class="en-text">For Coaches & Scouts</span>
+            <span class="ru-text">Для тренеров и скаутов</span>
+        </h2>
+        <p style="text-align: center; color: var(--text-muted); margin-bottom: 40px; font-size: 0.95rem;">
+            <span class="en-text">University coaches and athletic representatives can submit inquiries regarding roster placement and scholarship opportunities.</span>
+            <span class="ru-text">Тренеры университетов и спортивные представители могут отправлять запросы относительно мест в составе и возможностей стипендий.</span>
         </p>
-    </footer>
 
-    <!-- ===== ЛАЙТБОКС ДЛЯ ПРОСМОТРА ФОТО ===== -->
-    <div class="lightbox" id="lightbox">
-        <span class="lightbox-close" id="lightboxClose">✕</span>
-        <button class="lightbox-prev" id="lightboxPrev">‹</button>
-        <button class="lightbox-next" id="lightboxNext">›</button>
-        <img id="lightboxImg" src="" alt="Full size photo">
-        <span class="lightbox-counter" id="lightboxCounter">1 / 6</span>
+        <!-- ===== ФОРМА С ИНТЕГРАЦИЕЙ FORMSPREE ===== -->
+        <form class="form-grid" id="recruitingForm" action="https://formspree.io/f/mnjeelwv" method="POST">
+            <input type="hidden" name="_subject" value="New Recruiting Inquiry - Ilima Guseynova" />
+            <input type="hidden" name="_captcha" value="false" />
+
+            <div class="input-group">
+                <label>
+                    <span class="en-text">Coach Name *</span>
+                    <span class="ru-text">Имя тренера *</span>
+                </label>
+                <input type="text" name="coach_name" placeholder="John Smith" required />
+            </div>
+            <div class="input-group">
+                <label>
+                    <span class="en-text">University / Institution *</span>
+                    <span class="ru-text">Университет / Организация *</span>
+                </label>
+                <input type="text" name="university" placeholder="NCAA Div I Program" required />
+            </div>
+            <div class="input-group">
+                <label>
+                    <span class="en-text">Email Address *</span>
+                    <span class="ru-text">Электронная почта *</span>
+                </label>
+                <input type="email" name="email" placeholder="coach@university.edu" required />
+            </div>
+            <div class="input-group">
+                <label>
+                    <span class="en-text">Phone / WhatsApp</span>
+                    <span class="ru-text">Телефон / WhatsApp</span>
+                </label>
+                <input type="text" name="phone" placeholder="+1 (555) 000-0000" />
+            </div>
+            <div class="input-group full">
+                <label>
+                    <span class="en-text">Inquiry Details / Offer Summary *</span>
+                    <span class="ru-text">Детали запроса / предложение *</span>
+                </label>
+                <textarea name="message" rows="4" placeholder="Specify your program details, timeline, or scholarship framework..." required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">
+                <span class="en-text">Send Recruiting Inquiry</span>
+                <span class="ru-text">Отправить запрос тренеру</span>
+            </button>
+        </form>
+
+        <!-- ===== СООБЩЕНИЕ ОБ УСПЕШНОЙ ОТПРАВКЕ ===== -->
+        <div id="successMessage" class="success-message">
+            <h3>✅ Thank You!</h3>
+            <p>
+                <span class="en-text">Your inquiry has been sent successfully. Our team will review your message and get back to you shortly.</span>
+                <span class="ru-text">Ваш запрос успешно отправлен. Наша команда рассмотрит его и свяжется с вами в ближайшее время.</span>
+            </p>
+        </div>
     </div>
+</section>
 
-    <script>
-        const langToggle = document.getElementById('langToggle');
-        let currentLang = 'en';
+</div>
 
-        langToggle.addEventListener('click', () => {
-            currentLang = currentLang === 'en' ? 'ru' : 'en';
-            langToggle.textContent = currentLang === 'en' ? 'RU' : 'EN';
+<footer>
+    <p>
+        <span class="en-text">&copy; 2026 Ilima Guseynova. Official Athletic Portfolio. Designed for NCAA Recruiting.</span>
+        <span class="ru-text">&copy; 2026 Илима Гусейнова. Официальное спортивное портфолио. Разработано для рекрутинга в NCAA.</span>
+    </p>
+</footer>
 
-            if (currentLang === 'ru') {
-                document.body.classList.add('lang-ru');
-            } else {
-                document.body.classList.remove('lang-ru');
-            }
+<!-- ===== ЛАЙТБОКС ДЛЯ ПРОСМОТРА ФОТО ===== -->
+<div class="lightbox" id="lightbox">
+    <span class="lightbox-close" id="lightboxClose">✕</span>
+    <button class="lightbox-prev" id="lightboxPrev">‹</button>
+    <button class="lightbox-next" id="lightboxNext">›</button>
+    <img id="lightboxImg" src="" alt="Full size photo" />
+    <span class="lightbox-counter" id="lightboxCounter">1 / 24</span>
+</div>
+
+<script>
+    const langToggle = document.getElementById('langToggle');
+    let currentLang = 'en';
+
+    langToggle.addEventListener('click', () => {
+        currentLang = currentLang === 'en' ? 'ru' : 'en';
+        langToggle.textContent = currentLang === 'en' ? 'RU' : 'EN';
+
+        if (currentLang === 'ru') {
+            document.body.classList.add('lang-ru');
+        } else {
+            document.body.classList.remove('lang-ru');
+        }
+    });
+
+    // --- Скрипт слайд-шоу шапки с ручным управлением ---
+    const slides = document.querySelectorAll('.hero-slides .slide');
+    let currentSlide = 0;
+    let slideInterval;
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.toggle('active', i === index);
         });
+    }
 
-        // --- Скрипт слайд-шоу шапки с ручным управлением ---
-        const slides = document.querySelectorAll('.hero-slides .slide');
-        let currentSlide = 0;
-        let slideInterval;
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    }
 
-        function showSlide(index) {
-            slides.forEach((slide, i) => {
-                slide.classList.toggle('active', i === index);
-            });
-        }
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        showSlide(currentSlide);
+    }
 
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % slides.length;
-            showSlide(currentSlide);
-        }
-
-        function prevSlide() {
-            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-            showSlide(currentSlide);
-        }
-
-        function resetInterval() {
-            clearInterval(slideInterval);
-            slideInterval = setInterval(nextSlide, 2300);
-        }
-
-        document.getElementById('arrowRight').addEventListener('click', () => {
-            nextSlide();
-            resetInterval();
-        });
-
-        document.getElementById('arrowLeft').addEventListener('click', () => {
-            prevSlide();
-            resetInterval();
-        });
-
+    function resetInterval() {
+        clearInterval(slideInterval);
         slideInterval = setInterval(nextSlide, 2300);
+    }
 
-        // ===== СКРИПТ ДЛЯ ОБРАБОТКИ ФОРМЫ =====
-        const form = document.getElementById('recruitingForm');
-        const successMessage = document.getElementById('successMessage');
+    document.getElementById('arrowRight').addEventListener('click', () => {
+        nextSlide();
+        resetInterval();
+    });
 
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const formData = new FormData(form);
-            
-            try {
-                const response = await fetch(form.action, {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-                
-                if (response.ok) {
-                    form.style.display = 'none';
-                    successMessage.classList.add('show');
-                    
-                    // Прокрутка к сообщению об успехе
-                    successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                } else {
-                    alert('Something went wrong. Please try again or contact us directly.');
+    document.getElementById('arrowLeft').addEventListener('click', () => {
+        prevSlide();
+        resetInterval();
+    });
+
+    slideInterval = setInterval(nextSlide, 2300);
+
+    // ===== СКРИПТ ДЛЯ ОБРАБОТКИ ФОРМЫ =====
+    const form = document.getElementById('recruitingForm');
+    const successMessage = document.getElementById('successMessage');
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(form);
+
+        try {
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
                 }
-            } catch (error) {
-                alert('Network error. Please check your connection and try again.');
+            });
+
+            if (response.ok) {
+                form.style.display = 'none';
+                successMessage.classList.add('show');
+
+                // Прокрутка к сообщению об успехе
+                successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } else {
+                alert('Something went wrong. Please try again or contact us directly.');
             }
-        });
+        } catch (error) {
+            alert('Network error. Please check your connection and try again.');
+        }
+    });
 
-        // ===== СКРИПТ ДЛЯ РАБОТЫ ТАБОВ =====
-        document.addEventListener('DOMContentLoaded', function() {
-            const tabBtns = document.querySelectorAll('.tab-btn');
-            const tabContents = {
-                highlights: document.getElementById('highlights-content'),
-                fullmatches: document.getElementById('fullmatches-content'),
-                training: document.getElementById('training-content'),
-                photo: document.getElementById('photo-content')
-            };
+    // ===== СКРИПТ ДЛЯ РАБОТЫ ТАБОВ =====
+    document.addEventListener('DOMContentLoaded', function() {
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = {
+            highlights: document.getElementById('highlights-content'),
+            fullmatches: document.getElementById('fullmatches-content'),
+            training: document.getElementById('training-content'),
+            photo: document.getElementById('photo-content'),
+            stars: document.getElementById('stars-content') // НОВЫЙ ТАБ
+        };
 
-            // Функция для переключения вкладок
-            function switchTab(tabId) {
-                // Обновляем активный класс у кнопок
-                tabBtns.forEach(btn => {
-                    btn.classList.remove('active');
-                    if (btn.dataset.tab === tabId) {
-                        btn.classList.add('active');
-                    }
-                });
-
-                // Показываем/скрываем контент
-                Object.keys(tabContents).forEach(key => {
-                    const content = tabContents[key];
-                    if (key === tabId) {
-                        content.style.display = 'grid';
-                        content.classList.add('active');
-                    } else {
-                        content.style.display = 'none';
-                        content.classList.remove('active');
-                    }
-                });
-            }
-
-            // Обработчики кликов по кнопкам табов
+        // Функция для переключения вкладок
+        function switchTab(tabId) {
+            // Обновляем активный класс у кнопок
             tabBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const tabId = this.dataset.tab;
-                    switchTab(tabId);
-                });
+                btn.classList.remove('active');
+                if (btn.dataset.tab === tabId) {
+                    btn.classList.add('active');
+                }
             });
 
-            // Обработка навигационных ссылок с data-tab
-            const navLinks = document.querySelectorAll('.nav-links a[data-tab]');
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const tabId = this.dataset.tab;
-                    const targetSection = document.querySelector(this.getAttribute('href'));
-                    if (targetSection) {
-                        targetSection.scrollIntoView({ behavior: 'smooth' });
-                        setTimeout(() => {
-                            switchTab(tabId);
-                        }, 500);
-                    }
-                });
+            // Показываем/скрываем контент
+            Object.keys(tabContents).forEach(key => {
+                const content = tabContents[key];
+                if (key === tabId) {
+                    content.style.display = 'grid';
+                    content.classList.add('active');
+                } else {
+                    content.style.display = 'none';
+                    content.classList.remove('active');
+                }
             });
+        }
 
-            // При загрузке показываем активную вкладку (Highlights)
-            const activeTab = document.querySelector('.tab-btn.active');
-            if (activeTab) {
-                switchTab(activeTab.dataset.tab);
+        // Обработчики кликов по кнопкам табов
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const tabId = this.dataset.tab;
+                switchTab(tabId);
+            });
+        });
+
+        // Обработка навигационных ссылок с data-tab
+        const navLinks = document.querySelectorAll('.nav-links a[data-tab]');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const tabId = this.dataset.tab;
+                const targetSection = document.querySelector(this.getAttribute('href'));
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                    setTimeout(() => {
+                        switchTab(tabId);
+                    }, 500);
+                }
+            });
+        });
+
+        // При загрузке показываем активную вкладку (Highlights)
+        const activeTab = document.querySelector('.tab-btn.active');
+        if (activeTab) {
+            switchTab(activeTab.dataset.tab);
+        }
+    });
+
+    // ===== ЛАЙТБОКС ДЛЯ ГАЛЕРЕИ ФОТО =====
+    (function() {
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxCounter = document.getElementById('lightboxCounter');
+        const lightboxClose = document.getElementById('lightboxClose');
+        const lightboxPrev = document.getElementById('lightboxPrev');
+        const lightboxNext = document.getElementById('lightboxNext');
+
+        // Собираем все элементы с классом .photo-item (включая STARS)
+        const photoItems = document.querySelectorAll('.photo-item');
+        const photoSrcs = [];
+        let currentIndex = 0;
+
+        // Собираем все src фото
+        photoItems.forEach(item => {
+            const img = item.querySelector('img');
+            if (img) {
+                photoSrcs.push(img.src);
             }
         });
 
-        // ===== ЛАЙТБОКС ДЛЯ ГАЛЕРЕИ ФОТО =====
-        (function() {
-            const lightbox = document.getElementById('lightbox');
-            const lightboxImg = document.getElementById('lightboxImg');
-            const lightboxCounter = document.getElementById('lightboxCounter');
-            const lightboxClose = document.getElementById('lightboxClose');
-            const lightboxPrev = document.getElementById('lightboxPrev');
-            const lightboxNext = document.getElementById('lightboxNext');
-            
-            const photoItems = document.querySelectorAll('.photo-item');
-            const photoSrcs = [];
-            let currentIndex = 0;
+        // Открыть лайтбокс
+        function openLightbox(index) {
+            if (photoSrcs.length === 0) return;
+            currentIndex = index;
+            lightboxImg.src = photoSrcs[currentIndex];
+            lightboxCounter.textContent = `${currentIndex + 1} / ${photoSrcs.length}`;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
 
-            // Собираем все src фото
-            photoItems.forEach(item => {
-                const img = item.querySelector('img');
-                if (img) {
-                    photoSrcs.push(img.src);
-                }
+        // Закрыть лайтбокс
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Переключение фото
+        function showPrev() {
+            if (photoSrcs.length === 0) return;
+            currentIndex = (currentIndex - 1 + photoSrcs.length) % photoSrcs.length;
+            lightboxImg.src = photoSrcs[currentIndex];
+            lightboxCounter.textContent = `${currentIndex + 1} / ${photoSrcs.length}`;
+        }
+
+        function showNext() {
+            if (photoSrcs.length === 0) return;
+            currentIndex = (currentIndex + 1) % photoSrcs.length;
+            lightboxImg.src = photoSrcs[currentIndex];
+            lightboxCounter.textContent = `${currentIndex + 1} / ${photoSrcs.length}`;
+        }
+
+        // Обработчики событий
+        photoItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                openLightbox(index);
             });
+        });
 
-            // Открыть лайтбокс
-            function openLightbox(index) {
-                if (photoSrcs.length === 0) return;
-                currentIndex = index;
-                lightboxImg.src = photoSrcs[currentIndex];
-                lightboxCounter.textContent = `${currentIndex + 1} / ${photoSrcs.length}`;
-                lightbox.classList.add('active');
-                document.body.style.overflow = 'hidden';
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightboxPrev.addEventListener('click', showPrev);
+        lightboxNext.addEventListener('click', showNext);
+
+        // Закрытие по клику на фон (но не на само фото)
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
             }
+        });
 
-            // Закрыть лайтбокс
-            function closeLightbox() {
-                lightbox.classList.remove('active');
-                document.body.style.overflow = '';
-            }
+        // Клавиатура
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') showPrev();
+            if (e.key === 'ArrowRight') showNext();
+        });
 
-            // Переключение фото
-            function showPrev() {
-                if (photoSrcs.length === 0) return;
-                currentIndex = (currentIndex - 1 + photoSrcs.length) % photoSrcs.length;
-                lightboxImg.src = photoSrcs[currentIndex];
-                lightboxCounter.textContent = `${currentIndex + 1} / ${photoSrcs.length}`;
-            }
-
-            function showNext() {
-                if (photoSrcs.length === 0) return;
-                currentIndex = (currentIndex + 1) % photoSrcs.length;
-                lightboxImg.src = photoSrcs[currentIndex];
-                lightboxCounter.textContent = `${currentIndex + 1} / ${photoSrcs.length}`;
-            }
-
-            // Обработчики событий
-            photoItems.forEach((item, index) => {
-                item.addEventListener('click', () => {
-                    openLightbox(index);
-                });
-            });
-
-            lightboxClose.addEventListener('click', closeLightbox);
-            lightboxPrev.addEventListener('click', showPrev);
-            lightboxNext.addEventListener('click', showNext);
-
-            // Закрытие по клику на фон (но не на само фото)
-            lightbox.addEventListener('click', (e) => {
-                if (e.target === lightbox) {
-                    closeLightbox();
-                }
-            });
-
-            // Клавиатура
-            document.addEventListener('keydown', (e) => {
-                if (!lightbox.classList.contains('active')) return;
-                if (e.key === 'Escape') closeLightbox();
-                if (e.key === 'ArrowLeft') showPrev();
-                if (e.key === 'ArrowRight') showNext();
-            });
-
-        })();
-    </script>
+    })();
+</script>
 
 </body>
 </html>
