@@ -1123,7 +1123,8 @@
 
         /* ===== ФОТО-СЕТКА ===== */
         #photo-content > div,
-        #stars-content > div {
+        #stars-content > div,
+        #certificate-content > div {
             display: grid !important;
             grid-template-columns: repeat(4, 1fr) !important;
             gap: clamp(10px, 1.5vw, 16px) !important;
@@ -1132,7 +1133,8 @@
 
         @media (max-width: 768px) {
             #photo-content > div,
-            #stars-content > div {
+            #stars-content > div,
+            #certificate-content > div {
                 grid-template-columns: repeat(3, 1fr) !important;
                 gap: 10px !important;
             }
@@ -1140,7 +1142,8 @@
 
         @media (max-width: 500px) {
             #photo-content > div,
-            #stars-content > div {
+            #stars-content > div,
+            #certificate-content > div {
                 grid-template-columns: repeat(2, 1fr) !important;
                 gap: 8px !important;
             }
@@ -1912,6 +1915,11 @@
                         <span class="ru-text">ЗВЁЗДЫ</span>
                         <span class="tab-badge">7</span>
                     </button>
+                    <button class="tab-btn" data-tab="certificate">
+                        <span class="en-text">CERTIFICATE</span>
+                        <span class="ru-text">СЕРТИФИКАТ</span>
+                        <span class="tab-badge">4</span>
+                    </button>
                 </div>
             </div>
 
@@ -2079,6 +2087,16 @@
                     <div class="photo-item" data-index="6"><img src="images/ilima-1.jpg" alt="Ilima 1" /></div>
                 </div>
             </div>
+
+            <!-- Certificate -->
+            <div id="certificate-content" class="tab-content">
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; width: 100%;">
+                    <div class="photo-item" data-index="0"><img src="images/certificate-1.jpg" alt="UTR Sports Certificate" /></div>
+                    <div class="photo-item" data-index="1"><img src="images/certificate-2.jpg" alt="ITF World Tennis Certificate" /></div>
+                    <div class="photo-item" data-index="2"><img src="images/certificate-3.jpg" alt="Billie Jean King Cup Certificate" /></div>
+                    <div class="photo-item" data-index="3"><img src="images/certificate-4.jpg" alt="ATF Certificate" /></div>
+                </div>
+            </div>
         </section>
 
         <!-- ===== CONTACT ===== -->
@@ -2143,8 +2161,8 @@
     <!-- ===== FOOTER ===== -->
     <footer>
         <p>
-            <span class="en-text">&copy; Official Sports Portfolio. Developed by SAMWEL.P in 2026, for NCAA recruitment.</span>
-            <span class="ru-text">&copy; Официальное спортивное портфолио. Разработано SAMWEL.P в 2026 году, для рекрутинга в NCAA.</span>
+            <span class="en-text">&copy; Official Athletic Portfolio Developed by SAMWEL.P Funded by the parents of Ilima Guseynova 2026 For NCAA Recruitment Purposes.</span>
+            <span class="ru-text">&copy; Официальное спортивное портфолио. Разработано SAMWEL.P на средства родителей Илимы Гусейновой в 2026 году, для рекрутинга в NCAA.</span>
         </p>
     </footer>
 
@@ -2258,7 +2276,8 @@
                 fullmatches: document.getElementById('fullmatches-content'),
                 training: document.getElementById('training-content'),
                 photo: document.getElementById('photo-content'),
-                stars: document.getElementById('stars-content')
+                stars: document.getElementById('stars-content'),
+                certificate: document.getElementById('certificate-content')
             };
 
             function switchTab(tabId) {
