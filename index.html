@@ -324,8 +324,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            /* ИЗМЕНЕНИЕ: теперь на всех экранах картинка центрируется по центру, как на ПК */
-            object-position: center center;
+            object-position: center 20%;
             opacity: 0;
             transition: opacity 1.5s ease-in-out;
         }
@@ -1444,15 +1443,17 @@
         }
 
         /* ============================================================ */
-        /* ===== ТОЛЬКО ДЛЯ МОБИЛЬНЫХ — ОТКЛЮЧАЕМ СМЕЩЕНИЯ ===== */
+        /* ===== ТОЛЬКО ДЛЯ МОБИЛЬНЫХ (ОТ 0 ДО 700px) ===== */
         /* ============================================================ */
         @media (max-width: 700px) {
-            /* ИЗМЕНЕНИЕ: убираем смещение картинки вниз — теперь она центрируется как на ПК */
-            /* .hero-slides .slide {
-                object-position: center 35%;
-            } */
+            /* 1. Слайдер — чтобы фото вписывалось в экран */
+            .hero-slides .slide {
+                object-fit: contain;
+                object-position: center;
+                background-color: #050505;
+            }
 
-            /* 2. Все смещения transform — отключаем */
+            /* 2. Полностью отключаем смещения, анимации и отрицательные отступы на мобилке */
             .stat-item .logo-utr,
             .stat-item .logo-itf,
             .stat-item .logo-atf,
@@ -1473,36 +1474,70 @@
             .stat-item .bjkc-number,
             .stat-item .wtt-icon-wrapper {
                 transform: translateY(0px) !important;
+                animation: none !important; /* Отключаем анимации (пульсацию/качание) */
+                margin-top: 0 !important;   /* Сбрасываем все отрицательные отступы */
             }
 
-            /* 3. ITF блок — убираем наложение */
-            .stat-item:nth-child(3) .logo-itf {
-                transform: translateY(0px) !important;
-            }
-            .stat-item:nth-child(3) .itf-label {
-                transform: translateY(0px) !important;
-            }
+            /* 3. Принудительно возвращаем статичное положение в ITF */
+            .stat-item:nth-child(3) .logo-itf,
+            .stat-item:nth-child(3) .itf-label,
             .stat-item:nth-child(3) .itf-number {
                 transform: translateY(0px) !important;
+                margin-top: 0 !important;
             }
 
-            /* 4. BJKC блок — убираем наложение */
-            .stat-item:nth-child(10) .bjkc-logo {
-                transform: translateY(0px) !important;
-            }
-            .stat-item:nth-child(10) .bjkc-label {
-                transform: translateY(0px) !important;
-            }
+            /* 4. Принудительно возвращаем статичное положение в BJKC */
+            .stat-item:nth-child(10) .bjkc-logo,
+            .stat-item:nth-child(10) .bjkc-label,
             .stat-item:nth-child(10) .bjkc-number {
                 transform: translateY(0px) !important;
+                margin-top: 0 !important;
+            }
+
+            /* 5. Убираем марджины, которые толкали текст вверх к логотипам */
+            .atf-label, .wtt-label, .atf-titles-label, .bjkc-label {
+                margin-top: 0 !important;
+                margin-bottom: 5px !important; /* Ставим аккуратный маленький отступ */
+            }
+            
+            /* 6. Жестко выравниваем высоту самих блоков на мобилке */
+            .stat-item .atf-wrapper,
+            .stat-item .wtt-wrapper,
+            .stat-item .bjkc-wrapper,
+            .stat-item .itf-wrapper {
+                justify-content: center !important;
+                padding: 0 !important;
+                width: 100%;
+                height: 100%;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                gap: 2px !important;
+            }
+            
+            /* 7. Обеспечиваем центровку текста */
+            .stat-item .stat-label, 
+            .stat-item .stat-number,
+            .stat-item .itf-label,
+            .stat-item .itf-number,
+            .stat-item .atf-label,
+            .stat-item .atf-number,
+            .stat-item .wtt-label,
+            .stat-item .wtt-number,
+            .stat-item .atf-titles-label,
+            .stat-item .atf-titles-number,
+            .stat-item .bjkc-label,
+            .stat-item .bjkc-number {
+                text-align: center !important;
             }
         }
 
         @media (max-width: 500px) {
-            /* ИЗМЕНЕНИЕ: убираем дополнительное смещение */
-            /* .hero-slides .slide {
-                object-position: center 45%;
-            } */
+            /* Для очень маленьких экранов */
+            .hero-slides .slide {
+                object-fit: contain;
+                object-position: center;
+            }
         }
     </style>
 </head>
@@ -1521,7 +1556,7 @@
                 </a>
                 <a href="https://www.tiktok.com/@ilima.guseynova" target="_blank" aria-label="TikTok">
                     <svg class="social-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M16.6 5.82c-.68-.58-1.24-1.3-1.6-2.12h-2.8v13.7c0 1.72-1.4 3.1-3.1 3.1-1.7 0-3.1-1.38-3.1-3.1 0-1.72 1.4-3.1 3.1-3.1.44 0 .86.08 1.24.22v-2.8c-.46-.1-.94-.16-1.44-.16-3.06 0-5.6 2.54-5.6 5.6 0 3.06 2.54 5.6 5.6 5.6 3.06 0 5.6-2.54 5.6-5.6V9.68c1.16.86 2.58 1.36 4.1 1.36V8.24c-.68 0-1.34-.14-1.9-.42z" />
+                        <path d="M16.6 5.82c-.68-.58-1.24-1.3-1.6-2.12h-2.8v13.7c0 1.72-1.4 3.1-3.1 3.1-1.7 0-3.1-1.38-3.1-3.1 0-1.72 1.4-3.1 3.1-3.1.44 0 .86.08 1.24.22v-2.8c-.46-.1-.94-.16-1.44-.16-3.06 0-5.6 2.54-5.6 5.6 0 3.06 2.54 5.6 5.6 3.06 0 5.6-2.54 5.6-5.6V9.68c1.16.86 2.58 1.36 4.1 1.36V8.24c-.68 0-1.34-.14-1.9-.42z" />
                     </svg>
                 </a>
                 <a href="https://www.facebook.com/IlimaTennisPRO/" target="_blank" aria-label="Facebook">
@@ -1551,7 +1586,6 @@
             <a href="#media" data-tab="fullmatches"><span class="en-text">Full Matches</span><span class="ru-text">Полные матчи</span></a>
             <a href="#media" data-tab="training"><span class="en-text">Training</span><span class="ru-text">Тренировки</span></a>
             <a href="#media" data-tab="photo"><span class="en-text">Photo</span><span class="ru-text">Фото</span></a>
-            <a href="#media" data-tab="stars"><span class="en-text">STARS</span><span class="ru-text">ЗВЁЗДЫ</span></a>
             <a href="#contact"><span class="en-text">Recruiting</span><span class="ru-text">Рекрутинг</span></a>
             <button class="lang-switch" id="langToggle">RU</button>
         </div>
