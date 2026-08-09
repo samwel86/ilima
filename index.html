@@ -1445,96 +1445,6 @@
             height: clamp(14px, 2vw, 20px);
         }
 
-        /* ===== SPONSORS ===== */
-        #sponsor {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 60px 40px;
-            background: var(--bg-color);
-        }
-
-        .sponsor-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            gap: 50px;
-            width: 100%;
-            max-width: 1400px;
-            min-height: 60vh;
-        }
-
-        .sponsor-item {
-            flex: 1 1 280px;
-            max-width: 400px;
-            min-height: 220px;
-            background: var(--surface-color);
-            border: 2px solid var(--border-color);
-            border-radius: 16px;
-            padding: 40px 30px;
-            transition: all 0.4s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            text-decoration: none;
-        }
-
-        .sponsor-item:hover {
-            border-color: var(--accent-gold);
-            transform: scale(1.05);
-            box-shadow: 0 0 40px rgba(212, 175, 55, 0.15);
-        }
-
-        .sponsor-item img {
-            width: 100%;
-            max-width: 280px;
-            height: auto;
-            max-height: 150px;
-            object-fit: contain;
-            filter: brightness(0.9);
-            transition: all 0.3s ease;
-            pointer-events: none;
-        }
-
-        .sponsor-item:hover img {
-            filter: brightness(1);
-        }
-
-        @media (max-width: 768px) {
-            .sponsor-item {
-                flex: 1 1 200px;
-                min-height: 160px;
-                padding: 30px 20px;
-            }
-            .sponsor-item img {
-                max-width: 180px;
-                max-height: 100px;
-            }
-        }
-
-        @media (max-width: 500px) {
-            #sponsor {
-                padding: 40px 20px;
-                min-height: 80vh;
-            }
-            .sponsor-grid {
-                gap: 25px;
-            }
-            .sponsor-item {
-                flex: 1 1 150px;
-                min-height: 130px;
-                padding: 20px 15px;
-            }
-            .sponsor-item img {
-                max-width: 130px;
-                max-height: 80px;
-            }
-        }
-
         /* ============================================================ */
         /* ===== ТОЛЬКО ДЛЯ МОБИЛЬНЫХ (ОТ 0 ДО 700px) ===== */
         /* ============================================================ */
@@ -1567,8 +1477,8 @@
             .stat-item .bjkc-number,
             .stat-item .wtt-icon-wrapper {
                 transform: translateY(0px) !important;
-                animation: none !important; /* Отключаем анимации (пульсацию/качание) */
-                margin-top: 0 !important;   /* Сбрасываем все отрицательные отступы */
+                animation: none !important;
+                margin-top: 0 !important;
             }
 
             /* 3. Принудительно возвращаем статичное положение в ITF */
@@ -1590,7 +1500,7 @@
             /* 5. Убираем марджины, которые толкали текст вверх к логотипам */
             .atf-label, .wtt-label, .atf-titles-label, .bjkc-label {
                 margin-top: 0 !important;
-                margin-bottom: 5px !important; /* Ставим аккуратный маленький отступ */
+                margin-bottom: 5px !important;
             }
             
             /* 6. Жестко выравниваем высоту самих блоков на мобилке */
@@ -1630,6 +1540,83 @@
             .hero-slides .slide {
                 object-fit: cover;
                 object-position: 93% 50%;
+            }
+        }
+
+        /* ===== СПОНСОРЫ (как на сайте Novak Djokovic) ===== */
+        #sponsor {
+            margin-bottom: clamp(80px, 12vw, 140px);
+        }
+
+        /* Серая полоса-разделитель */
+        .sponsor-divider {
+            border-top: 1px solid var(--border-color);
+            margin-bottom: clamp(30px, 4vw, 50px);
+        }
+
+        .sponsors-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: clamp(30px, 5vw, 60px);
+            padding: 0 clamp(10px, 2vw, 30px);
+        }
+
+        .sponsor-item {
+            flex: 0 1 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 120px;
+            transition: transform 0.3s ease;
+        }
+
+        .sponsor-item:hover {
+            transform: scale(1.05);
+        }
+
+        .sponsor-item img {
+            max-width: clamp(100px, 14vw, 180px);
+            width: 100%;
+            height: auto;
+            max-height: 70px;
+            object-fit: contain;
+            /* Монохромный вид */
+            filter: grayscale(100%) brightness(1.1) contrast(1.1);
+            opacity: 0.5;
+            transition: all 0.4s ease;
+        }
+
+        .sponsor-item img:hover {
+            filter: grayscale(0%) brightness(1) contrast(1);
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .sponsors-grid {
+                justify-content: center;
+                gap: 30px;
+            }
+            .sponsor-item {
+                min-width: 100px;
+                flex: 0 1 30%;
+            }
+            .sponsor-item img {
+                max-height: 50px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .sponsors-grid {
+                gap: 20px;
+            }
+            .sponsor-item {
+                min-width: 80px;
+                flex: 0 1 40%;
+            }
+            .sponsor-item img {
+                max-height: 40px;
             }
         }
     </style>
@@ -1683,7 +1670,7 @@
             <a href="#media" data-tab="training"><span class="en-text">Training</span><span class="ru-text">Тренировки</span></a>
             <a href="#media" data-tab="photo"><span class="en-text">Photo</span><span class="ru-text">Фото</span></a>
             <a href="#contact"><span class="en-text">Recruiting</span><span class="ru-text">Рекрутинг</span></a>
-            <a href="#sponsor"><span class="en-text">SPONSOR</span><span class="ru-text">СПОНСОР</span></a>
+            <a href="#sponsor"><span class="en-text">SPONSORS</span><span class="ru-text">СПОНСОРЫ</span></a>
             <button class="lang-switch" id="langToggle">RU</button>
         </div>
     </nav>
@@ -2261,6 +2248,39 @@
             </div>
         </section>
 
+        <!-- ===== СПОНСОРЫ ===== -->
+        <section id="sponsor">
+            <div class="section-header">
+                <div>
+                    <div class="section-tag">
+                        <span class="en-text">Official Partners</span>
+                        <span class="ru-text">Официальные партнеры</span>
+                    </div>
+                    <h2 class="section-title">
+                        <span class="en-text">Sponsors</span>
+                        <span class="ru-text">Спонсоры</span>
+                    </h2>
+                </div>
+            </div>
+            
+            <!-- СЕРАЯ ПОЛОСА-РАЗДЕЛИТЕЛЬ -->
+            <div class="sponsor-divider"></div>
+            
+            <div class="sponsors-grid">
+                <div class="sponsor-item">
+                    <img src="images/sponsors/kirschbaum.png" alt="kirschbaum" />
+                </div>
+                <div class="sponsor-item">
+                    <img src="images/sponsors/tennistmshop.png" alt="tennistmshop" />
+                </div>
+                <div class="sponsor-item">
+                    <img src="images/sponsors/AZADY.png" alt="AZADY" />
+                </div>
+				<div class="sponsor-item">
+                    <img src="images/sponsors/ilimsport.png" alt="ilimsport" />
+                </div>
+        </section>
+
         <!-- ===== CONTACT ===== -->
         <section id="contact">
             <div class="contact-box">
@@ -2315,42 +2335,6 @@
                         <span class="ru-text">Ваш запрос успешно отправлен. Наша команда рассмотрит его и свяжется с вами в ближайшее время.</span>
                     </p>
                 </div>
-            </div>
-        </section>
-
-        <!-- ===== SPONSORS ===== -->
-        <section id="sponsor">
-            <div class="section-header">
-                <div>
-                    <div class="section-tag">
-                        <span class="en-text">Our Partners</span>
-                        <span class="ru-text">Наши партнёры</span>
-                    </div>
-                    <h2 class="section-title">
-                        <span class="en-text">Sponsors</span>
-                        <span class="ru-text">Спонсоры</span>
-                    </h2>
-                </div>
-            </div>
-            <div class="sponsor-grid">
-                <a href="https://kirschbaum-strings.com/en" target="_blank" class="sponsor-item">
-                    <img src="images/sponsors/kirschbaum.png" alt="Kirschbaum" />
-                </a>
-                <a href="https://www.instagram.com/tennistmshop/" target="_blank" class="sponsor-item">
-                    <img src="images/sponsors/tennistmshop.png" alt="tennistmshop" />
-                </a>
-                <a href="https://azady.com.tm/" target="_blank" class="sponsor-item">
-                    <img src="images/sponsors/AZADY.png" alt="AZADY" />
-                </a>
-                <a href="https://www.instagram.com/ilim_sport/" target="_blank" class="sponsor-item">
-                    <img src="images/sponsors/ilimsport.png" alt="ilimsport" />
-                </a>
-                <a href="https://www.yonex.com/" target="_blank" class="sponsor-item">
-                    <img src="images/sponsors/YONEX.png" alt="YONEX" />
-                </a>
-                <a href="https://dunlopsports.com/en-gb/dunlop-sports" target="_blank" class="sponsor-item">
-                    <img src="images/sponsors/dunlop.png" alt="dunlop" />
-                </a>
             </div>
         </section>
 
