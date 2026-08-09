@@ -1445,6 +1445,71 @@
             height: clamp(14px, 2vw, 20px);
         }
 
+        /* ===== SPONSORS ===== */
+        #sponsor {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .sponsor-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .sponsor-item {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 30px 40px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 180px;
+            min-height: 120px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .sponsor-item:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-4px);
+        }
+
+        .sponsor-item img {
+            max-height: 80px;
+            max-width: 200px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            filter: brightness(0.9);
+            transition: filter 0.3s ease;
+            pointer-events: none;
+        }
+
+        .sponsor-item:hover img {
+            filter: brightness(1);
+        }
+
+        @media (max-width: 600px) {
+            .sponsor-grid {
+                gap: 20px;
+            }
+            .sponsor-item {
+                padding: 20px 25px;
+                min-width: 140px;
+                min-height: 90px;
+            }
+            .sponsor-item img {
+                max-height: 60px;
+                max-width: 150px;
+            }
+        }
+
         /* ============================================================ */
         /* ===== ТОЛЬКО ДЛЯ МОБИЛЬНЫХ (ОТ 0 ДО 700px) ===== */
         /* ============================================================ */
@@ -1593,6 +1658,7 @@
             <a href="#media" data-tab="training"><span class="en-text">Training</span><span class="ru-text">Тренировки</span></a>
             <a href="#media" data-tab="photo"><span class="en-text">Photo</span><span class="ru-text">Фото</span></a>
             <a href="#contact"><span class="en-text">Recruiting</span><span class="ru-text">Рекрутинг</span></a>
+            <a href="#sponsor"><span class="en-text">SPONSOR</span><span class="ru-text">СПОНСОР</span></a>
             <button class="lang-switch" id="langToggle">RU</button>
         </div>
     </nav>
@@ -1893,7 +1959,7 @@
                     <button class="tab-btn active" data-tab="highlights">
                         <span class="en-text">Highlights</span>
                         <span class="ru-text">Хайлайты</span>
-                        <span class="tab-badge">3</span>
+                        <span class="tab-badge">9</span>
                     </button>
                     <button class="tab-btn" data-tab="fullmatches">
                         <span class="en-text">Full Matches</span>
@@ -1923,39 +1989,106 @@
                 </div>
             </div>
 
-            <!-- Highlights -->
+            <!-- Highlights — теперь 9 карточек -->
             <div id="highlights-content" class="tab-content active">
                 <div class="video-card">
                     <div class="video-frame">
                         <div class="vimeo-wrapper">
-                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+                            <iframe src="https://drive.google.com/file/d/1G8NqIcWPJJYEfSlMlCX3oic4gC84XMkt/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
                         </div>
                     </div>
                     <div class="video-info">
-                        <span class="en-text">Full Match: Ilima Guseynova vs. [Opponent] — [Tournament Name]</span>
-                        <span class="ru-text">Полный матч: Илима Гусейнова vs. [Соперник] — [Название турнира]</span>
+                        <span class="en-text">Ilima Guseynova Highlights 1</span>
+                        <span class="ru-text">Илима Гусейнова Хайлайты 1</span>
                     </div>
                 </div>
                 <div class="video-card">
                     <div class="video-frame">
                         <div class="vimeo-wrapper">
-                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+                            <iframe src="https://drive.google.com/file/d/1Pj0f_VJMVpKzgUaLsfr1kEQYBrWF6OKy/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
                         </div>
                     </div>
                     <div class="video-info">
-                        <span class="en-text">Full Match: Ilima Guseynova vs. [Opponent] — [Tournament Name]</span>
-                        <span class="ru-text">Полный матч: Илима Гусейнова vs. [Соперник] — [Название турнира]</span>
+                        <span class="en-text">Ilima Guseynova Highlights 2</span>
+                        <span class="ru-text">Илима Гусейнова Хайлайты 2</span>
                     </div>
                 </div>
                 <div class="video-card">
                     <div class="video-frame">
                         <div class="vimeo-wrapper">
-                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+                            <iframe src="https://drive.google.com/file/d/1nDlnQwDEZxNJrsNifYuhLvdpxdomvnhB/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
                         </div>
                     </div>
                     <div class="video-info">
-                        <span class="en-text">Full Match: Ilima Guseynova vs. [Opponent] — [Tournament Name]</span>
-                        <span class="ru-text">Полный матч: Илима Гусейнова vs. [Соперник] — [Название турнира]</span>
+                        <span class="en-text">Ilima Guseynova Highlights 3</span>
+                        <span class="ru-text">Илима Гусейнова Хайлайты 3</span>
+                    </div>
+                </div>
+                <!-- Дополнительные 6 видео -->
+                <div class="video-card">
+                    <div class="video-frame">
+                        <div class="vimeo-wrapper">
+                            <iframe src="https://drive.google.com/file/d/10qc5QRvkbX0EaHgPTNYK_S6PCxR2c022/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <span class="en-text">Ilima Guseynova Highlights 4</span>
+                        <span class="ru-text">Илима Гусейнова Хайлайты 4</span>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-frame">
+                        <div class="vimeo-wrapper">
+                            <iframe src="https://drive.google.com/file/d/1I3ad3y3MNkuATO7cUx68zE8nM1Stm1YE/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <span class="en-text">Ilima Guseynova Highlights 5</span>
+                        <span class="ru-text">Илима Гусейнова Хайлайты 5</span>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-frame">
+                        <div class="vimeo-wrapper">
+                            <iframe src="https://drive.google.com/file/d/1F2_elGco0bxbnV3ffMAuXjkJk3Bv2zEm/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <span class="en-text">Ilima Guseynova Highlights 6</span>
+                        <span class="ru-text">Илима Гусейнова Хайлайты 6</span>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-frame">
+                        <div class="vimeo-wrapper">
+                            <iframe src="https://drive.google.com/file/d/1XKqClJqFEnnaTMFrS4fgGTGNAwQnTc38/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <span class="en-text">Ilima Guseynova Highlights 7</span>
+                        <span class="ru-text">Илима Гусейнова Хайлайты 7</span>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-frame">
+                        <div class="vimeo-wrapper">
+                            <iframe src="https://drive.google.com/file/d/1j3JWf-KGBV827eVpEdMgkVlmOIGN2MoC/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <span class="en-text">Ilima Guseynova Highlights 8</span>
+                        <span class="ru-text">Илима Гусейнова Хайлайты 8</span>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-frame">
+                        <div class="vimeo-wrapper">
+                            <iframe src="https://drive.google.com/file/d/1B4iMNS1RHk3gGWnSyZ29AwMEpHOG5YoT/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <span class="en-text">Ilima Guseynova Highlights 9</span>
+                        <span class="ru-text">Илима Гусейнова Хайлайты 9</span>
                     </div>
                 </div>
             </div>
@@ -1965,7 +2098,7 @@
                 <div class="video-card">
                     <div class="video-frame">
                         <div class="vimeo-wrapper">
-                            <iframe src="https://player.vimeo.com/video/1149162690?h=ec&badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+                            <iframe src="https://drive.google.com/file/d/1kKYcDhEQVLtXTmSvbX0H3DuIlThqHLES/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
                         </div>
                     </div>
                     <div class="video-info">
@@ -1987,7 +2120,7 @@
                 <div class="video-card">
                     <div class="video-frame">
                         <div class="vimeo-wrapper">
-                            <iframe src="https://drive.google.com/file/d/1gU2tSzmGK9dv8ksBvUi3mycfub1IDIHV/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+                            <iframe src="https://drive.google.com/file/d/1PI8iYWRpkv_mPaeU4I9WQTjcluenovql/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
                         </div>
                     </div>
                     <div class="video-info">
@@ -2009,7 +2142,7 @@
                 <div class="video-card">
                     <div class="video-frame">
                         <div class="vimeo-wrapper">
-                            <iframe src="https://drive.google.com/file/d/1dZF6ZxuU9iC1PTzXtFeBcvudw-fO7lo7/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+                            <iframe src="https://drive.google.com/file/d/1wTzOnM2P7tPRdHPMbJHfxrXhcO1gQJMi/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
                         </div>
                     </div>
                     <div class="video-info">
@@ -2095,10 +2228,10 @@
                     <div class="photo-item" data-index="1"><img src="images/certificate/J30 BD1- ILIMA GUSEYNOVA.jpg" alt="ITF World Tennis Certificate" /></div>
                     <div class="photo-item" data-index="2"><img src="images/certificate/ITF Asia 14-U Development Championships 2023.jpg" alt="Billie Jean King Cup Certificate" /></div>
                     <div class="photo-item" data-index="3"><img src="images/certificate/J30 DUSHANBE DOUBLES 25.08.2025.jpg" alt="ATF Certificate" /></div>
-					<div class="photo-item" data-index="4"><img src="images/certificate/President Cup 2025 SINGLES.jpg" alt="ATF Certificate" /></div>
-					<div class="photo-item" data-index="5"><img src="images/certificate/Certificate of Participant.jpg" alt="ATF Certificate" /></div>
-					<div class="photo-item" data-index="6"><img src="images/certificate/Ramis Cup 2025 SINGLES.jpg" alt="ATF Certificate" /></div>
-					<div class="photo-item" data-index="7"><img src="images/certificate/Ramis Cup 2025 DOUBLES.jpg" alt="ATF Certificate" /></div>
+                    <div class="photo-item" data-index="4"><img src="images/certificate/President Cup 2025 SINGLES.jpg" alt="ATF Certificate" /></div>
+                    <div class="photo-item" data-index="5"><img src="images/certificate/Certificate of Participant.jpg" alt="ATF Certificate" /></div>
+                    <div class="photo-item" data-index="6"><img src="images/certificate/Ramis Cup 2025 SINGLES.jpg" alt="ATF Certificate" /></div>
+                    <div class="photo-item" data-index="7"><img src="images/certificate/Ramis Cup 2025 DOUBLES.jpg" alt="ATF Certificate" /></div>
                 </div>
             </div>
         </section>
@@ -2157,6 +2290,37 @@
                         <span class="ru-text">Ваш запрос успешно отправлен. Наша команда рассмотрит его и свяжется с вами в ближайшее время.</span>
                     </p>
                 </div>
+            </div>
+        </section>
+
+        <!-- ===== SPONSORS ===== -->
+        <section id="sponsor">
+            <div class="section-header">
+                <div>
+                    <div class="section-tag">
+                        <span class="en-text">Our Partners</span>
+                        <span class="ru-text">Наши партнёры</span>
+                    </div>
+                    <h2 class="section-title">
+                        <span class="en-text">Sponsors</span>
+                        <span class="ru-text">Спонсоры</span>
+                    </h2>
+                </div>
+            </div>
+            <div class="sponsor-grid">
+                <a href="https://kirschbaum-strings.com/en" target="_blank" class="sponsor-item">
+                    <img src="images/sponsors/kirschbaum.png" alt="Kirschbaum" />
+					</a>
+                <a href="https://www.instagram.com/tennistmshop/" target="_blank" class="sponsor-item">
+                    <img src="images/sponsors/tennistmshop.png" alt="tennistmshop" />
+                </a>
+                <a href="https://azady.com.tm/" target="_blank" class="sponsor-item">
+                    <img src="images/sponsors/AZADY.png" alt="AZADY" />
+                </a>
+				<a href="https://www.tiktok.com/@ilim_sport" target="_blank" class="sponsor-item">
+                    <img src="images/sponsors/ilimsport.png" alt="ilimsport" />
+                </a>
+                </a>
             </div>
         </section>
 
