@@ -491,9 +491,9 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
-            margin-bottom: clamp(30px, 5vw, 60px);
+            margin-bottom: clamp(15px, 2vw, 30px); /* УМЕНЬШЕНО */
             border-bottom: 1px solid var(--border-color);
-            padding-bottom: 20px;
+            padding-bottom: 12px; /* УМЕНЬШЕНО */
             flex-wrap: wrap;
             gap: 10px;
         }
@@ -1545,13 +1545,13 @@
 
         /* ===== СПОНСОРЫ (как на сайте Novak Djokovic) ===== */
         #sponsor {
-            margin-bottom: clamp(80px, 12vw, 140px);
+            margin-bottom: clamp(40px, 6vw, 80px);
         }
 
         /* Серая полоса-разделитель */
         .sponsor-divider {
             border-top: 1px solid var(--border-color);
-            margin-bottom: clamp(30px, 4vw, 50px);
+            margin-top: 0; /* УБРАН ОТСТУП */
         }
 
         .sponsors-grid {
@@ -1561,6 +1561,7 @@
             align-items: center;
             gap: clamp(30px, 5vw, 60px);
             padding: 0 clamp(10px, 2vw, 30px);
+            margin-top: -25px; /* ПОДТЯНУТО ВВЕРХ */
         }
 
         .sponsor-item {
@@ -2121,7 +2122,7 @@
                 <div class="video-card">
                     <div class="video-frame">
                         <div class="vimeo-wrapper">
-                            <iframe src="https://drive.google.com/file/d/1aDKb1hioGWNLEM5UIyOQObZp_fhrAUnK/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+                            <iframe src="https://drive.google.com/file/d/1vGpSmHuq3ZtT4IeA9J3TbeI5CGYHGAHX/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
                         </div>
                     </div>
                     <div class="video-info">
@@ -2143,7 +2144,7 @@
                 <div class="video-card">
                     <div class="video-frame">
                         <div class="vimeo-wrapper">
-                            <iframe src="https://drive.google.com/file/d/1LgFvsj8lwzjIJYc-hdSwAn7xpqPAx5ZJ/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+                            <iframe src="https://drive.google.com/file/d/1Px9WCrBNojgLGACTBtAdwNDYkx3lxrcZ/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
                         </div>
                     </div>
                     <div class="video-info">
@@ -2262,10 +2263,9 @@
                     </h2>
                 </div>
             </div>
+            <!-- ПЕРВАЯ ПОЛОСА (border-bottom от .section-header) -->
             
-            <!-- СЕРАЯ ПОЛОСА-РАЗДЕЛИТЕЛЬ -->
-            <div class="sponsor-divider"></div>
-            
+            <!-- ЛОГОТИПЫ СПОНСОРОВ МЕЖДУ ПОЛОСАМИ -->
             <div class="sponsors-grid">
                 <div class="sponsor-item">
                     <img src="images/sponsors/kirschbaum.png" alt="kirschbaum" />
@@ -2276,9 +2276,13 @@
                 <div class="sponsor-item">
                     <img src="images/sponsors/AZADY.png" alt="AZADY" />
                 </div>
-				<div class="sponsor-item">
+                <div class="sponsor-item">
                     <img src="images/sponsors/ilimsport.png" alt="ilimsport" />
                 </div>
+            </div>
+            
+            <!-- ВТОРАЯ ПОЛОСА (теперь ПОСЛЕ спонсоров) -->
+            <div class="sponsor-divider"></div>
         </section>
 
         <!-- ===== CONTACT ===== -->
