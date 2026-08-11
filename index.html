@@ -1425,6 +1425,7 @@
             border-radius: 4px;
             overflow: hidden;
             transition: border-color 0.3s ease, transform 0.3s ease;
+            cursor: pointer;
         }
 
         .ad-product-item:hover {
@@ -1437,6 +1438,7 @@
             height: 100%;
             object-fit: cover;
             display: block;
+            pointer-events: none;
         }
 
         /* ===== АДАПТИВ ДЛЯ РЕКЛАМЫ ПО БОКАМ ===== */
@@ -1889,6 +1891,55 @@
                 max-width: 70px;
             }
         }
+
+        /* ===== МОДАЛЬНОЕ ОКНО ДЛЯ ТОВАРОВ ===== */
+        #product-lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.92);
+            z-index: 99999;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            padding: clamp(20px, 5vw, 40px);
+        }
+
+        #product-lightbox.active {
+            display: flex;
+        }
+
+        #product-lightbox img {
+            max-width: 90%;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 4px;
+            box-shadow: 0 0 60px rgba(0, 0, 0, 0.8);
+            cursor: default;
+        }
+
+        #product-lightbox .lightbox-close {
+            position: absolute;
+            top: clamp(20px, 3vh, 30px);
+            right: clamp(20px, 3vw, 40px);
+            color: #fff;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 300;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Georgia', serif;
+            line-height: 1;
+            opacity: 0.7;
+            z-index: 1;
+        }
+
+        #product-lightbox .lightbox-close:hover {
+            opacity: 1;
+            transform: rotate(90deg);
+        }
     </style>
 </head>
 <body>
@@ -2253,6 +2304,11 @@
                         <span class="ru-text">Тренировки</span>
                         <span class="tab-badge">2</span>
                     </button>
+                    <button class="tab-btn" data-tab="video">
+                        <span class="en-text">VIDEO</span>
+                        <span class="ru-text">ВИДЕО</span>
+                        <span class="tab-badge">10</span>
+                    </button>
                     <button class="tab-btn" data-tab="photo">
                         <span class="en-text">Photo</span>
                         <span class="ru-text">Фото</span>
@@ -2439,12 +2495,12 @@
                 <div class="video-card">
                     <div class="video-frame">
                         <div class="vimeo-wrapper">
-                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+                            <iframe src="https://drive.google.com/file/d/1TRu0tzd6UZfkb9SU4qSY0bSNVD88ED4f/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
                         </div>
                     </div>
                     <div class="video-info">
-                        <span class="en-text">Training Session: Ilima Guseynova — [Location]</span>
-                        <span class="ru-text">Тренировка: Илима Гусейнова — [Место]</span>
+                        <span class="en-text">Training Session: Ilima Guseynova 1</span>
+                        <span class="ru-text">Тренировка: Илима Гусейнова 1</span>
                     </div>
                 </div>
                 <div class="video-card">
@@ -2456,6 +2512,122 @@
                     <div class="video-info">
                         <span class="en-text">Training Session: Ilima Guseynova — [Location]</span>
                         <span class="ru-text">Тренировка: Илима Гусейнова — [Место]</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VIDEO - 10 роликов -->
+            <div id="video-content" class="tab-content">
+                <div class="video-card">
+                    <div class="video-frame">
+                        <div class="vimeo-wrapper">
+                            <iframe src="https://drive.google.com/file/d/1PV-GCAKM5kiRslBJxxdTFPG4nH42fM4r/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <span class="en-text">Roland Garros Junior Series by Renault - Qualifications West and
+Central Asia</span>
+                        <span class="ru-text">Roland Garros Junior Series by Renault - Qualifications West and
+Central Asia</span>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-frame">
+                        <div class="vimeo-wrapper">
+                            <iframe src="https://drive.google.com/file/d/1Qd_Mdq61bUAq4eroItLqSf0wp_Ytvtwq/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <span class="en-text">Yuri Fedorovich Polsky, President of the Asian Tennis Federation</span>
+                        <span class="ru-text">Польский Юрий Федорович президент Азиатской федерации тенниса</span>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-frame">
+                        <div class="vimeo-wrapper">
+                            <iframe src="https://drive.google.com/file/d/1LNf_6h__-1Zqtn2RhvoX_74dIBbCtO39/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <span class="en-text">Patrick Mouratoglou Tennis Academy (Epsom College in Malaysia)</span>
+                        <span class="ru-text">Теннисная академия Патрика Муратоглу ( Эпсом-колледж в Малайзии )</span>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-frame">
+                        <div class="vimeo-wrapper">
+                            <iframe src="https://drive.google.com/file/d/130-K56KY49dC8jPQUqa1KE-oc_X7t3t_/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <span class="en-text">Asian 14 & Under Grade A Tournament (Southeast Asia) Malaysia</span>
+                        <span class="ru-text">Asian 14 & Under Grade A Tournament (Southeast Asia) Malaysia</span>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-frame">
+                        <div class="vimeo-wrapper">
+                            <iframe src="https://drive.google.com/file/d/1PYX1BLxEDrSa_UMj21Q3NvtvvLaDh3-Q/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <span class="en-text">Asian 14&U Grade A Tournament (South Asia) INDIA</span>
+                        <span class="ru-text">Asian 14&U Grade A Tournament (South Asia) INDIA</span>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-frame">
+                        <div class="vimeo-wrapper">
+                            <iframe src="https://drive.google.com/file/d/1zogq8BsxHCzRGghAdpMm_MCmpsmHuB9B/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <span class="en-text">Belent</span>
+                        <span class="ru-text">Белент</span>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-frame">
+                        <div class="vimeo-wrapper">
+                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <span class="en-text">Video 7</span>
+                        <span class="ru-text">Видео 7</span>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-frame">
+                        <div class="vimeo-wrapper">
+                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <span class="en-text">Video 8</span>
+                        <span class="ru-text">Видео 8</span>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-frame">
+                        <div class="vimeo-wrapper">
+                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <span class="en-text">Video 9</span>
+                        <span class="ru-text">Видео 9</span>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-frame">
+                        <div class="vimeo-wrapper">
+                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <span class="en-text">Video 10</span>
+                        <span class="ru-text">Видео 10</span>
                     </div>
                 </div>
             </div>
@@ -2590,44 +2762,44 @@
                         <!-- Фото товаров ниже Learn More → -->
                         <div class="ad-products">
                             <div class="ad-product-grid">
-                                <div class="ad-product-item">
+                                <div class="ad-product-item" onclick="openProductImage(this)">
                                     <img src="images/reklama/tennistmshop/Wilson Blade 98 16x19 v10 Racquet.jpg" alt="Tennis product 1" />
                                 </div>
-                                <div class="ad-product-item">
+                                <div class="ad-product-item" onclick="openProductImage(this)">
                                     <img src="images/reklama/tennistmshop/DUNLOP championship.png" alt="Tennis product 2" />
                                 </div>
-                                <div class="ad-product-item">
+                                <div class="ad-product-item" onclick="openProductImage(this)">
                                     <img src="images/reklama/tennistmshop/ASICS GEL-RESOLUTION 9.jpg" alt="Tennis product 3" />
                                 </div>
-                                <div class="ad-product-item">
+                                <div class="ad-product-item" onclick="openProductImage(this)">
                                     <img src="images/reklama/tennistmshop/YONEX 2.jpg" alt="Tennis product 4" />
-								</div>
-                                <div class="ad-product-item">
+                                </div>
+                                <div class="ad-product-item" onclick="openProductImage(this)">
                                     <img src="images/reklama/tennistmshop/JMG.jpg" alt="Tennis product 5" />
                                 </div>
-								<div class="ad-product-item">
+                                <div class="ad-product-item" onclick="openProductImage(this)">
                                     <img src="images/reklama/tennistmshop/YONEX ezone 2026.jpg" alt="Tennis product 6" />
                                 </div>
-                                <div class="ad-product-item">
+                                <div class="ad-product-item" onclick="openProductImage(this)">
                                     <img src="images/reklama/tennistmshop/Wilson Ultra 99 Pro v5 2.jpg" alt="Tennis product 7" />
-								</div>
-                                <div class="ad-product-item">
+                                </div>
+                                <div class="ad-product-item" onclick="openProductImage(this)">
                                     <img src="images/reklama/tennistmshop/Head Speed Tour 2026 Racquet.jpg" alt="Tennis product 8" />
                                 </div>
-								<div class="ad-product-item">
+                                <div class="ad-product-item" onclick="openProductImage(this)">
                                     <img src="images/reklama/tennistmshop/Babolat Pure Aero 2026.jpg" alt="Tennis product 9" />
-								</div>
-                                <div class="ad-product-item">
+                                </div>
+                                <div class="ad-product-item" onclick="openProductImage(this)">
                                     <img src="images/reklama/tennistmshop/Babolat Pure Drive Spectra Limited.jpg" alt="Tennis product 10" />
                                 </div>
-								<div class="ad-product-item">
+                                <div class="ad-product-item" onclick="openProductImage(this)">
                                     <img src="images/reklama/tennistmshop/Wilson US Open Extra Duty.jpg" alt="Tennis product 11" />
-								</div>
-                                <div class="ad-product-item">
+                                </div>
+                                <div class="ad-product-item" onclick="openProductImage(this)">
                                     <img src="images/reklama/tennistmshop/Wilson Bela Pro v3 Padel Racket.jpg" alt="Tennis product 12" />
                                 </div>
-								<div class="ad-product-item">
-                                    <img src="images/reklama/tennistmshop/stringing-machine.jpg" alt="Tennis product 12" />
+                                <div class="ad-product-item" onclick="openProductImage(this)">
+                                    <img src="images/reklama/tennistmshop/stringing-machine.jpg" alt="Tennis product 13" />
                                 </div>
                             </div>
                         </div>
@@ -2717,42 +2889,41 @@
                         <!-- Фото товаров ниже Get Started → -->
                         <div class="ad-products">
                             <div class="ad-product-grid">
-                                <div class="ad-product-item">
+                                <div class="ad-product-item" onclick="openProductImage(this)">
                                     <img src="images/reklama/kirschbaum/Helixb.jpg" alt="Kirschbaum product 1" />
                                 </div>
-                                <div class="ad-product-item">
+                                <div class="ad-product-item" onclick="openProductImage(this)">
                                     <img src="images/reklama/kirschbaum/Flash.jpg" alt="Kirschbaum product 2" />
                                 </div>
-								<div class="ad-product-item">
+                                <div class="ad-product-item" onclick="openProductImage(this)">
                                     <img src="images/reklama/kirschbaum/Griffband.jpg" alt="Kirschbaum product 3" />
                                 </div>
-								<div class="ad-product-item">
+                                <div class="ad-product-item" onclick="openProductImage(this)">
                                     <img src="images/reklama/kirschbaum/Gut Feeling Set.jpg" alt="Kirschbaum product 4" />
                                 </div>
-								<div class="ad-product-item">
+                                <div class="ad-product-item" onclick="openProductImage(this)">
                                     <img src="images/reklama/kirschbaum/flashshark125-pink.jpg" alt="Kirschbaum product 5" />
                                 </div>
-								<div class="ad-product-item">
+                                <div class="ad-product-item" onclick="openProductImage(this)">
                                     <img src="images/reklama/kirschbaum/maxpower-rot-125-12.jpg" alt="Kirschbaum product 6" />
                                 </div>
-								<div class="ad-product-item">
+                                <div class="ad-product-item" onclick="openProductImage(this)">
                                     <img src="images/reklama/kirschbaum/kepka.jpg" alt="Kirschbaum product 7" />
                                 </div>
-								<div class="ad-product-item">
+                                <div class="ad-product-item" onclick="openProductImage(this)">
                                     <img src="images/reklama/kirschbaum/tshirtherren_weiss.jpg" alt="Kirschbaum product 8" />
                                 </div>
-								<div class="ad-product-item">
+                                <div class="ad-product-item" onclick="openProductImage(this)">
                                     <img src="images/reklama/kirschbaum/setka.jpg" alt="Kirschbaum product 9" />
                                 </div>
-								<div class="ad-product-item">
+                                <div class="ad-product-item" onclick="openProductImage(this)">
                                     <img src="images/reklama/kirschbaum/vibrastop3er_blau.jpg" alt="Kirschbaum product 10" />
                                 </div>
-								<div class="ad-product-item">
+                                <div class="ad-product-item" onclick="openProductImage(this)">
                                     <img src="images/reklama/kirschbaum/touchit3erschwarz.jpg" alt="Kirschbaum product 11" />
                                 </div>
-								<div class="ad-product-item">
+                                <div class="ad-product-item" onclick="openProductImage(this)">
                                     <img src="images/reklama/kirschbaum/Gut Feeling Set 2.jpg" alt="Kirschbaum product 12" />
-                                </div>
                                 </div>
                             </div>
                         </div>
@@ -2778,6 +2949,12 @@
         <button class="lightbox-next" id="lightboxNext">›</button>
         <img id="lightboxImg" src="" alt="Full size photo" />
         <span class="lightbox-counter" id="lightboxCounter">1 / 24</span>
+    </div>
+
+    <!-- ===== МОДАЛЬНОЕ ОКНО ДЛЯ ТОВАРОВ ===== -->
+    <div id="product-lightbox">
+        <span class="lightbox-close" id="productLightboxClose">✕</span>
+        <img id="productLightboxImg" src="" alt="Product full size" />
     </div>
 
     <script>
@@ -2880,6 +3057,7 @@
                 highlights: document.getElementById('highlights-content'),
                 fullmatches: document.getElementById('fullmatches-content'),
                 training: document.getElementById('training-content'),
+                video: document.getElementById('video-content'),
                 photo: document.getElementById('photo-content'),
                 stars: document.getElementById('stars-content'),
                 certificate: document.getElementById('certificate-content')
@@ -2989,6 +3167,39 @@
                 if (e.key === 'Escape') closeLightbox();
                 if (e.key === 'ArrowLeft') showPrev();
                 if (e.key === 'ArrowRight') showNext();
+            });
+        })();
+
+        // ===== МОДАЛЬНОЕ ОКНО ДЛЯ ТОВАРОВ =====
+        (function() {
+            const productLightbox = document.getElementById('product-lightbox');
+            const productLightboxImg = document.getElementById('productLightboxImg');
+            const productLightboxClose = document.getElementById('productLightboxClose');
+
+            // Функция открытия большого фото товара
+            window.openProductImage = function(element) {
+                const img = element.querySelector('img');
+                if (img) {
+                    productLightboxImg.src = img.src;
+                    productLightbox.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            };
+
+            function closeProductLightbox() {
+                productLightbox.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            productLightboxClose.addEventListener('click', closeProductLightbox);
+
+            productLightbox.addEventListener('click', (e) => {
+                if (e.target === productLightbox) closeProductLightbox();
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (!productLightbox.classList.contains('active')) return;
+                if (e.key === 'Escape') closeProductLightbox();
             });
         })();
     </script>
