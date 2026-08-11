@@ -491,9 +491,9 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
-            margin-bottom: clamp(15px, 2vw, 30px); /* УМЕНЬШЕНО */
+            margin-bottom: clamp(15px, 2vw, 30px);
             border-bottom: 1px solid var(--border-color);
-            padding-bottom: 12px; /* УМЕНЬШЕНО */
+            padding-bottom: 12px;
             flex-wrap: wrap;
             gap: 10px;
         }
@@ -1551,21 +1551,28 @@
         /* Серая полоса-разделитель */
         .sponsor-divider {
             border-top: 1px solid var(--border-color);
-            margin-top: 0; /* УБРАН ОТСТУП */
+            margin-top: 0;
         }
 
         .sponsors-grid {
             display: flex;
-            flex-wrap: wrap;
+            flex-wrap: nowrap; /* <--- ГЛАВНОЕ: убираем перенос на 2 этажа */
             justify-content: space-between;
             align-items: center;
-            gap: clamp(30px, 5vw, 60px);
+            gap: clamp(20px, 3vw, 60px);
             padding: 0 clamp(10px, 2vw, 30px);
-            margin-top: -25px; /* ПОДТЯНУТО ВВЕРХ */
+            margin-top: -25px;
+            overflow-x: auto; /* <--- Добавляем горизонтальную прокрутку, если не влезают */
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none; /* Firefox — скрываем скролл */
+        }
+
+        .sponsors-grid::-webkit-scrollbar {
+            display: none; /* Chrome/Safari — скрываем скролл */
         }
 
         .sponsor-item {
-            flex: 0 1 auto;
+            flex: 0 0 auto; /* <--- Элементы НЕ сжимаются и НЕ переносятся */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1583,7 +1590,6 @@
             height: auto;
             max-height: 70px;
             object-fit: contain;
-            /* Монохромный вид */
             filter: grayscale(100%) brightness(1.1) contrast(1.1);
             opacity: 0.5;
             transition: all 0.4s ease;
@@ -1594,30 +1600,36 @@
             opacity: 1;
         }
 
+        /* ===== АДАПТИВ ДЛЯ МОБИЛЬНЫХ (УМЕНЬШАЕМ ЛОГОТИПЫ) ===== */
         @media (max-width: 768px) {
             .sponsors-grid {
-                justify-content: center;
-                gap: 30px;
+                flex-wrap: nowrap !important;
+                justify-content: flex-start;
+                gap: 25px;
+                padding: 0 10px;
+                overflow-x: auto;
             }
             .sponsor-item {
-                min-width: 100px;
-                flex: 0 1 30%;
+                flex: 0 0 auto !important;
+                min-width: 80px; /* Уменьшаем минимальную ширину */
             }
             .sponsor-item img {
-                max-height: 50px;
+                max-height: 45px; /* Уменьшаем высоту с 50px до 45px */
+                max-width: 80px;  /* Уменьшаем ширину с 100px до 80px */
             }
         }
 
         @media (max-width: 480px) {
             .sponsors-grid {
-                gap: 20px;
+                gap: 15px; /* Уменьшаем отступы */
+                padding: 0 8px;
             }
             .sponsor-item {
-                min-width: 80px;
-                flex: 0 1 40%;
+                min-width: 70px; /* Еще меньше минимальная ширина */
             }
             .sponsor-item img {
-                max-height: 40px;
+                max-height: 35px; /* Еще меньше высота с 45px до 35px */
+                max-width: 70px;  /* Еще меньше ширина с 80px до 70px */
             }
         }
     </style>
@@ -2263,9 +2275,8 @@
                     </h2>
                 </div>
             </div>
-            <!-- ПЕРВАЯ ПОЛОСА (border-bottom от .section-header) -->
             
-            <!-- ЛОГОТИПЫ СПОНСОРОВ МЕЖДУ ПОЛОСАМИ -->
+            <!-- ЛОГОТИПЫ СПОНСОРОВ В ОДНУ СТРОКУ -->
             <div class="sponsors-grid">
                 <div class="sponsor-item">
                     <img src="images/sponsors/kirschbaum.png" alt="kirschbaum" />
@@ -2281,7 +2292,7 @@
                 </div>
             </div>
             
-            <!-- ВТОРАЯ ПОЛОСА (теперь ПОСЛЕ спонсоров) -->
+            <!-- ВТОРАЯ ПОЛОСА -->
             <div class="sponsor-divider"></div>
         </section>
 
