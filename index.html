@@ -1405,6 +1405,40 @@
             color: var(--text-muted);
         }
 
+        /* ===== СТИЛИ ДЛЯ ФОТО ТОВАРОВ В РЕКЛАМЕ ===== */
+        .ad-products {
+            width: 100%;
+            margin-top: 8px;
+        }
+
+        .ad-product-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+            width: 100%;
+        }
+
+        .ad-product-item {
+            aspect-ratio: 1 / 1;
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            overflow: hidden;
+            transition: border-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .ad-product-item:hover {
+            border-color: var(--accent-gold);
+            transform: scale(1.03);
+        }
+
+        .ad-product-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
         /* ===== АДАПТИВ ДЛЯ РЕКЛАМЫ ПО БОКАМ ===== */
         @media (max-width: 1100px) {
             .contact-ad-left,
@@ -1424,6 +1458,9 @@
                 width: 60px;
                 height: 60px;
                 padding: 6px;
+            }
+            .ad-product-grid {
+                gap: 4px;
             }
         }
 
@@ -1470,6 +1507,12 @@
             .contact-center {
                 width: 100%;
             }
+            .ad-products {
+                max-width: 200px;
+            }
+            .ad-product-grid {
+                gap: 4px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1487,6 +1530,12 @@
             }
             .contact-ad-content .ad-text {
                 font-size: 0.45rem;
+            }
+            .ad-products {
+                max-width: 150px;
+            }
+            .ad-product-grid {
+                gap: 3px;
             }
         }
 
@@ -2523,7 +2572,7 @@
                             <span class="ru-text">tennistmshop</span>
                         </div>
                         <div class="ad-image">
-                            <img src="images/reklama/tennistmshop.png" alt="tennistmshop" />
+                            <img src="images/reklama/tennistmshop/tennistmshop.png" alt="tennistmshop" />
                         </div>
                         <div class="ad-divider"></div>
                         <div class="ad-title">
@@ -2534,10 +2583,51 @@
                             <span class="en-text">Tennis accessories</span>
                             <span class="ru-text">Аксесуары для большого тенниса</span>
                         </div>
-                        <a href="https://tennistmshop.com" target="_blank" class="ad-link">
+                        <a href="https://www.instagram.com/tennistmshop/" target="_blank" class="ad-link">
                             <span class="en-text">Learn More →</span>
                             <span class="ru-text">Узнать больше →</span>
                         </a>
+                        <!-- Фото товаров ниже Learn More → -->
+                        <div class="ad-products">
+                            <div class="ad-product-grid">
+                                <div class="ad-product-item">
+                                    <img src="images/reklama/tennistmshop/Wilson Blade 98 16x19 v10 Racquet.jpg" alt="Tennis product 1" />
+                                </div>
+                                <div class="ad-product-item">
+                                    <img src="images/reklama/tennistmshop/DUNLOP championship.png" alt="Tennis product 2" />
+                                </div>
+                                <div class="ad-product-item">
+                                    <img src="images/reklama/tennistmshop/ASICS GEL-RESOLUTION 9.jpg" alt="Tennis product 3" />
+                                </div>
+                                <div class="ad-product-item">
+                                    <img src="images/reklama/tennistmshop/YONEX 2.jpg" alt="Tennis product 4" />
+								</div>
+                                <div class="ad-product-item">
+                                    <img src="images/reklama/tennistmshop/JMG.jpg" alt="Tennis product 5" />
+                                </div>
+								<div class="ad-product-item">
+                                    <img src="images/reklama/tennistmshop/YONEX ezone 2026.jpg" alt="Tennis product 6" />
+                                </div>
+                                <div class="ad-product-item">
+                                    <img src="images/reklama/tennistmshop/Wilson Ultra 99 Pro v5 2.jpg" alt="Tennis product 7" />
+								</div>
+                                <div class="ad-product-item">
+                                    <img src="images/reklama/tennistmshop/Head Speed Tour 2026 Racquet.jpg" alt="Tennis product 8" />
+                                </div>
+								<div class="ad-product-item">
+                                    <img src="images/reklama/tennistmshop/Babolat Pure Aero 2026.jpg" alt="Tennis product 9" />
+								</div>
+                                <div class="ad-product-item">
+                                    <img src="images/reklama/tennistmshop/Babolat Pure Drive Spectra Limited.jpg" alt="Tennis product 10" />
+                                </div>
+								<div class="ad-product-item">
+                                    <img src="images/reklama/tennistmshop/Wilson US Open Extra Duty.jpg" alt="Tennis product 11" />
+								</div>
+                                <div class="ad-product-item">
+                                    <img src="images/reklama/tennistmshop/Wilson Bela Pro v3 Padel Racket.jpg" alt="Tennis product 12" />
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -2606,21 +2696,63 @@
                             <span class="ru-text">kirschbaum</span>
                         </div>
                         <div class="ad-image">
-                            <img src="images/reklama/kirschbaum.png" alt="kirschbaum" />
+                            <img src="images/reklama/kirschbaum/kirschbaum.png" alt="kirschbaum" />
                         </div>
                         <div class="ad-divider"></div>
                         <div class="ad-title">
-                            <span class="en-text">Kirschbaum strings & grips</span>
-                            <span class="ru-text">Струны и обмотки Kirschbaum</span>
+                            <span class="en-text">strings & grips</span>
+                            <span class="ru-text">Струны и обмотки</span>
                         </div>
                         <div class="ad-text">
-                            <span class="en-text">Choose the string that suits you</span>
-                            <span class="ru-text">Выбери струну под себя </span>
+                            <span class="en-text">Your string is your power</span>
+                            <span class="ru-text">Твоя струна твоя мощ </span>
                         </div>
                         <a href="https://kirschbaum-strings.de/" target="_blank" class="ad-link">
                             <span class="en-text">Get Started →</span>
                             <span class="ru-text">Начать →</span>
                         </a>
+                        <!-- Фото товаров ниже Get Started → -->
+                        <div class="ad-products">
+                            <div class="ad-product-grid">
+                                <div class="ad-product-item">
+                                    <img src="images/reklama/kirschbaum/Helixb.jpg" alt="Kirschbaum product 1" />
+                                </div>
+                                <div class="ad-product-item">
+                                    <img src="images/reklama/kirschbaum/Flash.jpg" alt="Kirschbaum product 2" />
+                                </div>
+								<div class="ad-product-item">
+                                    <img src="images/reklama/kirschbaum/Griffband.jpg" alt="Kirschbaum product 3" />
+                                </div>
+								<div class="ad-product-item">
+                                    <img src="images/reklama/kirschbaum/Gut Feeling Set.jpg" alt="Kirschbaum product 4" />
+                                </div>
+								<div class="ad-product-item">
+                                    <img src="images/reklama/kirschbaum/flashshark125-pink.jpg" alt="Kirschbaum product 5" />
+                                </div>
+								<div class="ad-product-item">
+                                    <img src="images/reklama/kirschbaum/maxpower-rot-125-12.jpg" alt="Kirschbaum product 6" />
+                                </div>
+								<div class="ad-product-item">
+                                    <img src="images/reklama/kirschbaum/kepka.jpg" alt="Kirschbaum product 7" />
+                                </div>
+								<div class="ad-product-item">
+                                    <img src="images/reklama/kirschbaum/tshirtherren_weiss.jpg" alt="Kirschbaum product 8" />
+                                </div>
+								<div class="ad-product-item">
+                                    <img src="images/reklama/kirschbaum/setka.jpg" alt="Kirschbaum product 9" />
+                                </div>
+								<div class="ad-product-item">
+                                    <img src="images/reklama/kirschbaum/vibrastop3er_blau.jpg" alt="Kirschbaum product 10" />
+                                </div>
+								<div class="ad-product-item">
+                                    <img src="images/reklama/kirschbaum/touchit3erschwarz.jpg" alt="Kirschbaum product 11" />
+                                </div>
+								<div class="ad-product-item">
+                                    <img src="images/reklama/kirschbaum/Gut Feeling Set 2.jpg" alt="Kirschbaum product 12" />
+                                </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
