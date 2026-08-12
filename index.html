@@ -950,6 +950,235 @@
             text-align: right;
         }
 
+        /* ===== ТУРНИРЫ (TOURNAMENTS) ===== */
+        .tournaments-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: clamp(8px, 1vw, 12px);
+            width: 100%;
+        }
+
+        .tournament-link {
+            text-decoration: none;
+            display: block;
+            transition: all 0.3s ease;
+        }
+
+        .tournament-link:hover .tournament-row {
+            border-color: var(--accent-gold);
+            transform: translateX(4px);
+        }
+
+        .tournament-row {
+            display: grid;
+            grid-template-columns: 80px 1fr 120px 100px 120px;
+            gap: clamp(10px, 1.5vw, 20px);
+            padding: clamp(10px, 1vw, 14px) clamp(12px, 1.5vw, 20px);
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            align-items: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .tournament-row .tour-year {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+            color: var(--accent-gold);
+        }
+
+        .tournament-row .tour-name {
+            font-weight: 600;
+            font-size: clamp(0.8rem, 1vw, 0.95rem);
+            color: var(--text-main);
+        }
+
+        .tournament-row .tour-category {
+            font-size: clamp(0.65rem, 0.8vw, 0.75rem);
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 4px 10px;
+            border-radius: 12px;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .tournament-row .tour-result {
+            font-weight: 700;
+            font-size: clamp(0.8rem, 1vw, 0.9rem);
+            text-align: center;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        .tournament-row .tour-result.win {
+            color: #4CAF50;
+            background: rgba(76, 175, 80, 0.15);
+        }
+
+        .tournament-row .tour-result.loss {
+            color: #f44336;
+            background: rgba(244, 67, 54, 0.15);
+        }
+
+        .tournament-row .tour-result.semi {
+            color: #FFC107;
+            background: rgba(255, 193, 7, 0.15);
+        }
+
+        .tournament-row .tour-result.quarter {
+            color: #2196F3;
+            background: rgba(33, 150, 243, 0.15);
+        }
+
+        .tournament-row .tour-result.participant {
+            color: var(--text-muted);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .tournament-row .tour-location {
+            font-size: clamp(0.65rem, 0.8vw, 0.75rem);
+            color: var(--text-muted);
+            text-align: right;
+        }
+
+        /* ===== СТИЛИ ДЛЯ ТУРНИРОВ С ДВУМЯ РЕЗУЛЬТАТАМИ ===== */
+        .tournament-row .tour-results {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tournament-row .tour-results .tour-result {
+            font-weight: 700;
+            font-size: clamp(0.7rem, 0.9vw, 0.85rem);
+            text-align: center;
+            padding: 2px 8px;
+            border-radius: 4px;
+            white-space: nowrap;
+            width: 100%;
+            min-width: 80px;
+        }
+
+        /* ===== АДАПТИВ ДЛЯ ТУРНИРОВ ===== */
+        @media (max-width: 768px) {
+            .tournament-row {
+                grid-template-columns: 60px 1fr;
+                grid-template-rows: auto auto auto;
+                gap: 6px 12px;
+                padding: 12px 14px;
+            }
+
+            .tournament-row .tour-year {
+                grid-row: 1;
+                grid-column: 1;
+            }
+
+            .tournament-row .tour-name {
+                grid-row: 1;
+                grid-column: 2;
+                font-size: 0.85rem;
+            }
+
+            .tournament-row .tour-category {
+                grid-row: 2;
+                grid-column: 1 / 3;
+                text-align: left;
+                justify-self: start;
+                font-size: 0.6rem;
+            }
+
+            .tournament-row .tour-result {
+                grid-row: 3;
+                grid-column: 1;
+                font-size: 0.7rem;
+                padding: 2px 10px;
+                justify-self: start;
+            }
+
+            .tournament-row .tour-location {
+                grid-row: 3;
+                grid-column: 2;
+                text-align: right;
+                font-size: 0.6rem;
+            }
+
+            /* Адаптив для блоков с двумя результатами */
+            .tournament-row .tour-results {
+                grid-row: 3;
+                grid-column: 1 / 3;
+                flex-direction: row;
+                gap: 8px;
+                justify-content: flex-start;
+                flex-wrap: wrap;
+            }
+
+            .tournament-row .tour-results .tour-result {
+                font-size: 0.65rem;
+                padding: 2px 10px;
+                min-width: auto;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .tournament-row {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto auto auto auto;
+                gap: 4px 0;
+                text-align: center;
+            }
+
+            .tournament-row .tour-year {
+                grid-row: 1;
+                text-align: center;
+            }
+
+            .tournament-row .tour-name {
+                grid-row: 2;
+                text-align: center;
+                font-size: 0.8rem;
+            }
+
+            .tournament-row .tour-category {
+                grid-row: 3;
+                justify-self: center;
+                font-size: 0.55rem;
+            }
+
+            .tournament-row .tour-result {
+                grid-row: 4;
+                justify-self: center;
+                font-size: 0.65rem;
+            }
+
+            .tournament-row .tour-location {
+                grid-row: 5;
+                text-align: center;
+                font-size: 0.55rem;
+            }
+
+            /* Адаптив для блоков с двумя результатами */
+            .tournament-row .tour-results {
+                grid-row: 4;
+                grid-column: 1;
+                flex-direction: row;
+                gap: 6px;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .tournament-row .tour-results .tour-result {
+                font-size: 0.6rem;
+                padding: 2px 8px;
+            }
+        }
+
         /* ===== МЕДИА-ТАБЫ ===== */
         .tabs-wrapper {
             margin-bottom: 40px;
@@ -1986,6 +2215,7 @@
         <div class="nav-links" id="navLinks">
             <a href="#stats"><span class="en-text">Metrics</span><span class="ru-text">Метрики</span></a>
             <a href="#about"><span class="en-text">Profile</span><span class="ru-text">Профиль</span></a>
+            <a href="#tournaments"><span class="en-text">Tournaments</span><span class="ru-text">Турниры</span></a>
             <a href="#media" data-tab="highlights"><span class="en-text">Highlights</span><span class="ru-text">Хайлайты</span></a>
             <a href="#media" data-tab="fullmatches"><span class="en-text">Full Matches</span><span class="ru-text">Полные матчи</span></a>
             <a href="#media" data-tab="training"><span class="en-text">Training</span><span class="ru-text">Тренировки</span></a>
@@ -2217,6 +2447,191 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- ===== ТУРНИРЫ (TOURNAMENTS) ===== -->
+        <section id="tournaments">
+            <div class="section-header">
+                <div>
+                    <div class="section-tag">
+                        <span class="en-text">Career Overview</span>
+                        <span class="ru-text">Карьерный обзор</span>
+                    </div>
+                    <h2 class="section-title">
+                        <span class="en-text">Tournaments</span>
+                        <span class="ru-text">Турниры</span>
+                    </h2>
+                </div>
+            </div>
+
+            <div class="tournaments-grid">
+                <!-- 2026 -->
+                <a href="https://www.itftennis.com/en/tournament/j30-dushanbe/" target="_blank" rel="noopener noreferrer" class="tournament-link">
+                    <div class="tournament-row">
+                        <div class="tour-year">2026</div>
+                        <div class="tour-name">ITF J30 — Dushanbe</div>
+                        <div class="tour-category">ITF Juniors</div>
+                        <div class="tour-result win">🏆 Winner</div>
+                        <div class="tour-location">🇹🇯 Tajikistan</div>
+                    </div>
+                </a>
+
+                <a href="https://www.itftennis.com/en/tournament/j30-fergana/" target="_blank" rel="noopener noreferrer" class="tournament-link">
+                    <div class="tournament-row">
+                        <div class="tour-year">2026</div>
+                        <div class="tour-name">ITF J30 — Fergana</div>
+                        <div class="tour-category">ITF Juniors</div>
+                        <div class="tour-result semi">🏅 Semi-final</div>
+                        <div class="tour-location">🇺🇿 Uzbekistan</div>
+                    </div>
+                </a>
+
+                <a href="https://www.itftennis.com/en/tournament/president-cup/" target="_blank" rel="noopener noreferrer" class="tournament-link">
+                    <div class="tournament-row">
+                        <div class="tour-year">2026</div>
+                        <div class="tour-name">President Cup 2025</div>
+                        <div class="tour-category">ITF Juniors</div>
+                        <div class="tour-result win">🏆 Winner</div>
+                        <div class="tour-location">🇹🇲 Turkmenistan</div>
+                    </div>
+                </a>
+
+                <!-- 2025 -->
+                <a href="https://www.billiejeankingcup.com/" target="_blank" rel="noopener noreferrer" class="tournament-link">
+                    <div class="tournament-row">
+                        <div class="tour-year">2025</div>
+                        <div class="tour-name">Billie Jean King Cup</div>
+                        <div class="tour-category">Team Event</div>
+                        <div class="tour-result participant">Participant</div>
+                        <div class="tour-location">🌍 International</div>
+                    </div>
+                </a>
+
+                <a href="https://www.itftennis.com/en/tournament/ramis-cup/" target="_blank" rel="noopener noreferrer" class="tournament-link">
+                    <div class="tournament-row">
+                        <div class="tour-year">2025</div>
+                        <div class="tour-name">Ramis Cup 2025 — Singles</div>
+                        <div class="tour-category">ITF Juniors</div>
+                        <div class="tour-result win">🏆 Winner</div>
+                        <div class="tour-location">🇹🇲 Turkmenistan</div>
+                    </div>
+                </a>
+
+                <a href="https://www.itftennis.com/en/tournament/ramis-cup/" target="_blank" rel="noopener noreferrer" class="tournament-link">
+                    <div class="tournament-row">
+                        <div class="tour-year">2025</div>
+                        <div class="tour-name">Ramis Cup 2025 — Doubles</div>
+                        <div class="tour-category">ITF Juniors</div>
+                        <div class="tour-result win">🏆 Winner</div>
+                        <div class="tour-location">🇹🇲 Turkmenistan</div>
+                    </div>
+                </a>
+
+                <a href="https://www.itftennis.com/en/tournament/itf-asia-14u/" target="_blank" rel="noopener noreferrer" class="tournament-link">
+                    <div class="tournament-row">
+                        <div class="tour-year">2025</div>
+                        <div class="tour-name">ITF Asia 14-U Development Championships</div>
+                        <div class="tour-category">ITF Development</div>
+                        <div class="tour-result participant">Participant</div>
+                        <div class="tour-location">🇲🇾 Malaysia</div>
+                    </div>
+                </a>
+
+                <!-- 2024 -->
+                <a href="https://www.rolandgarros.com/" target="_blank" rel="noopener noreferrer" class="tournament-link">
+                    <div class="tournament-row">
+                        <div class="tour-year">2024</div>
+                        <div class="tour-name">Roland Garros Junior Series</div>
+                        <div class="tour-category">Grand Slam</div>
+                        <div class="tour-result quarter">Quarter-final</div>
+                        <div class="tour-location">🇫🇷 France</div>
+                    </div>
+                </a>
+
+                <a href="https://atftennis.com/" target="_blank" rel="noopener noreferrer" class="tournament-link">
+                    <div class="tournament-row">
+                        <div class="tour-year">2024</div>
+                        <div class="tour-name">Asian 14&U Grade A (South Asia)</div>
+                        <div class="tour-category">ITF Development</div>
+                        <div class="tour-result semi">🏅 Semi-final</div>
+                        <div class="tour-location">🇮🇳 India</div>
+                    </div>
+                </a>
+
+                <a href="https://atftennis.com/" target="_blank" rel="noopener noreferrer" class="tournament-link">
+                    <div class="tournament-row">
+                        <div class="tour-year">2024</div>
+                        <div class="tour-name">Asian 14&U Grade A (Southeast Asia)</div>
+                        <div class="tour-category">ITF Development</div>
+                        <div class="tour-result participant">Participant</div>
+                        <div class="tour-location">🇲🇾 Malaysia</div>
+                    </div>
+                </a>
+
+                <a href="https://mouratoglou.com/" target="_blank" rel="noopener noreferrer" class="tournament-link">
+                    <div class="tournament-row">
+                        <div class="tour-year">2024</div>
+                        <div class="tour-name">Patrick Mouratoglou Academy Camp</div>
+                        <div class="tour-category">Training</div>
+                        <div class="tour-result participant">Participant</div>
+                        <div class="tour-location">🇲🇾 Malaysia</div>
+                    </div>
+                </a>
+
+                <!-- 2023 -->
+                <a href="https://atf.tournamentsoftware.com/tournament/A76A5598-8AEC-4516-ADA3-82EB3B547C28/draw/4" target="_blank" rel="noopener noreferrer" class="tournament-link">
+                    <div class="tournament-row">
+                        <div class="tour-year">2023</div>
+                        <div class="tour-name">Uchkun (1) ATF 14&U</div>
+                        <div class="tour-category">ATF U14</div>
+                        <div class="tour-results">
+                            <span class="tour-result win">🥈 Run-up 👤</span>
+                            <span class="tour-result win">🏆 Winner 👥</span>
+                        </div>
+                        <div class="tour-location">🇮🇳 India</div>
+                    </div>
+                </a>
+
+                <a href="https://atf.tournamentsoftware.com/tournament/4707AAD8-DA6C-4D28-9EBF-8859146A8A0D/draw/6" target="_blank" rel="noopener noreferrer" class="tournament-link">
+                    <div class="tournament-row">
+                        <div class="tour-year">2023</div>
+                        <div class="tour-name">ITF ASIA 14 & UNDER DEVELOPMENT CHAMPIONSHIPS 2023, FINALS (WEEK 2)</div>
+                        <div class="tour-category">ATF U14</div>
+                        <div class="tour-result win">🥈 Run-up</div>
+                        <div class="tour-location">🇮🇳 India</div>
+                    </div>
+                </a>
+
+                <a href="https://atf.tournamentsoftware.com/tournament/4D7086D5-C91B-450F-B4CA-A8E891A4637C/draw/6" target="_blank" rel="noopener noreferrer" class="tournament-link">
+                    <div class="tournament-row">
+                        <div class="tour-year">2023</div>
+                        <div class="tour-name">ITF ASIA 14 & UNDER DEVELOPMENT CHAMPIONSHIPS 2023, FINALS (WEEK 1)</div>
+                        <div class="tour-category">ATF U14</div>
+                        <div class="tour-result win">🥉 3rd Place</div>
+                        <div class="tour-location">🇮🇳 India</div>
+                    </div>
+                </a>
+
+                <a href="https://atf.tournamentsoftware.com/tournament/5C28650D-B88E-42F2-BFF8-8DEE56754432/draw/4" target="_blank" rel="noopener noreferrer" class="tournament-link">
+                    <div class="tournament-row">
+                        <div class="tour-year">2023</div>
+                        <div class="tour-name">ITF Asia 14&U Development Championships-(WA & CA) WEEK 2</div>
+                        <div class="tour-category">ATF U14</div>
+                        <div class="tour-result win">🥉 3rd Place</div>
+                        <div class="tour-location">🇧🇭 Bahrain</div>
+                    </div>
+                </a>
+
+                <a href="https://atf.tournamentsoftware.com/tournament/710301E9-2CE5-463F-AAC1-8D131271C1E1/draw/8" target="_blank" rel="noopener noreferrer" class="tournament-link">
+                    <div class="tournament-row">
+                        <div class="tour-year">2023</div>
+                        <div class="tour-name">ITF Asia 14&U Development Championships-(WA & CA) WEEK 1</div>
+                        <div class="tour-category">ATF U14</div>
+                        <div class="tour-result win">🥈 Run-up</div>
+                        <div class="tour-location">🇧🇭 Bahrain</div>
+                    </div>
+                </a>
             </div>
         </section>
 
@@ -2525,10 +2940,8 @@
                         </div>
                     </div>
                     <div class="video-info">
-                        <span class="en-text">Roland Garros Junior Series by Renault - Qualifications West and
-Central Asia</span>
-                        <span class="ru-text">Roland Garros Junior Series by Renault - Qualifications West and
-Central Asia</span>
+                        <span class="en-text">Roland Garros Junior Series by Renault - Qualifications West and Central Asia</span>
+                        <span class="ru-text">Roland Garros Junior Series by Renault - Qualifications West and Central Asia</span>
                     </div>
                 </div>
                 <div class="video-card">
@@ -2824,7 +3237,7 @@ Central Asia</span>
 
                         <form class="form-grid" id="recruitingForm" action="https://formspree.io/f/mnjeelwv" method="POST">
                             <input type="hidden" name="_subject" value="New Recruiting Inquiry - Ilima Guseynova" />
-                            <input type="hidden" name="_captcha" value="false" />
+                            <input type="hidden" name="_captcha" value="true" />
                             <input type="text" name="_gotcha" style="display:none" />
 
                             <div class="input-group">
