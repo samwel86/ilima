@@ -123,8 +123,8 @@
         .social-icons {
             display: flex;
             align-items: center;
-            gap: clamp(6px, 1vw, 12px);
-            padding-right: 10px;
+            gap: 6px;
+            margin-left: 2px;
         }
 
         .social-icons a {
@@ -143,8 +143,8 @@
         }
 
         .social-icons .social-icon {
-            width: clamp(18px, 3vw, 26px);
-            height: clamp(18px, 3vw, 26px);
+            width: clamp(16px, 2.2vw, 22px);
+            height: clamp(16px, 2.2vw, 22px);
             fill: currentColor;
             display: block;
         }
@@ -273,7 +273,12 @@
             }
 
             .social-icons {
-                padding-right: 5px;
+                gap: 4px;
+            }
+            
+            .social-icons .social-icon {
+                width: 18px;
+                height: 18px;
             }
         }
 
@@ -284,13 +289,18 @@
             }
             
             .social-icons .social-icon {
-                width: 16px;
-                height: 16px;
+                width: 14px;
+                height: 14px;
             }
             
             .burger span {
                 width: 22px;
                 height: 2px;
+            }
+            
+            .social-icons {
+                gap: 3px;
+                margin-left: 1px;
             }
         }
 
@@ -962,7 +972,7 @@
             width: 100%;
             border-collapse: collapse;
             font-size: clamp(0.7rem, 0.8vw, 0.85rem);
-            min-width: 600px;
+            min-width: 500px;
         }
 
         .tournaments-table th {
@@ -993,8 +1003,16 @@
         }
 
         .tournaments-table .tournament-name {
-            color: var(--text-main);
+            color: var(--accent-gold);
             font-weight: 600;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .tournaments-table .tournament-name:hover {
+            color: #fff;
+            text-decoration: underline;
         }
 
         .tournaments-table .result-badge {
@@ -1036,28 +1054,99 @@
             font-weight: 600;
         }
 
+        /* ===== НОВЫЙ СТИЛЬ ДЛЯ ЯЧЕЙКИ С ИКОНКОЙ ===== */
+        .tournaments-table .ranking-cell.icon-cell {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 16px;
+        }
+
+        .tournaments-table .ranking-cell.icon-cell img {
+            width: 22px;
+            height: 22px;
+            display: block;
+            flex-shrink: 0;
+        }
+
+        .flag-icon {
+            display: inline-block;
+            width: 24px;
+            height: 16px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            vertical-align: middle;
+            border-radius: 2px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* ===== КНОПКА ДЛЯ СВОРАЧИВАНИЯ ТУРНИРОВ ===== */
+        .tournaments-toggle-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .tournaments-toggle-btn {
+            background: transparent;
+            color: var(--accent-gold);
+            border: 1px solid var(--accent-gold);
+            padding: 12px 32px;
+            font-family: 'Cinzel', serif;
+            font-size: clamp(0.6rem, 0.8vw, 0.75rem);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            font-weight: 700;
+        }
+
+        .tournaments-toggle-btn:hover {
+            background: var(--accent-gold);
+            color: #000;
+        }
+
+        .tournaments-table-wrapper.collapsed .tournaments-table {
+            display: none;
+        }
+
+        .tournaments-table-wrapper:not(.collapsed) .tournaments-table {
+            display: table;
+        }
+
         @media (max-width: 768px) {
             .tournaments-table-wrapper {
                 border-radius: 4px;
             }
             .tournaments-table {
                 font-size: 0.7rem;
-                min-width: 500px;
+                min-width: 400px;
             }
             .tournaments-table th,
             .tournaments-table td {
                 padding: 10px 12px;
+            }
+            .tournaments-toggle-btn {
+                padding: 10px 24px;
+                font-size: 0.6rem;
             }
         }
 
         @media (max-width: 480px) {
             .tournaments-table {
                 font-size: 0.6rem;
-                min-width: 400px;
+                min-width: 350px;
             }
             .tournaments-table th,
             .tournaments-table td {
                 padding: 8px 10px;
+            }
+            .tournaments-toggle-btn {
+                padding: 8px 18px;
+                font-size: 0.5rem;
             }
         }
 
@@ -2051,6 +2140,41 @@
             opacity: 1;
             transform: rotate(90deg);
         }
+
+        /* ===== СВОРАЧИВАЕМЫЙ БЛОК "VISUAL SCOUTING MATCH VIDEOS" ===== */
+        .media-toggle-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .media-toggle-btn {
+            background: transparent;
+            color: var(--accent-gold);
+            border: 1px solid var(--accent-gold);
+            padding: 12px 32px;
+            font-family: 'Cinzel', serif;
+            font-size: clamp(0.6rem, 0.8vw, 0.75rem);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            font-weight: 700;
+        }
+
+        .media-toggle-btn:hover {
+            background: var(--accent-gold);
+            color: #000;
+        }
+
+        .media-content-wrapper.collapsed .tab-content.active {
+            display: none !important;
+        }
+
+        .media-content-wrapper:not(.collapsed) .tab-content.active {
+            display: grid !important;
+        }
     </style>
 </head>
 <body>
@@ -2058,12 +2182,7 @@
     <!-- ===== НАВИГАЦИЯ ===== -->
     <nav>
         <div class="logo-wrapper">
-            <div class="logo">
-                <span class="en-text">ILIMA GUSEYNOVA</span>
-                <span class="ru-text">ИЛИМА ГУСЕЙНОВА</span>
-            </div>
             <span class="logo-flag"></span>
-            <!-- СОЦИАЛЬНЫЕ СЕТИ ПЕРЕНЕСЕНЫ СЮДА, ПРЯМО ПОД ИМЯ И ФЛАГ -->
             <div class="social-icons">
                 <a href="https://www.instagram.com/ilima_guseynova/" target="_blank" aria-label="Instagram">
                     <svg class="social-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -2088,7 +2207,6 @@
             </div>
         </div>
 
-        <!-- БУРГЕР-МЕНЮ -->
         <button class="burger" id="burgerMenu" aria-label="Menu">
             <span></span>
             <span></span>
@@ -2333,7 +2451,7 @@
             </div>
         </section>
 
-        <!-- ===== ТУРНИРЫ ===== -->
+        <!-- ===== ТУРНИРЫ С ВОЗМОЖНОСТЬЮ СВОРАЧИВАНИЯ И ССЫЛКАМИ ===== -->
         <section id="tournaments">
             <div class="section-header">
                 <div>
@@ -2348,109 +2466,335 @@
                 </div>
             </div>
 
-            <div class="tournaments-table-wrapper">
+            <div class="tournaments-table-wrapper collapsed" id="tournamentsWrapper">
                 <table class="tournaments-table">
                     <thead>
                         <tr>
                             <th><span class="en-text">Tournament</span><span class="ru-text">Турнир</span></th>
                             <th><span class="en-text">Location</span><span class="ru-text">Место</span></th>
-                            <th><span class="en-text">Year</span><span class="ru-text">Год</span></th>
                             <th><span class="en-text">Category</span><span class="ru-text">Категория</span></th>
                             <th><span class="en-text">Result</span><span class="ru-text">Результат</span></th>
-                            <th><span class="en-text">Ranking / Title</span><span class="ru-text">Рейтинг / Титул</span></th>
+                            <th><span class="en-text">Title</span><span class="ru-text">Титул</span></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td class="tournament-name">President Cup 2025</td>
-                            <td>Turkmenistan</td>
-                            <td>2025</td>
-                            <td><span class="en-text">ITF Grade 5</span><span class="ru-text">ITF 5-й категории</span></td>
-                            <td><span class="result-badge gold"><span class="en-text">Champion</span><span class="ru-text">Победитель</span></span></td>
-                            <td class="ranking-cell">Singles</td>
-                        </tr>
-                        <tr>
-                            <td class="tournament-name">Ramis Cup 2025</td>
-                            <td>Turkmenistan</td>
-                            <td>2025</td>
-                            <td><span class="en-text">ITF Grade 5</span><span class="ru-text">ITF 5-й категории</span></td>
-                            <td><span class="result-badge gold"><span class="en-text">Champion</span><span class="ru-text">Победитель</span></span></td>
-                            <td class="ranking-cell">Singles</td>
-                        </tr>
-                        <tr>
-                            <td class="tournament-name">Ramis Cup 2025</td>
-                            <td>Turkmenistan</td>
-                            <td>2025</td>
-                            <td><span class="en-text">ITF Grade 5</span><span class="ru-text">ITF 5-й категории</span></td>
-                            <td><span class="result-badge gold"><span class="en-text">Champion</span><span class="ru-text">Победитель</span></span></td>
-                            <td class="ranking-cell">Doubles</td>
-                        </tr>
-                        <tr>
-                            <td class="tournament-name">J30 Dushanbe</td>
-                            <td>Tajikistan</td>
-                            <td>2025</td>
-                            <td><span class="en-text">ITF J30</span><span class="ru-text">ITF J30</span></td>
-                            <td><span class="result-badge gold"><span class="en-text">Champion</span><span class="ru-text">Победитель</span></span></td>
-                            <td class="ranking-cell">Doubles</td>
-                        </tr>
-                        <tr>
-                            <td class="tournament-name">Billie Jean King Cup 2025</td>
-                            <td>Turkmenistan</td>
-                            <td>2025</td>
-                            <td><span class="en-text">BJKC</span><span class="ru-text">Кубок Билли Джин Кинг</span></td>
-                            <td><span class="result-badge participant"><span class="en-text">Participant</span><span class="ru-text">Участница</span></span></td>
-                            <td class="ranking-cell">—</td>
-                        </tr>
-                        <tr>
-                            <td class="tournament-name">Roland Garros Junior Series</td>
-                            <td>Kazakhstan</td>
-                            <td>2024</td>
-                            <td><span class="en-text">Qualification</span><span class="ru-text">Квалификация</span></td>
-                            <td><span class="result-badge participant"><span class="en-text">Participant</span><span class="ru-text">Участница</span></span></td>
-                            <td class="ranking-cell">—</td>
-                        </tr>
-                        <tr>
-                            <td class="tournament-name">Asian 14 & Under Grade A</td>
-                            <td>Malaysia</td>
-                            <td>2024</td>
-                            <td><span class="en-text">ATF Grade A</span><span class="ru-text">ATF Категория A</span></td>
-                            <td><span class="result-badge silver"><span class="en-text">Finalist</span><span class="ru-text">Финалист</span></span></td>
-                            <td class="ranking-cell">Singles</td>
-                        </tr>
-                        <tr>
-                            <td class="tournament-name">Asian 14 & Under Grade A</td>
-                            <td>India</td>
-                            <td>2024</td>
-                            <td><span class="en-text">ATF Grade A</span><span class="ru-text">ATF Категория A</span></td>
-                            <td><span class="result-badge bronze"><span class="en-text">Semifinalist</span><span class="ru-text">Полуфиналист</span></span></td>
-                            <td class="ranking-cell">Singles</td>
-                        </tr>
-                        <tr>
-                            <td class="tournament-name">Asian 14 & Under Grade A</td>
-                            <td>Malaysia</td>
-                            <td>2024</td>
-                            <td><span class="en-text">ATF Grade A</span><span class="ru-text">ATF Категория A</span></td>
-                            <td><span class="result-badge bronze"><span class="en-text">Semifinalist</span><span class="ru-text">Полуфиналист</span></span></td>
-                            <td class="ranking-cell">Doubles</td>
-                        </tr>
-                        <tr>
-                            <td class="tournament-name">Asian 14 & Under Grade A</td>
-                            <td>India</td>
-                            <td>2024</td>
-                            <td><span class="en-text">ATF Grade A</span><span class="ru-text">ATF Категория A</span></td>
-                            <td><span class="result-badge bronze"><span class="en-text">Semifinalist</span><span class="ru-text">Полуфиналист</span></span></td>
-                            <td class="ranking-cell">Doubles</td>
-                        </tr>
-                        <tr>
-                            <td class="tournament-name">J30 Fergana</td>
-                            <td>Uzbekistan</td>
-                            <td>2024</td>
-                            <td><span class="en-text">ITF J30</span><span class="ru-text">ITF J30</span></td>
-                            <td><span class="result-badge participant"><span class="en-text">Participant</span><span class="ru-text">Участница</span></span></td>
-                            <td class="ranking-cell">—</td>
-                        </tr>
-                    </tbody>
+    <tr>
+        <td class="tournament-name" data-link="https://atf.tournamentsoftware.com/sport/winners.aspx?id=057fdeea-81d6-4119-a1f3-857a4593b2d3">Billie Jean King Cup - 2025</td>
+        <td><span class="flag-icon" style="background-image: url('images/flags/lk.svg');"></span></td>
+        <td><span class="en-text">ITF</span><span class="ru-text">ITF</span></td>
+        <td><span class="result-badge Participant"><span class="en-text">Participant</span><span class="ru-text">Участница</span></td>
+        <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
+    <img src="images/icon/user.svg" alt=" " width="22" height="22" />
+    <span style="color: var(--accent-gold);">/</span>
+    <img src="images/icon/users.svg" alt=" " width="22" height="22" />
+</td>
+	<tr>
+        <td class="tournament-name" data-link="https://www.atf.hitcourt.com/tournament-acceptance-factsheet-MzAx">Ramis Cup-2025</td>
+        <td><span class="flag-icon" style="background-image: url('images/flags/tj.svg');"></span></td>
+        <td><span class="en-text">ATF-U14-Category-2</span><span class="ru-text">ATF-U14-Категория-2</span></td>
+        <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Поьедитель</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Поьедитель</span></span></td>
+        <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
+    <img src="images/icon/user.svg" alt=" " width="22" height="22" />
+    <span style="color: var(--accent-gold);">/</span>
+    <img src="images/icon/users.svg" alt=" " width="22" height="22" />
+</td>
+	<tr>
+        <td class="tournament-name" data-link="https://www.atf.hitcourt.com/tournament-acceptance-factsheet-Mjg2">President Cup-2025</td>
+        <td><span class="flag-icon" style="background-image: url('images/flags/tj.svg');"></span></td>
+        <td><span class="en-text">ATF-U14-Category-1</span><span class="ru-text">ATF-U14-Категория-1</span></td>
+        <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Поьедитель</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Поьедитель</span></span></td>
+        <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
+    <img src="images/icon/user.svg" alt=" " width="22" height="22" />
+    <span style="color: var(--accent-gold);">/</span>
+    <img src="images/icon/users.svg" alt=" " width="22" height="22" />
+</td>
+	<tr>
+        <td class="tournament-name" data-link="https://www.atf.hitcourt.com/tournament-acceptance-factsheet-Mjgx">Roland Garros Junior Series by Renault - Qualifications West and Central Asia - 2025</td>
+        <td><span class="flag-icon" style="background-image: url('images/flags/kz.svg');"></span></td>
+        <td><span class="en-text">ATF-U16-Category-1</span><span class="ru-text">ATF-U16-Категория-1</span></td>
+        <td><span class="result-badge Finalist"><span class="en-text">Finalist</span><span class="ru-text">Финалист</span></span></td>
+        <td class="ranking-cell icon-cell"><img src="images/icon/user.svg" alt=" " width="22" height="22" /></td>
+    </tr>
+	<tr>
+        <td class="tournament-name" data-link="https://www.itftennis.com/en/tournament/j60-ipoh/mas/2025/j-j60-mas-2025-002/draws-and-results/">ITF J60 Ipoh - 2025</td>
+        <td><span class="flag-icon" style="background-image: url('images/flags/my.svg');"></span></td>
+        <td><span class="en-text">ITF-J60</span><span class="ru-text">ITF-J60</span></td>
+        <td><span class="result-badge 3rd Round"><span class="en-text">3rd Round</span><span class="ru-text">3ий раунд</span> <span class="result-badge Quarter-finals"><span class="en-text">Quarter-finals</span><span class="ru-text">Четвертьфиналы</span></td>
+        <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
+    <img src="images/icon/user.svg" alt=" " width="22" height="22" />
+    <span style="color: var(--accent-gold);">/</span>
+    <img src="images/icon/users.svg" alt=" " width="22" height="22" />
+</td>
+	<tr>
+        <td class="tournament-name" data-link="https://www.itftennis.com/en/tournament/j60-seremban/mas/2025/j-j60-mas-2025-003/draws-and-results/">ITF J60 Seremban - 2025</td>
+        <td><span class="flag-icon" style="background-image: url('images/flags/my.svg');"></span></td>
+        <td><span class="en-text">ITF-J60</span><span class="ru-text">ITF-J60</span></td>
+        <td><span class="result-badge 2nd Round"><span class="en-text">2nd Round</span><span class="ru-text">2ой раунд</span> <span class="result-badge 1st Round"><span class="en-text">1st Round</span><span class="ru-text">1ый раунд</span></td>
+        <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
+    <img src="images/icon/user.svg" alt=" " width="22" height="22" />
+    <span style="color: var(--accent-gold);">/</span>
+    <img src="images/icon/users.svg" alt=" " width="22" height="22" />
+</td>
+	<tr>
+        <td class="tournament-name" data-link="https://www.itftennis.com/en/tournament/j30-binh-duong/vie/2025/j-j30-vie-2025-002/draws-and-results/">ITF J30 Binh Duong - 2025</td>
+        <td><span class="flag-icon" style="background-image: url('images/flags/vn.svg');"></span></td>
+        <td><span class="en-text">ITF-J30</span><span class="ru-text">ITF-J30</span></td>
+        <td><span class="result-badge 2nd Round"><span class="en-text">2nd Round</span><span class="ru-text">2ой раунд</span> <span class="result-badge 1st Round"><span class="en-text">1st Round</span><span class="ru-text">1ый раунд</span></td>
+        <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
+    <img src="images/icon/user.svg" alt=" " width="22" height="22" />
+    <span style="color: var(--accent-gold);">/</span>
+    <img src="images/icon/users.svg" alt=" " width="22" height="22" />
+</td>
+	<tr>
+        <td class="tournament-name" data-link="https://www.itftennis.com/en/tournament/j30-binh-duong/vie/2025/j-j30-vie-2025-001/draws-and-results/">ITF J30 Binh Duong - 2025</td>
+        <td><span class="flag-icon" style="background-image: url('images/flags/vn.svg');"></span></td>
+        <td><span class="en-text">ITF-J30</span><span class="ru-text">ITF-J30</span></td>
+        <td><span class="result-badge 1st Round"><span class="en-text">1st Round</span><span class="ru-text">1ый раунд</span> <span class="result-badge Quarter-finals"><span class="en-text">Quarter-finals</span><span class="ru-text">Четвертьфиналы</span></td>
+        <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
+    <img src="images/icon/user.svg" alt=" " width="22" height="22" />
+    <span style="color: var(--accent-gold);">/</span>
+    <img src="images/icon/users.svg" alt=" " width="22" height="22" />
+</td>
+	<tr>
+        <td class="tournament-name" data-link="https://atf.tournamentsoftware.com/sport/winners.aspx?id=057fdeea-81d6-4119-a1f3-857a4593b2d3">Billie Jean King Cup - 2024</td>
+        <td><span class="flag-icon" style="background-image: url('images/flags/bh.svg');"></span></td>
+        <td><span class="en-text">ITF</span><span class="ru-text">ITF</span></td>
+        <td><span class="result-badge Participant"><span class="en-text">Participant</span><span class="ru-text">Участница</span></td>
+        <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
+    <img src="images/icon/user.svg" alt=" " width="22" height="22" />
+    <span style="color: var(--accent-gold);">/</span>
+    <img src="images/icon/users.svg" alt=" " width="22" height="22" />
+</td>
+	<tr>
+        <td class="tournament-name" data-link="https://www.asiantennis.com/event-detail/?id=9942">GSPDP Asian 14U Junior Championships - 2024</td>
+        <td><span class="flag-icon" style="background-image: url('images/flags/kh.svg');"></span></td>
+        <td><span class="en-text">ATF-U14-Grade-A</span><span class="ru-text">ATF-U14-Категория-A</span></td>
+        <td><span class="result-badge Participant"><span class="en-text">Participant</span><span class="ru-text">Участница</span></span></td>
+        <td class="ranking-cell icon-cell"><img src="images/icon/user.svg" alt=" " width="22" height="22" /></td>
+    </tr>
+	<tr>
+        <td class="tournament-name" data-link="https://atf.tournamentsoftware.com/sport/winners.aspx?id=057fdeea-81d6-4119-a1f3-857a4593b2d3">Ashgabat Open - 2024</td>
+        <td><span class="flag-icon" style="background-image: url('images/flags/tm.svg');"></span></td>
+        <td><span class="en-text">ATF-U14-Category-2</span><span class="ru-text">ATF-U14-Категория-2</span></td>
+        <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Поьедитель</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Поьедитель</span></span></td>
+        <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
+    <img src="images/icon/user.svg" alt=" " width="22" height="22" />
+    <span style="color: var(--accent-gold);">/</span>
+    <img src="images/icon/users.svg" alt=" " width="22" height="22" />
+</td>
+	<tr>
+        <td class="tournament-name" data-link="https://atf.tournamentsoftware.com/sport/winners.aspx?id=41794e63-ce5a-4944-b637-d29158e4e346">3rd Qatar Asian Junior Tournament 14 & U - 2024</td>
+        <td><span class="flag-icon" style="background-image: url('images/flags/qa.svg');"></span></td>
+        <td><span class="en-text">ATF-U14-Grade-A</span><span class="ru-text">ATF-U14-Категория-A</span></td>
+        <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Поьедитель</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Поьедитель</span></span></td>
+        <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
+    <img src="images/icon/user.svg" alt=" " width="22" height="22" />
+    <span style="color: var(--accent-gold);">/</span>
+    <img src="images/icon/users.svg" alt=" " width="22" height="22" />
+</td>
+	<tr>
+        <td class="tournament-name" data-link="https://atf.tournamentsoftware.com/sport/winners.aspx?id=05824c1f-079c-4140-a58e-60c568d2c612">Selangor Asian Grade A Tournament Southeast Asia - 2024</td>
+        <td><span class="flag-icon" style="background-image: url('images/flags/my.svg');"></span></td>
+        <td><span class="en-text">ATF-U14-Grade-A</span><span class="ru-text">ATF-U14-Категория-A</span></td>
+        <td><span class="result-badge silver"><span class="en-text">🥈Runer-up</span><span class="ru-text">🥈Серебряный призёр</span></span></td>
+        <td class="ranking-cell icon-cell"><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
+    </tr>
+	<tr>
+        <td class="tournament-name" data-link="https://atf.tournamentsoftware.com/sport/winners.aspx?id=e532ae02-0300-4a8b-aff4-6b3c64f565eb">ATF Shymkent GA - 2024</td>
+        <td><span class="flag-icon" style="background-image: url('images/flags/kz.svg');"></span></td>
+        <td><span class="en-text">ATF-U14-Grade-A</span><span class="ru-text">ATF-U14-Категория-A</span></td>
+        <td><span class="result-badge silver"><span class="en-text">🥈Runer-up</span><span class="ru-text">🥈Серебряный призёр</span></span></td>
+        <td class="ranking-cell icon-cell"><img src="images/icon/user.svg" alt=" " width="22" height="22" /></td>
+    </tr>
+	<tr>
+        <td class="tournament-name" data-link="https://atf.tournamentsoftware.com/sport/winners.aspx?id=78e632bb-d7e0-4e59-b2f9-91f69595c0f8">Asian Grade A Tournament South Asia - 2024</td>
+        <td><span class="flag-icon" style="background-image: url('images/flags/in.svg');"></span></td>
+        <td><span class="en-text">ATF-U14-Grade-A</span><span class="ru-text">ATF-U14-Категория-A</span></td>
+        <td><span class="result-badge silver"><span class="en-text">🥉Semifinalist</span><span class="ru-text">🥉Полуфиналист</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Поьедитель</span></span></td>
+        <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
+    <img src="images/icon/user.svg" alt=" " width="22" height="22" />
+    <span style="color: var(--accent-gold);">/</span>
+    <img src="images/icon/users.svg" alt=" " width="22" height="22" />
+</td>
+	<tr>
+        <td class="tournament-name" data-link="https://atf.tournamentsoftware.com/sport/winners.aspx?id=78e632bb-d7e0-4e59-b2f9-91f69595c0f8">ITF Asia 14&U Development Championships - Finals WEEK-2 - 2024</td>
+        <td><span class="flag-icon" style="background-image: url('images/flags/my.svg');"></span></td>
+        <td><span class="en-text">ITF Juniors</span><span class="ru-text">ITF Juniors</span></td>
+        <td><span class="result-badge Participant"><span class="en-text">Participant</span><span class="ru-text">Участница</span></span></td>
+        <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
+    <img src="images/icon/user.svg" alt=" " width="22" height="22" />
+    <span style="color: var(--accent-gold);">/</span>
+    <img src="images/icon/users.svg" alt=" " width="22" height="22" />
+</td>
+	<tr>
+        <td class="tournament-name" data-link="https://atf.tournamentsoftware.com/tournament/1553c191-86fc-4d44-bf8d-78d27ca11367">ITF Asia 14&U Development Championships - Finals WEEK-1 - 2024</td>
+        <td><span class="flag-icon" style="background-image: url('images/flags/my.svg');"></span></td>
+        <td><span class="en-text">ITF Juniors-U14</span><span class="ru-text">ITF Juniors-U14</span></td>
+        <td><span class="result-badge Participant"><span class="en-text">Participant</span><span class="ru-text">Участница</span></span></td>
+        <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
+    <img src="images/icon/user.svg" alt=" " width="22" height="22" />
+    <span style="color: var(--accent-gold);">/</span>
+    <img src="images/icon/users.svg" alt=" " width="22" height="22" />
+</td>
+	<tr>
+        <td class="tournament-name" data-link="https://itfjuniors.tournamentsoftware.com/sport/winners.aspx?id=229D236E-D34A-4EEE-ADA0-AA91DF2E531A">Junior Davis Cup & Junior BJKC - A/O Pre Qualifying Event - 2024</td>
+        <td><span class="flag-icon" style="background-image: url('images/flags/lk.svg');"></span></td>
+        <td><span class="en-text">ITF Juniors-U16</span><span class="ru-text">ITF Juniors-U16</span></td>
+        <td><span class="result-badge Finalist"><span class="en-text">Finalist</span><span class="ru-text">Финалист</span></span></td>
+        <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
+    <img src="images/icon/user.svg" alt=" " width="22" height="22" />
+    <span style="color: var(--accent-gold);">/</span>
+    <img src="images/icon/users.svg" alt=" " width="22" height="22" />
+</td>
+	<tr>
+        <td class="tournament-name" data-link="https://itfjuniors.tournamentsoftware.com/sport/tournament.aspx?id=8BBC8CC7-DDB1-4094-ABC6-EE4B74FCA39B">World Junior Tennis Competition (Boys & Girls)- A/O Pre Qualifying Event - 2024</td>
+        <td><span class="flag-icon" style="background-image: url('images/flags/lk.svg');"></span></td>
+        <td><span class="en-text">ITF Juniors</span><span class="ru-text">ITF Juniors</span></td>
+        <td><span class="result-badge Participant"><span class="en-text">Participant</span><span class="ru-text">Участница</span></span></td>
+        <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
+    <img src="images/icon/user.svg" alt=" " width="22" height="22" />
+    <span style="color: var(--accent-gold);">/</span>
+    <img src="images/icon/users.svg" alt=" " width="22" height="22" />
+</td>
+	<tr>
+        <td class="tournament-name" data-link="https://atf.tournamentsoftware.com/sport/winners.aspx?id=137fec0d-f426-4010-8577-6ba2ddc2ffef">ITF Asia 14&U Development Championships - (WA & CA) WEEK-2 - 2024</td>
+        <td><span class="flag-icon" style="background-image: url('images/flags/om.svg');"></span></td>
+        <td><span class="en-text">ATF-U14-Grade-A</span><span class="ru-text">ATF-U14-Категория-A</span></td>
+        <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победитель</span></span> <span class="result-badge silver"><span class="en-text">🥈Runer-up</span><span class="ru-text">🥈Серебряный призёр</span></span></td>
+        <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
+    <img src="images/icon/user.svg" alt=" " width="22" height="22" />
+    <span style="color: var(--accent-gold);">/</span>
+    <img src="images/icon/users.svg" alt=" " width="22" height="22" />
+</td>
+	<tr>
+        <td class="tournament-name" data-link="https://atf.tournamentsoftware.com/sport/winners.aspx?id=17bf25b8-afbc-449a-89ee-0d5a62bb70e0">ITF Asia 14&U Development Championships - (WA & CA) WEEK-1 - 2024</td>
+        <td><span class="flag-icon" style="background-image: url('images/flags/om.svg');"></span></td>
+        <td><span class="en-text">ATF-U14-Grade-A</span><span class="ru-text">ATF-U14-Категория-A</span></td>
+        <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победитель</span></span> <span class="result-badge silver"><span class="en-text">🥈Runer-up</span><span class="ru-text">🥈Серебряный призёр</span></span></td>
+        <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
+    <img src="images/icon/user.svg" alt=" " width="22" height="22" />
+    <span style="color: var(--accent-gold);">/</span>
+    <img src="images/icon/users.svg" alt=" " width="22" height="22" />
+</td>
+	<tr>
+        <td class="tournament-name" data-link="https://playtennis.usta.com/Competitions/jrorangebowlcommittee/Tournaments/draws/C5165A98-B53C-496B-AE35-A43559BB9E62/00E9E0A0-4E71-4A4C-B254-4755E91AABA5">Orange Bowl - 2023</td>
+        <td><span class="flag-icon" style="background-image: url('images/flags/us.svg');"></span></td>
+        <td><span class="en-text">Level-2</span><span class="ru-text">Level-2</span></td>
+        <td><span class="result-badge Participant"><span class="en-text">Participant</span><span class="ru-text">Участница</span></span></td>
+        <td class="ranking-cell icon-cell"><img src="images/icon/user.svg" alt=" " width="22" height="22" /></td>
+    </tr>
+	<tr>
+        <td class="tournament-name" data-link="https://www.itftennis.com/en/tournament/j200-tashkent/uzb/2023/j-j200-uzb-01a-2023/draws-and-results/">ITF-J200 Tashkent-2023</td>
+        <td><span class="flag-icon" style="background-image: url('images/flags/uz.svg');"></span></td>
+        <td><span class="en-text">ITF-J200</span><span class="ru-text">ITF-J200</</span></td>
+        <td><span class="result-badge Quarter-finalist"><span class="en-text">1st Round</span><span class="ru-text">1ый раунд</span></span>
+        <td class="ranking-cell icon-cell"><img src="images/icon/user.svg" alt=" " width="22" height="22" /></td>
+    </tr>
+	<tr>
+        <td class="tournament-name" data-link="https://atf.tournamentsoftware.com/sport/winners.aspx?id=7855f490-7d1d-40d4-967a-8d8bcf283bae">Karshi ATF-2023</td>
+        <td><span class="flag-icon" style="background-image: url('images/flags/uz.svg');"></span></td>
+        <td><span class="en-text">ATF-U14-Category-1</span><span class="ru-text">ATF-U14-Категория-1</span></td>
+        <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победитель</span></span> <span class="result-badge bronze"><span class="en-text">🥉Semifinalist</span><span class="ru-text">🥉Полуфиналист</span></span></td>
+        <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
+    <img src="images/icon/user.svg" alt=" " width="22" height="22" />
+    <span style="color: var(--accent-gold);">/</span>
+    <img src="images/icon/users.svg" alt=" " width="22" height="22" />
+</td>
+    <tr>
+        <td class="tournament-name" data-link="https://atf.tournamentsoftware.com/sport/winners.aspx?id=c1d93abc-04d8-4ca2-994f-b909968b557f">Bukhara ATF-2023</td>
+        <td><span class="flag-icon" style="background-image: url('images/flags/uz.svg');"></span></td>
+        <td><span class="en-text">ATF-U14-Category-1</span><span class="ru-text">ATF-U14-Категория-1</span></td>
+        <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победитель</span></span> <span class="result-badge silver"><span class="en-text">🥈Runer-up</span><span class="ru-text">🥈Серебряный призёр</span></span></td>
+        <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
+    <img src="images/icon/user.svg" alt=" " width="22" height="22" />
+    <span style="color: var(--accent-gold);">/</span>
+    <img src="images/icon/users.svg" alt=" " width="22" height="22" />
+</td>
+    <tr>
+        <td class="tournament-name" data-link="https://atf.tournamentsoftware.com/sport/winners.aspx?id=1dc8fb80-620f-4f28-8043-8402d2ea681d">ITF Junior Asian Championships-2023</td>
+        <td><span class="flag-icon" style="background-image: url('images/flags/kh.svg');"></span></td>
+        <td><span class="en-text">ATF-U14-Grade-A</span><span class="ru-text">ATF-U14-Категория-A</span></td>
+        <td><span class="result-badge Finalist"><span class="en-text">Finalist</span><span class="ru-text">Финалист</span></span>
+        <td class="ranking-cell icon-cell"><img src="images/icon/user.svg" alt=" " width="22" height="22" /></td>
+    </tr>
+    <tr>
+        <td class="tournament-name" data-link="https://atf.tournamentsoftware.com/tournament/97DEEFE9-B581-4721-A9F3-6EB084461F1C/draw/4">TTF Dushanbe Asian Grade A-2023</td>
+        <td><span class="flag-icon" style="background-image: url('images/flags/tj.svg');"></span></td>
+        <td><span class="en-text">ATF-U14-Grade-A</span><span class="ru-text">ATF-U14-Категория-A</span></td>
+        <td><span class="result-badge Quarter-finalist"><span class="en-text">Quarter-finalist</span><span class="ru-text">Полуфиналист</span></span>
+        <td class="ranking-cell icon-cell"><img src="images/icon/user.svg" alt=" " width="22" height="22" /></td>
+    </tr>
+    <tr>
+        <td class="tournament-name" data-link="https://atf.tournamentsoftware.com/sport/winners.aspx?id=a06704d1-985b-4fa9-a25d-971a83fa2ccc">UCHKUN CUP ATF-2023</td>
+        <td><span class="flag-icon" style="background-image: url('images/flags/uz.svg');"></span></td>
+        <td><span class="en-text">ATF-U14-Category-2</span><span class="ru-text">ATF-U14-Категория-2</span></td>
+        <td><span class="result-badge silver"><span class="en-text">🥈Runer-up</span><span class="ru-text">🥈Серебряный призёр</span></span> <span class="result-badge bronze"><span class="en-text">🥉Semifinalist</span><span class="ru-text">🥉Полуфиналист</span></span></td>
+        <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
+    <img src="images/icon/user.svg" alt=" " width="22" height="22" />
+    <span style="color: var(--accent-gold);">/</span>
+    <img src="images/icon/users.svg" alt=" " width="22" height="22" />
+</td>
+    <tr>
+        <td class="tournament-name" data-link="https://atf.tournamentsoftware.com/sport/winners.aspx?id=a76a5598-8aec-4516-ada3-82eb3b547c28">Uchkun (1) ATF-2023</td>
+        <td><span class="flag-icon" style="background-image: url('images/flags/uz.svg');"></span></td>
+        <td><span class="en-text">ATF-U14-Category-2</span><span class="ru-text">ATF-U14-Категория-2</span></td>
+        <td><span class="result-badge silver"><span class="en-text">🥈Runer-up</span><span class="ru-text">🥈Серебряный призёр</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победитель</span></span></td>
+        <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
+    <img src="images/icon/user.svg" alt=" " width="22" height="22" />
+    <span style="color: var(--accent-gold);">/</span>
+    <img src="images/icon/users.svg" alt=" " width="22" height="22" />
+</td>
+    <tr>
+        <td class="tournament-name" data-link="https://atf.tournamentsoftware.com/tournament/4707AAD8-DA6C-4D28-9EBF-8859146A8A0D/draw/6">ITF ASIA 14 & UNDER DEVELOPMENT CHAMPIONSHIPS 2023, FINALS WEEK-2 - 2023</td>
+        <td><span class="flag-icon" style="background-image: url('images/flags/in.svg');"></span></td>
+        <td><span class="en-text">ATF-U14-Grade-A</span><span class="ru-text">ATF-U14-Категория-A</span></td>
+        <td><span class="result-badge silver"><span class="en-text">🥈Runer-up</span><span class="ru-text">🥈Серебряный призёр</span></span></td>
+        <td class="ranking-cell icon-cell"><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
+    </tr>
+    <tr>
+        <td class="tournament-name" data-link="https://atf.tournamentsoftware.com/tournament/4D7086D5-C91B-450F-B4CA-A8E891A4637C/draw/6">ITF ASIA 14 & UNDER DEVELOPMENT CHAMPIONSHIPS 2023, FINALS WEEK-1 - 2023</td>
+        <td><span class="flag-icon" style="background-image: url('images/flags/in.svg');"></span></td>
+        <td><span class="en-text">ATF-U14-Grade-A</span><span class="ru-text">ATF-U14-Категория-A</span></td>
+        <td><span class="result-badge bronze"><span class="en-text">🥉Semifinalist</span><span class="ru-text">🥉Полуфиналист</span></span></td>
+        <td class="ranking-cell icon-cell"><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
+    </tr>
+	<tr>
+        <td class="tournament-name" data-link="https://www.itftennis.com/en/tournament/2023-wjt-girls-asiaoceania-pre-qualifying/sri/2023/j-gc-sri-06a-2023/draws-and-results/">WJT Girls AsiaOceania Pre-Qualifying - 2023</td>
+        <td><span class="flag-icon" style="background-image: url('images/flags/lk.svg');"></span></td>
+        <td><span class="en-text">ITF</span><span class="ru-text">ITF</span></td>
+        <td><span class="result-badge Participant"><span class="en-text">Participant</span><span class="ru-text">Участница</span></td>
+        <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
+    <img src="images/icon/user.svg" alt=" " width="22" height="22" />
+    <span style="color: var(--accent-gold);">/</span>
+    <img src="images/icon/users.svg" alt=" " width="22" height="22" />
+</td>
+    <tr>
+        <td class="tournament-name" data-link="https://atf.tournamentsoftware.com/tournament/5C28650D-B88E-42F2-BFF8-8DEE56754432/draw/4">ITF Asia 14&amp;U Development Championships - (WA &amp; CA) WEEK-2 - 2023</td>
+        <td><span class="flag-icon" style="background-image: url('images/flags/bh.svg');"></span></td>
+        <td><span class="en-text">ATF-U14-Category-1</span><span class="ru-text">ATF-U14-Категория-1</span></td>
+        <td><span class="result-badge bronze"><span class="en-text">🥉Semifinalistt</span><span class="ru-text">🥉Полуфиналист</span></span> <span class="result-badge bronze"><span class="en-text">🥉Semifinalist</span><span class="ru-text">🥉Полуфиналист</span></span></td> 
+        <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
+    <img src="images/icon/user.svg" alt=" " width="22" height="22" />
+    <span style="color: var(--accent-gold);">/</span>
+    <img src="images/icon/users.svg" alt=" " width="22" height="22" />
+</td>
+    </tr>
+    <tr>
+        <td class="tournament-name" data-link="https://atf.tournamentsoftware.com/tournament/710301E9-2CE5-463F-AAC1-8D131271C1E1/draw/8">ITF Asia 14&amp;U Development Championships - (WA &amp; CA) WEEK 1 - 2023</td>
+        <td><span class="flag-icon" style="background-image: url('images/flags/bh.svg');"></span></td>
+        <td><span class="en-text">ATF-U14-Category-1</span><span class="ru-text">ATF-U14-Категория-1</span></td>
+        <td><span class="result-badge participant"><span class="en-text">🥈Runner-up</span><span class="ru-text">🥈Серебряный призёр</span></span></td>
+        <td class="ranking-cell icon-cell"><img src="images/icon/user.svg" alt=" " width="22" height="22" /></td>
+    </tr>
+</tbody>
                 </table>
+            </div>
+
+            <div class="tournaments-toggle-wrapper">
+                <button class="tournaments-toggle-btn" id="tournamentsToggleBtn">
+                    <span class="en-text">Show All Tournaments</span>
+                    <span class="ru-text">Показать все турниры</span>
+                </button>
             </div>
         </section>
 
@@ -2561,363 +2905,372 @@
                 </div>
             </div>
 
-            <!-- Highlights -->
-            <div id="highlights-content" class="tab-content active">
-                <div class="video-card">
-                    <div class="video-frame">
-                        <div class="vimeo-wrapper">
-                            <iframe src="https://drive.google.com/file/d/1G8NqIcWPJJYEfSlMlCX3oic4gC84XMkt/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+            <div class="media-content-wrapper collapsed" id="mediaWrapper">
+                <!-- Highlights -->
+                <div id="highlights-content" class="tab-content active">
+                    <div class="video-card">
+                        <div class="video-frame">
+                            <div class="vimeo-wrapper">
+                                <iframe src="https://drive.google.com/file/d/1G8NqIcWPJJYEfSlMlCX3oic4gC84XMkt/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <span class="en-text">Ilima Guseynova Highlights 1</span>
+                            <span class="ru-text">Илима Гусейнова Хайлайты 1</span>
                         </div>
                     </div>
-                    <div class="video-info">
-                        <span class="en-text">Ilima Guseynova Highlights 1</span>
-                        <span class="ru-text">Илима Гусейнова Хайлайты 1</span>
+                    <div class="video-card">
+                        <div class="video-frame">
+                            <div class="vimeo-wrapper">
+                                <iframe src="https://drive.google.com/file/d/1Pj0f_VJMVpKzgUaLsfr1kEQYBrWF6OKy/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <span class="en-text">Ilima Guseynova Highlights 2</span>
+                            <span class="ru-text">Илима Гусейнова Хайлайты 2</span>
+                        </div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-frame">
+                            <div class="vimeo-wrapper">
+                                <iframe src="https://drive.google.com/file/d/1nDlnQwDEZxNJrsNifYuhLvdpxdomvnhB/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <span class="en-text">Ilima Guseynova Highlights 3</span>
+                            <span class="ru-text">Илима Гусейнова Хайлайты 3</span>
+                        </div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-frame">
+                            <div class="vimeo-wrapper">
+                                <iframe src="https://drive.google.com/file/d/10qc5QRvkbX0EaHgPTNYK_S6PCxR2c022/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <span class="en-text">Ilima Guseynova Highlights 4</span>
+                            <span class="ru-text">Илима Гусейнова Хайлайты 4</span>
+                        </div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-frame">
+                            <div class="vimeo-wrapper">
+                                <iframe src="https://drive.google.com/file/d/1I3ad3y3MNkuATO7cUx68zE8nM1Stm1YE/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <span class="en-text">Ilima Guseynova Highlights 5</span>
+                            <span class="ru-text">Илима Гусейнова Хайлайты 5</span>
+                        </div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-frame">
+                            <div class="vimeo-wrapper">
+                                <iframe src="https://drive.google.com/file/d/1F2_elGco0bxbnV3ffMAuXjkJk3Bv2zEm/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <span class="en-text">Ilima Guseynova Highlights 6</span>
+                            <span class="ru-text">Илима Гусейнова Хайлайты 6</span>
+                        </div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-frame">
+                            <div class="vimeo-wrapper">
+                                <iframe src="https://drive.google.com/file/d/1XKqClJqFEnnaTMFrS4fgGTGNAwQnTc38/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <span class="en-text">Ilima Guseynova Highlights 7</span>
+                            <span class="ru-text">Илима Гусейнова Хайлайты 7</span>
+                        </div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-frame">
+                            <div class="vimeo-wrapper">
+                                <iframe src="https://drive.google.com/file/d/1j3JWf-KGBV827eVpEdMgkVlmOIGN2MoC/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <span class="en-text">Ilima Guseynova Highlights 8</span>
+                            <span class="ru-text">Илима Гусейнова Хайлайты 8</span>
+                        </div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-frame">
+                            <div class="vimeo-wrapper">
+                                <iframe src="https://drive.google.com/file/d/1B4iMNS1RHk3gGWnSyZ29AwMEpHOG5YoT/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <span class="en-text">Ilima Guseynova Highlights 9</span>
+                            <span class="ru-text">Илима Гусейнова Хайлайты 9</span>
+                        </div>
                     </div>
                 </div>
-                <div class="video-card">
-                    <div class="video-frame">
-                        <div class="vimeo-wrapper">
-                            <iframe src="https://drive.google.com/file/d/1Pj0f_VJMVpKzgUaLsfr1kEQYBrWF6OKy/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+
+                <!-- Full Matches -->
+                <div id="fullmatches-content" class="tab-content">
+                    <div class="video-card">
+                        <div class="video-frame">
+                            <div class="vimeo-wrapper">
+                                <iframe src="https://drive.google.com/file/d/1kKYcDhEQVLtXTmSvbX0H3DuIlThqHLES/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <span class="en-text">Roland Garros Junior Series — Ilima Guseynova & Hana Shabanpour (Court 1)</span>
+                            <span class="ru-text">Roland Garros Junior Series — Илима Гусейнова & Хана Шабанпур (Корт 1)</span>
                         </div>
                     </div>
-                    <div class="video-info">
-                        <span class="en-text">Ilima Guseynova Highlights 2</span>
-                        <span class="ru-text">Илима Гусейнова Хайлайты 2</span>
+                    <div class="video-card">
+                        <div class="video-frame">
+                            <div class="vimeo-wrapper">
+                                <iframe src="https://drive.google.com/file/d/1vGpSmHuq3ZtT4IeA9J3TbeI5CGYHGAHX/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <span class="en-text">Billie Jean King Cup — Ushna Suhail vs. Ilima Guseynova</span>
+                            <span class="ru-text">Кубок Билли Джин Кинг — Ушна Сухайл vs. Илима Гусейнова</span>
+                        </div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-frame">
+                            <div class="vimeo-wrapper">
+                                <iframe src="https://drive.google.com/file/d/1PI8iYWRpkv_mPaeU4I9WQTjcluenovql/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <span class="en-text">Roland Garros Junior Series — Ilima Guseynova & Sofiya Malysheva (Court 2)</span>
+                            <span class="ru-text">Roland Garros Junior Series — Илима Гусейнова & София Малышева (Корт 2)</span>
+                        </div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-frame">
+                            <div class="vimeo-wrapper">
+                                <iframe src="https://drive.google.com/file/d/1Px9WCrBNojgLGACTBtAdwNDYkx3lxrcZ/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <span class="en-text">ITF Juniors J30 Fergana — Ilima Guseynova & Viktoriya Oleinikova</span>
+                            <span class="ru-text">ITF Juniors J30 Фергана — Илима Гусейнова & Виктория Олейникова</span>
+                        </div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-frame">
+                            <div class="vimeo-wrapper">
+                                <iframe src="https://drive.google.com/file/d/1wTzOnM2P7tPRdHPMbJHfxrXhcO1gQJMi/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <span class="en-text">Roland Garros Junior Series — Ilima Guseynova & Zinira Zhunusova (Court 2)</span>
+                            <span class="ru-text">Roland Garros Junior Series — Илима Гусейнова & Зинира Жунусова (Корт 2)</span>
+                        </div>
                     </div>
                 </div>
-                <div class="video-card">
-                    <div class="video-frame">
-                        <div class="vimeo-wrapper">
-                            <iframe src="https://drive.google.com/file/d/1nDlnQwDEZxNJrsNifYuhLvdpxdomvnhB/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+
+                <!-- Training -->
+                <div id="training-content" class="tab-content">
+                    <div class="video-card">
+                        <div class="video-frame">
+                            <div class="vimeo-wrapper">
+                                <iframe src="https://drive.google.com/file/d/1TRu0tzd6UZfkb9SU4qSY0bSNVD88ED4f/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <span class="en-text">Training Session: Ilima Guseynova 1</span>
+                            <span class="ru-text">Тренировка: Илима Гусейнова 1</span>
                         </div>
                     </div>
-                    <div class="video-info">
-                        <span class="en-text">Ilima Guseynova Highlights 3</span>
-                        <span class="ru-text">Илима Гусейнова Хайлайты 3</span>
+                    <div class="video-card">
+                        <div class="video-frame">
+                            <div class="vimeo-wrapper">
+                                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <span class="en-text">Training Session: Ilima Guseynova — [Location]</span>
+                            <span class="ru-text">Тренировка: Илима Гусейнова — [Место]</span>
+                        </div>
                     </div>
                 </div>
-                <div class="video-card">
-                    <div class="video-frame">
-                        <div class="vimeo-wrapper">
-                            <iframe src="https://drive.google.com/file/d/10qc5QRvkbX0EaHgPTNYK_S6PCxR2c022/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+
+                <!-- VIDEO -->
+                <div id="video-content" class="tab-content">
+                    <div class="video-card">
+                        <div class="video-frame">
+                            <div class="vimeo-wrapper">
+                                <iframe src="https://drive.google.com/file/d/1PV-GCAKM5kiRslBJxxdTFPG4nH42fM4r/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <span class="en-text">Roland Garros Junior Series by Renault - Qualifications West and Central Asia</span>
+                            <span class="ru-text">Roland Garros Junior Series by Renault - Qualifications West and Central Asia</span>
                         </div>
                     </div>
-                    <div class="video-info">
-                        <span class="en-text">Ilima Guseynova Highlights 4</span>
-                        <span class="ru-text">Илима Гусейнова Хайлайты 4</span>
+                    <div class="video-card">
+                        <div class="video-frame">
+                            <div class="vimeo-wrapper">
+                                <iframe src="https://drive.google.com/file/d/1Qd_Mdq61bUAq4eroItLqSf0wp_Ytvtwq/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <span class="en-text">Yuri Fedorovich Polsky, President of the Asian Tennis Federation</span>
+                            <span class="ru-text">Польский Юрий Федорович президент Азиатской федерации тенниса</span>
+                        </div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-frame">
+                            <div class="vimeo-wrapper">
+                                <iframe src="https://drive.google.com/file/d/1LNf_6h__-1Zqtn2RhvoX_74dIBbCtO39/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <span class="en-text">Patrick Mouratoglou Tennis Academy (Epsom College in Malaysia)</span>
+                            <span class="ru-text">Теннисная академия Патрика Муратоглу ( Эпсом-колледж в Малайзии )</span>
+                        </div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-frame">
+                            <div class="vimeo-wrapper">
+                                <iframe src="https://drive.google.com/file/d/130-K56KY49dC8jPQUqa1KE-oc_X7t3t_/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <span class="en-text">Asian 14 & Under Grade A Tournament (Southeast Asia) Malaysia</span>
+                            <span class="ru-text">Asian 14 & Under Grade A Tournament (Southeast Asia) Malaysia</span>
+                        </div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-frame">
+                            <div class="vimeo-wrapper">
+                                <iframe src="https://drive.google.com/file/d/1PYX1BLxEDrSa_UMj21Q3NvtvvLaDh3-Q/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <span class="en-text">Asian 14&U Grade A Tournament (South Asia) INDIA</span>
+                            <span class="ru-text">Asian 14&U Grade A Tournament (South Asia) INDIA</span>
+                        </div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-frame">
+                            <div class="vimeo-wrapper">
+                                <iframe src="https://drive.google.com/file/d/1zogq8BsxHCzRGghAdpMm_MCmpsmHuB9B/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <span class="en-text">Belent</span>
+                            <span class="ru-text">Белент</span>
+                        </div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-frame">
+                            <div class="vimeo-wrapper">
+                                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <span class="en-text">Video 7</span>
+                            <span class="ru-text">Видео 7</span>
+                        </div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-frame">
+                            <div class="vimeo-wrapper">
+                                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <span class="en-text">Video 8</span>
+                            <span class="ru-text">Видео 8</span>
+                        </div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-frame">
+                            <div class="vimeo-wrapper">
+                                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <span class="en-text">Video 9</span>
+                            <span class="ru-text">Видео 9</span>
+                        </div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-frame">
+                            <div class="vimeo-wrapper">
+                                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <span class="en-text">Video 10</span>
+                            <span class="ru-text">Видео 10</span>
+                        </div>
                     </div>
                 </div>
-                <div class="video-card">
-                    <div class="video-frame">
-                        <div class="vimeo-wrapper">
-                            <iframe src="https://drive.google.com/file/d/1I3ad3y3MNkuATO7cUx68zE8nM1Stm1YE/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                    <div class="video-info">
-                        <span class="en-text">Ilima Guseynova Highlights 5</span>
-                        <span class="ru-text">Илима Гусейнова Хайлайты 5</span>
-                    </div>
-                </div>
-                <div class="video-card">
-                    <div class="video-frame">
-                        <div class="vimeo-wrapper">
-                            <iframe src="https://drive.google.com/file/d/1F2_elGco0bxbnV3ffMAuXjkJk3Bv2zEm/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                    <div class="video-info">
-                        <span class="en-text">Ilima Guseynova Highlights 6</span>
-                        <span class="ru-text">Илима Гусейнова Хайлайты 6</span>
-                    </div>
-                </div>
-                <div class="video-card">
-                    <div class="video-frame">
-                        <div class="vimeo-wrapper">
-                            <iframe src="https://drive.google.com/file/d/1XKqClJqFEnnaTMFrS4fgGTGNAwQnTc38/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                    <div class="video-info">
-                        <span class="en-text">Ilima Guseynova Highlights 7</span>
-                        <span class="ru-text">Илима Гусейнова Хайлайты 7</span>
+
+                <!-- Photo -->
+                <div id="photo-content" class="tab-content">
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; width: 100%;">
+                        <div class="photo-item" data-index="0"><img src="images/photo-1.jpg" alt="Ilima Guseynova Photo 1" /></div>
+                        <div class="photo-item" data-index="1"><img src="images/photo-2.jpg" alt="Ilima Guseynova Photo 2" /></div>
+                        <div class="photo-item" data-index="2"><img src="images/photo-3.jpg" alt="Ilima Guseynova Photo 3" /></div>
+                        <div class="photo-item" data-index="3"><img src="images/photo-4.jpg" alt="Ilima Guseynova Photo 4" /></div>
+                        <div class="photo-item" data-index="4"><img src="images/photo-5.jpg" alt="Ilima Guseynova Photo 5" /></div>
+                        <div class="photo-item" data-index="5"><img src="images/photo-6.jpg" alt="Ilima Guseynova Photo 6" /></div>
+                        <div class="photo-item" data-index="6"><img src="images/photo-7.jpg" alt="Ilima Guseynova Photo 7" /></div>
+                        <div class="photo-item" data-index="7"><img src="images/photo-8.jpg" alt="Ilima Guseynova Photo 8" /></div>
+                        <div class="photo-item" data-index="8"><img src="images/photo-9.jpg" alt="Ilima Guseynova Photo 9" /></div>
+                        <div class="photo-item" data-index="9"><img src="images/photo-10.jpg" alt="Ilima Guseynova Photo 10" /></div>
+                        <div class="photo-item" data-index="10"><img src="images/photo-11.jpg" alt="Ilima Guseynova Photo 11" /></div>
+                        <div class="photo-item" data-index="11"><img src="images/photo-12.jpg" alt="Ilima Guseynova Photo 12" /></div>
+                        <div class="photo-item" data-index="12"><img src="images/photo-13.jpg" alt="Ilima Guseynova Photo 13" /></div>
+                        <div class="photo-item" data-index="13"><img src="images/photo-14.jpg" alt="Ilima Guseynova Photo 14" /></div>
+                        <div class="photo-item" data-index="14"><img src="images/photo-15.jpg" alt="Ilima Guseynova Photo 15" /></div>
+                        <div class="photo-item" data-index="15"><img src="images/photo-16.jpg" alt="Ilima Guseynova Photo 16" /></div>
+                        <div class="photo-item" data-index="16"><img src="images/photo-17.jpg" alt="Ilima Guseynova Photo 17" /></div>
+                        <div class="photo-item" data-index="17"><img src="images/photo-18.jpg" alt="Ilima Guseynova Photo 18" /></div>
+                        <div class="photo-item" data-index="18"><img src="images/photo-19.jpg" alt="Ilima Guseynova Photo 19" /></div>
+                        <div class="photo-item" data-index="19"><img src="images/photo-20.jpg" alt="Ilima Guseynova Photo 20" /></div>
+                        <div class="photo-item" data-index="20"><img src="images/photo-21.jpg" alt="Ilima Guseynova Photo 21" /></div>
+                        <div class="photo-item" data-index="21"><img src="images/photo-22.jpg" alt="Ilima Guseynova Photo 22" /></div>
+                        <div class="photo-item" data-index="22"><img src="images/photo-23.jpg" alt="Ilima Guseynova Photo 23" /></div>
+                        <div class="photo-item" data-index="23"><img src="images/photo-24.jpg" alt="Ilima Guseynova Photo 24" /></div>
                     </div>
                 </div>
-                <div class="video-card">
-                    <div class="video-frame">
-                        <div class="vimeo-wrapper">
-                            <iframe src="https://drive.google.com/file/d/1j3JWf-KGBV827eVpEdMgkVlmOIGN2MoC/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                    <div class="video-info">
-                        <span class="en-text">Ilima Guseynova Highlights 8</span>
-                        <span class="ru-text">Илима Гусейнова Хайлайты 8</span>
+
+                <!-- Stars -->
+                <div id="stars-content" class="tab-content">
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; width: 100%;">
+                        <div class="photo-item" data-index="0"><img src="images/eala-2.jpg" alt="Eala" /></div>
+                        <div class="photo-item" data-index="1"><img src="images/eala.jpg" alt="Eala" /></div>
+                        <div class="photo-item" data-index="2"><img src="images/polskiy.jpg" alt="Polskiy" /></div>
+                        <div class="photo-item" data-index="3"><img src="images/iroda.jpg" alt="Iroda" /></div>
+                        <div class="photo-item" data-index="4"><img src="images/yujnyi.jpg" alt="Yujnyi" /></div>
+                        <div class="photo-item" data-index="5"><img src="images/grant.jpg" alt="Grant" /></div>
+                        <div class="photo-item" data-index="6"><img src="images/ilima-1.jpg" alt="Ilima 1" /></div>
                     </div>
                 </div>
-                <div class="video-card">
-                    <div class="video-frame">
-                        <div class="vimeo-wrapper">
-                            <iframe src="https://drive.google.com/file/d/1B4iMNS1RHk3gGWnSyZ29AwMEpHOG5YoT/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                    <div class="video-info">
-                        <span class="en-text">Ilima Guseynova Highlights 9</span>
-                        <span class="ru-text">Илима Гусейнова Хайлайты 9</span>
+
+                <!-- Certificate -->
+                <div id="certificate-content" class="tab-content">
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; width: 100%;">
+                        <div class="photo-item" data-index="0"><img src="images/certificate/bjkc-2025.jpg" alt="UTR Sports Certificate" /></div>
+                        <div class="photo-item" data-index="1"><img src="images/certificate/J30 BD1- ILIMA GUSEYNOVA.jpg" alt="ITF World Tennis Certificate" /></div>
+                        <div class="photo-item" data-index="2"><img src="images/certificate/ITF Asia 14-U Development Championships 2023.jpg" alt="Billie Jean King Cup Certificate" /></div>
+                        <div class="photo-item" data-index="3"><img src="images/certificate/J30 DUSHANBE DOUBLES 25.08.2025.jpg" alt="ATF Certificate" /></div>
+                        <div class="photo-item" data-index="4"><img src="images/certificate/President Cup 2025 SINGLES.jpg" alt="ATF Certificate" /></div>
+                        <div class="photo-item" data-index="5"><img src="images/certificate/Certificate of Participant.jpg" alt="ATF Certificate" /></div>
+                        <div class="photo-item" data-index="6"><img src="images/certificate/Ramis Cup 2025 SINGLES.jpg" alt="ATF Certificate" /></div>
+                        <div class="photo-item" data-index="7"><img src="images/certificate/Ramis Cup 2025 DOUBLES.jpg" alt="ATF Certificate" /></div>
                     </div>
                 </div>
             </div>
 
-            <!-- Full Matches -->
-            <div id="fullmatches-content" class="tab-content">
-                <div class="video-card">
-                    <div class="video-frame">
-                        <div class="vimeo-wrapper">
-                            <iframe src="https://drive.google.com/file/d/1kKYcDhEQVLtXTmSvbX0H3DuIlThqHLES/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                    <div class="video-info">
-                        <span class="en-text">Roland Garros Junior Series — Ilima Guseynova & Hana Shabanpour (Court 1)</span>
-                        <span class="ru-text">Roland Garros Junior Series — Илима Гусейнова & Хана Шабанпур (Корт 1)</span>
-                    </div>
-                </div>
-                <div class="video-card">
-                    <div class="video-frame">
-                        <div class="vimeo-wrapper">
-                            <iframe src="https://drive.google.com/file/d/1vGpSmHuq3ZtT4IeA9J3TbeI5CGYHGAHX/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                    <div class="video-info">
-                        <span class="en-text">Billie Jean King Cup — Ushna Suhail vs. Ilima Guseynova</span>
-                        <span class="ru-text">Кубок Билли Джин Кинг — Ушна Сухайл vs. Илима Гусейнова</span>
-                    </div>
-                </div>
-                <div class="video-card">
-                    <div class="video-frame">
-                        <div class="vimeo-wrapper">
-                            <iframe src="https://drive.google.com/file/d/1PI8iYWRpkv_mPaeU4I9WQTjcluenovql/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                    <div class="video-info">
-                        <span class="en-text">Roland Garros Junior Series — Ilima Guseynova & Sofiya Malysheva (Court 2)</span>
-                        <span class="ru-text">Roland Garros Junior Series — Илима Гусейнова & София Малышева (Корт 2)</span>
-                    </div>
-                </div>
-                <div class="video-card">
-                    <div class="video-frame">
-                        <div class="vimeo-wrapper">
-                            <iframe src="https://drive.google.com/file/d/1Px9WCrBNojgLGACTBtAdwNDYkx3lxrcZ/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                    <div class="video-info">
-                        <span class="en-text">ITF Juniors J30 Fergana — Ilima Guseynova & Viktoriya Oleinikova</span>
-                        <span class="ru-text">ITF Juniors J30 Фергана — Илима Гусейнова & Виктория Олейникова</span>
-                    </div>
-                </div>
-                <div class="video-card">
-                    <div class="video-frame">
-                        <div class="vimeo-wrapper">
-                            <iframe src="https://drive.google.com/file/d/1wTzOnM2P7tPRdHPMbJHfxrXhcO1gQJMi/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                    <div class="video-info">
-                        <span class="en-text">Roland Garros Junior Series — Ilima Guseynova & Zinira Zhunusova (Court 2)</span>
-                        <span class="ru-text">Roland Garros Junior Series — Илима Гусейнова & Зинира Жунусова (Корт 2)</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Training -->
-            <div id="training-content" class="tab-content">
-                <div class="video-card">
-                    <div class="video-frame">
-                        <div class="vimeo-wrapper">
-                            <iframe src="https://drive.google.com/file/d/1TRu0tzd6UZfkb9SU4qSY0bSNVD88ED4f/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                    <div class="video-info">
-                        <span class="en-text">Training Session: Ilima Guseynova 1</span>
-                        <span class="ru-text">Тренировка: Илима Гусейнова 1</span>
-                    </div>
-                </div>
-                <div class="video-card">
-                    <div class="video-frame">
-                        <div class="vimeo-wrapper">
-                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                    <div class="video-info">
-                        <span class="en-text">Training Session: Ilima Guseynova — [Location]</span>
-                        <span class="ru-text">Тренировка: Илима Гусейнова — [Место]</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- VIDEO -->
-            <div id="video-content" class="tab-content">
-                <div class="video-card">
-                    <div class="video-frame">
-                        <div class="vimeo-wrapper">
-                            <iframe src="https://drive.google.com/file/d/1PV-GCAKM5kiRslBJxxdTFPG4nH42fM4r/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                    <div class="video-info">
-                        <span class="en-text">Roland Garros Junior Series by Renault - Qualifications West and Central Asia</span>
-                        <span class="ru-text">Roland Garros Junior Series by Renault - Qualifications West and Central Asia</span>
-                    </div>
-                </div>
-                <div class="video-card">
-                    <div class="video-frame">
-                        <div class="vimeo-wrapper">
-                            <iframe src="https://drive.google.com/file/d/1Qd_Mdq61bUAq4eroItLqSf0wp_Ytvtwq/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                    <div class="video-info">
-                        <span class="en-text">Yuri Fedorovich Polsky, President of the Asian Tennis Federation</span>
-                        <span class="ru-text">Польский Юрий Федорович президент Азиатской федерации тенниса</span>
-                    </div>
-                </div>
-                <div class="video-card">
-                    <div class="video-frame">
-                        <div class="vimeo-wrapper">
-                            <iframe src="https://drive.google.com/file/d/1LNf_6h__-1Zqtn2RhvoX_74dIBbCtO39/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                    <div class="video-info">
-                        <span class="en-text">Patrick Mouratoglou Tennis Academy (Epsom College in Malaysia)</span>
-                        <span class="ru-text">Теннисная академия Патрика Муратоглу ( Эпсом-колледж в Малайзии )</span>
-                    </div>
-                </div>
-                <div class="video-card">
-                    <div class="video-frame">
-                        <div class="vimeo-wrapper">
-                            <iframe src="https://drive.google.com/file/d/130-K56KY49dC8jPQUqa1KE-oc_X7t3t_/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                    <div class="video-info">
-                        <span class="en-text">Asian 14 & Under Grade A Tournament (Southeast Asia) Malaysia</span>
-                        <span class="ru-text">Asian 14 & Under Grade A Tournament (Southeast Asia) Malaysia</span>
-                    </div>
-                </div>
-                <div class="video-card">
-                    <div class="video-frame">
-                        <div class="vimeo-wrapper">
-                            <iframe src="https://drive.google.com/file/d/1PYX1BLxEDrSa_UMj21Q3NvtvvLaDh3-Q/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                    <div class="video-info">
-                        <span class="en-text">Asian 14&U Grade A Tournament (South Asia) INDIA</span>
-                        <span class="ru-text">Asian 14&U Grade A Tournament (South Asia) INDIA</span>
-                    </div>
-                </div>
-                <div class="video-card">
-                    <div class="video-frame">
-                        <div class="vimeo-wrapper">
-                            <iframe src="https://drive.google.com/file/d/1zogq8BsxHCzRGghAdpMm_MCmpsmHuB9B/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                    <div class="video-info">
-                        <span class="en-text">Belent</span>
-                        <span class="ru-text">Белент</span>
-                    </div>
-                </div>
-                <div class="video-card">
-                    <div class="video-frame">
-                        <div class="vimeo-wrapper">
-                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                    <div class="video-info">
-                        <span class="en-text">Video 7</span>
-                        <span class="ru-text">Видео 7</span>
-                    </div>
-                </div>
-                <div class="video-card">
-                    <div class="video-frame">
-                        <div class="vimeo-wrapper">
-                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                    <div class="video-info">
-                        <span class="en-text">Video 8</span>
-                        <span class="ru-text">Видео 8</span>
-                    </div>
-                </div>
-                <div class="video-card">
-                    <div class="video-frame">
-                        <div class="vimeo-wrapper">
-                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                    <div class="video-info">
-                        <span class="en-text">Video 9</span>
-                        <span class="ru-text">Видео 9</span>
-                    </div>
-                </div>
-                <div class="video-card">
-                    <div class="video-frame">
-                        <div class="vimeo-wrapper">
-                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                    <div class="video-info">
-                        <span class="en-text">Video 10</span>
-                        <span class="ru-text">Видео 10</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Photo -->
-            <div id="photo-content" class="tab-content">
-                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; width: 100%;">
-                    <div class="photo-item" data-index="0"><img src="images/photo-1.jpg" alt="Ilima Guseynova Photo 1" /></div>
-                    <div class="photo-item" data-index="1"><img src="images/photo-2.jpg" alt="Ilima Guseynova Photo 2" /></div>
-                    <div class="photo-item" data-index="2"><img src="images/photo-3.jpg" alt="Ilima Guseynova Photo 3" /></div>
-                    <div class="photo-item" data-index="3"><img src="images/photo-4.jpg" alt="Ilima Guseynova Photo 4" /></div>
-                    <div class="photo-item" data-index="4"><img src="images/photo-5.jpg" alt="Ilima Guseynova Photo 5" /></div>
-                    <div class="photo-item" data-index="5"><img src="images/photo-6.jpg" alt="Ilima Guseynova Photo 6" /></div>
-                    <div class="photo-item" data-index="6"><img src="images/photo-7.jpg" alt="Ilima Guseynova Photo 7" /></div>
-                    <div class="photo-item" data-index="7"><img src="images/photo-8.jpg" alt="Ilima Guseynova Photo 8" /></div>
-                    <div class="photo-item" data-index="8"><img src="images/photo-9.jpg" alt="Ilima Guseynova Photo 9" /></div>
-                    <div class="photo-item" data-index="9"><img src="images/photo-10.jpg" alt="Ilima Guseynova Photo 10" /></div>
-                    <div class="photo-item" data-index="10"><img src="images/photo-11.jpg" alt="Ilima Guseynova Photo 11" /></div>
-                    <div class="photo-item" data-index="11"><img src="images/photo-12.jpg" alt="Ilima Guseynova Photo 12" /></div>
-                    <div class="photo-item" data-index="12"><img src="images/photo-13.jpg" alt="Ilima Guseynova Photo 13" /></div>
-                    <div class="photo-item" data-index="13"><img src="images/photo-14.jpg" alt="Ilima Guseynova Photo 14" /></div>
-                    <div class="photo-item" data-index="14"><img src="images/photo-15.jpg" alt="Ilima Guseynova Photo 15" /></div>
-                    <div class="photo-item" data-index="15"><img src="images/photo-16.jpg" alt="Ilima Guseynova Photo 16" /></div>
-                    <div class="photo-item" data-index="16"><img src="images/photo-17.jpg" alt="Ilima Guseynova Photo 17" /></div>
-                    <div class="photo-item" data-index="17"><img src="images/photo-18.jpg" alt="Ilima Guseynova Photo 18" /></div>
-                    <div class="photo-item" data-index="18"><img src="images/photo-19.jpg" alt="Ilima Guseynova Photo 19" /></div>
-                    <div class="photo-item" data-index="19"><img src="images/photo-20.jpg" alt="Ilima Guseynova Photo 20" /></div>
-                    <div class="photo-item" data-index="20"><img src="images/photo-21.jpg" alt="Ilima Guseynova Photo 21" /></div>
-                    <div class="photo-item" data-index="21"><img src="images/photo-22.jpg" alt="Ilima Guseynova Photo 22" /></div>
-                    <div class="photo-item" data-index="22"><img src="images/photo-23.jpg" alt="Ilima Guseynova Photo 23" /></div>
-                    <div class="photo-item" data-index="23"><img src="images/photo-24.jpg" alt="Ilima Guseynova Photo 24" /></div>
-                </div>
-            </div>
-
-            <!-- Stars -->
-            <div id="stars-content" class="tab-content">
-                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; width: 100%;">
-                    <div class="photo-item" data-index="0"><img src="images/eala-2.jpg" alt="Eala" /></div>
-                    <div class="photo-item" data-index="1"><img src="images/eala.jpg" alt="Eala" /></div>
-                    <div class="photo-item" data-index="2"><img src="images/polskiy.jpg" alt="Polskiy" /></div>
-                    <div class="photo-item" data-index="3"><img src="images/iroda.jpg" alt="Iroda" /></div>
-                    <div class="photo-item" data-index="4"><img src="images/yujnyi.jpg" alt="Yujnyi" /></div>
-                    <div class="photo-item" data-index="5"><img src="images/grant.jpg" alt="Grant" /></div>
-                    <div class="photo-item" data-index="6"><img src="images/ilima-1.jpg" alt="Ilima 1" /></div>
-                </div>
-            </div>
-
-            <!-- Certificate -->
-            <div id="certificate-content" class="tab-content">
-                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; width: 100%;">
-                    <div class="photo-item" data-index="0"><img src="images/certificate/bjkc-2025.jpg" alt="UTR Sports Certificate" /></div>
-                    <div class="photo-item" data-index="1"><img src="images/certificate/J30 BD1- ILIMA GUSEYNOVA.jpg" alt="ITF World Tennis Certificate" /></div>
-                    <div class="photo-item" data-index="2"><img src="images/certificate/ITF Asia 14-U Development Championships 2023.jpg" alt="Billie Jean King Cup Certificate" /></div>
-                    <div class="photo-item" data-index="3"><img src="images/certificate/J30 DUSHANBE DOUBLES 25.08.2025.jpg" alt="ATF Certificate" /></div>
-                    <div class="photo-item" data-index="4"><img src="images/certificate/President Cup 2025 SINGLES.jpg" alt="ATF Certificate" /></div>
-                    <div class="photo-item" data-index="5"><img src="images/certificate/Certificate of Participant.jpg" alt="ATF Certificate" /></div>
-                    <div class="photo-item" data-index="6"><img src="images/certificate/Ramis Cup 2025 SINGLES.jpg" alt="ATF Certificate" /></div>
-                    <div class="photo-item" data-index="7"><img src="images/certificate/Ramis Cup 2025 DOUBLES.jpg" alt="ATF Certificate" /></div>
-                </div>
+            <div class="media-toggle-wrapper">
+                <button class="media-toggle-btn" id="mediaToggleBtn">
+                    <span class="en-text">Show All Videos</span>
+                    <span class="ru-text">Показать все видео</span>
+                </button>
             </div>
         </section>
 
@@ -3205,6 +3558,48 @@
             link.addEventListener('click', () => {
                 burger.classList.remove('active');
                 navLinks.classList.remove('open');
+            });
+        });
+
+        // ===== СВОРАЧИВАНИЕ ТУРНИРОВ =====
+        const tournamentsWrapper = document.getElementById('tournamentsWrapper');
+        const toggleBtn = document.getElementById('tournamentsToggleBtn');
+
+        toggleBtn.addEventListener('click', () => {
+            const isCollapsed = tournamentsWrapper.classList.toggle('collapsed');
+            
+            if (isCollapsed) {
+                toggleBtn.querySelector('.en-text').textContent = 'Show All Tournaments';
+                toggleBtn.querySelector('.ru-text').textContent = 'Показать все турниры';
+            } else {
+                toggleBtn.querySelector('.en-text').textContent = 'Hide Tournaments';
+                toggleBtn.querySelector('.ru-text').textContent = 'Скрыть турниры';
+            }
+        });
+
+        // ===== СВОРАЧИВАНИЕ БЛОКА MEDIA =====
+        const mediaWrapper = document.getElementById('mediaWrapper');
+        const mediaToggleBtn = document.getElementById('mediaToggleBtn');
+
+        mediaToggleBtn.addEventListener('click', () => {
+            const isCollapsed = mediaWrapper.classList.toggle('collapsed');
+            
+            if (isCollapsed) {
+                mediaToggleBtn.querySelector('.en-text').textContent = 'Show All Videos';
+                mediaToggleBtn.querySelector('.ru-text').textContent = 'Показать все видео';
+            } else {
+                mediaToggleBtn.querySelector('.en-text').textContent = 'Hide Videos';
+                mediaToggleBtn.querySelector('.ru-text').textContent = 'Скрыть видео';
+            }
+        });
+
+        // ===== КЛИК ПО НАЗВАНИЮ ТУРНИРА =====
+        document.querySelectorAll('.tournament-name[data-link]').forEach(el => {
+            el.addEventListener('click', function(e) {
+                const link = this.getAttribute('data-link');
+                if (link) {
+                    window.open(link, '_blank');
+                }
             });
         });
 
