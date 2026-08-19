@@ -53,6 +53,12 @@
             --slide-2-mobile-offset-x: 0px;
             --slide-3-mobile-offset-x: 0px;
             --slide-4-mobile-offset-x: 0px;
+
+            /* ===== МАСШТАБ ДЛЯ СЛАЙДОВ НА МОБИЛЬНЫХ ===== */
+            --slide-1-mobile-scale: 1;
+            --slide-2-mobile-scale: 1;
+            --slide-3-mobile-scale: 1;
+            --slide-4-mobile-scale: 0.8;
         }
 
         /* ===== ОБЩИЕ СТИЛИ ===== */
@@ -1911,7 +1917,7 @@
                 object-fit: cover;
                 object-position: 93% 50%;
                 background-color: #050505;
-                transform: none !important;	
+                /* Убираем transform: none !important; чтобы работал масштаб */
             }
 
             /* 3. Принудительно возвращаем статичное положение в ITF */
@@ -2016,6 +2022,27 @@
             .stat-item:nth-child(9) .logo-atf-titles {
                 transform: translateY(2px) !important;
             }
+
+            /* ===== МАСШТАБИРОВАНИЕ СЛАЙДОВ НА МОБИЛЬНЫХ ===== */
+            .hero-slides .slide:nth-child(1) {
+                transform: scale(var(--slide-1-mobile-scale)) translateX(var(--slide-1-mobile-offset-x)) !important;
+                object-position: 93% 50% !important;
+            }
+            
+            .hero-slides .slide:nth-child(2) {
+                transform: scale(var(--slide-2-mobile-scale)) translateX(var(--slide-2-mobile-offset-x)) !important;
+                object-position: 60% 50% !important;
+            }
+            
+            .hero-slides .slide:nth-child(3) {
+                transform: scale(var(--slide-3-mobile-scale)) translateX(var(--slide-3-mobile-offset-x)) !important;
+                object-position: 60% 50% !important;
+            }
+            
+            .hero-slides .slide:nth-child(4) {
+                transform: scale(var(--slide-4-mobile-scale)) translateX(var(--slide-4-mobile-offset-x)) !important;
+                object-position: 50% 50% !important;
+            }
         }
 
         @media (max-width: 500px) {
@@ -2023,7 +2050,7 @@
             .hero-slides .slide {
                 object-fit: cover;
                 object-position: 93% 50%;
-                transform: none !important;
+                /* transform: none !important; убираем */
             }
         }
 
@@ -2230,7 +2257,6 @@
         /* ===== ИСПРАВЛЕНИЕ ДЛЯ СЛАЙДЕРА НА МОБИЛЬНЫХ (НЕ ТРОГАЕТ ПК) ===== */
         @media (max-width: 700px) {
             .hero-slides .slide {
-                transform: none !important;
                 object-position: 93% 50% !important;
                 background-color: #050505;
             }
@@ -2238,8 +2264,7 @@
             .hero-slides .slide:nth-child(1),
             .hero-slides .slide:nth-child(2),
             .hero-slides .slide:nth-child(3),
-            .hero-slides .slide:nth-child(4) {
-                transform: none !important;
+            .hero-slides .slide:nth-child(4) { 
             }
         }
 
@@ -2257,7 +2282,7 @@
             
             .hero-slides .slide:nth-child(3) {
                 transform: translateX(var(--slide-3-mobile-offset-x)) !important;
-                object-position: 40% 50% !important;
+                object-position: 60% 50% !important;
             }
             
             .hero-slides .slide:nth-child(4) {
