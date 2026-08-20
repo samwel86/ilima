@@ -6,6 +6,10 @@
     <link rel="icon" href="images/favicon/ilima icon.png" type="image/png" />
     <title>Ilima Guseynova // Official Athlete Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    
+    <!-- ===== PLYR CSS ===== -->
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+    
     <style>
         /* ===== ПЕРЕМЕННЫЕ ===== */
         :root {
@@ -15,6 +19,14 @@
             --text-main: #FFFFFF;
             --text-muted: #8E8E93;
             --border-color: rgba(255, 255, 255, 0.1);
+
+            /* PLYR переменные */
+            --plyr-color-main: #D4AF37;
+            --plyr-video-controls-background: rgba(0, 0, 0, 0.7);
+            --plyr-video-control-color: #ffffff;
+            --plyr-video-control-color-hover: #D4AF37;
+            --plyr-control-radius: 4px;
+            --plyr-video-poster-background: #0a0a0a;
 
             --utr-singles-logo-offset: 0px;
             --utr-singles-label-offset: 0px;
@@ -1264,7 +1276,7 @@
             }
         }
 
-        /* ===== ВИДЕО-КАРТОЧКИ ===== */
+        /* ===== ВИДЕО-КАРТОЧКИ С PLYR ===== */
         .video-card {
             background: var(--surface-color);
             border: 1px solid var(--border-color);
@@ -1279,20 +1291,52 @@
             transform: translateY(-2px);
         }
 
-        .video-frame {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
+        .video-card .plyr {
+            border-radius: 4px 4px 0 0;
             background: #0a0a0a;
-        }
-
-        .video-frame iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
             height: 100%;
-            border: none;
+        }
+
+        .video-card .plyr__video-wrapper {
+            background: #0a0a0a;
+            border-radius: 4px 4px 0 0;
+        }
+
+        .video-card .plyr__poster {
+            background-size: cover;
+            background-position: center;
+        }
+
+        .plyr__controls {
+            padding: 10px 15px;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+        }
+
+        .plyr__control--overlaid {
+            background: rgba(212, 175, 55, 0.85);
+            border: 2px solid rgba(212, 175, 55, 0.6);
+        }
+
+        .plyr__control--overlaid:hover {
+            background: rgba(212, 175, 55, 1);
+        }
+
+        .plyr__progress__buffer {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .plyr__progress__played {
+            background: var(--plyr-color-main);
+        }
+
+        .plyr__menu__container .plyr__control--forward {
+            color: #fff;
+        }
+
+        .plyr__menu__container .plyr__control--forward:hover {
+            background: var(--plyr-color-main);
+            color: #000;
         }
 
         .video-info {
@@ -1307,6 +1351,7 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
         @media (max-width: 500px) {
@@ -1315,24 +1360,6 @@
                 padding: 12px 14px;
                 white-space: normal;
             }
-        }
-
-        .vimeo-wrapper {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            max-width: 100%;
-            background: #000;
-        }
-
-        .vimeo-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
         }
 
         /* ===== ФОТО-СЕТКА ===== */
@@ -1913,15 +1940,12 @@
         /* ===== ТОЛЬКО ДЛЯ МОБИЛЬНЫХ (ОТ 0 ДО 700px) ===== */
         /* ============================================================ */
         @media (max-width: 700px) {
-            /* 1. Слайдер — чтобы фото заполняло экран без черных полей и сдвигало фокус так, чтобы девушка была по центру */
             .hero-slides .slide {
                 object-fit: cover;
                 object-position: 93% 50%;
                 background-color: #050505;
-                /* Убираем transform: none !important; чтобы работал масштаб */
             }
 
-            /* 3. Принудительно возвращаем статичное положение в ITF */
             .stat-item:nth-child(3) .logo-itf,
             .stat-item:nth-child(3) .itf-label,
             .stat-item:nth-child(3) .itf-number {
@@ -1929,7 +1953,6 @@
                 margin-top: 0 !important;
             }
 
-            /* 4. Принудительно возвращаем статичное положение в BJKC */
             .stat-item:nth-child(10) .bjkc-logo,
             .stat-item:nth-child(10) .bjkc-label,
             .stat-item:nth-child(10) .bjkc-number {
@@ -1937,13 +1960,11 @@
                 margin-top: 0 !important;
             }
 
-            /* 5. Убираем марджины, которые толкали текст вверх к логотипам */
             .atf-label, .wtt-label, .atf-titles-label, .bjkc-label {
                 margin-top: 0 !important;
                 margin-bottom: 5px !important;
             }
             
-            /* 6. Жестко выравниваем высоту самих блоков на мобилке */
             .stat-item .atf-wrapper,
             .stat-item .wtt-wrapper,
             .stat-item .bjkc-wrapper,
@@ -1958,7 +1979,6 @@
                 gap: 2px !important;
             }
             
-            /* 7. Обеспечиваем центровку текста */
             .stat-item .stat-label, 
             .stat-item .stat-number,
             .stat-item .itf-label,
@@ -1974,9 +1994,6 @@
                 text-align: center !important;
             }
 
-            /* ===== ПОДЪЁМ ЭЛЕМЕНТОВ С ТИТУЛАМИ НА МОБИЛЬНЫХ ===== */
-            
-            /* WTT SINGLES TITLES (7-й элемент) */
             .stat-item:nth-child(7) .wtt-label {
                 transform: translateY(-35px) !important;
                 margin-top: 25px !important;
@@ -1993,7 +2010,6 @@
                 transform: translateY(-15px) !important;
             }
             
-            /* WTT DOUBLES TITLES (8-й элемент) */
             .stat-item:nth-child(8) .wtt-label {
                 transform: translateY(-35px) !important;
                 margin-top: 25px !important;
@@ -2010,7 +2026,6 @@
                 transform: translateY(-15px) !important;
             }
             
-            /* ATF TITLES (9-й элемент) */
             .stat-item:nth-child(9) .atf-titles-label {
                 transform: translateY(-30px) !important;
                 margin-top: 45px !important;
@@ -2024,7 +2039,6 @@
                 transform: translateY(2px) !important;
             }
 
-            /* ===== МАСШТАБИРОВАНИЕ СЛАЙДОВ НА МОБИЛЬНЫХ ===== */
             .hero-slides .slide:nth-child(1) {
                 transform: scale(var(--slide-1-mobile-scale)) translateX(var(--slide-1-mobile-offset-x)) !important;
                 object-position: 93% 50% !important;
@@ -2044,23 +2058,33 @@
                 transform: scale(var(--slide-4-mobile-scale)) translateX(var(--slide-4-mobile-offset-x)) !important;
                 object-position: 50% 50% !important;
             }
-        }
 
-        @media (max-width: 500px) {
-            /* Для очень маленьких экранов */
-            .hero-slides .slide {
-                object-fit: cover;
-                object-position: 93% 50%;
-                /* transform: none !important; убираем */
+            .plyr__controls {
+                padding: 6px 10px;
+            }
+            
+            .plyr__control {
+                padding: 5px;
+            }
+            
+            .plyr__control svg {
+                width: 16px;
+                height: 16px;
             }
         }
 
-        /* ===== СПОНСОРЫ (как на сайте Novak Djokovic) ===== */
+        @media (max-width: 500px) {
+            .hero-slides .slide {
+                object-fit: cover;
+                object-position: 93% 50%;
+            }
+        }
+
+        /* ===== СПОНСОРЫ ===== */
         #sponsor {
             margin-bottom: clamp(40px, 6vw, 80px);
         }
 
-        /* Серая полоса-разделитель */
         .sponsor-divider {
             border-top: 1px solid var(--border-color);
             margin-top: 0;
@@ -2121,7 +2145,6 @@
             opacity: 1;
         }
 
-        /* ===== АДАПТИВ ДЛЯ МОБИЛЬНЫХ (УМЕНЬШАЕМ ЛОГОТИПЫ) ===== */
         @media (max-width: 768px) {
             .sponsors-grid {
                 flex-wrap: nowrap !important;
@@ -2255,21 +2278,13 @@
             transform: scale(1) translateY(100px); 
         }
 
-        /* ===== ИСПРАВЛЕНИЕ ДЛЯ СЛАЙДЕРА НА МОБИЛЬНЫХ (НЕ ТРОГАЕТ ПК) ===== */
         @media (max-width: 700px) {
             .hero-slides .slide {
                 object-position: 93% 50% !important;
                 background-color: #050505;
             }
-            
-            .hero-slides .slide:nth-child(1),
-            .hero-slides .slide:nth-child(2),
-            .hero-slides .slide:nth-child(3),
-            .hero-slides .slide:nth-child(4) { 
-            }
         }
 
-        /* ===== ГОРИЗОНТАЛЬНОЕ СМЕЩЕНИЕ ДЛЯ МОБИЛЬНЫХ ===== */
         @media (max-width: 700px) {
             .hero-slides .slide:nth-child(1) {
                 transform: translateX(var(--slide-1-mobile-offset-x)) !important;
@@ -2290,34 +2305,6 @@
                 transform: translateX(var(--slide-4-mobile-offset-x)) !important;
                 object-position: 50% 50% !important;
             }
-        }
-
-        /* ===== ДОПОЛНИТЕЛЬНЫЕ СТИЛИ ДЛЯ ВИДЕО (АДАПТИВ) ===== */
-        .video-card {
-            width: 100%;
-            max-width: 640px;
-            margin: 0 auto;
-        }
-
-        .video-frame {
-            position: relative;
-            width: 100%;
-            padding-bottom: 56.25%; /* Соотношение сторон 16:9 */
-            height: 0;
-        }
-
-        .video-frame iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .video-info {
-            padding: 10px 0;
-            font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
         .en-text, .ru-text {
@@ -3275,110 +3262,110 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                 <!-- Highlights -->
                 <div id="highlights-content" class="tab-content active">
                     <div class="video-card">
-                        <div class="video-frame">
-                            <div class="vimeo-wrapper">
-                                <iframe src="https://drive.google.com/file/d/1G8NqIcWPJJYEfSlMlCX3oic4gC84XMkt/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
-                            </div>
-                        </div>
+                        <video playsinline controls>
+                            <source src="videos/highlights/highlight-1.mp4" type="video/mp4" />
+                            <source src="videos/highlights/highlight-1.webm" type="video/webm" />
+                            Ваш браузер не поддерживает видео.
+                        </video>
                         <div class="video-info">
                             <span class="en-text">Ilima Guseynova Highlights 1</span>
                             <span class="ru-text">Илима Гусейнова Хайлайты 1</span>
                         </div>
                     </div>
                     <div class="video-card">
-                        <div class="video-frame">
-                            <div class="vimeo-wrapper">
-                                <iframe src="https://drive.google.com/file/d/1Pj0f_VJMVpKzgUaLsfr1kEQYBrWF6OKy/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
-                            </div>
-                        </div>
+                        <video playsinline controls>
+                            <source src="videos/highlights/highlight-2.mp4" type="video/mp4" />
+                            <source src="videos/highlights/highlight-2.webm" type="video/webm" />
+                            Ваш браузер не поддерживает видео.
+                        </video>
                         <div class="video-info">
                             <span class="en-text">Ilima Guseynova Highlights 2</span>
                             <span class="ru-text">Илима Гусейнова Хайлайты 2</span>
                         </div>
                     </div>
                     <div class="video-card">
-                        <div class="video-frame">
-                            <div class="vimeo-wrapper">
-                                <iframe src="https://drive.google.com/file/d/1nDlnQwDEZxNJrsNifYuhLvdpxdomvnhB/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
-                            </div>
-                        </div>
+                        <video playsinline controls>
+                            <source src="videos/highlights/highlight-3.mp4" type="video/mp4" />
+                            <source src="videos/highlights/highlight-3.webm" type="video/webm" />
+                            Ваш браузер не поддерживает видео.
+                        </video>
                         <div class="video-info">
                             <span class="en-text">Ilima Guseynova Highlights 3</span>
                             <span class="ru-text">Илима Гусейнова Хайлайты 3</span>
                         </div>
                     </div>
                     <div class="video-card">
-                        <div class="video-frame">
-                            <div class="vimeo-wrapper">
-                                <iframe src="https://drive.google.com/file/d/10qc5QRvkbX0EaHgPTNYK_S6PCxR2c022/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
-                            </div>
-                        </div>
+                        <video playsinline controls>
+                            <source src="videos/highlights/highlight-4.mp4" type="video/mp4" />
+                            <source src="videos/highlights/highlight-4.webm" type="video/webm" />
+                            Ваш браузер не поддерживает видео.
+                        </video>
                         <div class="video-info">
                             <span class="en-text">Ilima Guseynova Highlights 4</span>
                             <span class="ru-text">Илима Гусейнова Хайлайты 4</span>
                         </div>
                     </div>
                     <div class="video-card">
-                        <div class="video-frame">
-                            <div class="vimeo-wrapper">
-                                <iframe src="https://drive.google.com/file/d/1I3ad3y3MNkuATO7cUx68zE8nM1Stm1YE/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
-                            </div>
-                        </div>
+                        <video playsinline controls>
+                            <source src="videos/highlights/highlight-5.mp4" type="video/mp4" />
+                            <source src="videos/highlights/highlight-5.webm" type="video/webm" />
+                            Ваш браузер не поддерживает видео.
+                        </video>
                         <div class="video-info">
                             <span class="en-text">Ilima Guseynova Highlights 5</span>
                             <span class="ru-text">Илима Гусейнова Хайлайты 5</span>
                         </div>
                     </div>
                     <div class="video-card">
-                        <div class="video-frame">
-                            <div class="vimeo-wrapper">
-                                <iframe src="https://drive.google.com/file/d/1F2_elGco0bxbnV3ffMAuXjkJk3Bv2zEm/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
-                            </div>
-                        </div>
+                        <video playsinline controls>
+                            <source src="videos/highlights/highlight-6.mp4" type="video/mp4" />
+                            <source src="videos/highlights/highlight-6.webm" type="video/webm" />
+                            Ваш браузер не поддерживает видео.
+                        </video>
                         <div class="video-info">
                             <span class="en-text">Ilima Guseynova Highlights 6</span>
                             <span class="ru-text">Илима Гусейнова Хайлайты 6</span>
                         </div>
                     </div>
                     <div class="video-card">
-                        <div class="video-frame">
-                            <div class="vimeo-wrapper">
-                                <iframe src="https://drive.google.com/file/d/1XKqClJqFEnnaTMFrS4fgGTGNAwQnTc38/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
-                            </div>
-                        </div>
+                        <video playsinline controls>
+                            <source src="videos/highlights/highlight-7.mp4" type="video/mp4" />
+                            <source src="videos/highlights/highlight-7.webm" type="video/webm" />
+                            Ваш браузер не поддерживает видео.
+                        </video>
                         <div class="video-info">
                             <span class="en-text">Ilima Guseynova Highlights 7</span>
                             <span class="ru-text">Илима Гусейнова Хайлайты 7</span>
                         </div>
                     </div>
                     <div class="video-card">
-                        <div class="video-frame">
-                            <div class="vimeo-wrapper">
-                                <iframe src="https://drive.google.com/file/d/1j3JWf-KGBV827eVpEdMgkVlmOIGN2MoC/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
-                            </div>
-                        </div>
+                        <video playsinline controls>
+                            <source src="videos/highlights/highlight-8.mp4" type="video/mp4" />
+                            <source src="videos/highlights/highlight-8.webm" type="video/webm" />
+                            Ваш браузер не поддерживает видео.
+                        </video>
                         <div class="video-info">
                             <span class="en-text">Ilima Guseynova Highlights 8</span>
                             <span class="ru-text">Илима Гусейнова Хайлайты 8</span>
                         </div>
                     </div>
                     <div class="video-card">
-                        <div class="video-frame">
-                            <div class="vimeo-wrapper">
-                                <iframe src="https://drive.google.com/file/d/1B4iMNS1RHk3gGWnSyZ29AwMEpHOG5YoT/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
-                            </div>
-                        </div>
+                        <video playsinline controls>
+                            <source src="videos/highlights/highlight-9.mp4" type="video/mp4" />
+                            <source src="videos/highlights/highlight-9.webm" type="video/webm" />
+                            Ваш браузер не поддерживает видео.
+                        </video>
                         <div class="video-info">
                             <span class="en-text">Ilima Guseynova Highlights 9</span>
                             <span class="ru-text">Илима Гусейнова Хайлайты 9</span>
                         </div>
                     </div>
                     <div class="video-card">
-                        <div class="video-frame">
-                            <div class="vimeo-wrapper">
-                                <iframe src="https://drive.google.com/file/d/1IybJUWZMoZi1Td06uxIxhgEnlNJEE0lG/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
-                            </div>
-                        </div>
+                        <video playsinline controls>
+                            <source src="videos/highlights/highlight-10.mp4" type="video/mp4" />
+                            <source src="videos/highlights/highlight-10.webm" type="video/webm" />
+                            Ваш браузер не поддерживает видео.
+                        </video>
                         <div class="video-info">
                             <span class="en-text">Ilima Guseynova Highlights 10</span>
                             <span class="ru-text">Илима Гусейнова Хайлайты 10</span>
@@ -3389,55 +3376,55 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                 <!-- Full Matches -->
                 <div id="fullmatches-content" class="tab-content">
                     <div class="video-card">
-                        <div class="video-frame">
-                            <div class="vimeo-wrapper">
-                                <iframe src="https://drive.google.com/file/d/1kKYcDhEQVLtXTmSvbX0H3DuIlThqHLES/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
-                            </div>
-                        </div>
+                        <video playsinline controls>
+                            <source src="videos/fullmatches/fullmatch-1.mp4" type="video/mp4" />
+                            <source src="videos/fullmatches/fullmatch-1.webm" type="video/webm" />
+                            Ваш браузер не поддерживает видео.
+                        </video>
                         <div class="video-info">
                             <span class="en-text">Roland Garros Junior Series — Ilima Guseynova & Hana Shabanpour (Court 1)</span>
                             <span class="ru-text">Roland Garros Junior Series — Илима Гусейнова & Хана Шабанпур (Корт 1)</span>
                         </div>
                     </div>
                     <div class="video-card">
-                        <div class="video-frame">
-                            <div class="vimeo-wrapper">
-                                <iframe src="https://drive.google.com/file/d/1vGpSmHuq3ZtT4IeA9J3TbeI5CGYHGAHX/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
-                            </div>
-                        </div>
+                        <video playsinline controls>
+                            <source src="videos/fullmatches/fullmatch-2.mp4" type="video/mp4" />
+                            <source src="videos/fullmatches/fullmatch-2.webm" type="video/webm" />
+                            Ваш браузер не поддерживает видео.
+                        </video>
                         <div class="video-info">
                             <span class="en-text">Billie Jean King Cup — Ushna Suhail vs. Ilima Guseynova</span>
                             <span class="ru-text">Кубок Билли Джин Кинг — Ушна Сухайл vs. Илима Гусейнова</span>
                         </div>
                     </div>
                     <div class="video-card">
-                        <div class="video-frame">
-                            <div class="vimeo-wrapper">
-                                <iframe src="https://drive.google.com/file/d/1PI8iYWRpkv_mPaeU4I9WQTjcluenovql/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
-                            </div>
-                        </div>
+                        <video playsinline controls>
+                            <source src="videos/fullmatches/fullmatch-3.mp4" type="video/mp4" />
+                            <source src="videos/fullmatches/fullmatch-3.webm" type="video/webm" />
+                            Ваш браузер не поддерживает видео.
+                        </video>
                         <div class="video-info">
                             <span class="en-text">Roland Garros Junior Series — Ilima Guseynova & Sofiya Malysheva (Court 2)</span>
                             <span class="ru-text">Roland Garros Junior Series — Илима Гусейнова & София Малышева (Корт 2)</span>
                         </div>
                     </div>
                     <div class="video-card">
-                        <div class="video-frame">
-                            <div class="vimeo-wrapper">
-                                <iframe src="https://drive.google.com/file/d/1Px9WCrBNojgLGACTBtAdwNDYkx3lxrcZ/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
-                            </div>
-                        </div>
+                        <video playsinline controls>
+                            <source src="videos/fullmatches/fullmatch-4.mp4" type="video/mp4" />
+                            <source src="videos/fullmatches/fullmatch-4.webm" type="video/webm" />
+                            Ваш браузер не поддерживает видео.
+                        </video>
                         <div class="video-info">
                             <span class="en-text">ITF Juniors J30 Fergana — Ilima Guseynova & Viktoriya Oleinikova</span>
                             <span class="ru-text">ITF Juniors J30 Фергана — Илима Гусейнова & Виктория Олейникова</span>
                         </div>
                     </div>
                     <div class="video-card">
-                        <div class="video-frame">
-                            <div class="vimeo-wrapper">
-                                <iframe src="https://drive.google.com/file/d/1wTzOnM2P7tPRdHPMbJHfxrXhcO1gQJMi/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
-                            </div>
-                        </div>
+                        <video playsinline controls>
+                            <source src="videos/fullmatches/fullmatch-5.mp4" type="video/mp4" />
+                            <source src="videos/fullmatches/fullmatch-5.webm" type="video/webm" />
+                            Ваш браузер не поддерживает видео.
+                        </video>
                         <div class="video-info">
                             <span class="en-text">Roland Garros Junior Series — Ilima Guseynova & Zinira Zhunusova (Court 2)</span>
                             <span class="ru-text">Roland Garros Junior Series — Илима Гусейнова & Зинира Жунусова (Корт 2)</span>
@@ -3448,31 +3435,33 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                 <!-- Training -->
                 <div id="training-content" class="tab-content">
                     <div class="video-card">
-                        <div class="video-frame">
-                            <div class="vimeo-wrapper">
-                                <iframe src="https://drive.google.com/file/d/1TRu0tzd6UZfkb9SU4qSY0bSNVD88ED4f/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
-                            </div>
-                        </div>
+                        <video playsinline controls>
+                            <source src="videos/training/training-1.mp4" type="video/mp4" />
+                            <source src="videos/training/training-1.webm" type="video/webm" />
+                            Ваш браузер не поддерживает видео.
+                        </video>
                         <div class="video-info">
                             <span class="en-text">Training Session: Ilima Guseynova 1</span>
                             <span class="ru-text">Тренировка: Илима Гусейнова 1</span>
                         </div>
                     </div>
                     <div class="video-card">
-                        <div class="video-frame">
-                            <div class="vimeo-wrapper">
-                                <iframe src="https://drive.google.com/file/d/1SZVUqDpBHeILyGHaamSg2PnM_VollYxw/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
-                            </div>
-                        </div>
+                        <video playsinline controls>
+                            <source src="videos/training/training-2.mp4" type="video/mp4" />
+                            <source src="videos/training/training-2.webm" type="video/webm" />
+                            Ваш браузер не поддерживает видео.
+                        </video>
                         <div class="video-info">
                             <span class="en-text">Coach VS Ilima Guseynova — [Ashgabat]</span>
                             <span class="ru-text">Тренир VS Илима Гусейнова — [Ашхабат]</span>
                         </div>
                     </div>
                     <div class="video-card">
-                        <div class="video-frame">
-                            <iframe src="https://drive.google.com/file/d/1Sdy5Tp9hvJz7HXzaSvhXJ-FM6L_84xkv/preview" width="100%" height="360" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                        </div>
+                        <video playsinline controls>
+                            <source src="images/video/ilima-training/day-4-rg.mp4" type="video/mp4" />
+                            <source src="images/video/ilima-training/day-4-rg.webm" type="video/webm" />
+                            Ваш браузер не поддерживает видео.
+                        </video>
                         <div class="video-info">
                             <span class="en-text">Day 4 of RG — [Kazahstan]</span>
                             <span class="ru-text">Четвёртый день RG — [Казахстан]</span>
@@ -3483,66 +3472,66 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                 <!-- VIDEO -->
                 <div id="video-content" class="tab-content">
                     <div class="video-card">
-                        <div class="video-frame">
-                            <div class="vimeo-wrapper">
-                                <iframe src="https://drive.google.com/file/d/1PV-GCAKM5kiRslBJxxdTFPG4nH42fM4r/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
-                            </div>
-                        </div>
+                        <video playsinline controls>
+                            <source src="videos/video/video-1.mp4" type="video/mp4" />
+                            <source src="videos/video/video-1.webm" type="video/webm" />
+                            Ваш браузер не поддерживает видео.
+                        </video>
                         <div class="video-info">
                             <span class="en-text">Roland Garros Junior Series by Renault - Qualifications West and Central Asia</span>
                             <span class="ru-text">Roland Garros Junior Series by Renault - Qualifications West and Central Asia</span>
                         </div>
                     </div>
                     <div class="video-card">
-                        <div class="video-frame">
-                            <div class="vimeo-wrapper">
-                                <iframe src="https://drive.google.com/file/d/1Qd_Mdq61bUAq4eroItLqSf0wp_Ytvtwq/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
-                            </div>
-                        </div>
+                        <video playsinline controls>
+                            <source src="videos/video/video-2.mp4" type="video/mp4" />
+                            <source src="videos/video/video-2.webm" type="video/webm" />
+                            Ваш браузер не поддерживает видео.
+                        </video>
                         <div class="video-info">
                             <span class="en-text">Yuri Fedorovich Polsky, President of the Asian Tennis Federation</span>
                             <span class="ru-text">Польский Юрий Федорович президент Азиатской федерации тенниса</span>
                         </div>
                     </div>
                     <div class="video-card">
-                        <div class="video-frame">
-                            <div class="vimeo-wrapper">
-                                <iframe src="https://drive.google.com/file/d/1LNf_6h__-1Zqtn2RhvoX_74dIBbCtO39/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
-                            </div>
-                        </div>
+                        <video playsinline controls>
+                            <source src="videos/video/video-3.mp4" type="video/mp4" />
+                            <source src="videos/video/video-3.webm" type="video/webm" />
+                            Ваш браузер не поддерживает видео.
+                        </video>
                         <div class="video-info">
                             <span class="en-text">Patrick Mouratoglou Tennis Academy (Epsom College in Malaysia)</span>
                             <span class="ru-text">Теннисная академия Патрика Муратоглу ( Эпсом-колледж в Малайзии )</span>
                         </div>
                     </div>
                     <div class="video-card">
-                        <div class="video-frame">
-                            <div class="vimeo-wrapper">
-                                <iframe src="https://drive.google.com/file/d/130-K56KY49dC8jPQUqa1KE-oc_X7t3t_/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
-                            </div>
-                        </div>
+                        <video playsinline controls>
+                            <source src="videos/video/video-4.mp4" type="video/mp4" />
+                            <source src="videos/video/video-4.webm" type="video/webm" />
+                            Ваш браузер не поддерживает видео.
+                        </video>
                         <div class="video-info">
                             <span class="en-text">Asian 14 & Under Grade A Tournament (Southeast Asia) Malaysia</span>
                             <span class="ru-text">Asian 14 & Under Grade A Tournament (Southeast Asia) Malaysia</span>
                         </div>
                     </div>
                     <div class="video-card">
-                        <div class="video-frame">
-                            <div class="vimeo-wrapper">
-                                <iframe src="https://drive.google.com/file/d/1PYX1BLxEDrSa_UMj21Q3NvtvvLaDh3-Q/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
-                            </div>
-                        </div>
+                        <video playsinline controls>
+                            <source src="videos/video/video-5.mp4" type="video/mp4" />
+                            <source src="videos/video/video-5.webm" type="video/webm" />
+                            Ваш браузер не поддерживает видео.
+                        </video>
                         <div class="video-info">
                             <span class="en-text">Asian 14&U Grade A Tournament (South Asia) INDIA</span>
                             <span class="ru-text">Asian 14&U Grade A Tournament (South Asia) INDIA</span>
                         </div>
                     </div>
                     <div class="video-card">
-                        <div class="video-frame">
-                            <div class="vimeo-wrapper">
-                                <iframe src="https://drive.google.com/file/d/1zogq8BsxHCzRGghAdpMm_MCmpsmHuB9B/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
-                            </div>
-                        </div>
+                        <video playsinline controls>
+                            <source src="videos/video/video-6.mp4" type="video/mp4" />
+                            <source src="videos/video/video-6.webm" type="video/webm" />
+                            Ваш браузер не поддерживает видео.
+                        </video>
                         <div class="video-info">
                             <span class="en-text">Belent</span>
                             <span class="ru-text">Белент</span>
@@ -3879,6 +3868,9 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
         <img id="productLightboxImg" src="" alt="Product full size" />
     </div>
 
+    <!-- ===== PLYR JS ===== -->
+    <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
+
     <script>
         // ===== ЯЗЫК =====
         const langToggle = document.getElementById('langToggle');
@@ -3954,7 +3946,6 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
         let currentSlide = 0;
         let slideInterval;
 
-        // Находим активный слайд при загрузке
         document.querySelectorAll('.hero-slides .slide').forEach((slide, i) => {
             if (slide.classList.contains('active')) {
                 currentSlide = i;
@@ -3971,7 +3962,6 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
             });
         }
 
-        // Показываем текст для активного слайда при загрузке
         showSlide(currentSlide);
 
         function nextSlide() {
@@ -3986,7 +3976,6 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
 
         function resetInterval() {
             clearInterval(slideInterval);
-            // slideInterval = setInterval(nextSlide, 2300);//
         }
 
         document.getElementById('arrowRight').addEventListener('click', () => {
@@ -3998,8 +3987,6 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
             prevSlide();
             resetInterval();
         });
-
-        //slideInterval = setInterval(nextSlide, 2300);//
 
         // ===== ФОРМА =====
         const form = document.getElementById('recruitingForm');
@@ -4056,6 +4043,9 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                         content.classList.remove('active');
                     }
                 });
+                
+                // Переинициализация Plyr после переключения таба
+                setTimeout(initPlyr, 300);
             }
 
             tabBtns.forEach(btn => {
@@ -4078,6 +4068,75 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
 
             const activeTab = document.querySelector('.tab-btn.active');
             if (activeTab) switchTab(activeTab.dataset.tab);
+        });
+
+        // ===== ИНИЦИАЛИЗАЦИЯ PLYR =====
+        function initPlyr() {
+            const plyrOptions = {
+                controls: [
+                    'play-large',
+                    'play',
+                    'progress',
+                    'current-time',
+                    'duration',
+                    'mute',
+                    'volume',
+                    'settings',
+                    'pip',
+                    'fullscreen'
+                ],
+                autoplay: false,
+                muted: false,
+                disableContextMenu: true,
+                keyboard: {
+                    focused: true,
+                    global: false
+                },
+                tooltips: {
+                    controls: true,
+                    seek: true
+                },
+                i18n: {
+                    rewind: 'Перемотка назад',
+                    fastForward: 'Перемотка вперёд',
+                    seek: 'Искать',
+                    play: 'Воспроизвести',
+                    pause: 'Пауза',
+                    restart: 'Перезапустить',
+                    mute: 'Выключить звук',
+                    unmute: 'Включить звук',
+                    settings: 'Настройки',
+                    speed: 'Скорость',
+                    normal: 'Обычная',
+                    quality: 'Качество',
+                    pip: 'Картинка-в-картинке',
+                    fullscreen: 'Полный экран',
+                    enterFullscreen: 'Войти в полноэкранный режим',
+                    exitFullscreen: 'Выйти из полноэкранного режима'
+                }
+            };
+
+            const allVideos = document.querySelectorAll('.video-card video');
+            
+            allVideos.forEach((video) => {
+                if (!video.plyr) {
+                    try {
+                        new Plyr(video, plyrOptions);
+                    } catch (e) {
+                        console.warn('⚠️ Не удалось инициализировать видео:', e);
+                    }
+                }
+            });
+        }
+
+        // Инициализация Plyr после загрузки
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(initPlyr, 500);
+        });
+
+        // Переинициализация при раскрытии медиа-блока
+        document.getElementById('mediaToggleBtn')?.addEventListener('click', function() {
+            setTimeout(initPlyr, 400);
         });
 
         // ===== ЛАЙТБОКС =====
