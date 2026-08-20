@@ -1,70 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-	<meta charset="utf-8">
-	<meta name="description" content="Responsive design testing for the masses">
-	<title>Responsive Design Testing</title>
-	<style>
-		*{vertical-align:top;}
-		body{padding:20px;font-family:sans-serif;overflow-y:scroll;}
-		h2{margin:0 0 20px 0;}
-		span.small{font-size:60%;vertical-align:middle;}
-		#url{margin:0 0 20px 0px;display:block;}
-		#url input[type=text]{border:solid 1px #666;width:85%;margin:0 auto;font-size:2em;text-align:left;}
-		#url input[type=submit]{display:none;}
-		#url #options{float:right;line-height:25px;width:13%;}
-		#url #options input{margin-top:5px;}
-		#frames{overflow-x:scroll;width:100%;margin-bottom:10px;padding-bottom:20px;}
-		.frame{margin-right:20px;float:left;}
-		.frame:last-child{margin-right:0;}
-		.frame img{display:none;vertical-align:middle;}
-		iframe{border:solid 1px #000;}
-		.widthOnly {height:580px;}
-		.widthOnly h2 span{display:none;}
-		.widthOnly iframe{height:500px;}
-	</style>
+    <meta charset="UTF-8">
+    <title>Панель тестирования мобильных экранов</title>
+    <style>
+        body { margin: 0; background: #e0e0e0; font-family: sans-serif; text-align: center; }
+        .header { background: #333; color: white; padding: 10px; font-size: 18px; }
+        .frames-container { display: flex; gap: 20px; padding: 20px; overflow-x: auto; align-items: flex-start; justify-content: center; }
+        .frame-box { background: white; border: 4px solid #333; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .frame-title { background: #333; color: white; padding: 5px; font-size: 12px; margin: 0; }
+        iframe { border: none; width: 100%; height: 100%; }
+    </style>
 </head>
-<body id="container">
-	<div id="url">
-		<form method="post">
-			<input type="text" placeholder="Test your own site... type the url and hit enter" />
-			<input type="submit" value="submit">
-			<div id="options">
-				<label for="normal"><input id="normal" type="radio" name="option" value="1" checked>Width only</label><br />
-        <label for="accurate"><input id="accurate" type="radio" name="option" value="2">Device sizes</label><br />
-				<label for="scrollbar"><input id="scrollbar" type="checkbox" name="scrollbar" value="1" checked>Visible Scrollbars</label>
-			</div>
-		</form>
-	</div>
-	<div id="frames" class="widthOnly">
-		<div id="inner">
-			<div id="f1" class="frame">
-				<h2>240<span> x 320</span> <span class="small">(small phone)</span> <img src="http://mattkersley.com/wp-content/themes/mattkersley/images/loader_large.gif" /></h2>
-				<iframe sandbox="allow-same-origin allow-forms allow-scripts" seamless width="255" height="320"></iframe>
-			</div>
-			<div id="f2" class="frame">
-				<h2>320<span> x 480</span> <span class="small">(iPhone)</span> <img src="http://mattkersley.com/wp-content/themes/mattkersley/images/loader_large.gif" /></h2>
-				<iframe sandbox="allow-same-origin allow-forms allow-scripts" seamless width="335" height="480"></iframe>
-			</div>
-			<div id="f3" class="frame">
-				<h2>480<span> x 640</span> <span class="small">(small tablet)</span> <img src="http://mattkersley.com/wp-content/themes/mattkersley/images/loader_large.gif" /></h2>
-				<iframe sandbox="allow-same-origin allow-forms allow-scripts" seamless width="495" height="640"></iframe>
-			</div>
-			<div id="f4" class="frame">
-				<h2>768<span> x 1024</span> <span class="small">(iPad - Portrait)</span> <img src="http://mattkersley.com/wp-content/themes/mattkersley/images/loader_large.gif" /></h2>
-				<iframe sandbox="allow-same-origin allow-forms allow-scripts" seamless width="783" height="1024"></iframe>
-			</div>
-			<div id="f5" class="frame">
-				<h2>1024<span> x 768</span> <span class="small">(iPad - Landscape)</span> <img src="http://mattkersley.com/wp-content/themes/mattkersley/images/loader_large.gif" /></h2>
-				<iframe sandbox="allow-same-origin allow-forms allow-scripts" seamless width="1039" height="768"></iframe>
-			</div>
-		</div>
-	</div>
-	<span>A tool by <a href="http://mattkersley.com">Matt Kersley</a> - <a href="https://github.com/mattkersley/Responsive-Design-Testing">Fork it on Github</a></span><br />
-	<span>Note: The content width may not be pixel perfect - I have added 15px to the iframes to cater for the scrollbars</span>
+<body>
 
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
-	<script src="responsive.js"></script>
+    <div class="header">
+        Синхронный тест экранов для сайта ilimatennis.com
+    </div>
+
+    <div class="frames-container">
+        <!-- Маленький мобильный телефон -->
+        <div class="frame-box" style="width: 320px; height: 568px;">
+            <p class="frame-title">Мобильный (320px)</p>
+            <iframe src="index.html"></iframe>
+        </div>
+
+        <!-- Средний смартфон -->
+        <div class="frame-box" style="width: 375px; height: 667px;">
+            <p class="frame-title">Смартфон (375px)</p>
+            <iframe src="index.html"></iframe>
+        </div>
+
+        <!-- Большой смартфон -->
+        <div class="frame-box" style="width: 414px; height: 736px;">
+            <p class="frame-title">Большой телефон (414px)</p>
+            <iframe src="index.html"></iframe>
+        </div>
+
+        <!-- Планшет -->
+        <div class="frame-box" style="width: 768px; height: 1024px;">
+            <p class="frame-title">Планшет (768px)</p>
+            <iframe src="index.html"></iframe>
+        </div>
+    </div>
 
 </body>
 </html>
