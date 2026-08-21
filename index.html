@@ -34,12 +34,34 @@
             --utr-doubles-logo-offset: 0px;
             --utr-doubles-label-offset: 0px;
             --utr-doubles-number-offset: 0px;
-            --itf-logo-offset: 5px;
+            
+            /* Смещения для ITF (ПК) */
+            --itf-logo-offset: 40px;
             --itf-label-offset: 10px;
-            --itf-number-offset: -30px;
-            --atf-logo-offset: -30px;
+            --itf-number-offset: -45px;
+            --itf-career-label-offset: -45px;
+            --itf-career-number-offset: -55px;
+            
+            /* Смещения для ATF (ПК) */
+            --atf-logo-offset: -5px;
             --atf-label-offset: 25px;
-            --atf-number-offset: 25px;
+            --atf-number-offset: 5px;
+            --atf-career-label-offset: 0px;
+            --atf-career-number-offset: 15px;
+            
+            /* ===== СМЕЩЕНИЯ ДЛЯ МОБИЛЬНОЙ ВЕРСИИ ===== */
+            --itf-logo-offset-mobile: 15px;
+            --itf-label-offset-mobile: -5px;
+            --itf-number-offset-mobile: -25px;
+            --itf-career-label-offset-mobile: -25px;
+            --itf-career-number-offset-mobile: -25px;
+            
+            --atf-logo-offset-mobile: 0px;
+            --atf-label-offset-mobile: 0px;
+            --atf-number-offset-mobile: 0px;
+            --atf-career-label-offset-mobile: 0px;
+            --atf-career-number-offset-mobile: 0px;
+            
             --wtt-singles-logo-offset: -10px;
             --wtt-singles-label-offset: -10px;
             --wtt-singles-number-offset: -20px;
@@ -727,6 +749,13 @@
             transform: translateY(var(--itf-number-offset));
         }
 
+        .stat-item:nth-child(3) .itf-career-label {
+            transform: translateY(var(--itf-career-label-offset));
+        }
+        .stat-item:nth-child(3) .itf-career-number {
+            transform: translateY(var(--itf-career-number-offset));
+        }
+
         /* ===== WTN ===== */
         .stat-item:nth-child(4) .stat-header-left img,
         .stat-item:nth-child(5) .stat-header-left img {
@@ -787,6 +816,14 @@
         .stat-item:nth-child(6) .stat-header {
             width: 100%;
             height: 100%;
+        }
+
+        /* ===== ATF CAREER-HIGH ===== */
+        .stat-item:nth-child(6) .atf-career-label {
+            transform: translateY(var(--atf-career-label-offset));
+        }
+        .stat-item:nth-child(6) .atf-career-number {
+            transform: translateY(var(--atf-career-number-offset));
         }
 
         /* ===== WTT ===== */
@@ -1961,10 +1998,46 @@
                 background-color: #050505;
             }
 
-            .stat-item:nth-child(3) .logo-itf,
-            .stat-item:nth-child(3) .itf-label,
+            .stat-item:nth-child(3) .logo-itf {
+                transform: translateY(var(--itf-logo-offset-mobile)) !important;
+                margin-top: 0 !important;
+            }
+            .stat-item:nth-child(3) .itf-label {
+                transform: translateY(var(--itf-label-offset-mobile)) !important;
+                margin-top: 0 !important;
+            }
             .stat-item:nth-child(3) .itf-number {
-                transform: translateY(0px) !important;
+                transform: translateY(var(--itf-number-offset-mobile)) !important;
+                margin-top: 0 !important;
+            }
+
+            .stat-item:nth-child(3) .itf-career-label {
+                transform: translateY(var(--itf-career-label-offset-mobile)) !important;
+                margin-top: 0 !important;
+            }
+            .stat-item:nth-child(3) .itf-career-number {
+                transform: translateY(var(--itf-career-number-offset-mobile)) !important;
+                margin-top: 0 !important;
+            }
+
+            .stat-item:nth-child(6) .logo-atf {
+                transform: translateY(var(--atf-logo-offset-mobile)) !important;
+                margin-top: 0 !important;
+            }
+            .stat-item:nth-child(6) .atf-label {
+                transform: translateY(var(--atf-label-offset-mobile)) !important;
+                margin-top: 0 !important;
+            }
+            .stat-item:nth-child(6) .atf-number {
+                transform: translateY(var(--atf-number-offset-mobile)) !important;
+                margin-top: 0 !important;
+            }
+            .stat-item:nth-child(6) .atf-career-label {
+                transform: translateY(var(--atf-career-label-offset-mobile)) !important;
+                margin-top: 0 !important;
+            }
+            .stat-item:nth-child(6) .atf-career-number {
+                transform: translateY(var(--atf-career-number-offset-mobile)) !important;
                 margin-top: 0 !important;
             }
 
@@ -2007,6 +2080,36 @@
             .stat-item .bjkc-label,
             .stat-item .bjkc-number {
                 text-align: center !important;
+            }
+
+            .stat-item:nth-child(3) .itf-wrapper .itf-number {
+                margin-bottom: 0px !important;
+            }
+
+            .stat-item:nth-child(3) .itf-career-label {
+                font-size: clamp(0.45rem, 0.6vw, 0.55rem) !important;
+                margin-bottom: 0px !important;
+                padding-top: 2px !important;
+            }
+
+            .stat-item:nth-child(3) .itf-career-number {
+                font-size: clamp(1.2rem, 2.5vw, 1.6rem) !important;
+                margin-top: 0px !important;
+            }
+
+            .stat-item:nth-child(6) .atf-wrapper .atf-number {
+                margin-bottom: 0px !important;
+            }
+
+            .stat-item:nth-child(6) .atf-career-label {
+                font-size: clamp(0.4rem, 0.5vw, 0.5rem) !important;
+                margin-bottom: 0px !important;
+                padding-top: 2px !important;
+            }
+
+            .stat-item:nth-child(6) .atf-career-number {
+                font-size: clamp(1rem, 2vw, 1.4rem) !important;
+                margin-top: 0px !important;
             }
 
             .stat-item:nth-child(7) .wtt-label {
@@ -2517,10 +2620,18 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                         <div class="itf-wrapper">
                             <img src="images/world-tennis-logo.png" alt="World Tennis Logo" class="logo-itf" />
                             <div class="itf-label">
-                                <span class="en-text">RANKING</span>
-                                <span class="ru-text">РЕЙТИНГ</span>
+                                <span class="en-text">Current rankings</span>
+                                <span class="ru-text">Текущий рейтинг</span>
                             </div>
                             <div class="itf-number">2719</div>
+                            <!-- РЕЙТИНГ 2500 -->
+                            <div style="width: 100%; text-align: center;">
+                                <div class="itf-career-label" style="font-size: clamp(0.6rem, 0.8vw, 0.85rem); font-weight: 600; color: var(--text-main); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 2px;">
+                                    <span class="en-text">Career-high rankings</span>
+                                    <span class="ru-text">Наивысший рейтинг в карьере</span>
+                                </div>
+                                <div class="itf-career-number" style="font-family: 'Cinzel', serif; font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 700; color: var(--text-main);">1805</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -2549,10 +2660,18 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                         <div class="atf-wrapper">
                             <img src="images/atf-logo.png" alt="ATF Logo" class="logo-atf" />
                             <div class="atf-label">
-                                <span class="en-text">RANKING</span>
-                                <span class="ru-text">РЕЙТИНГ</span>
+                                <span class="en-text">Current rankings</span>
+                                <span class="ru-text">Текущий рейтинг</span>
                             </div>
                             <div class="atf-number">22</div>
+                            <!-- ATF CAREER-HIGH -->
+                            <div style="width: 100%; text-align: center; margin-top: 5px;">
+                                <div class="atf-career-label" style="font-size: clamp(0.5rem, 0.7vw, 0.75rem); font-weight: 600; color: var(--text-main); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 2px;">
+                                    <span class="en-text">Career-high rankings</span>
+                                    <span class="ru-text">Наивысший рейтинг в карьере</span>
+                                </div>
+                                <div class="atf-career-number" style="font-family: 'Cinzel', serif; font-size: clamp(1.4rem, 3vw, 2.2rem); font-weight: 700; color: var(--text-main);">6</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -3551,7 +3670,7 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                             <span class="en-text">Belent</span>
                             <span class="ru-text">Белент</span>
                         </div>
-					</div>
+                    </div>
                     <div class="video-card">
                         <video playsinline controls>
                             <source src="images/video/ilima-video/A_vy_govorili.mp4" type="video/mp4" />
@@ -3562,7 +3681,7 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                             <span class="en-text">A_vy_govorili</span>
                             <span class="ru-text">А вы говорили</span>
                         </div>
-					</div>
+                    </div>
                     <div class="video-card">
                         <video playsinline controls>
                             <source src="images/video/ilima-video/Eto_ya.mp4" type="video/mp4" />
@@ -3573,7 +3692,7 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                             <span class="en-text">Eto_ya</span>
                             <span class="ru-text">Это Я</span>
                         </div>
-					</div>
+                    </div>
                     <div class="video-card">
                         <video playsinline controls>
                             <source src="images/video/ilima-video/Serdce.mp4" type="video/mp4" />
