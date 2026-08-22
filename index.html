@@ -2428,6 +2428,174 @@
         .en-text, .ru-text {
             display: block;
         }
+
+        /* ===== ТРЕНЕРЫ ===== */
+        .coaches-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: clamp(25px, 3vw, 40px);
+            margin-top: 30px;
+        }
+
+        @media (max-width: 1024px) {
+            .coaches-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .coaches-grid {
+                grid-template-columns: 1fr;
+                max-width: 380px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        .coach-card {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: clamp(25px, 3vw, 35px) clamp(20px, 2.5vw, 30px);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .coach-card:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.05);
+        }
+
+        .coach-avatar {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 16px auto;
+            border: 3px solid var(--border-color);
+            transition: border-color 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .coach-card:hover .coach-avatar {
+            border-color: var(--accent-gold);
+        }
+
+        .coach-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .coach-name {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.1rem, 1.3vw, 1.3rem);
+            color: var(--text-main);
+            margin-bottom: 2px;
+        }
+
+        .coach-title {
+            font-size: clamp(0.75rem, 0.8vw, 0.85rem);
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .coach-divider {
+            width: 40px;
+            height: 2px;
+            background: var(--accent-gold);
+            margin: 12px auto 14px auto;
+            border-radius: 2px;
+        }
+
+        .coach-contacts {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 14px;
+        }
+
+        .coach-contact-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: clamp(0.7rem, 0.75vw, 0.8rem);
+            transition: color 0.3s ease;
+        }
+
+        .coach-contact-link:hover {
+            color: var(--accent-gold);
+        }
+
+        .coach-contact-link svg {
+            flex-shrink: 0;
+        }
+
+        .coach-school {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: var(--text-muted);
+            font-size: clamp(0.65rem, 0.7vw, 0.75rem);
+            background: rgba(255, 255, 255, 0.04);
+            padding: 6px 14px;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 16px;
+        }
+
+        .coach-school svg {
+            flex-shrink: 0;
+            color: var(--accent-gold);
+        }
+
+        .coach-achievements {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            padding-top: 14px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .achievement-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: var(--text-muted);
+            font-size: clamp(0.6rem, 0.65vw, 0.7rem);
+            line-height: 1.4;
+        }
+
+        .achievement-item svg {
+            flex-shrink: 0;
+            color: var(--accent-gold);
+            width: 14px;
+            height: 14px;
+        }
+
+        @media (max-width: 480px) {
+            .coach-avatar {
+                width: 110px;
+                height: 110px;
+            }
+            
+            .coach-achievements {
+                align-items: center;
+            }
+            
+            .achievement-item {
+                text-align: center;
+                font-size: 0.65rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -2473,6 +2641,7 @@
             <a href="#media" data-tab="fullmatches"><span class="en-text">Full Matches</span><span class="ru-text">Полные матчи</span></a>
             <a href="#media" data-tab="training"><span class="en-text">Training</span><span class="ru-text">Тренировки</span></a>
             <a href="#media" data-tab="photo"><span class="en-text">Photo</span><span class="ru-text">Фото</span></a>
+            <a href="#coaches"><span class="en-text">Coaches</span><span class="ru-text">Тренеры</span></a>
             <a href="#contact"><span class="en-text">Recruiting</span><span class="ru-text">Рекрутинг</span></a>
             <a href="#sponsor"><span class="en-text">SPONSORS</span><span class="ru-text">СПОНСОРЫ</span></a>
             <button class="lang-switch" id="langToggle">RU</button>
@@ -2813,7 +2982,7 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                             <td class="tournament-name" data-link="https://www.atf.hitcourt.com/tournament-acceptance-factsheet-MzAx">Ramis Cup-2025</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/tj.svg');"></span></td>
                             <td><span class="en-text">ATF-U14-Category-2</span><span class="ru-text">ATF-U14-Категория-2</span></td>
-                            <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Поьедитель</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Поьедитель</span></span></td>
+                            <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span></td>
                             <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
                                 <img src="images/icon/user.svg" alt=" " width="22" height="22" />
                                 <span style="color: var(--accent-gold);">/</span>
@@ -2824,7 +2993,7 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                             <td class="tournament-name" data-link="https://www.atf.hitcourt.com/tournament-acceptance-factsheet-Mjg2">President Cup-2025</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/tj.svg');"></span></td>
                             <td><span class="en-text">ATF-U14-Category-1</span><span class="ru-text">ATF-U14-Категория-1</span></td>
-                            <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Поьедитель</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Поьедитель</span></span></td>
+                            <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span></td>
                             <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
                                 <img src="images/icon/user.svg" alt=" " width="22" height="22" />
                                 <span style="color: var(--accent-gold);">/</span>
@@ -2835,7 +3004,7 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                             <td class="tournament-name" data-link="http://ttf.gov.tm/">Turkmenistan Cup - 2025</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/tm.svg');"></span></td>
                             <td><span class="en-text">Men's and Women's Division</span><span class="ru-text">Мужчин и Женщин</span></td>
-                            <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Поьедитель</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Поьедитель</span></span></td>
+                            <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span></td>
                             <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
                                 <img src="images/icon/user.svg" alt=" " width="22" height="22" />
                                 <span style="color: var(--accent-gold);">/</span>
@@ -2886,7 +3055,7 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                             <td class="tournament-name" data-link="https://www.itftennis.com/en/tournament/j30-dushanbe/tjk/2025/j-j30-tjk-2025-005/draws-and-results/">ITF J30 Dushanbe - 2025</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/tj.svg');"></span></td>
                             <td><span class="en-text">ITF-J30</span><span class="ru-text">ITF-J30</span></td>
-                            <td><span class="result-badge 2nd Round"><span class="en-text">2nd Round</span><span class="ru-text">2-ой Раунд</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Поьедитель</span></span></td>
+                            <td><span class="result-badge 2nd Round"><span class="en-text">2nd Round</span><span class="ru-text">2-ой Раунд</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span></td>
                             <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
                                 <img src="images/icon/user.svg" alt=" " width="22" height="22" />
                                 <span style="color: var(--accent-gold);">/</span>
@@ -2959,7 +3128,7 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                             <td class="tournament-name" data-link="https://atf.tournamentsoftware.com/sport/winners.aspx?id=057fdeea-81d6-4119-a1f3-857a4593b2d3">Ashgabat Open - 2024</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/tm.svg');"></span></td>
                             <td><span class="en-text">ATF-U14-Category-2</span><span class="ru-text">ATF-U14-Категория-2</span></td>
-                            <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Поьедитель</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Поьедитель</span></span></td>
+                            <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span></td>
                             <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
                                 <img src="images/icon/user.svg" alt=" " width="22" height="22" />
                                 <span style="color: var(--accent-gold);">/</span>
@@ -2970,7 +3139,7 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                             <td class="tournament-name" data-link="https://atf.tournamentsoftware.com/sport/winners.aspx?id=41794e63-ce5a-4944-b637-d29158e4e346">3rd Qatar Asian Junior Tournament 14 & U - 2024</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/qa.svg');"></span></td>
                             <td><span class="en-text">ATF-U14-Grade-A</span><span class="ru-text">ATF-U14-Категория-A</span></td>
-                            <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Поьедитель</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Поьедитель</span></span></td>
+                            <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span></td>
                             <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
                                 <img src="images/icon/user.svg" alt=" " width="22" height="22" />
                                 <span style="color: var(--accent-gold);">/</span>
@@ -2995,7 +3164,7 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                             <td class="tournament-name" data-link="https://atf.tournamentsoftware.com/sport/winners.aspx?id=78e632bb-d7e0-4e59-b2f9-91f69595c0f8">Asian Grade A Tournament South Asia - 2024</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/in.svg');"></span></td>
                             <td><span class="en-text">ATF-U14-Grade-A</span><span class="ru-text">ATF-U14-Категория-A</span></td>
-                            <td><span class="result-badge silver"><span class="en-text">🥉Semifinalist</span><span class="ru-text">🥉Полуфиналист</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Поьедитель</span></span></td>
+                            <td><span class="result-badge silver"><span class="en-text">🥉Semifinalist</span><span class="ru-text">🥉Полуфиналист</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span></td>
                             <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
                                 <img src="images/icon/user.svg" alt=" " width="22" height="22" />
                                 <span style="color: var(--accent-gold);">/</span>
@@ -3050,7 +3219,7 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                             <td class="tournament-name" data-link="https://atf.tournamentsoftware.com/sport/winners.aspx?id=137fec0d-f426-4010-8577-6ba2ddc2ffef">ITF Asia 14&U Development Championships - (WA & CA) WEEK-2 - 2024</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/om.svg');"></span></td>
                             <td><span class="en-text">ATF-U14-Grade-A</span><span class="ru-text">ATF-U14-Категория-A</span></td>
-                            <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победитель</span></span> <span class="result-badge silver"><span class="en-text">🥈Runer-up</span><span class="ru-text">🥈Серебряный призёр</span></span></td>
+                            <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span> <span class="result-badge silver"><span class="en-text">🥈Runer-up</span><span class="ru-text">🥈Серебряный призёр</span></span></td>
                             <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
                                 <img src="images/icon/user.svg" alt=" " width="22" height="22" />
                                 <span style="color: var(--accent-gold);">/</span>
@@ -3061,7 +3230,7 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                             <td class="tournament-name" data-link="https://atf.tournamentsoftware.com/sport/winners.aspx?id=17bf25b8-afbc-449a-89ee-0d5a62bb70e0">ITF Asia 14&U Development Championships - (WA & CA) WEEK-1 - 2024</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/om.svg');"></span></td>
                             <td><span class="en-text">ATF-U14-Grade-A</span><span class="ru-text">ATF-U14-Категория-A</span></td>
-                            <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победитель</span></span> <span class="result-badge silver"><span class="en-text">🥈Runer-up</span><span class="ru-text">🥈Серебряный призёр</span></span></td>
+                            <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span> <span class="result-badge silver"><span class="en-text">🥈Runer-up</span><span class="ru-text">🥈Серебряный призёр</span></span></td>
                             <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
                                 <img src="images/icon/user.svg" alt=" " width="22" height="22" />
                                 <span style="color: var(--accent-gold);">/</span>
@@ -3072,21 +3241,21 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                             <td class="tournament-name" data-link="https://playtennis.usta.com/Competitions/caselytennisfoundation/Tournaments/Overview/425c75ca-aa37-463f-9a34-1be947df223b#whereToFindUs">CASELY INTERNATIONAL CHAMPIONSHIPS  - 2023</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/us.svg');"></span></td>
                             <td><span class="en-text">Level</span><span class="ru-text">Level</span></td>
-                            <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Поьедитель</span></span></td>
+                            <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span></td>
                             <td class="ranking-cell icon-cell"><img src="images/icon/user.svg" alt=" " width="22" height="22" /></td>
                         </tr>
                         <tr>
                             <td class="tournament-name" data-link="https://playtennis.usta.com/Competitions/caselytennisfoundation/Tournaments/Overview/425c75ca-aa37-463f-9a34-1be947df223b#whereToFindUs">CASELY INTERNATIONAL CHAMPIONSHIPS  - 2023</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/us.svg');"></span></td>
                             <td><span class="en-text">Level</span><span class="ru-text">Level</span></td>
-                            <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Поьедитель</span></span></td>
+                            <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span></td>
                             <td class="ranking-cell icon-cell"><img src="images/icon/user.svg" alt=" " width="22" height="22" /></td>
                         </tr>
                         <tr>
                             <td class="tournament-name" data-link="https://playtennis.usta.com/Competitions/caselytennisfoundation/Tournaments/Overview/425c75ca-aa37-463f-9a34-1be947df223b#whereToFindUs">CASELY INTERNATIONAL CHAMPIONSHIPS  - 2023</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/us.svg');"></span></td>
                             <td><span class="en-text">Level</span><span class="ru-text">Level</span></td>
-                            <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Поьедитель</span></span></td>
+                            <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span></td>
                             <td class="ranking-cell icon-cell"><img src="images/icon/user.svg" alt=" " width="22" height="22" /></td>
                         </tr>
                         <tr>
@@ -3107,7 +3276,7 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                             <td class="tournament-name" data-link="http://ttf.gov.tm/">Turkmenistan Cup - 2023</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/tm.svg');"></span></td>
                             <td><span class="en-text">Men's and Women's Division</span><span class="ru-text">Мужчин и Женщин</span></td>
-                            <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Поьедитель</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Поьедитель</span></span></td>
+                            <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span></td>
                             <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
                                 <img src="images/icon/user.svg" alt=" " width="22" height="22" />
                                 <span style="color: var(--accent-gold);">/</span>
@@ -3118,7 +3287,7 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                             <td class="tournament-name" data-link="https://atf.tournamentsoftware.com/sport/winners.aspx?id=7855f490-7d1d-40d4-967a-8d8bcf283bae">Karshi ATF-2023</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/uz.svg');"></span></td>
                             <td><span class="en-text">ATF-U14-Category-1</span><span class="ru-text">ATF-U14-Категория-1</span></td>
-                            <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победитель</span></span> <span class="result-badge bronze"><span class="en-text">🥉Semifinalist</span><span class="ru-text">🥉Полуфиналист</span></span></td>
+                            <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span> <span class="result-badge bronze"><span class="en-text">🥉Semifinalist</span><span class="ru-text">🥉Полуфиналист</span></span></td>
                             <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
                                 <img src="images/icon/user.svg" alt=" " width="22" height="22" />
                                 <span style="color: var(--accent-gold);">/</span>
@@ -3129,7 +3298,7 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                             <td class="tournament-name" data-link="https://atf.tournamentsoftware.com/sport/winners.aspx?id=c1d93abc-04d8-4ca2-994f-b909968b557f">Bukhara ATF-2023</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/uz.svg');"></span></td>
                             <td><span class="en-text">ATF-U14-Category-1</span><span class="ru-text">ATF-U14-Категория-1</span></td>
-                            <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победитель</span></span> <span class="result-badge silver"><span class="en-text">🥈Runer-up</span><span class="ru-text">🥈Серебряный призёр</span></span></td>
+                            <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span> <span class="result-badge silver"><span class="en-text">🥈Runer-up</span><span class="ru-text">🥈Серебряный призёр</span></span></td>
                             <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
                                 <img src="images/icon/user.svg" alt=" " width="22" height="22" />
                                 <span style="color: var(--accent-gold);">/</span>
@@ -3147,7 +3316,7 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                             <td class="tournament-name" data-link="http://ttf.gov.tm/">Championship of Turkmenistan - 2023</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/tm.svg');"></span></td>
                             <td><span class="en-text">U14</span><span class="ru-text">U14</span></td>
-                            <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Поьедитель</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Поьедитель</span></span></td>
+                            <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span></td>
                             <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
                                 <img src="images/icon/user.svg" alt=" " width="22" height="22" />
                                 <span style="color: var(--accent-gold);">/</span>
@@ -3176,7 +3345,7 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                             <td class="tournament-name" data-link="http://ttf.gov.tm/">Championship of Turkmenistan - 2023</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/tm.svg');"></span></td>
                             <td><span class="en-text">Men's and Women's Division</span><span class="ru-text">Мужчин и Женщин</span></td>
-                            <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Поьедитель</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Поьедитель</span></span></td>
+                            <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span></td>
                             <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
                                 <img src="images/icon/user.svg" alt=" " width="22" height="22" />
                                 <span style="color: var(--accent-gold);">/</span>
@@ -3187,7 +3356,7 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                             <td class="tournament-name" data-link="https://atf.tournamentsoftware.com/sport/winners.aspx?id=a76a5598-8aec-4516-ada3-82eb3b547c28">Uchkun (1) ATF-2023</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/uz.svg');"></span></td>
                             <td><span class="en-text">ATF-U14-Category-2</span><span class="ru-text">ATF-U14-Категория-2</span></td>
-                            <td><span class="result-badge silver"><span class="en-text">🥈Runer-up</span><span class="ru-text">🥈Серебряный призёр</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победитель</span></span></td>
+                            <td><span class="result-badge silver"><span class="en-text">🥈Runer-up</span><span class="ru-text">🥈Серебряный призёр</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span></td>
                             <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
                                 <img src="images/icon/user.svg" alt=" " width="22" height="22" />
                                 <span style="color: var(--accent-gold);">/</span>
@@ -3241,7 +3410,7 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                             <td class="tournament-name" data-link="http://ttf.gov.tm/">Turkmenistan Cup - 2022</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/tm.svg');"></span></td>
                             <td><span class="en-text">Men's and Women's Division</span><span class="ru-text">Мужчин и Женщин</span></td>
-                            <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Поьедитель</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Поьедитель</span></span></td>
+                            <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span></td>
                             <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
                                 <img src="images/icon/user.svg" alt=" " width="22" height="22" />
                                 <span style="color: var(--accent-gold);">/</span>
@@ -3252,7 +3421,7 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                             <td class="tournament-name" data-link="http://ttf.gov.tm/">Championship of Turkmenistan - 2022</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/tm.svg');"></span></td>
                             <td><span class="en-text">Men's and Women's Division</span><span class="ru-text">Мужчин и Женщин</span></td>
-                            <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Поьедитель</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Поьедитель</span></span></td>
+                            <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span></td>
                             <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
                                 <img src="images/icon/user.svg" alt=" " width="22" height="22" />
                                 <span style="color: var(--accent-gold);">/</span>
@@ -3263,14 +3432,14 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                             <td class="tournament-name" data-link="http://ttf.gov.tm/">Turkmenistan Championship - 2022</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/tm.svg');"></span></td>
                             <td><span class="en-text">U14</span><span class="ru-text">U14</span></td>
-                            <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Поьедитель</span></span></td>
+                            <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span></td>
                             <td class="ranking-cell icon-cell"><img src="images/icon/user.svg" alt=" " width="22" height="22" /></td>
                         </tr>
                         <tr>
                             <td class="tournament-name" data-link="http://ttf.gov.tm/">Turkmenistan Championship - 2022</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/tm.svg');"></span></td>
                             <td><span class="en-text">U12</span><span class="ru-text">U12</span></td>
-                            <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Поьедитель</span></span></td>
+                            <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span></td>
                             <td class="ranking-cell icon-cell"><img src="images/icon/user.svg" alt=" " width="22" height="22" /></td>
                         </tr>
                     </tbody>
@@ -3769,6 +3938,222 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                     <span class="en-text">Show All Videos</span>
                     <span class="ru-text">Показать все видео</span>
                 </button>
+            </div>
+        </section>
+
+        <!-- ===== ТРЕНЕРЫ ===== -->
+        <section id="coaches">
+            <div class="section-header">
+                <div>
+                    <div class="section-tag">
+                        <span class="en-text">Coaching Staff</span>
+                        <span class="ru-text">Тренерский штаб</span>
+                    </div>
+                    <h2 class="section-title">
+                        <span class="en-text">Coaches</span>
+                        <span class="ru-text">Тренеры</span>
+                    </h2>
+                </div>
+            </div>
+
+            <div class="coaches-grid">
+                <!-- Тренер 1 -->
+                <div class="coach-card">
+                    <div class="coach-avatar">
+                        <img src="images/coaches/Uma.png" alt="Coach 1" />
+                    </div>
+                    <h3 class="coach-name">
+                        <span class="en-text">Uma Kurbanovna</span>
+                        <span class="ru-text">Ума Курбановна</span>
+                    </h3>
+                    <p class="coach-title">
+                        <span class="en-text">Tennis Coach</span>
+                        <span class="ru-text">Тренер по теннису</span>
+                    </p>
+                    
+                    <div class="coach-divider"></div>
+                    
+                    <div class="coach-contacts">
+                        <a href="tel:\+99364027333" class="coach-contact-link">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.574 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                            +993 64 02 73 33
+                        </a>
+                        <a href="https://www.instagram.com/umahummetova/" target="_blank" class="coach-contact-link">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                            </svg>
+                            @umahummetova
+                        </a>
+                    </div>
+                    
+                    <div class="coach-school">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                        </svg>
+                        <span><span class="en-text">Coach at Sports School No. 11</span><span class="ru-text">Тренер спортивной школы №11</span></span>
+                    </div>
+                    
+                    <div class="coach-achievements">
+                        <div class="achievement-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12 6 12 12 16 14"/>
+                            </svg>
+                            <span><span class="en-text">🏆Winner of ITF Junior 18&Under of Turkmenistan (2003)</span><span class="ru-text">🏆Победительница ITF Junior 18&Under of Turkmenistan (2003)</span></span>
+                        </div>
+                        <div class="achievement-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12 6 12 12 16 14"/>
+                            </svg>
+                            <span><span class="en-text">Participant of the Billie Jean King Cup</span><span class="ru-text">Участница Billie Jean King Cup</span></span>
+                        </div>
+                        <div class="achievement-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12 6 12 12 16 14"/>
+                            </svg>
+                            <span><span class="en-text">ITF Junior Career-high ranking (22 September 2003) <<687>></span><span class="ru-text">ITF Junior Career-high rankings (22 September 2003) <<687>></span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Тренер 2 -->
+                <div class="coach-card">
+                    <div class="coach-avatar">
+                        <img src="images/coaches/Alex.png" alt="Coach 2" />
+                    </div>
+                    <h3 class="coach-name">
+                        <span class="en-text">Alexander Valerievich</span>
+                        <span class="ru-text">Александр Валерьевич</span>
+                    </h3>
+                    <p class="coach-title">
+                        <span class="en-text">Tennis Coach</span>
+                        <span class="ru-text">Тренер по теннису</span>
+                    </p>
+                    
+                    <div class="coach-divider"></div>
+                    
+                    <div class="coach-contacts">
+                        <a href="tel:\+99365631035" class="coach-contact-link">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.574 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                            +993 65 63 10 35
+                        </a>
+                        <a href="https://www.instagram.com/alekstennis_official/" target="_blank" class="coach-contact-link">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                            </svg>
+                            @alekstennis_official
+                        </a>
+                    </div>
+                    
+                    <div class="coach-school">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                        </svg>
+                        <span><span class="en-text">Personal Coach</span><span class="ru-text">Персональный тренер</span></span>
+                    </div>
+                    
+                    <div class="coach-achievements">
+                        <div class="achievement-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12 6 12 12 16 14"/>
+                            </svg>
+                            <span><span class="en-text">6-time 🏆Champion of Turkmenistan in doubles</span><span class="ru-text">6-сти кратный 🏆Чемпион Туркменистана в парном разряде</span></span>
+                        </div>
+                        <div class="achievement-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12 6 12 12 16 14"/>
+                            </svg>
+                            <span><span class="en-text">Multiple-time Davis Cup team captain</span><span class="ru-text">Многократный капитан команды Davis Cup</span></span>
+                        </div>
+                        <div class="achievement-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12 6 12 12 16 14"/>
+                            </svg>
+                            <span><span class="en-text">Multiple-time Billie Jean King Cup team captain</span><span class="ru-text">Многократный капитан команды Billie Jean King Cup</span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Тренер 3 -->
+                <div class="coach-card">
+                    <div class="coach-avatar">
+                        <img src="images/coaches/Allanur.png" alt="Coach 3" />
+                    </div>
+                    <h3 class="coach-name">
+                        <span class="en-text">Allanur Dayandzhovich</span>
+                        <span class="ru-text">Алланур Даянджович</span>
+                    </h3>
+                    <p class="coach-title">
+                        <span class="en-text">Tennis Coach / Sparring Partner</span>
+                        <span class="ru-text">Тренер по теннису/Спаринг портнёр</span>
+                    </p>
+                    
+                    <div class="coach-divider"></div>
+                    
+                    <div class="coach-contacts">
+                        <a href="tel:\+99363481529" class="coach-contact-link">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.574 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                            +993 63 48 15 29
+                        </a>
+                        <a href="https://www.instagram.com/allanur_coach_tennis/" target="_blank" class="coach-contact-link">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                            </svg>
+                            @allanur_coach_tennis
+                        </a>
+                    </div>
+                    
+                    <div class="coach-school">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                        </svg>
+                        <span><span class="en-text">Personal Coach</span><span class="ru-text">Персональный тренер</span></span>
+                    </div>
+                    
+                    <div class="coach-achievements">
+                        <div class="achievement-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12 6 12 12 16 14"/>
+                            </svg>
+                            <span><span class="en-text">🏆Champion of Turkmenistan (2025)</span><span class="ru-text">🏆Чемпион Туркменистана (2025)</span></span>
+                        </div>
+                        <div class="achievement-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12 6 12 12 16 14"/>
+                            </svg>
+                            <span><span class="en-text">🏆Winner of the Turkmenistan Cup (2025)</span><span class="ru-text">🏆Победитель Кубка Туркменистана (2025)</span></span>
+                        </div>
+                        <div class="achievement-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12 6 12 12 16 14"/>
+                            </svg>
+                            <span><span class="en-text">Davis Cup participant (2025)</span><span class="ru-text">Участник Davis Cup (2025)</span></span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
