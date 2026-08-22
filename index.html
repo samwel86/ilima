@@ -1029,13 +1029,14 @@
             border: 1px solid var(--border-color);
             border-radius: 4px;
             background: var(--surface-color);
+            -webkit-overflow-scrolling: touch;
         }
 
         .tournaments-table {
             width: 100%;
             border-collapse: collapse;
-            font-size: clamp(0.7rem, 0.8vw, 0.85rem);
-            min-width: 500px;
+            font-size: clamp(0.65rem, 0.8vw, 0.85rem);
+            min-width: 650px;
         }
 
         .tournaments-table th {
@@ -1044,17 +1045,19 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
-            padding: 14px 16px;
+            padding: 12px 14px;
             text-align: left;
             border-bottom: 2px solid var(--accent-gold);
-            font-size: clamp(0.6rem, 0.7vw, 0.75rem);
+            font-size: clamp(0.55rem, 0.7vw, 0.75rem);
+            white-space: nowrap;
         }
 
         .tournaments-table td {
-            padding: 12px 16px;
+            padding: 10px 14px;
             border-bottom: 1px solid var(--border-color);
             color: var(--text-muted);
             vertical-align: middle;
+            font-size: clamp(0.6rem, 0.7vw, 0.8rem);
         }
 
         .tournaments-table tbody tr:hover {
@@ -1071,6 +1074,7 @@
             cursor: pointer;
             transition: color 0.3s ease;
             text-decoration: none;
+            font-size: clamp(0.55rem, 0.7vw, 0.75rem);
         }
 
         .tournaments-table .tournament-name:hover {
@@ -1080,12 +1084,13 @@
 
         .tournaments-table .result-badge {
             display: inline-block;
-            padding: 4px 12px;
+            padding: 3px 10px;
             border-radius: 20px;
-            font-size: clamp(0.55rem, 0.6vw, 0.7rem);
+            font-size: clamp(0.5rem, 0.6vw, 0.65rem);
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            white-space: nowrap;
         }
 
         .result-badge.gold {
@@ -1112,9 +1117,46 @@
             border: 1px solid var(--border-color);
         }
 
+        .result-badge.Finalist {
+            background: rgba(212, 175, 55, 0.2);
+            color: var(--accent-gold);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+        }
+
+        .result-badge.\31st\ Round {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
+            border: 1px solid var(--border-color);
+        }
+
+        .result-badge.\32nd\ Round {
+            background: rgba(255, 255, 255, 0.07);
+            color: var(--text-muted);
+            border: 1px solid var(--border-color);
+        }
+
+        .result-badge.\33rd\ Round {
+            background: rgba(255, 255, 255, 0.09);
+            color: var(--text-muted);
+            border: 1px solid var(--border-color);
+        }
+
+        .result-badge.Quarter-finals {
+            background: rgba(192, 192, 192, 0.12);
+            color: #c0c0c0;
+            border: 1px solid rgba(192, 192, 192, 0.15);
+        }
+
+        .result-badge.Round\ Robin {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
+            border: 1px solid var(--border-color);
+        }
+
         .tournaments-table .ranking-cell {
             color: var(--text-main);
             font-weight: 600;
+            white-space: nowrap;
         }
 
         /* ===== НОВЫЙ СТИЛЬ ДЛЯ ЯЧЕЙКИ С ИКОНКОЙ ===== */
@@ -1123,12 +1165,19 @@
             justify-content: flex-start;
             align-items: center;
             gap: 8px;
-            padding: 12px 16px;
+            padding: 10px 14px;
         }
 
         .tournaments-table .ranking-cell.icon-cell img {
-            width: 22px;
-            height: 22px;
+            width: 20px;
+            height: 20px;
+            display: block;
+            flex-shrink: 0;
+        }
+
+        .tournaments-table .ranking-cell img {
+            width: 20px;
+            height: 20px;
             display: block;
             flex-shrink: 0;
         }
@@ -1183,14 +1232,46 @@
         @media (max-width: 768px) {
             .tournaments-table-wrapper {
                 border-radius: 4px;
+                margin: 10px -10px 0 -10px;
+                border-left: none;
+                border-right: none;
+                border-radius: 0;
             }
             .tournaments-table {
-                font-size: 0.7rem;
-                min-width: 400px;
+                font-size: 0.6rem;
+                min-width: 580px;
             }
             .tournaments-table th,
             .tournaments-table td {
-                padding: 10px 12px;
+                padding: 8px 10px;
+            }
+            .tournaments-table th {
+                font-size: 0.5rem;
+                padding: 8px 10px;
+                letter-spacing: 0.5px;
+            }
+            .tournaments-table td {
+                font-size: 0.55rem;
+                padding: 8px 10px;
+            }
+            .tournaments-table .tournament-name {
+                font-size: 0.5rem;
+            }
+            .tournaments-table .result-badge {
+                font-size: 0.45rem;
+                padding: 2px 8px;
+            }
+            .tournaments-table .ranking-cell.icon-cell img {
+                width: 16px;
+                height: 16px;
+            }
+            .tournaments-table .ranking-cell img {
+                width: 16px;
+                height: 16px;
+            }
+            .tournaments-table .flag-icon {
+                width: 18px;
+                height: 12px;
             }
             .tournaments-toggle-btn {
                 padding: 10px 24px;
@@ -1199,13 +1280,44 @@
         }
 
         @media (max-width: 480px) {
+            .tournaments-table-wrapper {
+                margin: 10px -12px 0 -12px;
+            }
             .tournaments-table {
-                font-size: 0.6rem;
-                min-width: 350px;
+                font-size: 0.5rem;
+                min-width: 500px;
             }
             .tournaments-table th,
             .tournaments-table td {
-                padding: 8px 10px;
+                padding: 6px 8px;
+            }
+            .tournaments-table th {
+                font-size: 0.45rem;
+                padding: 6px 8px;
+                letter-spacing: 0.5px;
+            }
+            .tournaments-table td {
+                font-size: 0.5rem;
+                padding: 6px 8px;
+            }
+            .tournaments-table .tournament-name {
+                font-size: 0.45rem;
+            }
+            .tournaments-table .result-badge {
+                font-size: 0.4rem;
+                padding: 2px 6px;
+            }
+            .tournaments-table .ranking-cell.icon-cell img {
+                width: 14px;
+                height: 14px;
+            }
+            .tournaments-table .ranking-cell img {
+                width: 14px;
+                height: 14px;
+            }
+            .tournaments-table .flag-icon {
+                width: 16px;
+                height: 10px;
             }
             .tournaments-toggle-btn {
                 padding: 8px 18px;
