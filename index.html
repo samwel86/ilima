@@ -1036,7 +1036,7 @@
             width: 100%;
             border-collapse: collapse;
             font-size: clamp(0.65rem, 0.8vw, 0.85rem);
-            min-width: 650px;
+            table-layout: auto;
         }
 
         .tournaments-table th {
@@ -1045,7 +1045,7 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
-            padding: 12px 14px;
+            padding: 12px 10px;
             text-align: left;
             border-bottom: 2px solid var(--accent-gold);
             font-size: clamp(0.55rem, 0.7vw, 0.75rem);
@@ -1053,7 +1053,7 @@
         }
 
         .tournaments-table td {
-            padding: 10px 14px;
+            padding: 10px;
             border-bottom: 1px solid var(--border-color);
             color: var(--text-muted);
             vertical-align: middle;
@@ -1075,6 +1075,7 @@
             transition: color 0.3s ease;
             text-decoration: none;
             font-size: clamp(0.55rem, 0.7vw, 0.75rem);
+            line-height: 1.2;
         }
 
         .tournaments-table .tournament-name:hover {
@@ -1084,13 +1085,16 @@
 
         .tournaments-table .result-badge {
             display: inline-block;
-            padding: 3px 10px;
+            padding: 2px 8px;
             border-radius: 20px;
             font-size: clamp(0.5rem, 0.6vw, 0.65rem);
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             white-space: nowrap;
+            margin-right: 2px;
+            margin-bottom: 2px;
+            line-height: 1.3;
         }
 
         .result-badge.gold {
@@ -1157,29 +1161,26 @@
             color: var(--text-main);
             font-weight: 600;
             white-space: nowrap;
+            text-align: center;
         }
 
-        /* ===== НОВЫЙ СТИЛЬ ДЛЯ ЯЧЕЙКИ С ИКОНКОЙ ===== */
+        /* ===== СТИЛЬ ДЛЯ ЯЧЕЙКИ С ИКОНКОЙ ===== */
         .tournaments-table .ranking-cell.icon-cell {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 14px;
+            text-align: center;
         }
 
         .tournaments-table .ranking-cell.icon-cell img {
-            width: 20px;
-            height: 20px;
-            display: block;
-            flex-shrink: 0;
+            width: 16px;
+            height: 16px;
+            display: inline-block;
+            vertical-align: middle;
         }
 
         .tournaments-table .ranking-cell img {
-            width: 20px;
-            height: 20px;
-            display: block;
-            flex-shrink: 0;
+            width: 16px;
+            height: 16px;
+            display: inline-block;
+            vertical-align: middle;
         }
 
         .flag-icon {
@@ -1229,100 +1230,42 @@
             display: table;
         }
 
-        /* ===== МОБИЛЬНАЯ АДАПТАЦИЯ ТАБЛИЦЫ ТУРНИРОВ ===== */
+        /* ===== МОБИЛЬНАЯ АДАПТАЦИЯ ТАБЛИЦЫ (ВСЁ ПОМЕЩАЕТСЯ) ===== */
         @media (max-width: 768px) {
             .tournaments-table-wrapper {
                 border-radius: 4px;
                 margin: 10px 0 0 0;
                 border: 1px solid var(--border-color);
-                border-radius: 4px;
-                overflow-x: auto;
+                overflow-x: auto; /* Оставляем на всякий случай, но из-за настроек ширины скролла не будет */
             }
             .tournaments-table {
-                font-size: 0.55rem;
-                min-width: 100%;
-                table-layout: fixed;
-            }
-            .tournaments-table th,
-            .tournaments-table td {
-                padding: 6px 4px;
-            }
-            .tournaments-table th {
-                font-size: 0.45rem;
-                padding: 6px 4px;
-                letter-spacing: 0.3px;
-            }
-            .tournaments-table td {
-                font-size: 0.45rem;
-                padding: 6px 4px;
-            }
-            .tournaments-table .tournament-name {
-                font-size: 0.4rem;
-            }
-            .tournaments-table .result-badge {
-                font-size: 0.35rem;
-                padding: 1px 4px;
-                border-radius: 10px;
-                display: inline-block;
-                white-space: nowrap;
-            }
-            .tournaments-table .ranking-cell.icon-cell img {
-                width: 12px;
-                height: 12px;
-            }
-            .tournaments-table .ranking-cell img {
-                width: 12px;
-                height: 12px;
-            }
-            .tournaments-table .flag-icon {
-                width: 14px;
-                height: 10px;
-            }
-            .tournaments-table .ranking-cell {
-                white-space: nowrap;
-            }
-            .tournaments-table .ranking-cell span {
-                font-size: 0.4rem;
-            }
-            .tournaments-toggle-btn {
-                padding: 8px 16px;
                 font-size: 0.5rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .tournaments-table-wrapper {
-                margin: 10px 0 0 0;
-                border: 1px solid var(--border-color);
-                border-radius: 4px;
-            }
-            .tournaments-table {
-                font-size: 0.45rem;
-                min-width: 100%;
-                table-layout: fixed;
+                width: 100%;
+                table-layout: auto;
             }
             .tournaments-table th,
             .tournaments-table td {
                 padding: 4px 3px;
             }
             .tournaments-table th {
-                font-size: 0.4rem;
+                font-size: 0.45rem;
                 padding: 4px 3px;
                 letter-spacing: 0.2px;
             }
             .tournaments-table td {
-                font-size: 0.4rem;
+                font-size: 0.45rem;
                 padding: 4px 3px;
             }
             .tournaments-table .tournament-name {
-                font-size: 0.35rem;
-                line-height: 1.2;
+                font-size: 0.4rem;
+                line-height: 1.1;
             }
             .tournaments-table .result-badge {
-                font-size: 0.3rem;
+                font-size: 0.35rem;
                 padding: 1px 3px;
-                border-radius: 8px;
+                border-radius: 6px;
                 white-space: nowrap;
+                margin-right: 1px;
             }
             .tournaments-table .ranking-cell.icon-cell img {
                 width: 10px;
@@ -1340,11 +1283,70 @@
                 white-space: nowrap;
             }
             .tournaments-table .ranking-cell span {
-                font-size: 0.35rem;
+                font-size: 0.4rem;
             }
             .tournaments-toggle-btn {
                 padding: 6px 12px;
                 font-size: 0.45rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .tournaments-table-wrapper {
+                margin: 10px 0 0 0;
+                border: 1px solid var(--border-color);
+                border-radius: 4px;
+            }
+            .tournaments-table {
+                font-size: 0.45rem;
+                width: 100%;
+                table-layout: auto;
+            }
+            .tournaments-table th,
+            .tournaments-table td {
+                padding: 3px 2px;
+            }
+            .tournaments-table th {
+                font-size: 0.4rem;
+                padding: 3px 2px;
+                letter-spacing: 0.1px;
+            }
+            .tournaments-table td {
+                font-size: 0.4rem;
+                padding: 3px 2px;
+            }
+            .tournaments-table .tournament-name {
+                font-size: 0.35rem;
+                line-height: 1.1;
+            }
+            .tournaments-table .result-badge {
+                font-size: 0.3rem;
+                padding: 1px 2px;
+                border-radius: 5px;
+                white-space: nowrap;
+                margin-right: 1px;
+            }
+            .tournaments-table .ranking-cell.icon-cell img {
+                width: 8px;
+                height: 8px;
+            }
+            .tournaments-table .ranking-cell img {
+                width: 8px;
+                height: 8px;
+            }
+            .tournaments-table .flag-icon {
+                width: 10px;
+                height: 7px;
+            }
+            .tournaments-table .ranking-cell {
+                white-space: nowrap;
+            }
+            .tournaments-table .ranking-cell span {
+                font-size: 0.35rem;
+            }
+            .tournaments-toggle-btn {
+                padding: 5px 10px;
+                font-size: 0.4rem;
             }
         }
 
@@ -3080,77 +3082,74 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                         </tr>
                     </thead>
                     <tbody>
+					    <tr>
+                            <td class="tournament-name" data-link="https://ttf.gov.tm/">Championship of Ashgabat - 2026</td>
+                            <td><span class="flag-icon" style="background-image: url('images/flags/tm.svg');"></span></td>
+                            <td><span class="en-text">Men's and Women's Division</span><span class="ru-text">Мужчин и Женщин</span></td>
+                            <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Поьедительница</span></span></td>
+                            <td class="ranking-cell icon-cell"><img src="images/icon/user.svg" alt=" " width="22" height="22" /></td>
+                        </tr>
+						<tr>
+                            <td class="tournament-name" data-link="https://ttf.gov.tm/">Championship of Turkmenistan - 2026</td>
+                            <td><span class="flag-icon" style="background-image: url('images/flags/tm.svg');"></span></td>
+                            <td><span class="en-text">Men's and Women's Division</span><span class="ru-text">Мужчин и Женщин</span></td>
+                            <td><span class="result-badge silver"><span class="en-text">🥉Semifinalist</span><span class="ru-text">🥉Полуфиналистка</span></span></td>
+                            <td class="ranking-cell icon-cell"><img src="images/icon/user.svg" alt=" " width="22" height="22" /></td>
+                        </tr>
                         <tr>
                             <td class="tournament-name" data-link="https://www.itftennis.com/en/tournament/j30-fergana/uzb/2026/j-j30-uzb-2026-002/draws-and-results/">ITF J30 Fergana - 2026</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/uz.svg');"></span></td>
                             <td><span class="en-text">ITF-J30</span><span class="ru-text">ITF-J30</span></td>
                             <td><span class="result-badge Round Robin"><span class="en-text">Round Robin</span><span class="ru-text">Робин Раунд</span></span> <span class="result-badge 1st Round"><span class="en-text">1st Round</span><span class="ru-text">1-ый Раунд</span></span></td>
-                            <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
-                                <img src="images/icon/user.svg" alt=" " width="22" height="22" />
-                                <span style="color: var(--accent-gold);">/</span>
-                                <img src="images/icon/users.svg" alt=" " width="22" height="22" />
-                            </td>
+                            <td class="ranking-cell" style="text-align: center;"><img src="images/icon/user.svg" alt=" " width="22" height="22" /><span style="color: var(--accent-gold);">/</span><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
                         </tr>
                         <tr>
                             <td class="tournament-name" data-link="https://www.itftennis.com/en/tournament/j30-binh-duong-/vie/2026/j-j30-vie-2026-004/draws-and-results/">ITF J30 Binh Duong - 2026</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/vn.svg');"></span></td>
                             <td><span class="en-text">ITF-J30</span><span class="ru-text">ITF-J30</span></td>
                             <td><span class="result-badge Round Robin"><span class="en-text">Round Robin</span><span class="ru-text">Робин Раунд</span></span> <span class="result-badge silver"><span class="en-text">🥈Runer-up</span><span class="ru-text">🥈Серебряная призёрка</span></span></td>
-                            <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
-                                <img src="images/icon/user.svg" alt=" " width="22" height="22" />
-                                <span style="color: var(--accent-gold);">/</span>
-                                <img src="images/icon/users.svg" alt=" " width="22" height="22" />
-                            </td>
+                            <td class="ranking-cell" style="text-align: center;"><img src="images/icon/user.svg" alt=" " width="22" height="22" /><span style="color: var(--accent-gold);">/</span><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
                         </tr>
                         <tr>
                             <td class="tournament-name" data-link="https://atf.tournamentsoftware.com/sport/winners.aspx?id=057fdeea-81d6-4119-a1f3-857a4593b2d3">Billie Jean King Cup - 2025</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/lk.svg');"></span></td>
                             <td><span class="en-text">ITF</span><span class="ru-text">ITF</span></td>
                             <td><span class="result-badge Participant"><span class="en-text">Participant</span><span class="ru-text">Участница</span></span></td>
-                            <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
-                                <img src="images/icon/user.svg" alt=" " width="22" height="22" />
-                                <span style="color: var(--accent-gold);">/</span>
-                                <img src="images/icon/users.svg" alt=" " width="22" height="22" />
-                            </td>
+                            <td class="ranking-cell" style="text-align: center;"><img src="images/icon/user.svg" alt=" " width="22" height="22" /><span style="color: var(--accent-gold);">/</span><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
                         </tr>
                         <tr>
                             <td class="tournament-name" data-link="https://www.atf.hitcourt.com/tournament-acceptance-factsheet-MzAx">Ramis Cup-2025</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/tj.svg');"></span></td>
                             <td><span class="en-text">ATF-U14-Category-2</span><span class="ru-text">ATF-U14-Категория-2</span></td>
                             <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span></td>
-                            <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
-                                <img src="images/icon/user.svg" alt=" " width="22" height="22" />
-                                <span style="color: var(--accent-gold);">/</span>
-                                <img src="images/icon/users.svg" alt=" " width="22" height="22" />
-                            </td>
+                            <td class="ranking-cell" style="text-align: center;"><img src="images/icon/user.svg" alt=" " width="22" height="22" /><span style="color: var(--accent-gold);">/</span><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
                         </tr>
                         <tr>
                             <td class="tournament-name" data-link="https://www.atf.hitcourt.com/tournament-acceptance-factsheet-Mjg2">President Cup-2025</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/tj.svg');"></span></td>
                             <td><span class="en-text">ATF-U14-Category-1</span><span class="ru-text">ATF-U14-Категория-1</span></td>
                             <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span></td>
-                            <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
-                                <img src="images/icon/user.svg" alt=" " width="22" height="22" />
-                                <span style="color: var(--accent-gold);">/</span>
-                                <img src="images/icon/users.svg" alt=" " width="22" height="22" />
-                            </td>
+                            <td class="ranking-cell" style="text-align: center;"><img src="images/icon/user.svg" alt=" " width="22" height="22" /><span style="color: var(--accent-gold);">/</span><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
                         </tr>
                         <tr>
-                            <td class="tournament-name" data-link="http://ttf.gov.tm/">Turkmenistan Cup - 2025</td>
+                            <td class="tournament-name" data-link="http://ttf.gov.tm/">Championship of Turkmenistan - 2025</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/tm.svg');"></span></td>
                             <td><span class="en-text">Men's and Women's Division</span><span class="ru-text">Мужчин и Женщин</span></td>
                             <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span></td>
-                            <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
-                                <img src="images/icon/user.svg" alt=" " width="22" height="22" />
-                                <span style="color: var(--accent-gold);">/</span>
-                                <img src="images/icon/users.svg" alt=" " width="22" height="22" />
-                            </td>
+                            <td class="ranking-cell" style="text-align: center;"><img src="images/icon/user.svg" alt=" " width="22" height="22" /><span style="color: var(--accent-gold);">/</span><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
+                        </tr>
+						<tr>
+                            <td class="tournament-name" data-link="http://ttf.gov.tm/">Championship of Ashgabat - 2025</td>
+                            <td><span class="flag-icon" style="background-image: url('images/flags/tm.svg');"></span></td>
+                            <td><span class="en-text">Men's and Women's Division</span><span class="ru-text">Мужчин и Женщин</span></td>
+                            <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span></td>
+                            <td class="ranking-cell" style="text-align: center;"><img src="images/icon/user.svg" alt=" " width="22" height="22" /><span style="color: var(--accent-gold);">/</span><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
                         </tr>
                         <tr>
                             <td class="tournament-name" data-link="https://www.atf.hitcourt.com/tournament-acceptance-factsheet-Mjgx">Roland Garros Junior Series by Renault - Qualifications West and Central Asia - 2025</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/kz.svg');"></span></td>
                             <td><span class="en-text">ATF-U16-Category-1</span><span class="ru-text">ATF-U16-Категория-1</span></td>
-                            <td><span class="result-badge Finalist"><span class="en-text">Finalist</span><span class="ru-text">Финалистка</span></span></td>
+                            <td><span class="result-badge silver"><span class="en-text">Finalist</span><span class="ru-text">Финалистка</span></span></td>
                             <td class="ranking-cell icon-cell"><img src="images/icon/user.svg" alt=" " width="22" height="22" /></td>
                         </tr>
                         <tr>
@@ -3158,105 +3157,69 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                             <td><span class="flag-icon" style="background-image: url('images/flags/tj.svg');"></span></td>
                             <td><span class="en-text">ITF-J60</span><span class="ru-text">ITF-J60</span></td>
                             <td><span class="result-badge 1st Round"><span class="en-text">1st Round</span><span class="ru-text">1-ый Раунд</span></span> <span class="result-badge 1st Round"><span class="en-text">2nd Round</span><span class="ru-text">2-ой Раунд</span></span></td>
-                            <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
-                                <img src="images/icon/user.svg" alt=" " width="22" height="22" />
-                                <span style="color: var(--accent-gold);">/</span>
-                                <img src="images/icon/users.svg" alt=" " width="22" height="22" />
-                            </td>
+                            <td class="ranking-cell" style="text-align: center;"><img src="images/icon/user.svg" alt=" " width="22" height="22" /><span style="color: var(--accent-gold);">/</span><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
                         </tr>
                         <tr>
                             <td class="tournament-name" data-link="https://www.itftennis.com/en/tournament/j60-dushanbe/tjk/2025/j-j60-tjk-2025-002/draws-and-results/">ITF J60 Dushanbe - 2025</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/tj.svg');"></span></td>
                             <td><span class="en-text">ITF-J60</span><span class="ru-text">ITF-J60</span></td>
                             <td><span class="result-badge 2nd Round"><span class="en-text">2nd Round</span><span class="ru-text">2-ой Раунд</span></span> <span class="result-badge 1st Round"><span class="en-text">1st Round</span><span class="ru-text">1-ый Раунд</span></span></td>
-                            <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
-                                <img src="images/icon/user.svg" alt=" " width="22" height="22" />
-                                <span style="color: var(--accent-gold);">/</span>
-                                <img src="images/icon/users.svg" alt=" " width="22" height="22" />
-                            </td>
+                            <td class="ranking-cell" style="text-align: center;"><img src="images/icon/user.svg" alt=" " width="22" height="22" /><span style="color: var(--accent-gold);">/</span><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
                         </tr>
                         <tr>
                             <td class="tournament-name" data-link="https://www.itftennis.com/en/tournament/j30-dushanbe/tjk/2025/j-j30-tjk-2025-006/draws-and-results/">ITF J30 Dushanbe - 2025</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/tj.svg');"></span></td>
                             <td><span class="en-text">ITF-J30</span><span class="ru-text">ITF-J30</span></td>
                             <td><span class="result-badge 1st Round"><span class="en-text">1st Round</span><span class="ru-text">1-ый Раунд</span></span> <span class="result-badge 1st Round"><span class="en-text">1st Round</span><span class="ru-text">1-ый Раунд</span></span></td>
-                            <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
-                                <img src="images/icon/user.svg" alt=" " width="22" height="22" />
-                                <span style="color: var(--accent-gold);">/</span>
-                                <img src="images/icon/users.svg" alt=" " width="22" height="22" />
-                            </td>
+                            <td class="ranking-cell" style="text-align: center;"><img src="images/icon/user.svg" alt=" " width="22" height="22" /><span style="color: var(--accent-gold);">/</span><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
                         </tr>
                         <tr>
                             <td class="tournament-name" data-link="https://www.itftennis.com/en/tournament/j30-dushanbe/tjk/2025/j-j30-tjk-2025-005/draws-and-results/">ITF J30 Dushanbe - 2025</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/tj.svg');"></span></td>
                             <td><span class="en-text">ITF-J30</span><span class="ru-text">ITF-J30</span></td>
                             <td><span class="result-badge 2nd Round"><span class="en-text">2nd Round</span><span class="ru-text">2-ой Раунд</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span></td>
-                            <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
-                                <img src="images/icon/user.svg" alt=" " width="22" height="22" />
-                                <span style="color: var(--accent-gold);">/</span>
-                                <img src="images/icon/users.svg" alt=" " width="22" height="22" />
-                            </td>
+                            <td class="ranking-cell" style="text-align: center;"><img src="images/icon/user.svg" alt=" " width="22" height="22" /><span style="color: var(--accent-gold);">/</span><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
                         </tr>
                         <tr>
                             <td class="tournament-name" data-link="https://www.itftennis.com/en/tournament/j60-ipoh/mas/2025/j-j60-mas-2025-002/draws-and-results/">ITF J60 Ipoh - 2025</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/my.svg');"></span></td>
                             <td><span class="en-text">ITF-J60</span><span class="ru-text">ITF-J60</span></td>
                             <td><span class="result-badge 3rd Round"><span class="en-text">3rd Round</span><span class="ru-text">3-ий раунд</span></span> <span class="result-badge Quarter-finals"><span class="en-text">Quarter-finals</span><span class="ru-text">Четвертьфиналы</span></span></td>
-                            <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
-                                <img src="images/icon/user.svg" alt=" " width="22" height="22" />
-                                <span style="color: var(--accent-gold);">/</span>
-                                <img src="images/icon/users.svg" alt=" " width="22" height="22" />
-                            </td>
+                            <td class="ranking-cell" style="text-align: center;"><img src="images/icon/user.svg" alt=" " width="22" height="22" /><span style="color: var(--accent-gold);">/</span><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
                         </tr>
                         <tr>
                             <td class="tournament-name" data-link="https://www.itftennis.com/en/tournament/j60-seremban/mas/2025/j-j60-mas-2025-003/draws-and-results/">ITF J60 Seremban - 2025</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/my.svg');"></span></td>
                             <td><span class="en-text">ITF-J60</span><span class="ru-text">ITF-J60</span></td>
                             <td><span class="result-badge 2nd Round"><span class="en-text">2nd Round</span><span class="ru-text">2-ой раунд</span></span> <span class="result-badge 1st Round"><span class="en-text">1st Round</span><span class="ru-text">1-ый раунд</span></span></td>
-                            <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
-                                <img src="images/icon/user.svg" alt=" " width="22" height="22" />
-                                <span style="color: var(--accent-gold);">/</span>
-                                <img src="images/icon/users.svg" alt=" " width="22" height="22" />
-                            </td>
+                            <td class="ranking-cell" style="text-align: center;"><img src="images/icon/user.svg" alt=" " width="22" height="22" /><span style="color: var(--accent-gold);">/</span><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
                         </tr>
                         <tr>
                             <td class="tournament-name" data-link="https://www.itftennis.com/en/tournament/j30-binh-duong/vie/2025/j-j30-vie-2025-002/draws-and-results/">ITF J30 Binh Duong - 2025</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/vn.svg');"></span></td>
                             <td><span class="en-text">ITF-J30</span><span class="ru-text">ITF-J30</span></td>
                             <td><span class="result-badge 2nd Round"><span class="en-text">2nd Round</span><span class="ru-text">2-ой раунд</span></span> <span class="result-badge 1st Round"><span class="en-text">1st Round</span><span class="ru-text">1-ый раунд</span></span></td>
-                            <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
-                                <img src="images/icon/user.svg" alt=" " width="22" height="22" />
-                                <span style="color: var(--accent-gold);">/</span>
-                                <img src="images/icon/users.svg" alt=" " width="22" height="22" />
-                            </td>
+                            <td class="ranking-cell" style="text-align: center;"><img src="images/icon/user.svg" alt=" " width="22" height="22" /><span style="color: var(--accent-gold);">/</span><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
                         </tr>
                         <tr>
                             <td class="tournament-name" data-link="https://www.itftennis.com/en/tournament/j30-binh-duong/vie/2025/j-j30-vie-2025-001/draws-and-results/">ITF J30 Binh Duong - 2025</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/vn.svg');"></span></td>
                             <td><span class="en-text">ITF-J30</span><span class="ru-text">ITF-J30</span></td>
                             <td><span class="result-badge 1st Round"><span class="en-text">1st Round</span><span class="ru-text">1-ый раунд</span></span> <span class="result-badge Quarter-finals"><span class="en-text">Quarter-finals</span><span class="ru-text">Четвертьфиналы</span></span></td>
-                            <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
-                                <img src="images/icon/user.svg" alt=" " width="22" height="22" />
-                                <span style="color: var(--accent-gold);">/</span>
-                                <img src="images/icon/users.svg" alt=" " width="22" height="22" />
-                            </td>
+                            <td class="ranking-cell" style="text-align: center;"><img src="images/icon/user.svg" alt=" " width="22" height="22" /><span style="color: var(--accent-gold);">/</span><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
                         </tr>
                         <tr>
                             <td class="tournament-name" data-link="https://atf.tournamentsoftware.com/sport/winners.aspx?id=057fdeea-81d6-4119-a1f3-857a4593b2d3">Billie Jean King Cup - 2024</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/bh.svg');"></span></td>
                             <td><span class="en-text">ITF</span><span class="ru-text">ITF</span></td>
                             <td><span class="result-badge Participant"><span class="en-text">Participant</span><span class="ru-text">Участница</span></span></td>
-                            <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
-                                <img src="images/icon/user.svg" alt=" " width="22" height="22" />
-                                <span style="color: var(--accent-gold);">/</span>
-                                <img src="images/icon/users.svg" alt=" " width="22" height="22" />
-                            </td>
+                            <td class="ranking-cell" style="text-align: center;"><img src="images/icon/user.svg" alt=" " width="22" height="22" /><span style="color: var(--accent-gold);">/</span><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
                         </tr>
                         <tr>
                             <td class="tournament-name" data-link="https://www.asiantennis.com/event-detail/?id=9942">GSPDP Asian 14U Junior Championships - 2024</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/kh.svg');"></span></td>
                             <td><span class="en-text">ATF-U14-Grade-A</span><span class="ru-text">ATF-U14-Категория-A</span></td>
-                            <td><span class="result-badge Participant"><span class="en-text">Participant</span><span class="ru-text">Участница</span></span></td>
+                            <td><span class="result-badge silver"><span class="en-text">Finalist</span><span class="ru-text">Финалистка</span></span></td>
                             <td class="ranking-cell icon-cell"><img src="images/icon/user.svg" alt=" " width="22" height="22" /></td>
                         </tr>
                         <tr>
@@ -3264,22 +3227,14 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                             <td><span class="flag-icon" style="background-image: url('images/flags/tm.svg');"></span></td>
                             <td><span class="en-text">ATF-U14-Category-2</span><span class="ru-text">ATF-U14-Категория-2</span></td>
                             <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span></td>
-                            <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
-                                <img src="images/icon/user.svg" alt=" " width="22" height="22" />
-                                <span style="color: var(--accent-gold);">/</span>
-                                <img src="images/icon/users.svg" alt=" " width="22" height="22" />
-                            </td>
+                            <td class="ranking-cell" style="text-align: center;"><img src="images/icon/user.svg" alt=" " width="22" height="22" /><span style="color: var(--accent-gold);">/</span><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
                         </tr>
                         <tr>
                             <td class="tournament-name" data-link="https://atf.tournamentsoftware.com/sport/winners.aspx?id=41794e63-ce5a-4944-b637-d29158e4e346">3rd Qatar Asian Junior Tournament 14 & U - 2024</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/qa.svg');"></span></td>
                             <td><span class="en-text">ATF-U14-Grade-A</span><span class="ru-text">ATF-U14-Категория-A</span></td>
                             <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span></td>
-                            <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
-                                <img src="images/icon/user.svg" alt=" " width="22" height="22" />
-                                <span style="color: var(--accent-gold);">/</span>
-                                <img src="images/icon/users.svg" alt=" " width="22" height="22" />
-                            </td>
+                            <td class="ranking-cell" style="text-align: center;"><img src="images/icon/user.svg" alt=" " width="22" height="22" /><span style="color: var(--accent-gold);">/</span><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
                         </tr>
                         <tr>
                             <td class="tournament-name" data-link="https://atf.tournamentsoftware.com/sport/winners.aspx?id=05824c1f-079c-4140-a58e-60c568d2c612">Selangor Asian Grade A Tournament Southeast Asia - 2024</td>
@@ -3292,7 +3247,7 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                             <td class="tournament-name" data-link="https://atf.tournamentsoftware.com/sport/winners.aspx?id=e532ae02-0300-4a8b-aff4-6b3c64f565eb">ATF Shymkent GA - 2024</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/kz.svg');"></span></td>
                             <td><span class="en-text">ATF-U14-Grade-A</span><span class="ru-text">ATF-U14-Категория-A</span></td>
-                            <td><span class="result-badge silver"><span class="en-text">🥈Runer-up</span><span class="ru-text">🥈Серебряный призёрка</span></span></td>
+                            <td><span class="result-badge silver"><span class="en-text">🥈Runer-up</span><span class="ru-text">🥈Серебряная призёрка</span></span></td>
                             <td class="ranking-cell icon-cell"><img src="images/icon/user.svg" alt=" " width="22" height="22" /></td>
                         </tr>
                         <tr>
@@ -3300,77 +3255,77 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                             <td><span class="flag-icon" style="background-image: url('images/flags/in.svg');"></span></td>
                             <td><span class="en-text">ATF-U14-Grade-A</span><span class="ru-text">ATF-U14-Категория-A</span></td>
                             <td><span class="result-badge silver"><span class="en-text">🥉Semifinalist</span><span class="ru-text">🥉Полуфиналистка</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span></td>
-                            <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
-                                <img src="images/icon/user.svg" alt=" " width="22" height="22" />
-                                <span style="color: var(--accent-gold);">/</span>
-                                <img src="images/icon/users.svg" alt=" " width="22" height="22" />
-                            </td>
+                            <td class="ranking-cell" style="text-align: center;"><img src="images/icon/user.svg" alt=" " width="22" height="22" /><span style="color: var(--accent-gold);">/</span><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
+                        </tr>
+						<tr>
+                            <td class="tournament-name" data-link="https://ttf.gov.tm/">Championship of Ashgabat - 2024</td>
+                            <td><span class="flag-icon" style="background-image: url('images/flags/tm.svg');"></span></td>
+                            <td><span class="en-text">U18</span><span class="ru-text">U18</span></td>
+                            <td><span class="result-badge gold"><span class="en-text">🏆Championt</span><span class="ru-text">🏆Поьедительница</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Поьедительница</span></span></td>
+                            <td class="ranking-cell" style="text-align: center;"><img src="images/icon/user.svg" alt=" " width="22" height="22" /><span style="color: var(--accent-gold);">/</span><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
+                        </tr>
+						<tr>
+                            <td class="tournament-name" data-link="https://ttf.gov.tm/">Championship of Ashgabat - 2024</td>
+                            <td><span class="flag-icon" style="background-image: url('images/flags/tm.svg');"></span></td>
+                            <td><span class="en-text">U14</span><span class="ru-text">U14</span></td>
+                            <td><span class="result-badge gold"><span class="en-text">🏆Championt</span><span class="ru-text">🏆Поьедительница</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Поьедительница</span></span></td>
+                            <td class="ranking-cell" style="text-align: center;"><img src="images/icon/user.svg" alt=" " width="22" height="22" /><span style="color: var(--accent-gold);">/</span><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
+                        </tr>
+						<tr>
+                            <td class="tournament-name" data-link="https://ttf.gov.tm/">Championship of Turkmenistan - 2024</td>
+                            <td><span class="flag-icon" style="background-image: url('images/flags/tm.svg');"></span></td>
+                            <td><span class="en-text">U18</span><span class="ru-text">U18</span></td>
+                            <td><span class="result-badge gold"><span class="en-text">🏆Championt</span><span class="ru-text">🏆Поьедительница</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Поьедительница</span></span></td>
+                            <td class="ranking-cell" style="text-align: center;"><img src="images/icon/user.svg" alt=" " width="22" height="22" /><span style="color: var(--accent-gold);">/</span><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
+                        </tr>
+						<tr>
+                            <td class="tournament-name" data-link="https://ttf.gov.tm/">Championship of Turkmenistan - 2024</td>
+                            <td><span class="flag-icon" style="background-image: url('images/flags/tm.svg');"></span></td>
+                            <td><span class="en-text">U14</span><span class="ru-text">U14</span></td>
+                            <td><span class="result-badge gold"><span class="en-text">🏆Championt</span><span class="ru-text">🏆Поьедительница</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Поьедительница</span></span></td>
+                            <td class="ranking-cell" style="text-align: center;"><img src="images/icon/user.svg" alt=" " width="22" height="22" /><span style="color: var(--accent-gold);">/</span><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
                         </tr>
                         <tr>
                             <td class="tournament-name" data-link="https://atf.tournamentsoftware.com/sport/winners.aspx?id=78e632bb-d7e0-4e59-b2f9-91f69595c0f8">ITF Asia 14&U Development Championships - Finals WEEK-2 - 2024</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/my.svg');"></span></td>
                             <td><span class="en-text">ITF Juniors</span><span class="ru-text">ITF Juniors</span></td>
                             <td><span class="result-badge Participant"><span class="en-text">Participant</span><span class="ru-text">Участница</span></span></td>
-                            <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
-                                <img src="images/icon/user.svg" alt=" " width="22" height="22" />
-                                <span style="color: var(--accent-gold);">/</span>
-                                <img src="images/icon/users.svg" alt=" " width="22" height="22" />
-                            </td>
+                            <td class="ranking-cell" style="text-align: center;"><img src="images/icon/user.svg" alt=" " width="22" height="22" /><span style="color: var(--accent-gold);">/</span><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
                         </tr>
                         <tr>
                             <td class="tournament-name" data-link="https://atf.tournamentsoftware.com/tournament/1553c191-86fc-4d44-bf8d-78d27ca11367">ITF Asia 14&U Development Championships - Finals WEEK-1 - 2024</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/my.svg');"></span></td>
                             <td><span class="en-text">ITF Juniors-U14</span><span class="ru-text">ITF Juniors-U14</span></td>
                             <td><span class="result-badge Participant"><span class="en-text">Participant</span><span class="ru-text">Участница</span></span></td>
-                            <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
-                                <img src="images/icon/user.svg" alt=" " width="22" height="22" />
-                                <span style="color: var(--accent-gold);">/</span>
-                                <img src="images/icon/users.svg" alt=" " width="22" height="22" />
-                            </td>
+                            <td class="ranking-cell" style="text-align: center;"><img src="images/icon/user.svg" alt=" " width="22" height="22" /><span style="color: var(--accent-gold);">/</span><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
                         </tr>
                         <tr>
                             <td class="tournament-name" data-link="https://itfjuniors.tournamentsoftware.com/sport/winners.aspx?id=229D236E-D34A-4EEE-ADA0-AA91DF2E531A">Junior Davis Cup & Junior BJKC - A/O Pre Qualifying Event - 2024</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/lk.svg');"></span></td>
                             <td><span class="en-text">ITF Juniors-U16</span><span class="ru-text">ITF Juniors-U16</span></td>
-                            <td><span class="result-badge Finalist"><span class="en-text">Finalist</span><span class="ru-text">Финалистка</span></span></td>
-                            <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
-                                <img src="images/icon/user.svg" alt=" " width="22" height="22" />
-                                <span style="color: var(--accent-gold);">/</span>
-                                <img src="images/icon/users.svg" alt=" " width="22" height="22" />
-                            </td>
+                            <td><span class="result-badge silver"><span class="en-text">Finalist</span><span class="ru-text">Финалистка</span></span></td>
+                            <td class="ranking-cell" style="text-align: center;"><img src="images/icon/user.svg" alt=" " width="22" height="22" /><span style="color: var(--accent-gold);">/</span><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
                         </tr>
                         <tr>
                             <td class="tournament-name" data-link="https://itfjuniors.tournamentsoftware.com/sport/tournament.aspx?id=8BBC8CC7-DDB1-4094-ABC6-EE4B74FCA39B">World Junior Tennis Competition (Boys & Girls)- A/O Pre Qualifying Event - 2024</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/lk.svg');"></span></td>
                             <td><span class="en-text">ITF Juniors</span><span class="ru-text">ITF Juniors</span></td>
                             <td><span class="result-badge Participant"><span class="en-text">Participant</span><span class="ru-text">Участница</span></span></td>
-                            <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
-                                <img src="images/icon/user.svg" alt=" " width="22" height="22" />
-                                <span style="color: var(--accent-gold);">/</span>
-                                <img src="images/icon/users.svg" alt=" " width="22" height="22" />
-                            </td>
+                            <td class="ranking-cell" style="text-align: center;"><img src="images/icon/user.svg" alt=" " width="22" height="22" /><span style="color: var(--accent-gold);">/</span><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
                         </tr>
                         <tr>
                             <td class="tournament-name" data-link="https://atf.tournamentsoftware.com/sport/winners.aspx?id=137fec0d-f426-4010-8577-6ba2ddc2ffef">ITF Asia 14&U Development Championships - (WA & CA) WEEK-2 - 2024</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/om.svg');"></span></td>
                             <td><span class="en-text">ATF-U14-Grade-A</span><span class="ru-text">ATF-U14-Категория-A</span></td>
                             <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span> <span class="result-badge silver"><span class="en-text">🥈Runer-up</span><span class="ru-text">🥈Серебряная призёрка</span></span></td>
-                            <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
-                                <img src="images/icon/user.svg" alt=" " width="22" height="22" />
-                                <span style="color: var(--accent-gold);">/</span>
-                                <img src="images/icon/users.svg" alt=" " width="22" height="22" />
-                            </td>
+                            <td class="ranking-cell" style="text-align: center;"><img src="images/icon/user.svg" alt=" " width="22" height="22" /><span style="color: var(--accent-gold);">/</span><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
                         </tr>
                         <tr>
                             <td class="tournament-name" data-link="https://atf.tournamentsoftware.com/sport/winners.aspx?id=17bf25b8-afbc-449a-89ee-0d5a62bb70e0">ITF Asia 14&U Development Championships - (WA & CA) WEEK-1 - 2024</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/om.svg');"></span></td>
                             <td><span class="en-text">ATF-U14-Grade-A</span><span class="ru-text">ATF-U14-Категория-A</span></td>
                             <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span> <span class="result-badge silver"><span class="en-text">🥈Runer-up</span><span class="ru-text">🥈Серебряная призёрка</span></span></td>
-                            <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
-                                <img src="images/icon/user.svg" alt=" " width="22" height="22" />
-                                <span style="color: var(--accent-gold);">/</span>
-                                <img src="images/icon/users.svg" alt=" " width="22" height="22" />
-                            </td>
+                            <td class="ranking-cell" style="text-align: center;"><img src="images/icon/user.svg" alt=" " width="22" height="22" /><span style="color: var(--accent-gold);">/</span><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
                         </tr>
                         <tr>
                             <td class="tournament-name" data-link="https://playtennis.usta.com/Competitions/caselytennisfoundation/Tournaments/Overview/425c75ca-aa37-463f-9a34-1be947df223b#whereToFindUs">CASELY INTERNATIONAL CHAMPIONSHIPS  - 2023</td>
@@ -3412,39 +3367,27 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                             <td><span class="flag-icon" style="background-image: url('images/flags/tm.svg');"></span></td>
                             <td><span class="en-text">Men's and Women's Division</span><span class="ru-text">Мужчин и Женщин</span></td>
                             <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span></td>
-                            <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
-                                <img src="images/icon/user.svg" alt=" " width="22" height="22" />
-                                <span style="color: var(--accent-gold);">/</span>
-                                <img src="images/icon/users.svg" alt=" " width="22" height="22" />
-                            </td>
+                            <td class="ranking-cell" style="text-align: center;"><img src="images/icon/user.svg" alt=" " width="22" height="22" /><span style="color: var(--accent-gold);">/</span><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
                         </tr>
                         <tr>
                             <td class="tournament-name" data-link="https://atf.tournamentsoftware.com/sport/winners.aspx?id=7855f490-7d1d-40d4-967a-8d8bcf283bae">Karshi ATF-2023</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/uz.svg');"></span></td>
                             <td><span class="en-text">ATF-U14-Category-1</span><span class="ru-text">ATF-U14-Категория-1</span></td>
                             <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span> <span class="result-badge bronze"><span class="en-text">🥉Semifinalist</span><span class="ru-text">🥉Полуфиналистка</span></span></td>
-                            <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
-                                <img src="images/icon/user.svg" alt=" " width="22" height="22" />
-                                <span style="color: var(--accent-gold);">/</span>
-                                <img src="images/icon/users.svg" alt=" " width="22" height="22" />
-                            </td>
+                            <td class="ranking-cell" style="text-align: center;"><img src="images/icon/user.svg" alt=" " width="22" height="22" /><span style="color: var(--accent-gold);">/</span><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
                         </tr>
                         <tr>
                             <td class="tournament-name" data-link="https://atf.tournamentsoftware.com/sport/winners.aspx?id=c1d93abc-04d8-4ca2-994f-b909968b557f">Bukhara ATF-2023</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/uz.svg');"></span></td>
                             <td><span class="en-text">ATF-U14-Category-1</span><span class="ru-text">ATF-U14-Категория-1</span></td>
                             <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span> <span class="result-badge silver"><span class="en-text">🥈Runer-up</span><span class="ru-text">🥈Серебряная призёрка</span></span></td>
-                            <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
-                                <img src="images/icon/user.svg" alt=" " width="22" height="22" />
-                                <span style="color: var(--accent-gold);">/</span>
-                                <img src="images/icon/users.svg" alt=" " width="22" height="22" />
-                            </td>
+                            <td class="ranking-cell" style="text-align: center;"><img src="images/icon/user.svg" alt=" " width="22" height="22" /><span style="color: var(--accent-gold);">/</span><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
                         </tr>
                         <tr>
                             <td class="tournament-name" data-link="https://atf.tournamentsoftware.com/sport/winners.aspx?id=1dc8fb80-620f-4f28-8043-8402d2ea681d">ITF Junior Asian Championships-2023</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/kh.svg');"></span></td>
                             <td><span class="en-text">ATF-U14-Grade-A</span><span class="ru-text">ATF-U14-Категория-A</span></td>
-                            <td><span class="result-badge Finalist"><span class="en-text">Finalist</span><span class="ru-text">Финалистка</span></span></td>
+                            <td><span class="result-badge silver"><span class="en-text">Finalist</span><span class="ru-text">Финалистка</span></span></td>
                             <td class="ranking-cell icon-cell"><img src="images/icon/user.svg" alt=" " width="22" height="22" /></td>
                         </tr>
                         <tr>
@@ -3452,11 +3395,14 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                             <td><span class="flag-icon" style="background-image: url('images/flags/tm.svg');"></span></td>
                             <td><span class="en-text">U14</span><span class="ru-text">U14</span></td>
                             <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span></td>
-                            <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
-                                <img src="images/icon/user.svg" alt=" " width="22" height="22" />
-                                <span style="color: var(--accent-gold);">/</span>
-                                <img src="images/icon/users.svg" alt=" " width="22" height="22" />
-                            </td>
+                            <td class="ranking-cell" style="text-align: center;"><img src="images/icon/user.svg" alt=" " width="22" height="22" /><span style="color: var(--accent-gold);">/</span><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
+                        </tr>
+						<tr>
+                            <td class="tournament-name" data-link="http://ttf.gov.tm/">Championship of Turkmenistan - 2023</td>
+                            <td><span class="flag-icon" style="background-image: url('images/flags/tm.svg');"></span></td>
+                            <td><span class="en-text">U18</span><span class="ru-text">U18</span></td>
+                            <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span></td>
+                            <td class="ranking-cell" style="text-align: center;"><img src="images/icon/user.svg" alt=" " width="22" height="22" /><span style="color: var(--accent-gold);">/</span><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
                         </tr>
                         <tr>
                             <td class="tournament-name" data-link="https://atf.tournamentsoftware.com/tournament/97DEEFE9-B581-4721-A9F3-6EB084461F1C/draw/4">TTF Dushanbe Asian Grade A-2023</td>
@@ -3470,33 +3416,21 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                             <td><span class="flag-icon" style="background-image: url('images/flags/uz.svg');"></span></td>
                             <td><span class="en-text">ATF-U14-Category-2</span><span class="ru-text">ATF-U14-Категория-2</span></td>
                             <td><span class="result-badge silver"><span class="en-text">🥈Runer-up</span><span class="ru-text">🥈Серебряная призёрка</span></span> <span class="result-badge bronze"><span class="en-text">🥉Semifinalist</span><span class="ru-text">🥉Полуфиналистка</span></span></td>
-                            <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
-                                <img src="images/icon/user.svg" alt=" " width="22" height="22" />
-                                <span style="color: var(--accent-gold);">/</span>
-                                <img src="images/icon/users.svg" alt=" " width="22" height="22" />
-                            </td>
+                            <td class="ranking-cell" style="text-align: center;"><img src="images/icon/user.svg" alt=" " width="22" height="22" /><span style="color: var(--accent-gold);">/</span><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
                         </tr>
                         <tr>
                             <td class="tournament-name" data-link="http://ttf.gov.tm/">Championship of Turkmenistan - 2023</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/tm.svg');"></span></td>
                             <td><span class="en-text">Men's and Women's Division</span><span class="ru-text">Мужчин и Женщин</span></td>
                             <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span></td>
-                            <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
-                                <img src="images/icon/user.svg" alt=" " width="22" height="22" />
-                                <span style="color: var(--accent-gold);">/</span>
-                                <img src="images/icon/users.svg" alt=" " width="22" height="22" />
-                            </td>
+                            <td class="ranking-cell" style="text-align: center;"><img src="images/icon/user.svg" alt=" " width="22" height="22" /><span style="color: var(--accent-gold);">/</span><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
                         </tr>
                         <tr>
                             <td class="tournament-name" data-link="https://atf.tournamentsoftware.com/sport/winners.aspx?id=a76a5598-8aec-4516-ada3-82eb3b547c28">Uchkun (1) ATF-2023</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/uz.svg');"></span></td>
                             <td><span class="en-text">ATF-U14-Category-2</span><span class="ru-text">ATF-U14-Категория-2</span></td>
                             <td><span class="result-badge silver"><span class="en-text">🥈Runer-up</span><span class="ru-text">🥈Серебряная призёрка</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span></td>
-                            <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
-                                <img src="images/icon/user.svg" alt=" " width="22" height="22" />
-                                <span style="color: var(--accent-gold);">/</span>
-                                <img src="images/icon/users.svg" alt=" " width="22" height="22" />
-                            </td>
+                            <td class="ranking-cell" style="text-align: center;"><img src="images/icon/user.svg" alt=" " width="22" height="22" /><span style="color: var(--accent-gold);">/</span><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
                         </tr>
                         <tr>
                             <td class="tournament-name" data-link="https://atf.tournamentsoftware.com/tournament/4707AAD8-DA6C-4D28-9EBF-8859146A8A0D/draw/6">ITF ASIA 14 & UNDER DEVELOPMENT CHAMPIONSHIPS 2023, FINALS WEEK-2 - 2023</td>
@@ -3517,22 +3451,14 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                             <td><span class="flag-icon" style="background-image: url('images/flags/lk.svg');"></span></td>
                             <td><span class="en-text">ITF</span><span class="ru-text">ITF</span></td>
                             <td><span class="result-badge Participant"><span class="en-text">Participant</span><span class="ru-text">Участница</span></span></td>
-                            <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
-                                <img src="images/icon/user.svg" alt=" " width="22" height="22" />
-                                <span style="color: var(--accent-gold);">/</span>
-                                <img src="images/icon/users.svg" alt=" " width="22" height="22" />
-                            </td>
+                            <td class="ranking-cell" style="text-align: center;"><img src="images/icon/user.svg" alt=" " width="22" height="22" /><span style="color: var(--accent-gold);">/</span><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
                         </tr>
                         <tr>
                             <td class="tournament-name" data-link="https://atf.tournamentsoftware.com/tournament/5C28650D-B88E-42F2-BFF8-8DEE56754432/draw/4">ITF Asia 14&U Development Championships - (WA & CA) WEEK-2 - 2023</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/bh.svg');"></span></td>
                             <td><span class="en-text">ATF-U14-Category-1</span><span class="ru-text">ATF-U14-Категория-1</span></td>
                             <td><span class="result-badge bronze"><span class="en-text">🥉Semifinalistt</span><span class="ru-text">🥉Полуфиналистка</span></span> <span class="result-badge bronze"><span class="en-text">🥉Semifinalist</span><span class="ru-text">🥉Полуфиналистка</span></span></td>
-                            <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
-                                <img src="images/icon/user.svg" alt=" " width="22" height="22" />
-                                <span style="color: var(--accent-gold);">/</span>
-                                <img src="images/icon/users.svg" alt=" " width="22" height="22" />
-                            </td>
+                            <td class="ranking-cell" style="text-align: center;"><img src="images/icon/user.svg" alt=" " width="22" height="22" /><span style="color: var(--accent-gold);">/</span><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
                         </tr>
                         <tr>
                             <td class="tournament-name" data-link="https://atf.tournamentsoftware.com/tournament/710301E9-2CE5-463F-AAC1-8D131271C1E1/draw/8">ITF Asia 14&U Development Championships - (WA & CA) WEEK 1 - 2023</td>
@@ -3546,22 +3472,14 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                             <td><span class="flag-icon" style="background-image: url('images/flags/tm.svg');"></span></td>
                             <td><span class="en-text">Men's and Women's Division</span><span class="ru-text">Мужчин и Женщин</span></td>
                             <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span></td>
-                            <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
-                                <img src="images/icon/user.svg" alt=" " width="22" height="22" />
-                                <span style="color: var(--accent-gold);">/</span>
-                                <img src="images/icon/users.svg" alt=" " width="22" height="22" />
-                            </td>
+                            <td class="ranking-cell" style="text-align: center;"><img src="images/icon/user.svg" alt=" " width="22" height="22" /><span style="color: var(--accent-gold);">/</span><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
                         </tr>
                         <tr>
                             <td class="tournament-name" data-link="http://ttf.gov.tm/">Championship of Turkmenistan - 2022</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/tm.svg');"></span></td>
                             <td><span class="en-text">Men's and Women's Division</span><span class="ru-text">Мужчин и Женщин</span></td>
                             <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span></td>
-                            <td class="ranking-cell" style="display: flex; justify-content: flex-start; align-items: center; gap: 6px;">
-                                <img src="images/icon/user.svg" alt=" " width="22" height="22" />
-                                <span style="color: var(--accent-gold);">/</span>
-                                <img src="images/icon/users.svg" alt=" " width="22" height="22" />
-                            </td>
+                            <td class="ranking-cell" style="text-align: center;"><img src="images/icon/user.svg" alt=" " width="22" height="22" /><span style="color: var(--accent-gold);">/</span><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
                         </tr>
                         <tr>
                             <td class="tournament-name" data-link="http://ttf.gov.tm/">Turkmenistan Championship - 2022</td>
