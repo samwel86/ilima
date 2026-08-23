@@ -1229,99 +1229,122 @@
             display: table;
         }
 
+        /* ===== МОБИЛЬНАЯ АДАПТАЦИЯ ТАБЛИЦЫ ТУРНИРОВ ===== */
         @media (max-width: 768px) {
             .tournaments-table-wrapper {
                 border-radius: 4px;
-                margin: 10px -10px 0 -10px;
-                border-left: none;
-                border-right: none;
-                border-radius: 0;
+                margin: 10px 0 0 0;
+                border: 1px solid var(--border-color);
+                border-radius: 4px;
+                overflow-x: auto;
             }
             .tournaments-table {
-                font-size: 0.6rem;
-                min-width: 580px;
+                font-size: 0.55rem;
+                min-width: 100%;
+                table-layout: fixed;
             }
             .tournaments-table th,
             .tournaments-table td {
-                padding: 8px 10px;
+                padding: 6px 4px;
             }
             .tournaments-table th {
-                font-size: 0.5rem;
-                padding: 8px 10px;
-                letter-spacing: 0.5px;
+                font-size: 0.45rem;
+                padding: 6px 4px;
+                letter-spacing: 0.3px;
             }
             .tournaments-table td {
-                font-size: 0.55rem;
-                padding: 8px 10px;
+                font-size: 0.45rem;
+                padding: 6px 4px;
             }
             .tournaments-table .tournament-name {
-                font-size: 0.5rem;
+                font-size: 0.4rem;
             }
             .tournaments-table .result-badge {
-                font-size: 0.45rem;
-                padding: 2px 8px;
+                font-size: 0.35rem;
+                padding: 1px 4px;
+                border-radius: 10px;
+                display: inline-block;
+                white-space: nowrap;
             }
             .tournaments-table .ranking-cell.icon-cell img {
-                width: 16px;
-                height: 16px;
-            }
-            .tournaments-table .ranking-cell img {
-                width: 16px;
-                height: 16px;
-            }
-            .tournaments-table .flag-icon {
-                width: 18px;
+                width: 12px;
                 height: 12px;
             }
+            .tournaments-table .ranking-cell img {
+                width: 12px;
+                height: 12px;
+            }
+            .tournaments-table .flag-icon {
+                width: 14px;
+                height: 10px;
+            }
+            .tournaments-table .ranking-cell {
+                white-space: nowrap;
+            }
+            .tournaments-table .ranking-cell span {
+                font-size: 0.4rem;
+            }
             .tournaments-toggle-btn {
-                padding: 10px 24px;
-                font-size: 0.6rem;
+                padding: 8px 16px;
+                font-size: 0.5rem;
             }
         }
 
         @media (max-width: 480px) {
             .tournaments-table-wrapper {
-                margin: 10px -12px 0 -12px;
+                margin: 10px 0 0 0;
+                border: 1px solid var(--border-color);
+                border-radius: 4px;
             }
             .tournaments-table {
-                font-size: 0.5rem;
-                min-width: 500px;
+                font-size: 0.45rem;
+                min-width: 100%;
+                table-layout: fixed;
             }
             .tournaments-table th,
             .tournaments-table td {
-                padding: 6px 8px;
+                padding: 4px 3px;
             }
             .tournaments-table th {
-                font-size: 0.45rem;
-                padding: 6px 8px;
-                letter-spacing: 0.5px;
+                font-size: 0.4rem;
+                padding: 4px 3px;
+                letter-spacing: 0.2px;
             }
             .tournaments-table td {
-                font-size: 0.5rem;
-                padding: 6px 8px;
+                font-size: 0.4rem;
+                padding: 4px 3px;
             }
             .tournaments-table .tournament-name {
-                font-size: 0.45rem;
+                font-size: 0.35rem;
+                line-height: 1.2;
             }
             .tournaments-table .result-badge {
-                font-size: 0.4rem;
-                padding: 2px 6px;
+                font-size: 0.3rem;
+                padding: 1px 3px;
+                border-radius: 8px;
+                white-space: nowrap;
             }
             .tournaments-table .ranking-cell.icon-cell img {
-                width: 14px;
-                height: 14px;
-            }
-            .tournaments-table .ranking-cell img {
-                width: 14px;
-                height: 14px;
-            }
-            .tournaments-table .flag-icon {
-                width: 16px;
+                width: 10px;
                 height: 10px;
             }
+            .tournaments-table .ranking-cell img {
+                width: 10px;
+                height: 10px;
+            }
+            .tournaments-table .flag-icon {
+                width: 12px;
+                height: 8px;
+            }
+            .tournaments-table .ranking-cell {
+                white-space: nowrap;
+            }
+            .tournaments-table .ranking-cell span {
+                font-size: 0.35rem;
+            }
             .tournaments-toggle-btn {
-                padding: 8px 18px;
-                font-size: 0.5rem;
+                padding: 6px 12px;
+                font-size: 0.45rem;
             }
         }
 
@@ -4141,7 +4164,7 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                         <img src="images/coaches/Alex.png" alt="Coach 2" />
                     </div>
                     <h3 class="coach-name">
-                        <span class="en-text">Alexander Valerievich</span>
+                        <span class="en-text">Alexander Valeryevich</span>
                         <span class="ru-text">Александр Валерьевич</span>
                     </h3>
                     <p class="coach-title">
@@ -4207,7 +4230,7 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                         <img src="images/coaches/Allanur.png" alt="Coach 3" />
                     </div>
                     <h3 class="coach-name">
-                        <span class="en-text">Allanur Dayandzhovich</span>
+                        <span class="en-text">Allanur Dayanjovich</span>
                         <span class="ru-text">Алланур Даянджович</span>
                     </h3>
                     <p class="coach-title">
