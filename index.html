@@ -11,22 +11,22 @@
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
     
     <style>
-        /* ===== ПЕРЕМЕННЫЕ ===== */
+        /* ===== ПЕРЕМЕННЫЕ (СВЕТЛАЯ СИНЯЯ ТЕМА) ===== */
         :root {
-            --bg-color: #050505;
-            --surface-color: #111113;
-            --accent-gold: #D4AF37;
-            --text-main: #FFFFFF;
-            --text-muted: #8E8E93;
-            --border-color: rgba(255, 255, 255, 0.1);
+            --bg-color: #E3F2FD; /* Светло-голубой фон */
+            --surface-color: #FFFFFF; /* Белые карточки */
+            --accent-gold: #1565C0; /* Насыщенный синий акцент */
+            --text-main: #0D47A1; /* Тёмно-синий основной текст */
+            --text-muted: #1976D2; /* Средний синий для второстепенного */
+            --border-color: rgba(21, 101, 192, 0.2); /* Светло-синие границы */
 
             /* PLYR переменные */
-            --plyr-color-main: #D4AF37;
-            --plyr-video-controls-background: rgba(0, 0, 0, 0.7);
-            --plyr-video-control-color: #ffffff;
-            --plyr-video-control-color-hover: #D4AF37;
+            --plyr-color-main: #1565C0;
+            --plyr-video-controls-background: rgba(255, 255, 255, 0.9);
+            --plyr-video-control-color: #0D47A1;
+            --plyr-video-control-color-hover: #1565C0;
             --plyr-control-radius: 4px;
-            --plyr-video-poster-background: #0a0a0a;
+            --plyr-video-poster-background: #ffffff;
 
             --utr-singles-logo-offset: 0px;
             --utr-singles-label-offset: 0px;
@@ -130,7 +130,7 @@
             align-items: center;
             padding: 16px 30px;
             z-index: 1000;
-            background: linear-gradient(to bottom, rgba(5, 5, 5, 0.95), transparent);
+            background: linear-gradient(to bottom, rgba(227, 242, 253, 0.98), transparent);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
         }
@@ -212,7 +212,7 @@
             display: block;
             width: 28px;
             height: 2px;
-            background: white;
+            background: var(--text-main);
             transition: all 0.3s ease;
             border-radius: 2px;
         }
@@ -286,7 +286,7 @@
                 left: 0;
                 width: 100%;
                 height: 100vh;
-                background: rgba(5, 5, 5, 0.98);
+                background: rgba(227, 242, 253, 0.98);
                 backdrop-filter: blur(20px);
                 -webkit-backdrop-filter: blur(20px);
                 flex-direction: column;
@@ -366,7 +366,7 @@
             flex-direction: column;
             justify-content: flex-end;
             overflow: hidden;
-            background-color: #050505;
+            background-color: var(--bg-color);
         }
 
         .hero-slides {
@@ -395,6 +395,7 @@
             opacity: 1;
         }
 
+        /* УБИРАЕМ МУТНОСТЬ: градиент полностью прозрачный или очень слабый */
         .hero-slides::after {
             content: '';
             position: absolute;
@@ -402,8 +403,9 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(0deg, #050505 0%, rgba(5, 5, 5, 0.2) 40%, rgba(5, 5, 5, 0.6) 100%);
+            background: linear-gradient(0deg, rgba(227, 242, 253, 0.1) 0%, rgba(227, 242, 253, 0) 40%, rgba(227, 242, 253, 0) 100%);
             z-index: 1;
+            pointer-events: none;
         }
 
         .hero-content {
@@ -428,16 +430,16 @@
             line-height: 1;
             margin-bottom: clamp(15px, 2vh, 25px);
             letter-spacing: clamp(1px, 0.2vw, 2px);
-            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+            text-shadow: 0 4px 20px rgba(255, 255, 255, 0.8);
         }
 
         .hero-desc-wrapper .hero-desc {
             max-width: 600px;
-            color: #E0E0E0;
+            color: var(--text-main);
             font-size: clamp(0.85rem, 1.2vw, 1.1rem);
             line-height: 1.6;
             margin-bottom: clamp(25px, 3vh, 40px);
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         .hero-actions {
@@ -453,8 +455,8 @@
         }
 
         .btn-primary {
-            background: var(--text-main);
-            color: #000;
+            background: var(--accent-gold);
+            color: #FFFFFF;
             padding: clamp(14px, 2vh, 16px) clamp(24px, 3vw, 36px);
             text-decoration: none;
             font-weight: 700;
@@ -466,12 +468,12 @@
         }
 
         .btn-primary:hover {
-            background: var(--accent-gold);
+            background: var(--text-main);
         }
 
         .btn-outline {
-            border: 1px solid var(--border-color);
-            color: var(--text-main);
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
             padding: clamp(14px, 2vh, 16px) clamp(24px, 3vw, 36px);
             text-decoration: none;
             font-weight: 700;
@@ -479,13 +481,13 @@
             font-size: clamp(0.65rem, 0.8vw, 0.8rem);
             letter-spacing: clamp(1.5px, 0.2vw, 2px);
             border-radius: 2px;
-            background: rgba(0, 0, 0, 0.4);
+            background: rgba(255, 255, 255, 0.8);
             transition: all 0.3s ease;
         }
 
         .btn-outline:hover {
-            border-color: var(--text-main);
-            background: rgba(255, 255, 255, 0.1);
+            background: var(--accent-gold);
+            color: #fff;
         }
 
         @media (max-width: 600px) {
@@ -511,12 +513,12 @@
             top: 50%;
             transform: translateY(-50%);
             z-index: 10;
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(13, 71, 161, 0.8);
             font-size: clamp(2.5rem, 5vw, 4rem);
             cursor: pointer;
             user-select: none;
             transition: all 0.3s ease;
-            text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
             font-weight: 300;
             line-height: 1;
             padding: 0 clamp(10px, 2vw, 15px);
@@ -565,6 +567,7 @@
             font-size: clamp(1.8rem, 4vw, 3rem);
             text-transform: uppercase;
             letter-spacing: 2px;
+            color: var(--text-main);
         }
 
         .section-tag {
@@ -710,9 +713,9 @@
         }
 
         @keyframes pulse-glow {
-            0% { opacity: 1; filter: brightness(1) drop-shadow(0 0 0px rgba(212, 175, 55, 0)); }
-            50% { opacity: 0.25; filter: brightness(0.5) drop-shadow(0 0 20px rgba(212, 175, 55, 0.3)); }
-            100% { opacity: 1; filter: brightness(1) drop-shadow(0 0 0px rgba(212, 175, 55, 0)); }
+            0% { opacity: 1; filter: brightness(1) drop-shadow(0 0 0px rgba(21, 101, 192, 0)); }
+            50% { opacity: 0.25; filter: brightness(0.5) drop-shadow(0 0 20px rgba(21, 101, 192, 0.3)); }
+            100% { opacity: 1; filter: brightness(1) drop-shadow(0 0 0px rgba(21, 101, 192, 0)); }
         }
 
         .itf-wrapper {
@@ -782,9 +785,9 @@
         }
 
         @keyframes pulse-glow-atf {
-            0% { opacity: 1; filter: brightness(1) drop-shadow(0 0 0px rgba(212, 175, 55, 0)); }
-            50% { opacity: 0.2; filter: brightness(0.4) drop-shadow(0 0 25px rgba(212, 175, 55, 0.4)); }
-            100% { opacity: 1; filter: brightness(1) drop-shadow(0 0 0px rgba(212, 175, 55, 0)); }
+            0% { opacity: 1; filter: brightness(1) drop-shadow(0 0 0px rgba(21, 101, 192, 0)); }
+            50% { opacity: 0.2; filter: brightness(0.4) drop-shadow(0 0 25px rgba(21, 101, 192, 0.4)); }
+            100% { opacity: 1; filter: brightness(1) drop-shadow(0 0 0px rgba(21, 101, 192, 0)); }
         }
 
         .atf-wrapper {
@@ -850,9 +853,9 @@
         }
 
         @keyframes pulse-glow-wtt {
-            0% { opacity: 1; filter: brightness(1) drop-shadow(0 0 0px rgba(212, 175, 55, 0)); }
-            50% { opacity: 0.2; filter: brightness(0.4) drop-shadow(0 0 25px rgba(212, 175, 55, 0.4)); }
-            100% { opacity: 1; filter: brightness(1) drop-shadow(0 0 0px rgba(212, 175, 55, 0)); }
+            0% { opacity: 1; filter: brightness(1) drop-shadow(0 0 0px rgba(21, 101, 192, 0)); }
+            50% { opacity: 0.2; filter: brightness(0.4) drop-shadow(0 0 25px rgba(21, 101, 192, 0.4)); }
+            100% { opacity: 1; filter: brightness(1) drop-shadow(0 0 0px rgba(21, 101, 192, 0)); }
         }
 
         .wtt-label {
@@ -1045,7 +1048,7 @@
         }
 
         .tournaments-table th {
-            background: rgba(212, 175, 55, 0.15);
+            background: rgba(21, 101, 192, 0.15);
             color: var(--accent-gold);
             font-weight: 700;
             text-transform: uppercase;
@@ -1066,7 +1069,7 @@
         }
 
         .tournaments-table tbody tr:hover {
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(21, 101, 192, 0.05);
         }
 
         .tournaments-table tbody tr:last-child td {
@@ -1084,7 +1087,7 @@
         }
 
         .tournaments-table .tournament-name:hover {
-            color: #fff;
+            color: var(--text-main);
             text-decoration: underline;
         }
 
@@ -1103,61 +1106,61 @@
         }
 
         .result-badge.gold {
-            background: rgba(212, 175, 55, 0.25);
+            background: rgba(21, 101, 192, 0.25);
             color: var(--accent-gold);
-            border: 1px solid rgba(212, 175, 55, 0.3);
+            border: 1px solid rgba(21, 101, 192, 0.3);
         }
 
         .result-badge.silver {
-            background: rgba(192, 192, 192, 0.15);
-            color: #c0c0c0;
-            border: 1px solid rgba(192, 192, 192, 0.2);
+            background: rgba(128, 128, 128, 0.15);
+            color: #616161;
+            border: 1px solid rgba(128, 128, 128, 0.2);
         }
 
         .result-badge.bronze {
             background: rgba(205, 127, 50, 0.15);
-            color: #cd7f32;
+            color: #b26a00;
             border: 1px solid rgba(205, 127, 50, 0.2);
         }
 
         .result-badge.participant {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(21, 101, 192, 0.05);
             color: var(--text-muted);
             border: 1px solid var(--border-color);
         }
 
         .result-badge.Finalist {
-            background: rgba(212, 175, 55, 0.2);
+            background: rgba(21, 101, 192, 0.2);
             color: var(--accent-gold);
-            border: 1px solid rgba(212, 175, 55, 0.25);
+            border: 1px solid rgba(21, 101, 192, 0.25);
         }
 
         .result-badge.\31st\ Round {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(21, 101, 192, 0.05);
             color: var(--text-muted);
             border: 1px solid var(--border-color);
         }
 
         .result-badge.\32nd\ Round {
-            background: rgba(255, 255, 255, 0.07);
+            background: rgba(21, 101, 192, 0.07);
             color: var(--text-muted);
             border: 1px solid var(--border-color);
         }
 
         .result-badge.\33rd\ Round {
-            background: rgba(255, 255, 255, 0.09);
+            background: rgba(21, 101, 192, 0.09);
             color: var(--text-muted);
             border: 1px solid var(--border-color);
         }
 
         .result-badge.Quarter-finals {
-            background: rgba(192, 192, 192, 0.12);
-            color: #c0c0c0;
-            border: 1px solid rgba(192, 192, 192, 0.15);
+            background: rgba(128, 128, 128, 0.12);
+            color: #616161;
+            border: 1px solid rgba(128, 128, 128, 0.15);
         }
 
         .result-badge.Round\ Robin {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(21, 101, 192, 0.05);
             color: var(--text-muted);
             border: 1px solid var(--border-color);
         }
@@ -1169,23 +1172,29 @@
             text-align: center;
         }
 
-        /* ===== СТИЛЬ ДЛЯ ЯЧЕЙКИ С ИКОНКОЙ ===== */
+        /* ===== СТИЛЬ ДЛЯ ЯЧЕЙКИ С ИКОНКОЙ (ИСПРАВЛЕНО ДЛЯ ВИДИМОСТИ) ===== */
         .tournaments-table .ranking-cell.icon-cell {
             text-align: center;
         }
 
         .tournaments-table .ranking-cell.icon-cell img {
-            width: 16px;
-            height: 16px;
+            width: 18px;
+            height: 18px;
             display: inline-block;
             vertical-align: middle;
+            filter: none; /* Убираем инверсию, делаем цветными */
+            color: var(--accent-gold); /* Наследуем синий цвет */
+            fill: var(--accent-gold);
         }
 
         .tournaments-table .ranking-cell img {
-            width: 16px;
-            height: 16px;
+            width: 18px;
+            height: 18px;
             display: inline-block;
             vertical-align: middle;
+            filter: none; /* Убираем инверсию */
+            color: var(--accent-gold);
+            fill: var(--accent-gold);
         }
 
         .flag-icon {
@@ -1197,7 +1206,7 @@
             background-repeat: no-repeat;
             vertical-align: middle;
             border-radius: 2px;
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(21, 101, 192, 0.3);
         }
 
         /* ===== КНОПКА ДЛЯ СВОРАЧИВАНИЯ ТУРНИРОВ ===== */
@@ -1224,7 +1233,7 @@
 
         .tournaments-toggle-btn:hover {
             background: var(--accent-gold);
-            color: #000;
+            color: #fff;
         }
 
         .tournaments-table-wrapper.collapsed .tournaments-table {
@@ -1241,7 +1250,7 @@
                 border-radius: 4px;
                 margin: 10px 0 0 0;
                 border: 1px solid var(--border-color);
-                overflow-x: auto; /* Оставляем на всякий случай, но из-за настроек ширины скролла не будет */
+                overflow-x: auto;
             }
             .tournaments-table {
                 font-size: 0.5rem;
@@ -1273,12 +1282,14 @@
                 margin-right: 1px;
             }
             .tournaments-table .ranking-cell.icon-cell img {
-                width: 10px;
-                height: 10px;
+                width: 12px;
+                height: 12px;
+                filter: none;
             }
             .tournaments-table .ranking-cell img {
-                width: 10px;
-                height: 10px;
+                width: 12px;
+                height: 12px;
+                filter: none;
             }
             .tournaments-table .flag-icon {
                 width: 12px;
@@ -1332,12 +1343,14 @@
                 margin-right: 1px;
             }
             .tournaments-table .ranking-cell.icon-cell img {
-                width: 8px;
-                height: 8px;
+                width: 10px;
+                height: 10px;
+                filter: none;
             }
             .tournaments-table .ranking-cell img {
-                width: 8px;
-                height: 8px;
+                width: 10px;
+                height: 10px;
+                filter: none;
             }
             .tournaments-table .flag-icon {
                 width: 10px;
@@ -1392,14 +1405,14 @@
         }
 
         .tab-btn.active {
-            color: var(--text-main);
+            color: var(--accent-gold);
             border-bottom-color: var(--accent-gold);
         }
 
         .tab-btn .tab-badge {
             display: inline-block;
             background: var(--accent-gold);
-            color: #000;
+            color: #fff;
             font-size: clamp(0.45rem, 0.6vw, 0.6rem);
             padding: 2px 8px;
             border-radius: 10px;
@@ -1472,13 +1485,13 @@
 
         .video-card .plyr {
             border-radius: 4px 4px 0 0;
-            background: #0a0a0a;
+            background: #fff;
             width: 100%;
             height: 100%;
         }
 
         .video-card .plyr__video-wrapper {
-            background: #0a0a0a;
+            background: #fff;
             border-radius: 4px 4px 0 0;
         }
 
@@ -1489,20 +1502,20 @@
 
         .plyr__controls {
             padding: 10px 15px;
-            background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+            background: linear-gradient(transparent, rgba(255, 255, 255, 0.85));
         }
 
         .plyr__control--overlaid {
-            background: rgba(212, 175, 55, 0.85);
-            border: 2px solid rgba(212, 175, 55, 0.6);
+            background: rgba(21, 101, 192, 0.85);
+            border: 2px solid rgba(21, 101, 192, 0.6);
         }
 
         .plyr__control--overlaid:hover {
-            background: rgba(212, 175, 55, 1);
+            background: rgba(21, 101, 192, 1);
         }
 
         .plyr__progress__buffer {
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(21, 101, 192, 0.15);
         }
 
         .plyr__progress__played {
@@ -1510,12 +1523,12 @@
         }
 
         .plyr__menu__container .plyr__control--forward {
-            color: #fff;
+            color: var(--text-main);
         }
 
         .plyr__menu__container .plyr__control--forward:hover {
             background: var(--plyr-color-main);
-            color: #000;
+            color: #fff;
         }
 
         .video-info {
@@ -1698,7 +1711,7 @@
         }
 
         .contact-ad-content .ad-link:hover {
-            color: #fff;
+            color: var(--text-main);
         }
 
         .contact-center {
@@ -1741,10 +1754,10 @@
 
         .input-group input,
         .input-group textarea {
-            background: #050505;
+            background: var(--bg-color);
             border: 1px solid var(--border-color);
             padding: clamp(14px, 2vw, 18px);
-            color: white;
+            color: var(--text-main);
             font-family: inherit;
             font-size: clamp(0.9rem, 1vw, 1rem);
             border-radius: 2px;
@@ -1765,7 +1778,7 @@
         .submit-btn {
             grid-column: span 2;
             background: var(--accent-gold);
-            color: #000;
+            color: #fff;
             border: none;
             padding: clamp(16px, 2vw, 20px);
             font-weight: 700;
@@ -1779,7 +1792,7 @@
         }
 
         .submit-btn:hover {
-            background: #fff;
+            background: var(--text-main);
         }
 
         @media (max-width: 600px) {
@@ -1805,7 +1818,7 @@
             display: none;
             text-align: center;
             padding: 30px;
-            background: rgba(212, 175, 55, 0.1);
+            background: rgba(21, 101, 192, 0.1);
             border: 1px solid var(--accent-gold);
             border-radius: 4px;
             margin-top: 30px;
@@ -1969,7 +1982,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.92);
+            background: rgba(255, 255, 255, 0.92);
             z-index: 9999;
             justify-content: center;
             align-items: center;
@@ -1986,7 +1999,7 @@
             max-height: 85vh;
             object-fit: contain;
             border-radius: 4px;
-            box-shadow: 0 0 60px rgba(0, 0, 0, 0.8);
+            box-shadow: 0 0 60px rgba(21, 101, 192, 0.2);
             cursor: default;
         }
 
@@ -1994,7 +2007,7 @@
             position: absolute;
             top: clamp(20px, 3vh, 30px);
             right: clamp(20px, 3vw, 40px);
-            color: #fff;
+            color: var(--text-main);
             font-size: clamp(2rem, 4vw, 3rem);
             font-weight: 300;
             cursor: pointer;
@@ -2025,7 +2038,7 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            color: rgba(255, 255, 255, 0.6);
+            color: rgba(21, 101, 192, 0.6);
             font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 300;
             cursor: pointer;
@@ -2137,7 +2150,7 @@
             .hero-slides .slide {
                 object-fit: cover;
                 object-position: 93% 50%;
-                background-color: #050505;
+                background-color: var(--bg-color);
             }
 
             .stat-item:nth-child(3) .logo-itf {
@@ -2396,7 +2409,7 @@
             max-height: 70px;
             object-fit: contain;
             filter: grayscale(100%) brightness(1.1) contrast(1.1);
-            opacity: 0.5;
+            opacity: 0.6;
             transition: all 0.4s ease;
         }
 
@@ -2445,7 +2458,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.92);
+            background: rgba(255, 255, 255, 0.92);
             z-index: 99999;
             justify-content: center;
             align-items: center;
@@ -2462,7 +2475,7 @@
             max-height: 85vh;
             object-fit: contain;
             border-radius: 4px;
-            box-shadow: 0 0 60px rgba(0, 0, 0, 0.8);
+            box-shadow: 0 0 60px rgba(21, 101, 192, 0.2);
             cursor: default;
         }
 
@@ -2470,7 +2483,7 @@
             position: absolute;
             top: clamp(20px, 3vh, 30px);
             right: clamp(20px, 3vw, 40px);
-            color: #fff;
+            color: var(--text-main);
             font-size: clamp(2rem, 4vw, 3rem);
             font-weight: 300;
             cursor: pointer;
@@ -2510,7 +2523,7 @@
 
         .media-toggle-btn:hover {
             background: var(--accent-gold);
-            color: #000;
+            color: #fff;
         }
 
         .media-content-wrapper.collapsed .tab-content.active {
@@ -2541,7 +2554,7 @@
         @media (max-width: 700px) {
             .hero-slides .slide {
                 object-position: 93% 50% !important;
-                background-color: #050505;
+                background-color: var(--bg-color);
             }
         }
 
@@ -2607,7 +2620,7 @@
         .coach-card:hover {
             border-color: var(--accent-gold);
             transform: translateY(-5px);
-            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.05);
+            box-shadow: 0 10px 40px rgba(21, 101, 192, 0.05);
         }
 
         .coach-avatar {
@@ -2686,7 +2699,7 @@
             gap: 8px;
             color: var(--text-muted);
             font-size: clamp(0.65rem, 0.7vw, 0.75rem);
-            background: rgba(255, 255, 255, 0.04);
+            background: rgba(21, 101, 192, 0.05);
             padding: 6px 14px;
             border-radius: 20px;
             border: 1px solid var(--border-color);
@@ -2813,22 +2826,22 @@
             </h1>
             
             <div class="hero-desc-wrapper">
-                <p class="hero-desc" data-slide="0" style="display:none; color: #FFFAFA;">
+                <p class="hero-desc" data-slide="0" style="display:none; color: #FFFFFF;">
                     <span class="en-text"><strong>Ilima Guseynova is an athlete who refuses to take the easy road.</strong><br>Every shot brings her closer to a bigger vision: not just joining the NCAA, but becoming a leader who elevates her team. With international tournaments already on her record, she now sets her sights on the top U.S. universities — where sport and education work as one.</span>
                     <span class="ru-text"><strong>Илима Гусейнова — теннисистка, которая не ищет лёгких путей.</strong><br>С каждым ударом она приближается к своей цели: стать не просто игроком NCAA, а лидером, который вдохновляет команду. За её плечами — турниры международного уровня, в планах — лучшие университеты Америки, где спорт и учёба идут рука об руку.</span>
                 </p>
                     
-                <p class="hero-desc" data-slide="1" style="display:none; color: #FFD700;">
+                <p class="hero-desc" data-slide="1" style="display:none; color: #00fffc;">
                     <span class="en-text"><strong>04.09.2025</strong><br><strong>Ilima Guseynova secures her spot at the Roland Garros Junior Series By Renault – West and Central Asia Qualifications.</strong><br> This success is no accident and no stroke of luck. Unlike many competitors, Ilima earned her place not through a (wild card), but through her ITF-ATF ranking and the universal WTN indicator — solid proof of her outstanding class on the court.</span>
                     <span class="ru-text"><strong>04.09.2025</strong><br><strong>Илима Гусейнова отобралась на Roland Garros Junior Series By Renault - QualificationsWest And Central Asia.</strong><br> Этот успех — не случайность и не подарок судьбы. В отличие от многих участников, Илима получила свое место не по приглашению (уайлд-кард), а благодаря рейтингу ITF-ATF и универсальному показателю WTN, которые подтверждают ее высокий класс.</span>
                 </p>
                 
-                <p class="hero-desc" data-slide="2" style="display:none; color: #FFD700;">
+                <p class="hero-desc" data-slide="2" style="display:none; color: #fff000;">
                     <span class="en-text"><strong>18.04.2026</strong><br><strong>Ilima Guseynova triumphs on the courts of Vietnam.</strong><br>Young Turkmen talent Ilima Guseynova won the silver medal in the doubles event at the ITF J30 Binh Duong tournament, held in the city of Binh Duong, Vietnam.</span>
                     <span class="ru-text"><strong>18.04.2026</strong><br><strong>Илима Гусейнова триумфирует на кортах Вьетнама.</strong><br>Юный туркменский талант Илима Гусейнова стала серебряной призёркой турнира серии ITF J30 Биньзыонг в парном разряде. Который проходил во Вьетнаме в городе Биньзыонг</span>
                 </p>
                     
-                <p class="hero-desc" data-slide="3" style="display:none; color: #FFD700;">
+                <p class="hero-desc" data-slide="3" style="display:none; color: #c6ff00;">
                     <span class="en-text"><strong>09.09.2025</strong><br><strong>Triumph and Pain: Ilima Guseinova's Historic Final.</strong><br>At the prestigious Roland Garros Junior Series By Renault – Qualifications West and Central Asia, Ilima Guseinova wrote her name into the history of Turkmen tennis. The young star not only reached the final – she battled through several ranked opponents in fierce matches, proving her unbreakable spirit.
 
 The final turned into a true drama. Despite suffering a thigh injury, Ilima refused to give up and won the first set 6–4. However, the injury took its toll in the second set, which ended 1–6 in favor of her opponent. In the third set, fighting to the very end, she was forced to retire due to unbearable pain. Even walking off the court, she kept the honor of a warrior.
@@ -3087,20 +3100,6 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                         </tr>
                     </thead>
                     <tbody>
-					    <tr>
-                            <td class="tournament-name" data-link="https://ttf.gov.tm/">Championship of Ashgabat - 2026</td>
-                            <td><span class="flag-icon" style="background-image: url('images/flags/tm.svg');"></span></td>
-                            <td><span class="en-text">Men's and Women's Division</span><span class="ru-text">Мужчин и Женщин</span></td>
-                            <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Поьедительница</span></span></td>
-                            <td class="ranking-cell icon-cell"><img src="images/icon/user.svg" alt=" " width="22" height="22" /></td>
-                        </tr>
-						<tr>
-                            <td class="tournament-name" data-link="https://ttf.gov.tm/">Championship of Turkmenistan - 2026</td>
-                            <td><span class="flag-icon" style="background-image: url('images/flags/tm.svg');"></span></td>
-                            <td><span class="en-text">Men's and Women's Division</span><span class="ru-text">Мужчин и Женщин</span></td>
-                            <td><span class="result-badge silver"><span class="en-text">🥉Semifinalist</span><span class="ru-text">🥉Полуфиналистка</span></span></td>
-                            <td class="ranking-cell icon-cell"><img src="images/icon/user.svg" alt=" " width="22" height="22" /></td>
-                        </tr>
                         <tr>
                             <td class="tournament-name" data-link="https://www.itftennis.com/en/tournament/j30-fergana/uzb/2026/j-j30-uzb-2026-002/draws-and-results/">ITF J30 Fergana - 2026</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/uz.svg');"></span></td>
@@ -3137,14 +3136,7 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                             <td class="ranking-cell" style="text-align: center;"><img src="images/icon/user.svg" alt=" " width="22" height="22" /><span style="color: var(--accent-gold);">/</span><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
                         </tr>
                         <tr>
-                            <td class="tournament-name" data-link="http://ttf.gov.tm/">Championship of Turkmenistan - 2025</td>
-                            <td><span class="flag-icon" style="background-image: url('images/flags/tm.svg');"></span></td>
-                            <td><span class="en-text">Men's and Women's Division</span><span class="ru-text">Мужчин и Женщин</span></td>
-                            <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span></td>
-                            <td class="ranking-cell" style="text-align: center;"><img src="images/icon/user.svg" alt=" " width="22" height="22" /><span style="color: var(--accent-gold);">/</span><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
-                        </tr>
-						<tr>
-                            <td class="tournament-name" data-link="http://ttf.gov.tm/">Championship of Ashgabat - 2025</td>
+                            <td class="tournament-name" data-link="http://ttf.gov.tm/">Turkmenistan Cup - 2025</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/tm.svg');"></span></td>
                             <td><span class="en-text">Men's and Women's Division</span><span class="ru-text">Мужчин и Женщин</span></td>
                             <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span></td>
@@ -3154,7 +3146,7 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                             <td class="tournament-name" data-link="https://www.atf.hitcourt.com/tournament-acceptance-factsheet-Mjgx">Roland Garros Junior Series by Renault - Qualifications West and Central Asia - 2025</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/kz.svg');"></span></td>
                             <td><span class="en-text">ATF-U16-Category-1</span><span class="ru-text">ATF-U16-Категория-1</span></td>
-                            <td><span class="result-badge silver"><span class="en-text">Finalist</span><span class="ru-text">Финалистка</span></span></td>
+                            <td><span class="result-badge Finalist"><span class="en-text">Finalist</span><span class="ru-text">Финалистка</span></span></td>
                             <td class="ranking-cell icon-cell"><img src="images/icon/user.svg" alt=" " width="22" height="22" /></td>
                         </tr>
                         <tr>
@@ -3224,7 +3216,7 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                             <td class="tournament-name" data-link="https://www.asiantennis.com/event-detail/?id=9942">GSPDP Asian 14U Junior Championships - 2024</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/kh.svg');"></span></td>
                             <td><span class="en-text">ATF-U14-Grade-A</span><span class="ru-text">ATF-U14-Категория-A</span></td>
-                            <td><span class="result-badge silver"><span class="en-text">Finalist</span><span class="ru-text">Финалистка</span></span></td>
+                            <td><span class="result-badge Participant"><span class="en-text">Participant</span><span class="ru-text">Участница</span></span></td>
                             <td class="ranking-cell icon-cell"><img src="images/icon/user.svg" alt=" " width="22" height="22" /></td>
                         </tr>
                         <tr>
@@ -3252,7 +3244,7 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                             <td class="tournament-name" data-link="https://atf.tournamentsoftware.com/sport/winners.aspx?id=e532ae02-0300-4a8b-aff4-6b3c64f565eb">ATF Shymkent GA - 2024</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/kz.svg');"></span></td>
                             <td><span class="en-text">ATF-U14-Grade-A</span><span class="ru-text">ATF-U14-Категория-A</span></td>
-                            <td><span class="result-badge silver"><span class="en-text">🥈Runer-up</span><span class="ru-text">🥈Серебряная призёрка</span></span></td>
+                            <td><span class="result-badge silver"><span class="en-text">🥈Runer-up</span><span class="ru-text">🥈Серебряный призёрка</span></span></td>
                             <td class="ranking-cell icon-cell"><img src="images/icon/user.svg" alt=" " width="22" height="22" /></td>
                         </tr>
                         <tr>
@@ -3260,34 +3252,6 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                             <td><span class="flag-icon" style="background-image: url('images/flags/in.svg');"></span></td>
                             <td><span class="en-text">ATF-U14-Grade-A</span><span class="ru-text">ATF-U14-Категория-A</span></td>
                             <td><span class="result-badge silver"><span class="en-text">🥉Semifinalist</span><span class="ru-text">🥉Полуфиналистка</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span></td>
-                            <td class="ranking-cell" style="text-align: center;"><img src="images/icon/user.svg" alt=" " width="22" height="22" /><span style="color: var(--accent-gold);">/</span><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
-                        </tr>
-						<tr>
-                            <td class="tournament-name" data-link="https://ttf.gov.tm/">Championship of Ashgabat - 2024</td>
-                            <td><span class="flag-icon" style="background-image: url('images/flags/tm.svg');"></span></td>
-                            <td><span class="en-text">U18</span><span class="ru-text">U18</span></td>
-                            <td><span class="result-badge gold"><span class="en-text">🏆Championt</span><span class="ru-text">🏆Поьедительница</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Поьедительница</span></span></td>
-                            <td class="ranking-cell" style="text-align: center;"><img src="images/icon/user.svg" alt=" " width="22" height="22" /><span style="color: var(--accent-gold);">/</span><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
-                        </tr>
-						<tr>
-                            <td class="tournament-name" data-link="https://ttf.gov.tm/">Championship of Ashgabat - 2024</td>
-                            <td><span class="flag-icon" style="background-image: url('images/flags/tm.svg');"></span></td>
-                            <td><span class="en-text">U14</span><span class="ru-text">U14</span></td>
-                            <td><span class="result-badge gold"><span class="en-text">🏆Championt</span><span class="ru-text">🏆Поьедительница</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Поьедительница</span></span></td>
-                            <td class="ranking-cell" style="text-align: center;"><img src="images/icon/user.svg" alt=" " width="22" height="22" /><span style="color: var(--accent-gold);">/</span><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
-                        </tr>
-						<tr>
-                            <td class="tournament-name" data-link="https://ttf.gov.tm/">Championship of Turkmenistan - 2024</td>
-                            <td><span class="flag-icon" style="background-image: url('images/flags/tm.svg');"></span></td>
-                            <td><span class="en-text">U18</span><span class="ru-text">U18</span></td>
-                            <td><span class="result-badge gold"><span class="en-text">🏆Championt</span><span class="ru-text">🏆Поьедительница</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Поьедительница</span></span></td>
-                            <td class="ranking-cell" style="text-align: center;"><img src="images/icon/user.svg" alt=" " width="22" height="22" /><span style="color: var(--accent-gold);">/</span><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
-                        </tr>
-						<tr>
-                            <td class="tournament-name" data-link="https://ttf.gov.tm/">Championship of Turkmenistan - 2024</td>
-                            <td><span class="flag-icon" style="background-image: url('images/flags/tm.svg');"></span></td>
-                            <td><span class="en-text">U14</span><span class="ru-text">U14</span></td>
-                            <td><span class="result-badge gold"><span class="en-text">🏆Championt</span><span class="ru-text">🏆Поьедительница</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Поьедительница</span></span></td>
                             <td class="ranking-cell" style="text-align: center;"><img src="images/icon/user.svg" alt=" " width="22" height="22" /><span style="color: var(--accent-gold);">/</span><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
                         </tr>
                         <tr>
@@ -3308,7 +3272,7 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                             <td class="tournament-name" data-link="https://itfjuniors.tournamentsoftware.com/sport/winners.aspx?id=229D236E-D34A-4EEE-ADA0-AA91DF2E531A">Junior Davis Cup & Junior BJKC - A/O Pre Qualifying Event - 2024</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/lk.svg');"></span></td>
                             <td><span class="en-text">ITF Juniors-U16</span><span class="ru-text">ITF Juniors-U16</span></td>
-                            <td><span class="result-badge silver"><span class="en-text">Finalist</span><span class="ru-text">Финалистка</span></span></td>
+                            <td><span class="result-badge Finalist"><span class="en-text">Finalist</span><span class="ru-text">Финалистка</span></span></td>
                             <td class="ranking-cell" style="text-align: center;"><img src="images/icon/user.svg" alt=" " width="22" height="22" /><span style="color: var(--accent-gold);">/</span><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
                         </tr>
                         <tr>
@@ -3392,20 +3356,13 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                             <td class="tournament-name" data-link="https://atf.tournamentsoftware.com/sport/winners.aspx?id=1dc8fb80-620f-4f28-8043-8402d2ea681d">ITF Junior Asian Championships-2023</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/kh.svg');"></span></td>
                             <td><span class="en-text">ATF-U14-Grade-A</span><span class="ru-text">ATF-U14-Категория-A</span></td>
-                            <td><span class="result-badge silver"><span class="en-text">Finalist</span><span class="ru-text">Финалистка</span></span></td>
+                            <td><span class="result-badge Finalist"><span class="en-text">Finalist</span><span class="ru-text">Финалистка</span></span></td>
                             <td class="ranking-cell icon-cell"><img src="images/icon/user.svg" alt=" " width="22" height="22" /></td>
                         </tr>
                         <tr>
                             <td class="tournament-name" data-link="http://ttf.gov.tm/">Championship of Turkmenistan - 2023</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/tm.svg');"></span></td>
                             <td><span class="en-text">U14</span><span class="ru-text">U14</span></td>
-                            <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span></td>
-                            <td class="ranking-cell" style="text-align: center;"><img src="images/icon/user.svg" alt=" " width="22" height="22" /><span style="color: var(--accent-gold);">/</span><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
-                        </tr>
-						<tr>
-                            <td class="tournament-name" data-link="http://ttf.gov.tm/">Championship of Turkmenistan - 2023</td>
-                            <td><span class="flag-icon" style="background-image: url('images/flags/tm.svg');"></span></td>
-                            <td><span class="en-text">U18</span><span class="ru-text">U18</span></td>
                             <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span></td>
                             <td class="ranking-cell" style="text-align: center;"><img src="images/icon/user.svg" alt=" " width="22" height="22" /><span style="color: var(--accent-gold);">/</span><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
                         </tr>
