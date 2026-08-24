@@ -2418,35 +2418,40 @@
             opacity: 1;
         }
 
+        /* ===== МОДИФИКАЦИЯ ДЛЯ МОБИЛЬНЫХ ===== */
         @media (max-width: 768px) {
             .sponsors-grid {
                 flex-wrap: nowrap !important;
                 justify-content: flex-start;
-                gap: 25px;
-                padding: 0 10px;
+                gap: 20px;
+                padding: 10px 12px 14px 12px;
+                margin-top: -20px;
                 overflow-x: auto;
             }
             .sponsor-item {
                 flex: 0 0 auto !important;
-                min-width: 80px;
+                min-width: 70px;
+                max-width: 90px;
             }
             .sponsor-item img {
                 max-height: 45px;
-                max-width: 80px;
+                max-width: 100%;
+                width: auto;
             }
         }
 
         @media (max-width: 480px) {
             .sponsors-grid {
-                gap: 15px;
-                padding: 0 8px;
+                gap: 12px;
+                padding: 10px 8px 14px 8px;
             }
             .sponsor-item {
-                min-width: 70px;
+                min-width: 60px;
+                max-width: 75px;
             }
             .sponsor-item img {
                 max-height: 35px;
-                max-width: 70px;
+                max-width: 100%;
             }
         }
 
