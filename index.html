@@ -13,14 +13,13 @@
     <style>
         /* ===== ПЕРЕМЕННЫЕ (СВЕТЛАЯ СИНЯЯ ТЕМА) ===== */
         :root {
-            --bg-color: #E3F2FD; /* Светло-голубой фон */
-            --surface-color: #FFFFFF; /* Белые карточки */
-            --accent-gold: #1565C0; /* Насыщенный синий акцент */
-            --text-main: #0D47A1; /* Тёмно-синий основной текст */
-            --text-muted: #1976D2; /* Средний синий для второстепенного */
-            --border-color: rgba(21, 101, 192, 0.2); /* Светло-синие границы */
+            --bg-color: #E3F2FD;
+            --surface-color: #FFFFFF;
+            --accent-gold: #1565C0;
+            --text-main: #0D47A1;
+            --text-muted: #1976D2;
+            --border-color: rgba(21, 101, 192, 0.2);
 
-            /* PLYR переменные */
             --plyr-color-main: #1565C0;
             --plyr-video-controls-background: rgba(255, 255, 255, 0.9);
             --plyr-video-control-color: #0D47A1;
@@ -35,21 +34,40 @@
             --utr-doubles-label-offset: 0px;
             --utr-doubles-number-offset: 0px;
             
-            /* Смещения для ITF (ПК) */
             --itf-logo-offset: 40px;
             --itf-label-offset: 10px;
             --itf-number-offset: -45px;
             --itf-career-label-offset: -45px;
             --itf-career-number-offset: -55px;
             
-            /* Смещения для ATF (ПК) */
             --atf-logo-offset: 8px;
             --atf-label-offset: 40px;
             --atf-number-offset: 20px;
             --atf-career-label-offset: 10px;
             --atf-career-number-offset: -2px;
             
-            /* ===== СМЕЩЕНИЯ ДЛЯ МОБИЛЬНОЙ ВЕРСИИ ===== */
+            /* ===== НОВЫЕ ПЕРЕМЕННЫЕ ДЛЯ WTA ===== */
+            --wta-logo-offset: 50px;
+            --wta-label-offset: 35px;
+            --wta-number-offset: -20px;
+            --wta-career-label-offset: -30px;
+            --wta-career-number-offset: -45px;
+            
+            --wta-singles-logo-offset: -10px;
+            --wta-singles-label-offset: 5px;
+            --wta-singles-number-offset: -20px;
+            --wta-singles-icon-offset: -15px;
+            
+            --wta-doubles-logo-offset: -10px;
+            --wta-doubles-label-offset: 5px;
+            --wta-doubles-number-offset: -20px;
+            --wta-doubles-icon-offset: -15px;
+            
+            --prize-logo-offset: -20px;
+            --prize-label-offset: 15px;
+            --prize-number-offset: 10px;
+            
+            /* ===== МОБИЛЬНЫЕ ПЕРЕМЕННЫЕ ===== */
             --itf-logo-offset-mobile: 15px;
             --itf-label-offset-mobile: -5px;
             --itf-number-offset-mobile: -25px;
@@ -61,6 +79,26 @@
             --atf-number-offset-mobile: 0px;
             --atf-career-label-offset-mobile: -5px;
             --atf-career-number-offset-mobile: -5px;
+            
+            --wta-logo-offset-mobile: 15px;
+            --wta-label-offset-mobile: -5px;
+            --wta-number-offset-mobile: -25px;
+            --wta-career-label-offset-mobile: -25px;
+            --wta-career-number-offset-mobile: -25px;
+            
+            --wta-singles-logo-offset-mobile: 2px;
+            --wta-singles-label-offset-mobile: -35px;
+            --wta-singles-number-offset-mobile: -30px;
+            --wta-singles-icon-offset-mobile: -15px;
+            
+            --wta-doubles-logo-offset-mobile: 2px;
+            --wta-doubles-label-offset-mobile: -35px;
+            --wta-doubles-number-offset-mobile: -30px;
+            --wta-doubles-icon-offset-mobile: -15px;
+            
+            --prize-logo-offset-mobile: 2px;
+            --prize-label-offset-mobile: -30px;
+            --prize-number-offset-mobile: -15px;
             
             --wtt-singles-logo-offset: -10px;
             --wtt-singles-label-offset: -10px;
@@ -83,13 +121,10 @@
             --bjkc-number-offset: -15px;
             --bjkc-icon-offset: -30px;
 
-            /* ===== СМЕЩЕНИЯ ДЛЯ СЛАЙДОВ (ТОЛЬКО МОБИЛЬНЫЕ) ===== */
             --slide-1-mobile-offset-x: 0px;
             --slide-2-mobile-offset-x: 0px;
             --slide-3-mobile-offset-x: 0px;
             --slide-4-mobile-offset-x: 0px;
-
-            /* ===== МАСШТАБ ДЛЯ СЛАЙДОВ НА МОБИЛЬНЫХ ===== */
             --slide-1-mobile-scale: 1;
             --slide-2-mobile-scale: 1;
             --slide-3-mobile-scale: 1;
@@ -269,7 +304,6 @@
             color: var(--accent-gold);
         }
 
-        /* ===== МОБИЛЬНАЯ НАВИГАЦИЯ (ИСПРАВЛЕНО) ===== */
         @media (max-width: 900px) {
             nav {
                 padding: 14px 16px;
@@ -290,12 +324,12 @@
                 backdrop-filter: blur(20px);
                 -webkit-backdrop-filter: blur(20px);
                 flex-direction: column;
-                justify-content: flex-start; /* Начинаем с верха */
+                justify-content: flex-start;
                 align-items: center;
-                gap: 15px; /* Уменьшаем отступ */
+                gap: 15px;
                 z-index: 999;
-                padding: 80px 40px 40px 40px; /* Отступ сверху под шапку и снизу для скролла */
-                overflow-y: auto; /* Включаем прокрутку внутри меню */
+                padding: 80px 40px 40px 40px;
+                overflow-y: auto;
                 -webkit-overflow-scrolling: touch;
             }
 
@@ -306,7 +340,7 @@
             .nav-links a {
                 font-size: 1rem;
                 letter-spacing: 3px;
-                padding: 10px 0; /* Уменьшаем отступы внутри пунктов */
+                padding: 10px 0;
                 width: 100%;
                 text-align: center;
                 border-bottom: 1px solid var(--border-color);
@@ -395,7 +429,6 @@
             opacity: 1;
         }
 
-        /* УБИРАЕМ МУТНОСТЬ: градиент полностью прозрачный или очень слабый */
         .hero-slides::after {
             content: '';
             position: absolute;
@@ -639,17 +672,16 @@
             text-align: center;
         }
 
-        /* ===== СЕТКА СТАТИСТИКИ АДАПТИВ ===== */
         @media (max-width: 1100px) {
             .stats-grid {
-                grid-template-columns: repeat(3, 1fr);
+                grid-template-columns: repeat(4, 1fr);
             }
         }
 
         @media (max-width: 700px) {
             .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 10px;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 8px;
             }
             
             .stat-item {
@@ -660,7 +692,7 @@
         @media (max-width: 450px) {
             .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 8px;
+                gap: 6px;
             }
             
             .stat-item {
@@ -987,6 +1019,171 @@
             transform: translateY(var(--bjkc-number-offset));
         }
 
+        /* ===== WTA CURRENT RANKINGS ===== */
+        .stat-item:nth-child(11) .logo-wta {
+            max-height: clamp(80px, 12vw, 130px);
+            width: auto;
+            object-fit: contain;
+            animation: pulse-glow 2.8s ease-in-out infinite;
+            animation-delay: 0.2s;
+            transform: translateY(var(--wta-logo-offset));
+        }
+
+        .stat-item:nth-child(11) .wta-label {
+            font-size: clamp(0.6rem, 0.8vw, 0.85rem);
+            font-weight: 600;
+            color: var(--text-main);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: clamp(20px, 4vw, 50px);
+            text-align: center;
+            transform: translateY(var(--wta-label-offset));
+        }
+
+        .stat-item:nth-child(11) .wta-number {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            font-weight: 700;
+            color: var(--text-main);
+            text-align: center;
+            line-height: 1.2;
+            transform: translateY(var(--wta-number-offset));
+        }
+
+        .stat-item:nth-child(11) .wta-career-label {
+            font-size: clamp(0.6rem, 0.8vw, 0.85rem);
+            font-weight: 600;
+            color: var(--text-main);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 2px;
+            transform: translateY(var(--wta-career-label-offset));
+        }
+
+        .stat-item:nth-child(11) .wta-career-number {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            font-weight: 700;
+            color: var(--text-main);
+            transform: translateY(var(--wta-career-number-offset));
+        }
+
+        /* ===== WTA SINGLES ===== */
+        .stat-item:nth-child(12) .logo-wta-singles {
+            max-height: clamp(80px, 12vw, 130px);
+            width: auto;
+            object-fit: contain;
+            animation: pulse-glow-wtt 2.8s ease-in-out infinite;
+            animation-delay: 0.3s;
+            transform: translateY(var(--wta-singles-logo-offset));
+        }
+
+        .stat-item:nth-child(12) .wta-singles-label {
+            font-size: clamp(0.55rem, 0.7vw, 0.85rem);
+            font-weight: 600;
+            color: var(--text-main);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: clamp(15px, 3vw, 30px);
+            text-align: center;
+            margin-top: -20px;
+            transform: translateY(var(--wta-singles-label-offset));
+        }
+
+        .stat-item:nth-child(12) .wta-singles-number {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            font-weight: 700;
+            color: var(--text-main);
+            text-align: center;
+            line-height: 1;
+            transform: translateY(var(--wta-singles-number-offset));
+        }
+
+        .stat-item:nth-child(12) .wta-singles-icon-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 5px;
+            color: var(--accent-gold);
+            width: 100%;
+            transform: translateY(var(--wta-singles-icon-offset));
+        }
+
+        /* ===== WTA DOUBLES ===== */
+        .stat-item:nth-child(13) .logo-wta-doubles {
+            max-height: clamp(80px, 12vw, 130px);
+            width: auto;
+            object-fit: contain;
+            animation: pulse-glow-wtt 2.8s ease-in-out infinite;
+            animation-delay: 0.9s;
+            transform: translateY(var(--wta-doubles-logo-offset));
+        }
+
+        .stat-item:nth-child(13) .wta-doubles-label {
+            font-size: clamp(0.55rem, 0.7vw, 0.85rem);
+            font-weight: 600;
+            color: var(--text-main);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: clamp(15px, 3vw, 30px);
+            text-align: center;
+            margin-top: -20px;
+            transform: translateY(var(--wta-doubles-label-offset));
+        }
+
+        .stat-item:nth-child(13) .wta-doubles-number {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            font-weight: 700;
+            color: var(--text-main);
+            text-align: center;
+            line-height: 1;
+            transform: translateY(var(--wta-doubles-number-offset));
+        }
+
+        .stat-item:nth-child(13) .wta-doubles-icon-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 5px;
+            color: var(--accent-gold);
+            width: 100%;
+            transform: translateY(var(--wta-doubles-icon-offset));
+        }
+
+        /* ===== PRIZE MONEY ===== */
+        .stat-item:nth-child(14) .prize-emoji {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1;
+            margin-bottom: 5px;
+            transform: translateY(var(--prize-logo-offset));
+        }
+
+        .stat-item:nth-child(14) .prize-label {
+            font-size: clamp(0.55rem, 0.7vw, 0.85rem);
+            font-weight: 600;
+            color: var(--text-main);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: clamp(10px, 2vw, 20px);
+            text-align: center;
+            margin-top: -20px;
+            transform: translateY(var(--prize-label-offset));
+        }
+
+        .stat-item:nth-child(14) .prize-number {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            font-weight: 700;
+            color: var(--text-main);
+            text-align: center;
+            line-height: 1;
+            transform: translateY(var(--prize-number-offset));
+        }
+
         /* ===== ABOUT ===== */
         .grid-2 {
             display: grid;
@@ -1172,7 +1369,6 @@
             text-align: center;
         }
 
-        /* ===== СТИЛЬ ДЛЯ ЯЧЕЙКИ С ИКОНКОЙ (ИСПРАВЛЕНО ДЛЯ ВИДИМОСТИ) ===== */
         .tournaments-table .ranking-cell.icon-cell {
             text-align: center;
         }
@@ -1182,8 +1378,8 @@
             height: 18px;
             display: inline-block;
             vertical-align: middle;
-            filter: none; /* Убираем инверсию, делаем цветными */
-            color: var(--accent-gold); /* Наследуем синий цвет */
+            filter: none;
+            color: var(--accent-gold);
             fill: var(--accent-gold);
         }
 
@@ -1192,7 +1388,7 @@
             height: 18px;
             display: inline-block;
             vertical-align: middle;
-            filter: none; /* Убираем инверсию */
+            filter: none;
             color: var(--accent-gold);
             fill: var(--accent-gold);
         }
@@ -1209,7 +1405,6 @@
             border: 1px solid rgba(21, 101, 192, 0.3);
         }
 
-        /* ===== КНОПКА ДЛЯ СВОРАЧИВАНИЯ ТУРНИРОВ ===== */
         .tournaments-toggle-wrapper {
             display: flex;
             justify-content: center;
@@ -1244,7 +1439,6 @@
             display: table;
         }
 
-        /* ===== МОБИЛЬНАЯ АДАПТАЦИЯ ТАБЛИЦЫ (ВСЁ ПОМЕЩАЕТСЯ) ===== */
         @media (max-width: 768px) {
             .tournaments-table-wrapper {
                 border-radius: 4px;
@@ -1468,7 +1662,7 @@
             }
         }
 
-        /* ===== ВИДЕО-КАРТОЧКИ С PLYR ===== */
+        /* ===== ВИДЕО-КАРТОЧКИ ===== */
         .video-card {
             background: var(--surface-color);
             border: 1px solid var(--border-color);
@@ -1605,7 +1799,7 @@
             display: block;
         }
 
-        /* ===== КОНТАКТНАЯ ФОРМА С РЕКЛАМОЙ ПО БОКАМ ===== */
+        /* ===== КОНТАКТНАЯ ФОРМА ===== */
         .contact-section-wrapper {
             display: flex;
             align-items: stretch;
@@ -1838,7 +2032,7 @@
             color: var(--text-muted);
         }
 
-        /* ===== СТИЛИ ДЛЯ ФОТО ТОВАРОВ В РЕКЛАМЕ ===== */
+        /* ===== СТИЛИ ДЛЯ ФОТО ТОВАРОВ ===== */
         .ad-products {
             width: 100%;
             margin-top: 8px;
@@ -1874,7 +2068,6 @@
             pointer-events: none;
         }
 
-        /* ===== АДАПТИВ ДЛЯ РЕКЛАМЫ ПО БОКАМ ===== */
         @media (max-width: 1100px) {
             .contact-ad-left,
             .contact-ad-right {
@@ -2100,7 +2293,6 @@
             text-transform: uppercase;
         }
 
-        /* ===== АНИМАЦИЯ ИКОНКИ В ФУТЕРЕ ===== */
         footer a {
             line-height: 0;
             display: inline-block;
@@ -2143,9 +2335,17 @@
             height: clamp(14px, 2vw, 20px);
         }
 
-        /* ============================================================ */
-        /* ===== ТОЛЬКО ДЛЯ МОБИЛЬНЫХ (ОТ 0 ДО 700px) ===== */
-        /* ============================================================ */
+        .wta-singles-icon-wrapper svg {
+            width: clamp(14px, 2vw, 22px);
+            height: clamp(14px, 2vw, 20px);
+        }
+
+        .wta-doubles-icon-wrapper svg {
+            width: clamp(14px, 2vw, 22px);
+            height: clamp(14px, 2vw, 20px);
+        }
+
+        /* ===== МОБИЛЬНЫЕ НАСТРОЙКИ ===== */
         @media (max-width: 700px) {
             .hero-slides .slide {
                 object-fit: cover;
@@ -2165,7 +2365,6 @@
                 transform: translateY(var(--itf-number-offset-mobile)) !important;
                 margin-top: 0 !important;
             }
-
             .stat-item:nth-child(3) .itf-career-label {
                 transform: translateY(var(--itf-career-label-offset-mobile)) !important;
                 margin-top: 0 !important;
@@ -2203,6 +2402,72 @@
                 margin-top: 0 !important;
             }
 
+            .stat-item:nth-child(11) .logo-wta {
+                transform: translateY(var(--wta-logo-offset-mobile)) !important;
+                margin-top: 0 !important;
+            }
+            .stat-item:nth-child(11) .wta-label {
+                transform: translateY(var(--wta-label-offset-mobile)) !important;
+                margin-top: 0 !important;
+            }
+            .stat-item:nth-child(11) .wta-number {
+                transform: translateY(var(--wta-number-offset-mobile)) !important;
+                margin-top: 0 !important;
+            }
+            .stat-item:nth-child(11) .wta-career-label {
+                transform: translateY(var(--wta-career-label-offset-mobile)) !important;
+                margin-top: 0 !important;
+            }
+            .stat-item:nth-child(11) .wta-career-number {
+                transform: translateY(var(--wta-career-number-offset-mobile)) !important;
+                margin-top: 0 !important;
+            }
+
+            .stat-item:nth-child(12) .wta-singles-label {
+                transform: translateY(var(--wta-singles-label-offset-mobile)) !important;
+                margin-top: 25px !important;
+                margin-bottom: 0px !important;
+            }
+            .stat-item:nth-child(12) .wta-singles-number {
+                transform: translateY(var(--wta-singles-number-offset-mobile)) !important;
+                margin-top: 10px !important;
+            }
+            .stat-item:nth-child(12) .logo-wta-singles {
+                transform: translateY(var(--wta-singles-logo-offset-mobile)) !important;
+            }
+            .stat-item:nth-child(12) .wta-singles-icon-wrapper {
+                transform: translateY(var(--wta-singles-icon-offset-mobile)) !important;
+            }
+
+            .stat-item:nth-child(13) .wta-doubles-label {
+                transform: translateY(var(--wta-doubles-label-offset-mobile)) !important;
+                margin-top: 25px !important;
+                margin-bottom: 0px !important;
+            }
+            .stat-item:nth-child(13) .wta-doubles-number {
+                transform: translateY(var(--wta-doubles-number-offset-mobile)) !important;
+                margin-top: 10px !important;
+            }
+            .stat-item:nth-child(13) .logo-wta-doubles {
+                transform: translateY(var(--wta-doubles-logo-offset-mobile)) !important;
+            }
+            .stat-item:nth-child(13) .wta-doubles-icon-wrapper {
+                transform: translateY(var(--wta-doubles-icon-offset-mobile)) !important;
+            }
+
+            .stat-item:nth-child(14) .prize-label {
+                transform: translateY(var(--prize-label-offset-mobile)) !important;
+                margin-top: 45px !important;
+                margin-bottom: 0px !important;
+            }
+            .stat-item:nth-child(14) .prize-number {
+                transform: translateY(var(--prize-number-offset-mobile)) !important;
+                margin-top: -5px !important;
+            }
+            .stat-item:nth-child(14) .prize-emoji {
+                transform: translateY(var(--prize-logo-offset-mobile)) !important;
+            }
+
             .atf-label, .wtt-label, .atf-titles-label, .bjkc-label {
                 margin-top: 0 !important;
                 margin-bottom: 5px !important;
@@ -2233,7 +2498,17 @@
             .stat-item .atf-titles-label,
             .stat-item .atf-titles-number,
             .stat-item .bjkc-label,
-            .stat-item .bjkc-number {
+            .stat-item .bjkc-number,
+            .stat-item .wta-label,
+            .stat-item .wta-number,
+            .stat-item .wta-career-label,
+            .stat-item .wta-career-number,
+            .stat-item .wta-singles-label,
+            .stat-item .wta-singles-number,
+            .stat-item .wta-doubles-label,
+            .stat-item .wta-doubles-number,
+            .stat-item .prize-label,
+            .stat-item .prize-number {
                 text-align: center !important;
             }
 
@@ -2418,7 +2693,6 @@
             opacity: 1;
         }
 
-        /* ===== МОДИФИКАЦИЯ ДЛЯ МОБИЛЬНЫХ ===== */
         @media (max-width: 768px) {
             .sponsors-grid {
                 flex-wrap: nowrap !important;
@@ -2504,7 +2778,7 @@
             transform: rotate(90deg);
         }
 
-        /* ===== СВОРАЧИВАЕМЫЙ БЛОК "VISUAL SCOUTING MATCH VIDEOS" ===== */
+        /* ===== СВОРАЧИВАЕМЫЙ БЛОК MEDIA ===== */
         .media-toggle-wrapper {
             display: flex;
             justify-content: center;
@@ -2953,7 +3227,6 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                                 <span class="ru-text">Текущий рейтинг</span>
                             </div>
                             <div class="itf-number">2265</div>
-                            <!-- РЕЙТИНГ 2500 -->
                             <div style="width: 100%; text-align: center;">
                                 <div class="itf-career-label" style="font-size: clamp(0.6rem, 0.8vw, 0.85rem); font-weight: 600; color: var(--text-main); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 2px;">
                                     <span class="en-text">Career-high rankings</span>
@@ -2993,7 +3266,6 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                                 <span class="ru-text">Текущий рейтинг</span>
                             </div>
                             <div class="atf-number">22</div>
-                            <!-- ATF CAREER-HIGH -->
                             <div style="width: 100%; text-align: center;">
                                 <div class="atf-career-label" style="font-size: clamp(0.6rem, 0.8vw, 0.85rem); font-weight: 600; color: var(--text-main); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 2px;">
                                     <span class="en-text">Career-high rankings</span>
@@ -3075,6 +3347,86 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                         </div>
                     </div>
                 </div>
+
+                <!-- 11. WTA Current Rankings -->
+                <div class="stat-item stat-item-content" style="border-top: 3px solid var(--accent-gold);">
+                    <div class="stat-header" style="width: 100%; height: 100%; padding: 15px;">
+                        <div class="itf-wrapper">
+                            <img src="images/wta-logo.png" alt="WTA Logo" class="logo-wta" />
+                            <div class="wta-label">
+                                <span class="en-text">Current rankings</span>
+                                <span class="ru-text">Текущий рейтинг</span>
+                            </div>
+                            <div class="wta-number">0</div>
+                            <div style="width: 100%; text-align: center;">
+                                <div class="wta-career-label">
+                                    <span class="en-text">Career-high rankings</span>
+                                    <span class="ru-text">Наивысший рейтинг в карьере</span>
+                                </div>
+                                <div class="wta-career-number">0</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 12. WTA Singles Titles -->
+                <div class="stat-item stat-item-content" style="border-top: 3px solid var(--accent-gold);">
+                    <div class="stat-header" style="width: 100%; height: 100%;">
+                        <div class="wtt-wrapper">
+                            <img src="images/wta-logo.png" alt="WTA Logo" class="logo-wta-singles" />
+                            <div class="wta-singles-icon-wrapper">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                            </div>
+                            <div class="wta-singles-label">
+                                <span class="en-text">SINGLES TITLES</span>
+                                <span class="ru-text">ОДИНОЧНЫЙ ТИТУЛ</span>
+                            </div>
+                            <div class="wta-singles-number">0</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 13. WTA Doubles Titles -->
+                <div class="stat-item stat-item-content" style="border-top: 3px solid var(--accent-gold);">
+                    <div class="stat-header" style="width: 100%; height: 100%;">
+                        <div class="wtt-wrapper">
+                            <img src="images/wta-logo.png" alt="WTA Logo" class="logo-wta-doubles" />
+                            <div class="wta-doubles-icon-wrapper">
+                                <svg width="22" height="20" viewBox="0 0 28 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 21v-2a4 4 0 0 1 4-4h1"></path>
+                                    <circle cx="9" cy="7" r="3"></circle>
+                                    <path d="M17 21v-2a4 4 0 0 1 4-4h1"></path>
+                                    <circle cx="21" cy="7" r="3"></circle>
+                                    <path d="M17 17h-4"></path>
+                                </svg>
+                            </div>
+                            <div class="wta-doubles-label">
+                                <span class="en-text">DOUBLES TITLES</span>
+                                <span class="ru-text">ПАРНЫЙ ТИТУЛ</span>
+                            </div>
+                            <div class="wta-doubles-number">0</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 14. Prize Money -->
+                <div class="stat-item stat-item-content" style="border-top: 3px solid var(--accent-gold);">
+                    <div class="stat-header" style="width: 100%; height: 100%;">
+                        <div class="atf-wrapper" style="padding: 10px 0;">
+                            <!-- ЗАМЕНА ЭМОДЗИ НА PNG -->
+                            <img src="images/dollar-logo.png" alt="Доллар" class="money-icon" style="width: 1em; height: 1em; vertical-align: -0.125em; display: inline-block; transform: translateY(var(--prize-logo-offset)); margin-bottom: 5px; font-size: clamp(2.5rem, 5vw, 4rem);" />
+                            
+                            <div class="prize-label">
+                                <span class="en-text">PRIZE MONEY</span>
+                                <span class="ru-text">ПРИЗОВЫЕ</span>
+                            </div>
+                            <div class="prize-number">$0</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -3097,7 +3449,7 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                 <table class="tournaments-table">
                     <thead>
                         <tr>
-                            <th><span class="en-text"><strong>Tournament 59</strong></span><span class="ru-text"><strong>Турнир 59</strong></span></th>
+                            <th><span class="en-text"><strong>Tournament</strong></span><span class="ru-text"><strong>Турнир</strong></span></th>
                             <th><span class="en-text"><strong>Location</strong></span><span class="ru-text"><strong>Страна</strong></span></th>
                             <th><span class="en-text"><strong>Category</strong></span><span class="ru-text"><strong>Категория</strong></span></th>
                             <th><span class="en-text"><strong>Result</strong></span><span class="ru-text"><strong>Результат</strong></span></th>
@@ -3112,7 +3464,7 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                             <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Поьедительница</span></span></td>
                             <td class="ranking-cell icon-cell"><img src="images/icon/user.svg" alt=" " width="22" height="22" /></td>
                         </tr>
-						<tr>
+                        <tr>
                             <td class="tournament-name" data-link="https://ttf.gov.tm/">Championship of Turkmenistan - 2026</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/tm.svg');"></span></td>
                             <td><span class="en-text">Men's and Women's Division</span><span class="ru-text">Мужчины и Женщины</span></td>
@@ -3161,7 +3513,7 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                             <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span></td>
                             <td class="ranking-cell" style="text-align: center;"><img src="images/icon/user.svg" alt=" " width="22" height="22" /><span style="color: var(--accent-gold);">/</span><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
                         </tr>
-						<tr>
+                        <tr>
                             <td class="tournament-name" data-link="http://ttf.gov.tm/">Championship of Ashgabat - 2025</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/tm.svg');"></span></td>
                             <td><span class="en-text">Men's and Women's Division</span><span class="ru-text">Мужчины и Женщины</span></td>
@@ -3280,28 +3632,28 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                             <td><span class="result-badge silver"><span class="en-text">🥉Semifinalist</span><span class="ru-text">🥉Полуфиналистка</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span></td>
                             <td class="ranking-cell" style="text-align: center;"><img src="images/icon/user.svg" alt=" " width="22" height="22" /><span style="color: var(--accent-gold);">/</span><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
                         </tr>
-						<tr>
+                        <tr>
                             <td class="tournament-name" data-link="https://ttf.gov.tm/">Championship of Ashgabat - 2024</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/tm.svg');"></span></td>
                             <td><span class="en-text">U18</span><span class="ru-text">U18</span></td>
                             <td><span class="result-badge gold"><span class="en-text">🏆Championt</span><span class="ru-text">🏆Поьедительница</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Поьедительница</span></span></td>
                             <td class="ranking-cell" style="text-align: center;"><img src="images/icon/user.svg" alt=" " width="22" height="22" /><span style="color: var(--accent-gold);">/</span><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
                         </tr>
-						<tr>
+                        <tr>
                             <td class="tournament-name" data-link="https://ttf.gov.tm/">Championship of Ashgabat - 2024</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/tm.svg');"></span></td>
                             <td><span class="en-text">U14</span><span class="ru-text">U14</span></td>
                             <td><span class="result-badge gold"><span class="en-text">🏆Championt</span><span class="ru-text">🏆Поьедительница</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Поьедительница</span></span></td>
                             <td class="ranking-cell" style="text-align: center;"><img src="images/icon/user.svg" alt=" " width="22" height="22" /><span style="color: var(--accent-gold);">/</span><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
                         </tr>
-						<tr>
+                        <tr>
                             <td class="tournament-name" data-link="https://ttf.gov.tm/">Championship of Turkmenistan - 2024</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/tm.svg');"></span></td>
                             <td><span class="en-text">U18</span><span class="ru-text">U18</span></td>
                             <td><span class="result-badge gold"><span class="en-text">🏆Championt</span><span class="ru-text">🏆Поьедительница</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Поьедительница</span></span></td>
                             <td class="ranking-cell" style="text-align: center;"><img src="images/icon/user.svg" alt=" " width="22" height="22" /><span style="color: var(--accent-gold);">/</span><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
                         </tr>
-						<tr>
+                        <tr>
                             <td class="tournament-name" data-link="https://ttf.gov.tm/">Championship of Turkmenistan - 2024</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/tm.svg');"></span></td>
                             <td><span class="en-text">U14</span><span class="ru-text">U14</span></td>
@@ -3420,7 +3772,7 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                             <td><span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span> <span class="result-badge gold"><span class="en-text">🏆Champion</span><span class="ru-text">🏆Победительница</span></span></td>
                             <td class="ranking-cell" style="text-align: center;"><img src="images/icon/user.svg" alt=" " width="22" height="22" /><span style="color: var(--accent-gold);">/</span><img src="images/icon/users.svg" alt=" " width="22" height="22" /></td>
                         </tr>
-						<tr>
+                        <tr>
                             <td class="tournament-name" data-link="http://ttf.gov.tm/">Championship of Turkmenistan - 2023</td>
                             <td><span class="flag-icon" style="background-image: url('images/flags/tm.svg');"></span></td>
                             <td><span class="en-text">U18</span><span class="ru-text">U18</span></td>
@@ -3569,13 +3921,13 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                             <span><span class="en-text">Dominant Hand</span><span class="ru-text">Рабочая рука</span></span>
                             <span><span class="en-text">Right-Handed (2H Backhand)</span><span class="ru-text">Правая (двуручный бэкхэнд)</span></span>
                         </li>
-						<li>
+                        <li>
                             <span><span class="en-text">Weight:</span><span class="ru-text">Вес:</span></span>
                             <span><span class="en-text">152 pounds</span><span class="ru-text">69 кг</span></span>
                         </li>
-						<li>
+                        <li>
                             <span><span class="en-text">Height:</span><span class="ru-text">Рост:</span></span>
-                            <span><span class="en-text">5 ft 42 in</span><span class="ru-text">1.65 см</span></span>
+                            <span><span class="en-text">5'42"</span><span class="ru-text">1.65м</span></span>
                         </li>
                         <li>
                             <span><span class="en-text">Languages</span><span class="ru-text">Языки</span></span>
@@ -3584,6 +3936,14 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                         <li>
                             <span><span class="en-text">Availability</span><span class="ru-text">Доступность</span></span>
                             <span><span class="en-text">Spring 2028</span><span class="ru-text">Весна 2028</span></span>
+                        </li>
+						<li>
+                            <span><span class="en-text">Birthday</span><span class="ru-text">День рождения</span></span>
+                            <span><span class="en-text">Mart 01,2010</span><span class="ru-text">01.03.2010</span></span>
+                        </li>
+						<li>
+                            <span><span class="en-text">Birthplace</span><span class="ru-text">Место рождения</span></span>
+                            <span><span class="en-text">Turkmenistan,Ashgabat</span><span class="ru-text">Туркменистан,Ашхабат</span></span>
                         </li>
                     </ul>
                 </div>
@@ -3816,7 +4176,7 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                             <span class="en-text">Roland Garros Junior Series — Ilima Guseynova & Zinira Zhunusova (Court 2)</span>
                             <span class="ru-text">Roland Garros Junior Series — Илима Гусейнова & Зинира Жунусова (Корт 2)</span>
                         </div>
-					</div>
+                    </div>
                     <div class="video-card">
                         <div class="video-frame">
                             <div class="vimeo-wrapper">
@@ -3827,7 +4187,7 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                             <span class="en-text">ITF Juniors J30 Binh Duong — Ilima Guseynova & Higashi Rio ( 2025 )</span>
                             <span class="ru-text">ITF Juniors J30 Бинь Дуонг — Илима Гусейнова & Хигаши Рио ( 2025 )</span>
                         </div>
-					</div>
+                    </div>
                     <div class="video-card">
                         <div class="video-frame">
                             <div class="vimeo-wrapper">
@@ -4105,7 +4465,7 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                     </div>
                     
                     <div class="coach-achievements">
-					     <div class="achievement-item">
+                        <div class="achievement-item">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <circle cx="12" cy="12" r="10"/>
                                 <polyline points="12 6 12 12 16 14"/>
@@ -4119,7 +4479,7 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                             </svg>
                             <span><span class="en-text">🏆Winner of <strong>ITF Junior 18&Under of Turkmenistan (2003)</strong></span><span class="ru-text"><strong>🏆Победительница ITF Junior 18&Under of Turkmenistan (2003)</strong></span></span>
                         </div>
-						<div class="achievement-item">
+                        <div class="achievement-item">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <circle cx="12" cy="12" r="10"/>
                                 <polyline points="12 6 12 12 16 14"/>
@@ -4206,7 +4566,7 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                             </svg>
                             <span><span class="en-text">Two-time <strong>Billie Jean King Cup team captain</strong></span><span class="ru-text">2-ух кратный <strong>капитан команды Billie Jean King Cup</strong></span></span>
                         </div>
-						<div class="achievement-item">
+                        <div class="achievement-item">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <circle cx="12" cy="12" r="10"/>
                                 <polyline points="12 6 12 12 16 14"/>
@@ -4311,8 +4671,8 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                     </a>
                 </div>
                 <div class="sponsor-item">
-                    <a href="https://azady.com.tm/" target="_blank">
-                        <img src="images/sponsors/AZADY.png" alt="AZADY" />
+                    <a href="--" target="_blank">
+                        <img src="images/sponsors/IGT.png" alt="IGT" />
                     </a>
                 </div>
                 <div class="sponsor-item">
@@ -4725,7 +5085,6 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                     }
                 });
                 
-                // Переинициализация Plyr после переключения таба
                 setTimeout(initPlyr, 300);
             }
 
@@ -4810,12 +5169,10 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
             });
         }
 
-        // Инициализация Plyr после загрузки
         document.addEventListener('DOMContentLoaded', function() {
             setTimeout(initPlyr, 500);
         });
 
-        // Переинициализация при раскрытии медиа-блока
         document.getElementById('mediaToggleBtn')?.addEventListener('click', function() {
             setTimeout(initPlyr, 400);
         });
