@@ -80,23 +80,23 @@
             --atf-career-label-offset-mobile: -5px;
             --atf-career-number-offset-mobile: -5px;
             
-            --wta-logo-offset-mobile: 15px;
-            --wta-label-offset-mobile: -5px;
-            --wta-number-offset-mobile: -25px;
-            --wta-career-label-offset-mobile: -25px;
-            --wta-career-number-offset-mobile: -25px;
+            --wta-logo-offset-mobile: 30px;
+            --wta-label-offset-mobile: 20px;
+            --wta-number-offset-mobile: -7px;
+            --wta-career-label-offset-mobile: -18px;
+            --wta-career-number-offset-mobile: -27px;
             
-            --wta-singles-logo-offset-mobile: 2px;
-            --wta-singles-label-offset-mobile: -35px;
-            --wta-singles-number-offset-mobile: -30px;
-            --wta-singles-icon-offset-mobile: -15px;
+            --wta-singles-logo-offset-mobile: 20px;
+            --wta-singles-label-offset-mobile: -15px;
+            --wta-singles-number-offset-mobile: -20px;
+            --wta-singles-icon-offset-mobile: 15px;
             
-            --wta-doubles-logo-offset-mobile: 2px;
-            --wta-doubles-label-offset-mobile: -35px;
-            --wta-doubles-number-offset-mobile: -30px;
-            --wta-doubles-icon-offset-mobile: -15px;
+            --wta-doubles-logo-offset-mobile: 20px;
+            --wta-doubles-label-offset-mobile: -15px;
+            --wta-doubles-number-offset-mobile: -20px;
+            --wta-doubles-icon-offset-mobile: 15px;
             
-            --prize-logo-offset-mobile: 2px;
+            --prize-logo-offset-mobile: 10px;
             --prize-label-offset-mobile: -30px;
             --prize-number-offset-mobile: -15px;
             
@@ -1155,11 +1155,9 @@
         }
 
         /* ===== PRIZE MONEY ===== */
-        .stat-item:nth-child(14) .prize-emoji {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            line-height: 1;
-            margin-bottom: 5px;
+        .stat-item:nth-child(14) .money-icon {
             transform: translateY(var(--prize-logo-offset));
+            animation: pulse-glow-wtt 2.8s ease-in-out infinite;
         }
 
         .stat-item:nth-child(14) .prize-label {
@@ -2455,6 +2453,10 @@
                 transform: translateY(var(--wta-doubles-icon-offset-mobile)) !important;
             }
 
+            .stat-item:nth-child(14) .money-icon {
+                transform: translateY(var(--prize-logo-offset-mobile)) !important;
+            }
+
             .stat-item:nth-child(14) .prize-label {
                 transform: translateY(var(--prize-label-offset-mobile)) !important;
                 margin-top: 45px !important;
@@ -2463,9 +2465,6 @@
             .stat-item:nth-child(14) .prize-number {
                 transform: translateY(var(--prize-number-offset-mobile)) !important;
                 margin-top: -5px !important;
-            }
-            .stat-item:nth-child(14) .prize-emoji {
-                transform: translateY(var(--prize-logo-offset-mobile)) !important;
             }
 
             .atf-label, .wtt-label, .atf-titles-label, .bjkc-label {
@@ -3417,7 +3416,7 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                     <div class="stat-header" style="width: 100%; height: 100%;">
                         <div class="atf-wrapper" style="padding: 10px 0;">
                             <!-- ЗАМЕНА ЭМОДЗИ НА PNG -->
-                            <img src="images/dollar-logo.png" alt="Доллар" class="money-icon" style="width: 1em; height: 1em; vertical-align: -0.125em; display: inline-block; transform: translateY(var(--prize-logo-offset)); margin-bottom: 5px; font-size: clamp(2.5rem, 5vw, 4rem);" />
+                            <img src="images/dollar-logo.png" alt="Доллар" class="money-icon" style="width: 1em; height: 1em; vertical-align: -0.125em; display: inline-block; margin-bottom: 5px; font-size: clamp(2.5rem, 5vw, 4rem);" />
                             
                             <div class="prize-label">
                                 <span class="en-text">PRIZE MONEY</span>
