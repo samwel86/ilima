@@ -46,7 +46,6 @@
             --atf-career-label-offset: 10px;
             --atf-career-number-offset: -2px;
             
-            /* ===== НОВЫЕ ПЕРЕМЕННЫЕ ДЛЯ WTA ===== */
             --wta-logo-offset: 50px;
             --wta-label-offset: 35px;
             --wta-number-offset: -20px;
@@ -67,7 +66,6 @@
             --prize-label-offset: 15px;
             --prize-number-offset: 10px;
             
-            /* ===== МОБИЛЬНЫЕ ПЕРЕМЕННЫЕ ===== */
             --itf-logo-offset-mobile: 15px;
             --itf-label-offset-mobile: -5px;
             --itf-number-offset-mobile: -25px;
@@ -858,7 +856,6 @@
             height: 100%;
         }
 
-        /* ===== ATF CAREER-HIGH ===== */
         .stat-item:nth-child(6) .atf-career-label {
             transform: translateY(var(--atf-career-label-offset));
         }
@@ -1223,6 +1220,186 @@
         .feature-list li span:last-child {
             color: var(--accent-gold);
             text-align: right;
+        }
+
+        /* ===== MY PREFERENCES (СВОРАЧИВАЕМАЯ) ===== */
+        .preferences-list {
+            display: flex;
+            flex-direction: column;
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            overflow: hidden;
+            transition: max-height 0.5s ease, opacity 0.4s ease;
+            max-height: 3000px;
+            opacity: 1;
+        }
+
+        .preferences-list.collapsed {
+            max-height: 0;
+            opacity: 0;
+            border-color: transparent;
+        }
+
+        .preference-row {
+            display: grid;
+            grid-template-columns: 40px minmax(180px, 1.4fr) minmax(140px, 1fr) minmax(160px, 1.2fr) minmax(110px, 0.8fr);
+            align-items: center;
+            gap: clamp(10px, 1.5vw, 20px);
+            padding: 8px clamp(14px, 2vw, 22px);
+            border-bottom: 1px solid var(--border-color);
+            text-decoration: none;
+            color: var(--text-main);
+            transition: background 0.3s ease;
+            min-height: 52px;
+        }
+
+        .preference-row:last-child {
+            border-bottom: none;
+        }
+
+        .preference-row:hover {
+            background: rgba(21, 101, 192, 0.05);
+        }
+
+        .preference-logo {
+            width: clamp(28px, 3vw, 36px);
+            height: clamp(28px, 3vw, 36px);
+            object-fit: contain;
+            display: block;
+            flex-shrink: 0;
+        }
+
+        .preference-name {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(0.8rem, 1vw, 1rem);
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        .preference-location,
+        .preference-division,
+        .preference-rank {
+            font-size: clamp(0.62rem, 0.75vw, 0.8rem);
+            color: var(--text-muted);
+            letter-spacing: 0.5px;
+            line-height: 1.3;
+        }
+
+        .preference-rank {
+            color: var(--text-main);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Кнопка сворачивания */
+        .preferences-toggle-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .preferences-toggle-btn {
+            background: transparent;
+            color: var(--accent-gold);
+            border: 1px solid var(--accent-gold);
+            padding: 12px 32px;
+            font-family: 'Cinzel', serif;
+            font-size: clamp(0.6rem, 0.8vw, 0.75rem);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            font-weight: 700;
+        }
+
+        .preferences-toggle-btn:hover {
+            background: var(--accent-gold);
+            color: #fff;
+        }
+
+        /* ===== MY PREFERENCES — АДАПТИВ (всё в одну строку, компактнее) ===== */
+
+        /* Планшет (≤900px) */
+        @media (max-width: 900px) {
+            .preference-row {
+                grid-template-columns: 30px minmax(140px, 1.3fr) minmax(100px, 1fr) minmax(120px, 1.1fr) minmax(85px, 0.8fr);
+                gap: 8px;
+                padding: 7px 12px;
+                min-height: 44px;
+            }
+
+            .preference-logo {
+                width: 26px;
+                height: 26px;
+            }
+            .preference-name {
+                font-size: 0.72rem;
+                letter-spacing: 0.4px;
+            }
+            .preference-location,
+            .preference-division,
+            .preference-rank {
+                font-size: 0.6rem;
+                letter-spacing: 0.2px;
+            }
+        }
+
+        /* Телефон (≤640px) */
+        @media (max-width: 640px) {
+            .preference-row {
+                grid-template-columns: 24px minmax(110px, 1.4fr) minmax(80px, 1fr) minmax(90px, 1.1fr) minmax(70px, 0.8fr);
+                gap: 5px;
+                padding: 6px 9px;
+                min-height: 38px;
+            }
+
+            .preference-logo {
+                width: 22px;
+                height: 22px;
+            }
+            .preference-name {
+                font-size: 0.62rem;
+                letter-spacing: 0.2px;
+                line-height: 1.15;
+            }
+            .preference-location,
+            .preference-division,
+            .preference-rank {
+                font-size: 0.52rem;
+                letter-spacing: 0.1px;
+                line-height: 1.15;
+            }
+        }
+
+        /* Очень маленькие телефоны (≤400px) */
+        @media (max-width: 400px) {
+            .preference-row {
+                grid-template-columns: 22px minmax(100px, 1.4fr) minmax(70px, 1fr) minmax(80px, 1.1fr) minmax(60px, 0.8fr);
+                gap: 4px;
+                padding: 5px 8px;
+                min-height: 34px;
+            }
+
+            .preference-logo {
+                width: 20px;
+                height: 20px;
+            }
+            .preference-name {
+                font-size: 0.56rem;
+                letter-spacing: 0;
+            }
+            .preference-location,
+            .preference-division,
+            .preference-rank {
+                font-size: 0.48rem;
+                letter-spacing: 0;
+            }
         }
 
         /* ===== ТАБЛИЦА ТУРНИРОВ ===== */
@@ -3070,6 +3247,8 @@
             <a href="#stats"><span class="en-text">Metrics</span><span class="ru-text">Метрики</span></a>
             <a href="#tournaments"><span class="en-text">Tournaments</span><span class="ru-text">Турниры</span></a>
             <a href="#about"><span class="en-text">Profile</span><span class="ru-text">Профиль</span></a>
+            <a href="#preferences"><span class="en-text">Preferences</span><span class="ru-text">Предпочтения</span></a>
+            <a href="#inquiries"><span class="en-text">Inquiries</span><span class="ru-text">Запросы</span></a>
             <a href="#media" data-tab="highlights"><span class="en-text">Highlights</span><span class="ru-text">Хайлайты</span></a>
             <a href="#media" data-tab="fullmatches"><span class="en-text">Full Matches</span><span class="ru-text">Полные матчи</span></a>
             <a href="#media" data-tab="training"><span class="en-text">Training</span><span class="ru-text">Тренировки</span></a>
@@ -3415,7 +3594,6 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                 <div class="stat-item stat-item-content" style="border-top: 3px solid var(--accent-gold);">
                     <div class="stat-header" style="width: 100%; height: 100%;">
                         <div class="atf-wrapper" style="padding: 10px 0;">
-                            <!-- ЗАМЕНА ЭМОДЗИ НА PNG -->
                             <img src="images/dollar-logo.png" alt="Доллар" class="money-icon" style="width: 1em; height: 1em; vertical-align: -0.125em; display: inline-block; margin-bottom: 5px; font-size: clamp(2.5rem, 5vw, 4rem);" />
                             
                             <div class="prize-label">
@@ -3946,6 +4124,200 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                         </li>
                     </ul>
                 </div>
+            </div>
+        </section>
+
+        <!-- ===== MY PREFERENCES (СВОРАЧИВАЕМАЯ, УМЕНЬШЕННАЯ ВЫСОТА) ===== -->
+        <section id="preferences">
+            <div class="section-header">
+                <div>
+                    <div class="section-tag">
+                        <span class="en-text">Target Universities</span>
+                        <span class="ru-text">Целевые университеты</span>
+                    </div>
+                    <h2 class="section-title">
+                        <span class="en-text">Universities on my radar</span>
+                        <span class="ru-text">Университеты в моем поле зрения</span>
+                    </h2>
+                </div>
+            </div>
+
+            <div class="preferences-list collapsed" id="preferencesList">
+                <!-- Barry University -->
+                <a href="https://www.barry.edu/" target="_blank" rel="noopener noreferrer" class="preference-row">
+                    <img src="images/preferences/barry.png" alt="Barry University Logo" class="preference-logo" />
+                    <span class="preference-name">Barry University</span>
+                    <span class="preference-location">Miami, Florida</span>
+                    <span class="preference-division"><span class="en-text">NCAA • Division II</span><span class="ru-text">NCAA • Дивизион II</span></span>
+                    <span class="preference-rank"><span class="en-text">Ranked #1</span><span class="ru-text">Рейтинг #1</span></span>
+                </a>
+
+                <!-- Embry-Riddle -->
+                <a href="https://www.erau.edu/" target="_blank" rel="noopener noreferrer" class="preference-row">
+                    <img src="images/preferences/embry-riddle.png" alt="Embry-Riddle Logo" class="preference-logo" />
+                    <span class="preference-name">Embry-Riddle</span>
+                    <span class="preference-location">Daytona Beach, Florida</span>
+                    <span class="preference-division"><span class="en-text">NCAA • Division II</span><span class="ru-text">NCAA • Дивизион II</span></span>
+                    <span class="preference-rank"><span class="en-text">Ranked #5</span><span class="ru-text">Рейтинг #5</span></span>
+                </a>
+
+                <!-- Rollins -->
+                <a href="https://www.rollins.edu/" target="_blank" rel="noopener noreferrer" class="preference-row">
+                    <img src="images/preferences/rollins.png" alt="Rollins College Logo" class="preference-logo" />
+                    <span class="preference-name">Rollins College</span>
+                    <span class="preference-location">Winter Park, Florida</span>
+                    <span class="preference-division"><span class="en-text">NCAA • Division II</span><span class="ru-text">NCAA • Дивизион II</span></span>
+                    <span class="preference-rank"><span class="en-text">Ranked #8</span><span class="ru-text">Рейтинг #8</span></span>
+                </a>
+
+                <!-- Texas A&M -->
+                <a href="https://www.tamu.edu/" target="_blank" rel="noopener noreferrer" class="preference-row">
+                    <img src="images/preferences/tamu.png" alt="Texas A&M Logo" class="preference-logo" />
+                    <span class="preference-name">Texas A&M</span>
+                    <span class="preference-location">College Station, Texas</span>
+                    <span class="preference-division"><span class="en-text">NCAA • Division I</span><span class="ru-text">NCAA • Дивизион I</span></span>
+                    <span class="preference-rank"><span class="en-text">Ranked #3</span><span class="ru-text">Рейтинг #3</span></span>
+                </a>
+
+                <!-- UCF -->
+                <a href="https://www.ucf.edu/" target="_blank" rel="noopener noreferrer" class="preference-row">
+                    <img src="images/preferences/ucf.png" alt="UCF Logo" class="preference-logo" />
+                    <span class="preference-name">University of Central Florida (UCF)</span>
+                    <span class="preference-location">Orlando, Florida</span>
+                    <span class="preference-division"><span class="en-text">NCAA • Division I</span><span class="ru-text">NCAA • Дивизион I</span></span>
+                    <span class="preference-rank"><span class="en-text">Ranked #12</span><span class="ru-text">Рейтинг #12</span></span>
+                </a>
+
+                <!-- University of Florida -->
+                <a href="https://www.ufl.edu/" target="_blank" rel="noopener noreferrer" class="preference-row">
+                    <img src="images/preferences/florida.png" alt="University of Florida Logo" class="preference-logo" />
+                    <span class="preference-name">University of Florida</span>
+                    <span class="preference-location">Gainesville, FL</span>
+                    <span class="preference-division"><span class="en-text">NCAA • Division I</span><span class="ru-text">NCAA • Дивизион I</span></span>
+                    <span class="preference-rank"><span class="en-text">Ranked #15</span><span class="ru-text">Рейтинг #15</span></span>
+                </a>
+
+                <!-- Duke -->
+                <a href="https://www.duke.edu/" target="_blank" rel="noopener noreferrer" class="preference-row">
+                    <img src="images/preferences/duke.png" alt="Duke University Logo" class="preference-logo" />
+                    <span class="preference-name">Duke</span>
+                    <span class="preference-location">Durham, NC</span>
+                    <span class="preference-division"><span class="en-text">NCAA • Division I</span><span class="ru-text">NCAA • Дивизион I</span></span>
+                    <span class="preference-rank"><span class="en-text">Ranked #6</span><span class="ru-text">Рейтинг #6</span></span>
+                </a>
+
+                <!-- Baylor -->
+                <a href="https://www.baylor.edu/" target="_blank" rel="noopener noreferrer" class="preference-row">
+                    <img src="images/preferences/bu.png" alt="Baylor University Logo" class="preference-logo" />
+                    <span class="preference-name">Baylor</span>
+                    <span class="preference-location">Waco, TX</span>
+                    <span class="preference-division"><span class="en-text">NCAA • Division I • Big 12</span><span class="ru-text">NCAA • Дивизион I • Big 12</span></span>
+                    <span class="preference-rank"><span class="en-text">Ranked #22</span><span class="ru-text">Рейтинг #22</span></span>
+                </a>
+
+                <!-- University of Georgia -->
+                <a href="https://www.uga.edu/" target="_blank" rel="noopener noreferrer" class="preference-row">
+                    <img src="images/preferences/georgia.png" alt="University of Georgia Logo" class="preference-logo" />
+                    <span class="preference-name">University of Georgia</span>
+                    <span class="preference-location">Athens, GA</span>
+                    <span class="preference-division"><span class="en-text">NCAA • Division I</span><span class="ru-text">NCAA • Дивизион I</span></span>
+                    <span class="preference-rank"><span class="en-text">Ranked #1</span><span class="ru-text">Рейтинг #1</span></span>
+                </a>
+				
+				<!-- University of West Florida -->
+                <a href="https://www.uwf.edu/" target="_blank" rel="noopener noreferrer" class="preference-row">
+                    <img src="images/preferences/uwf.png" alt="University of Georgia Logo" class="preference-logo" />
+                    <span class="preference-name">University of West Florida</span>
+                    <span class="preference-location">Florida</span>
+                    <span class="preference-division"><span class="en-text">NCAA • Division II</span><span class="ru-text">NCAA • Дивизион II</span></span>
+                    <span class="preference-rank"><span class="en-text">Ranked #5</span><span class="ru-text">Рейтинг #5</span></span>
+                </a>
+				
+				<!-- Mississippi Christian University -->
+                <a href="https://www.mc.edu/" target="_blank" rel="noopener noreferrer" class="preference-row">
+                    <img src="images/preferences/mcu.png" alt="University of Georgia Logo" class="preference-logo" />
+                    <span class="preference-name">Mississippi Christian University</span>
+                    <span class="preference-location">Clinton, MS</span>
+                    <span class="preference-division"><span class="en-text">NCAA • Division II</span><span class="ru-text">NCAA • Дивизион II</span></span>
+                    <span class="preference-rank"><span class="en-text">Ranked #4</span><span class="ru-text">Рейтинг #4</span></span>
+                </a>
+				
+				<!-- University of West Alabama -->
+                <a href="https://www.uwa.edu/" target="_blank" rel="noopener noreferrer" class="preference-row">
+                    <img src="images/preferences/uwa.png" alt="University of Georgia Logo" class="preference-logo" />
+                    <span class="preference-name">University of West Alabama</span>
+                    <span class="preference-location">Livingston, AL</span>
+                    <span class="preference-division"><span class="en-text">NCAA • Division II</span><span class="ru-text">NCAA • Дивизион II</span></span>
+                    <span class="preference-rank"><span class="en-text">Ranked #6</span><span class="ru-text">Рейтинг #6</span></span>
+                </a>
+				
+				<!-- University of Massachusetts, Amherst -->
+                <a href="https://www.umass.edu/" target="_blank" rel="noopener noreferrer" class="preference-row">
+                    <img src="images/preferences/uma.png" alt="University of Georgia Logo" class="preference-logo" />
+                    <span class="preference-name">University of Massachusetts, Amherst</span>
+                    <span class="preference-location">Amherst, MA</span>
+                    <span class="preference-division"><span class="en-text">NCAA • Division I</span><span class="ru-text">NCAA • Дивизион I</span></span>
+                    <span class="preference-rank"><span class="en-text">Ranked #100</span><span class="ru-text">Рейтинг #100</span></span>
+                </a>
+            </div>
+
+            <div class="preferences-toggle-wrapper">
+                <button class="preferences-toggle-btn" id="preferencesToggleBtn">
+                    <span class="en-text">Show Universities</span>
+                    <span class="ru-text">Показать университеты</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- ===== UNIVERSITY INQUIRIES (КОПИЯ MY PREFERENCES) ===== -->
+        <section id="inquiries">
+            <div class="section-header">
+                <div>
+                    <div class="section-tag">
+                        <span class="en-text">Recruiting Interest</span>
+                        <span class="ru-text">Интерес к рекрутингу</span>
+                    </div>
+                    <h2 class="section-title">
+                        <span class="en-text">Universities Inquiries</span>
+                        <span class="ru-text">Запросы от университетов</span>
+                    </h2>
+                </div>
+            </div>
+
+            <div class="preferences-list collapsed" id="inquiriesList">
+                <!-- Manhattanville University -->
+                <a href="https://www.mville.edu/" target="_blank" rel="noopener noreferrer" class="preference-row">
+                    <img src="images/preferences/mu.png" alt="Barry University Logo" class="preference-logo" />
+                    <span class="preference-name">Manhattanville University</span>
+                    <span class="preference-location">Harrison, NY</span>
+                    <span class="preference-division"><span class="en-text">SC • NCAA • Division III</span><span class="ru-text">SC • NCAA • Division III</span></span>
+                    <span class="preference-rank"><span class="en-text">Ranked #SC-1</span><span class="ru-text">Рейтинг #SC-1</span></span>
+                </a>
+				
+				<!-- Marymount University -->
+                <a href="https://www.marymount.edu/" target="_blank" rel="noopener noreferrer" class="preference-row">
+                    <img src="images/preferences/mu2.png" alt="Barry University Logo" class="preference-logo" />
+                    <span class="preference-name">Marymount University</span>
+                    <span class="preference-location">Arlington, VA</span>
+                    <span class="preference-division"><span class="en-text">AEC • NCAA • Division III</span><span class="ru-text">AEC • NCAA • Division III</span></span>
+                    <span class="preference-rank"><span class="en-text">Ranked #91</span><span class="ru-text">Рейтинг #91</span></span>
+                </a>
+				
+				<!-- California Lutheran University -->
+                <a href="https://www.callutheran.edu/" target="_blank" rel="noopener noreferrer" class="preference-row">
+                    <img src="images/preferences/clu.png" alt="Barry University Logo" class="preference-logo" />
+                    <span class="preference-name">California Lutheran University</span>
+                    <span class="preference-location">Thousand Oaks, CA</span>
+                    <span class="preference-division"><span class="en-text">SCIACI • NCAA • Division III</span><span class="ru-text">SCIACI • NCAA • Division III</span></span>
+                    <span class="preference-rank"><span class="en-text">Ranked #SCIACI-5</span><span class="ru-text">Рейтинг #SCIACI-5</span></span>
+                </a>
+            </div>
+
+            <div class="preferences-toggle-wrapper">
+                <button class="preferences-toggle-btn" id="inquiriesToggleBtn">
+                    <span class="en-text">Show Universities</span>
+                    <span class="ru-text">Показать университеты</span>
+                </button>
             </div>
         </section>
 
@@ -4967,6 +5339,38 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
             } else {
                 mediaToggleBtn.querySelector('.en-text').textContent = 'Hide Videos';
                 mediaToggleBtn.querySelector('.ru-text').textContent = 'Скрыть видео';
+            }
+        });
+
+        // ===== СВОРАЧИВАНИЕ MY PREFERENCES =====
+        const preferencesList = document.getElementById('preferencesList');
+        const preferencesToggleBtn = document.getElementById('preferencesToggleBtn');
+
+        preferencesToggleBtn.addEventListener('click', () => {
+            const isCollapsed = preferencesList.classList.toggle('collapsed');
+            
+            if (isCollapsed) {
+                preferencesToggleBtn.querySelector('.en-text').textContent = 'Show Universities';
+                preferencesToggleBtn.querySelector('.ru-text').textContent = 'Показать университеты';
+            } else {
+                preferencesToggleBtn.querySelector('.en-text').textContent = 'Hide Universities';
+                preferencesToggleBtn.querySelector('.ru-text').textContent = 'Скрыть университеты';
+            }
+        });
+
+        // ===== СВОРАЧИВАНИЕ UNIVERSITY INQUIRIES =====
+        const inquiriesList = document.getElementById('inquiriesList');
+        const inquiriesToggleBtn = document.getElementById('inquiriesToggleBtn');
+
+        inquiriesToggleBtn.addEventListener('click', () => {
+            const isCollapsed = inquiriesList.classList.toggle('collapsed');
+
+            if (isCollapsed) {
+                inquiriesToggleBtn.querySelector('.en-text').textContent = 'Show Universities';
+                inquiriesToggleBtn.querySelector('.ru-text').textContent = 'Показать университеты';
+            } else {
+                inquiriesToggleBtn.querySelector('.en-text').textContent = 'Hide Universities';
+                inquiriesToggleBtn.querySelector('.ru-text').textContent = 'Скрыть университеты';
             }
         });
 
