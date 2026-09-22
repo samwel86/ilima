@@ -119,6 +119,10 @@
             --bjkc-number-offset: -15px;
             --bjkc-icon-offset: -30px;
 
+            /* ==== ПЕРЕМЕННЫЕ ДЛЯ 15 И 16 БЛОКОВ ==== */
+            --total-logo-offset: 0px;
+            --total-atf-logo-offset: 0px;
+
             --slide-1-mobile-offset-x: 0px;
             --slide-2-mobile-offset-x: 0px;
             --slide-3-mobile-offset-x: 0px;
@@ -1177,6 +1181,26 @@
             text-align: center;
             line-height: 1;
             transform: translateY(var(--prize-number-offset));
+        }
+
+        /* ===== TOTAL LOGO (15-Й БЛОК) ===== */
+        .stat-item:nth-child(15) .stat-header-left img {
+            width: 100%;
+            height: auto;
+            max-height: 100%;
+            object-fit: contain;
+            display: block;
+            transform: translateY(var(--total-logo-offset));
+        }
+
+        /* ===== TOTAL ATF LOGO (16-Й БЛОК) ===== */
+        .stat-item:nth-child(16) .stat-header-left img {
+            width: 100%;
+            height: auto;
+            max-height: 100%;
+            object-fit: contain;
+            display: block;
+            transform: translateY(var(--total-atf-logo-offset));
         }
 
         /* ===== ABOUT ===== */
@@ -2644,6 +2668,18 @@
                 margin-top: -5px !important;
             }
 
+            /* ==== 15-Й БЛОК (TOTAL LOGO) — МОБИЛЬНЫЙ ==== */
+            .stat-item:nth-child(15) .stat-header-left img {
+                transform: translateY(var(--total-logo-offset)) !important;
+                margin-top: 0 !important;
+            }
+
+            /* ==== 16-Й БЛОК (TOTAL ATF LOGO) — МОБИЛЬНЫЙ ==== */
+            .stat-item:nth-child(16) .stat-header-left img {
+                transform: translateY(var(--total-atf-logo-offset)) !important;
+                margin-top: 0 !important;
+            }
+
             .atf-label, .wtt-label, .atf-titles-label, .bjkc-label {
                 margin-top: 0 !important;
                 margin-bottom: 5px !important;
@@ -3404,7 +3440,7 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                                 <span class="en-text">Current rankings</span>
                                 <span class="ru-text">Текущий рейтинг</span>
                             </div>
-                            <div class="itf-number">2862</div>
+                            <div class="itf-number">2870</div>
                             <div style="width: 100%; text-align: center;">
                                 <div class="itf-career-label" style="font-size: clamp(0.6rem, 0.8vw, 0.85rem); font-weight: 600; color: var(--text-main); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 2px;">
                                     <span class="en-text">Career-high rankings</span>
@@ -3604,10 +3640,27 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                         </div>
                     </div>
                 </div>
+
+                <!-- 15. TOTAL LOGO -->
+                <div class="stat-item stat-item-logo" style="border-top: 3px solid var(--accent-gold); padding: 0;">
+                    <div class="stat-header" style="width: 100%; height: 100%; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center;">
+                        <div class="stat-header-left" style="height: 100%; width: 100%; display: flex; justify-content: center; align-items: center;">
+                            <img src="images/total-logo.png" alt="Total Logo" style="width: 100%; height: auto; max-height: 100%; object-fit: contain; display: block; transform: translateY(var(--total-logo-offset));" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 16. TOTAL ATF LOGO -->
+                <div class="stat-item stat-item-logo" style="border-top: 3px solid var(--accent-gold); padding: 0;">
+                    <div class="stat-header" style="width: 100%; height: 100%; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center;">
+                        <div class="stat-header-left" style="height: 100%; width: 100%; display: flex; justify-content: center; align-items: center;">
+                            <img src="images/total-atf-logo.png" alt="Total ATF Logo" style="width: 100%; height: auto; max-height: 100%; object-fit: contain; display: block; transform: translateY(var(--total-atf-logo-offset));" />
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
-
-        <!-- ===== ТУРНИРЫ ===== -->
+		<!-- ===== ТУРНИРЫ ===== -->
         <section id="tournaments">
             <div class="section-header">
                 <div>
@@ -4747,8 +4800,7 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                         </div>
                     </div>
                 </div>
-
-                <!-- Photo -->
+				                <!-- Photo -->
                 <div id="photo-content" class="tab-content">
                     <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; width: 100%;">
                         <div class="photo-item" data-index="0"><img src="images/photo/photo-1.jpg" alt="Ilima Guseynova Photo 1" /></div>
