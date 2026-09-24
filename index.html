@@ -1947,6 +1947,82 @@
             }
         }
 
+        /* ===== ВНЕШНЕЕ ВИДЕО (ССЫЛКА-ПЕРЕХОД) ===== */
+        .video-frame {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            border-radius: 4px 4px 0 0;
+            background: #0a5c36;
+        }
+
+        .vimeo-wrapper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .video-link {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0a5c36 0%, #084a2b 100%);
+            color: #fff;
+            text-decoration: none;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            gap: 10px;
+            overflow: hidden;
+        }
+
+        .video-link::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.25);
+            transition: background 0.3s ease;
+        }
+
+        .video-link:hover::before {
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .video-link .play-btn {
+            position: relative;
+            z-index: 1;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            line-height: 1;
+            color: #fff;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .video-link:hover .play-btn {
+            transform: scale(1.15);
+        }
+
+        .video-link .play-text {
+            position: relative;
+            z-index: 1;
+            font-size: clamp(0.7rem, 1vw, 0.9rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .video-link .external-hint {
+            position: relative;
+            z-index: 1;
+            font-size: clamp(0.55rem, 0.75vw, 0.7rem);
+            opacity: 0.85;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
         /* ===== ФОТО-СЕТКА ===== */
         #photo-content > div,
         #stars-content > div,
@@ -4435,7 +4511,7 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                     <button class="tab-btn" data-tab="fullmatches">
                         <span class="en-text">Full Matches</span>
                         <span class="ru-text">Полные матчи</span>
-                        <span class="tab-badge">7</span>
+                        <span class="tab-badge">9</span>
                     </button>
                     <button class="tab-btn" data-tab="training">
                         <span class="en-text">Training</span>
@@ -4594,16 +4670,31 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                         </div>
                     </div>
                     <div class="video-card">
-                        <div class="video-frame">
-                            <div class="vimeo-wrapper">
-                                <iframe src="https://drive.google.com/file/d/1vGpSmHuq3ZtT4IeA9J3TbeI5CGYHGAHX/preview" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
-                            </div>
-                        </div>
-                        <div class="video-info">
-                            <span class="en-text">Billie Jean King Cup — Ushna Suhail vs. Ilima Guseynova</span>
-                            <span class="ru-text">Кубок Билли Джин Кинг — Ушна Сухайл vs. Илима Гусейнова</span>
-                        </div>
-                    </div>
+    <div class="video-frame">
+        <div class="vimeo-wrapper">
+            <a href="https://www.billiejeankingcup.com/en/video/419618?type=vod"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="video-link"
+               aria-label="Watch Ilima Guseynova vs Saiyora Rajabalieva on Billie Jean King Cup"
+               style="background-image: url('images/video-logo/preview1.jpg'); background-size: cover; background-position: center;">
+                <span class="play-btn">▶</span>
+                <span class="play-text">
+                    <span class="en-text">Watch Video</span>
+                    <span class="ru-text">Смотреть видео</span>
+                </span>
+                <span class="external-hint">
+                    <span class="en-text">Opens on BillieJeanKingCup.com</span>
+                    <span class="ru-text">Откроется на BillieJeanKingCup.com</span>
+                </span>
+            </a>
+        </div>
+    </div>
+    <div class="video-info">
+        <span class="en-text">2025 Billie Jean King Cup by Gainbridge Group III Asia/Oceania — Ilima Guseynova vs. Saiyora Rajabalieva ( 2025 )</span>
+        <span class="ru-text">Кубок Билли Джин Кинг 2025 года (при поддержке Gainbridge), Азия/Океания, Группа III — Илима Гусейнова vs. Сайора Ражабалиева ( 2025 )</span>
+    </div>
+</div>
                     <div class="video-card">
                         <div class="video-frame">
                             <div class="vimeo-wrapper">
@@ -4659,6 +4750,58 @@ The result – a well-deserved 4th place at one of the world's most prestigious 
                             <span class="ru-text">ITF Juniors J30 Бинь Дуонг — Гусейнова.И Гад.Л & Акари.О Вада.Х ( 2025 )</span>
                         </div>
                     </div>
+					<div class="video-card">
+    <div class="video-frame">
+        <div class="vimeo-wrapper">
+            <a href="https://www.billiejeankingcup.com/en/video/419899?type=vod"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="video-link"
+               aria-label="Watch Ilima Guseynova vs Saiyora Rajabalieva on Billie Jean King Cup"
+               style="background-image: url('images/video-logo/preview1.jpg'); background-size: cover; background-position: center;">
+                <span class="play-btn">▶</span>
+                <span class="play-text">
+                    <span class="en-text">Watch Video</span>
+                    <span class="ru-text">Смотреть видео</span>
+                </span>
+                <span class="external-hint">
+                    <span class="en-text">Opens on BillieJeanKingCup.com</span>
+                    <span class="ru-text">Откроется на BillieJeanKingCup.com</span>
+                </span>
+            </a>
+        </div>
+    </div>
+    <div class="video-info">
+        <span class="en-text">2025 Billie Jean King Cup by Gainbridge Group III Asia/Oceania — Ilima Guseynova vs. Saiyora Rajabalieva ( 2025 )</span>
+        <span class="ru-text">Кубок Билли Джин Кинг 2025 года (при поддержке Gainbridge), Азия/Океания, Группа III — Илима Гусейнова vs. Сайора Ражабалиева ( 2025 )</span>
+    </div>
+</div>	
+					<div class="video-card">
+    <div class="video-frame">
+        <div class="vimeo-wrapper">
+            <a href="https://www.billiejeankingcup.com/en/video/419318?type=vod"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="video-link"
+               aria-label="Watch Ilima Guseynova vs Saiyora Rajabalieva on Billie Jean King Cup"
+               style="background-image: url('images/video-logo/preview1.jpg'); background-size: cover; background-position: center;">
+                <span class="play-btn">▶</span>
+                <span class="play-text">
+                    <span class="en-text">Watch Video</span>
+                    <span class="ru-text">Смотреть видео</span>
+                </span>
+                <span class="external-hint">
+                    <span class="en-text">Opens on BillieJeanKingCup.com</span>
+                    <span class="ru-text">Откроется на BillieJeanKingCup.com</span>
+                </span>
+            </a>
+        </div>
+    </div>
+    <div class="video-info">
+        <span class="en-text">2025 Billie Jean King Cup by Gainbridge Group III Asia/Oceania — Ilima Guseynova vs. Saiyora Rajabalieva ( 2025 )</span>
+        <span class="ru-text">Кубок Билли Джин Кинг 2025 года (при поддержке Gainbridge), Азия/Океания, Группа III — Илима Гусейнова vs. Сайора Ражабалиева ( 2025 )</span>
+    </div>
+</div>
                 </div>
 
                 <!-- Training -->
